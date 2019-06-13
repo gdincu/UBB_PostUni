@@ -1,6 +1,7 @@
 # UBB_PostUni
 [//]: # "---------------------------------------------------------------------------
         Using Markdown: https://guides.github.com/features/mastering-markdown/#examples
+        https://help.github.com/en/articles/basic-writing-and-formatting-syntax
          ---------------------------------------------------------------------------
          ** Used to bold text
          [linkText](a.html) Used to create a hyperlink
@@ -23,32 +24,32 @@
         ----------------------------------------------------------------------------
 "
 <ul>
-  <li>
-    :open_file_folder:
-    <a href="https://github.com/gdincu/UBB_PostUni/tree/master/Sem2">
-            <b>Sem2</b>
-    </a>
-    <ul>
-      <li>
-        <a href="https://github.com/gdincu/UBB_PostUni/tree/master/Sem2/Administrarea%20si%20securitatea%20sistemelor%20de%20calcul"> 
+     <li>
+        :open_file_folder:
+        <a href="https://github.com/gdincu/UBB_PostUni/tree/master/Sem2">
+        <b>Sem2</b>
+        </a>
+        <ul>
+                <li>
+                        <a href="https://github.com/gdincu/UBB_PostUni/tree/master/Sem2/Administrarea%20si%20securitatea%20sistemelor%20de%20calcul"> 
           :open_file_folder:  Administrarea si securitatea sistemelor de calcul 
-        </a>
-      </li>
-      <li>
-        <a href="https://github.com/gdincu/UBB_PostUni/tree/master/Sem2/Baze%20de%20date"> 
+                        </a>
+                </li>
+                <li>
+                        <a href="https://github.com/gdincu/UBB_PostUni/tree/master/Sem2/Baze%20de%20date"> 
           :open_file_folder:  Baze de date
-        </a>
-      </li>
-      <li>
-        <a href="https://github.com/gdincu/UBB_PostUni/tree/master/Sem2/Programare%20orientat%C4%83%20obiect%20(Java)"> 
+                        </a>
+                </li>
+                <li>
+                        <a href="https://github.com/gdincu/UBB_PostUni/tree/master/Sem2/Programare%20orientat%C4%83%20obiect%20(Java)"> 
           :open_file_folder:  Programare orientată obiect (Java)
-        </a>
-      </li>
-      <li>
-        <a href="https://github.com/gdincu/UBB_PostUni/tree/master/Sem2/Tehnologii%20web%20client-side"> 
+                        </a>
+                </li>
+                <li>
+                        <a href="https://github.com/gdincu/UBB_PostUni/tree/master/Sem2/Tehnologii%20web%20client-side"> 
           :open_file_folder:  Tehnologii web client-side
-        </a>
-      </li>
-    </ul>
-  </li>
-  </ul>
+                        </a>
+                </li>
+        </ul>
+     </li>
+</ul>
