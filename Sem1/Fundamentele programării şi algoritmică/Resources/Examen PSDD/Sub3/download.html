@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+  <title>Action Required - Guest Access</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" type="text/css" href="http://192.168.14.2:8880/guest/s/default/reset-min.css" />
+  <link rel="stylesheet" type="text/css" href="http://192.168.14.2:8880/guest/s/default/styles.css" />
+  <script type="text/javascript" src="http://192.168.14.2:8880/guest/s/default/js/jquery.min.js"></script>
+  <script type="text/javascript" src="http://192.168.14.2:8880/guest/s/default/js/guest.js"></script>
+</head>
+<body class="login-page">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<style type="text/css">
+.stil {
+  text-align: center;
+}
+</style>
+
+
+</head>
+
+<body>
+<div class="stil">
+<img src="images/Capture.JPG" width="836" height="287"/>
+</div>
+</body>
+</html>
+
+<!-- see README.txt for HTML customization instructions -->
+<div class="page-content" style="padding-top:100px;">
+	<div class="login-content content-box">
+		
+
+		
+	</div>
+
+	<div class="login-content content-box">
+		<form name="input" method="post" action="login">
+			<div class="tou-box" align="center">
+				<div class="tou-wrapper" id="tou">
+					<div class="tou">
+					<p>Terms of Use</p>
+					<p>By accessing the wireless network, you acknowledge that you're of legal age, you have read and understood and agree to be bound by this agreement</p>
+					<ul>
+						<li>The wireless network service is provided by NTT Data Romania and is completely at their discretion. Your access to the network may be blocked, suspended, or terminated at any time for any reason.</li>
+						<li>You agree not to use the wireless network for any purpose that is unlawful and take full responsibility of your acts.</li>
+						<li>The wireless network is provided &quot;as is&quot; without warranties of any kind, either expressed or implied. </li>
+					</ul>
+					</div>
+				</div>
+				<fieldset class="accept-tou" align="center">
+					<input id="accept-tou" type="checkbox" checked="checked" name="accept-tou" value="yes" />
+					<label class="normal" >I accept the <a href="javascript:void(0)" id="show-tou">Terms of Use</a></label>
+				</fieldset>
+				<div class="form-controls">
+					<!-- submit (only for no authentication) -->
+					
+						<input name="connect" type="submit" value="Connect" id="connect" class="button requires-tou" />
+					
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+
+<script type="text/javascript">
+jQuery(document).ready(function() {
+	jQuery('input').keypress(function(e) {
+		var code = (e.keyCode ? e.keyCode : e.which);
+		if ( (code==13) || (code==10)) {
+			jQuery(this).blur();
+			return false;
+		}
+	});
+});
+
+$(function() {
+	$('#tou').hide();
+	$('#show-tou').click(function() {
+		$('#tou').show();
+	});
+	$('#accept-tou').click(function() {
+		if (!$('#accept-tou').checked()) {
+			$('input.requires-tou').disable();
+		}
+		else {
+			$('input.requires-tou').enable();
+		}
+	})
+});
+</script>
+
+</body>
+</html>
