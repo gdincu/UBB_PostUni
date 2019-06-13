@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+<TabPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+         minWidth="-Infinity" prefHeight="700.0" prefWidth="700.0" tabClosingPolicy="UNAVAILABLE"
+         xmlns="http://javafx.com/javafx/8" fx:controller="UI.Controller">
+        <tabs>
+            <Tab text="Diesel Cars">
+                <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                    <HBox alignment="center">
+                    <VBox>
+                    <TableView fx:id="tableViewDieselCars" editable="true">
+                        <columns>
+                            <TableColumn fx:id="DieselId" text="id">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="id" />
+                                </cellValueFactory>
+                            </TableColumn>
+                            <TableColumn fx:id="DieselModel" text="Model">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="model" />
+                                </cellValueFactory>
+                            </TableColumn>
+                            <TableColumn fx:id="DieselPret" text="Pret">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="pret" />
+                                </cellValueFactory>
+                            </TableColumn>
+                            <TableColumn fx:id="DieselConsum" text="Consum">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="consum" />
+                                </cellValueFactory>
+                            </TableColumn>
+                        </columns>
+                    </TableView>
+                    <TextField fx:id="dieselId" promptText="ID" />
+                    <TextField fx:id="dieselModel" promptText="Model" />
+                    <TextField fx:id="dieselPret" promptText="Pret" />
+                    <TextField fx:id="dieselConsum" promptText="Consum" />
+                    <TextField fx:id="searchModelDiesel" promptText="Cauta Model : " />
+                    <Button fx:id="AddDiesel" text="Add diesel car" onAction="#AddDiesel" />
+                    <Button fx:id="SortDiesel" text="Sort diesel cars" onAction="#SortDiesel" />
+                    <Button fx:id="SearchDiesel" text="Search diesel cars" onAction="#SearchDiesel" />
+                    <Button fx:id="RefreshDiesel" text="Refresh screen" onAction="#RefreshDiesel" />
+                    </VBox>
+                    </HBox>
+                </content>
+            </Tab>
+
+            <Tab text="Electric Cars">
+                <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                    <HBox alignment="center">
+                        <VBox>
+                            <TableView fx:id="tableViewElectricCars" editable="true">
+                                <columns>
+                                    <TableColumn fx:id="tableColumnId" text="id">
+                                        <cellValueFactory>
+                                            <PropertyValueFactory property="id" />
+                                        </cellValueFactory>
+                                    </TableColumn>
+                                    <TableColumn fx:id="tableColumnModel" text="Model">
+                                        <cellValueFactory>
+                                            <PropertyValueFactory property="model" />
+                                        </cellValueFactory>
+                                    </TableColumn>
+                                    <TableColumn fx:id="tableColumnPret" text="Pret">
+                                        <cellValueFactory>
+                                            <PropertyValueFactory property="pret" />
+                                        </cellValueFactory>
+                                    </TableColumn>
+                                    <TableColumn fx:id="ElectricAutonomie" text="Autonomie">
+                                        <cellValueFactory>
+                                            <PropertyValueFactory property="autonomie" />
+                                        </cellValueFactory>
+                                    </TableColumn>
+                                </columns>
+                            </TableView>
+                            <TextField fx:id="electricId" promptText="ID" />
+                            <TextField fx:id="electricModel" promptText="Model" />
+                            <TextField fx:id="electricPret" promptText="Pret" />
+                            <TextField fx:id="electricAutonomie" promptText="Autonomie" />
+                            <TextField fx:id="searchModelElectric" promptText="Cauta Model : " />
+                            <Button fx:id="AddElectric" text="Add electric car" onAction="#AddElectric" />
+                            <Button fx:id="SortElectric" text="Sort electric cars" onAction="#SortElectric" />
+                            <Button fx:id="SearchElectric" text="Search electric cars" onAction="#SearchElectric" />
+                            <Button fx:id="RefreshElectric" text="Refresh screen" onAction="#RefreshElectric" />
+                        </VBox>
+                    </HBox>
+                </content>
+            </Tab>
+        </tabs>
+    </TabPane>

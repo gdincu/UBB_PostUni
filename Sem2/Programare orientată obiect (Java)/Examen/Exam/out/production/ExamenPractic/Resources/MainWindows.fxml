@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.TextField?>
+
+<VBox alignment="center" xmlns="http://javafx.com/javafx/8.0.172-ea"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="UI.Controller">
+
+    <VBox>
+        <Label text="Cars:" />
+        <TableView fx:id="tableViewCars" editable="true">
+            <columns>
+                <TableColumn fx:id="CarId" text="id">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="id" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="CarModel" text="model">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="model" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="CarKm" text="km">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="km" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="CarPrice" text="pret">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="pret" />
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+    </VBox>
+
+    <VBox>
+        <Label text="Bookings:" />
+        <TableView fx:id="tableViewBookings" editable="true">
+            <columns>
+                <TableColumn fx:id="BookingId" text="bookingId">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="bookingId" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="BookingCarId" text="carId">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="carId" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="BookingDays" text="days">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="days" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="BookingKm" text="km">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="km" />
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+    </VBox>
+
+
+    <VBox>
+        <TextField fx:id="txtId" promptText="Car Id"/>
+        <TextField fx:id="txtModel" promptText="Model"/>
+        <TextField fx:id="txtCarKm" promptText="Km"/>
+        <TextField fx:id="txtCarPrice" promptText="Price"/>
+
+        <Button text="Add Car" fx:id="btnCarAdd" onAction="#AddCar" />
+    </VBox>
+
+    <VBox>
+        <TextField fx:id="txtBookingId" promptText="Booking Id"/>
+        <TextField fx:id="txtCarId" promptText="Car Id"/>
+        <TextField fx:id="txtKm" promptText="Km"/>
+        <TextField fx:id="txtDays" promptText="Days"/>
+
+        <Button text="Add Booking" fx:id="btnAddBooking" onAction="#AddBooking" />
+    </VBox>
+
+    <HBox alignment="BOTTOM_RIGHT">
+        <Button fx:id="btnRaportKm" onAction="#RaportKm" text="Raport Km" />
+        <Button fx:id="btnRaportVenit" onAction="#RaportVenit" text="Raport Venituri" />
+        <Button fx:id="btnRaportCerere" onAction="#RaportCerere" text="Raport Cerere" />
+    </HBox>
+
+
+</VBox>
+
