@@ -15,7 +15,7 @@
   * :open_file_folder: [ Programare și structuri de date ](https://github.com/gdincu/UBB_PostUni/tree/master/Sem1/Programare%20%C8%99i%20structuri%20de%20date)
 
 [//]: # "---------------------------------------------------------------------------
-Can also be done via a <ul><li> construct"
+Can also be done via a <ul><li> construct
         ----------------------------------------------------------------------------
 "
 <ul>
