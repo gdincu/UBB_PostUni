@@ -1,7 +1,10 @@
 # UBB_PostUni
+<style type="text/css">
+background-color: orange;
+</style>
 <ul>
   <li>
-    <a href="https://github.com/gdincu/UBB_PostUni/tree/master/Sem1" target="_blank">
+    <a href="https://github.com/gdincu/UBB_PostUni/tree/master/Sem1">
     :open_file_folder: Sem1
     </a>
     <ul>
@@ -11,7 +14,7 @@
         </a>
       </li>
       <li>
-        <a href="https://github.com/gdincu/UBB_PostUni/tree/master/Sem1/Introducere%20%C3%AEn%20programare" target="_blank"> 
+        <a href="https://github.com/gdincu/UBB_PostUni/tree/master/Sem1/Introducere%20%C3%AEn%20programare"> 
           :open_file_folder:  Introducere in Programare
         </a>
       </li>
