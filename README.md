@@ -1,8 +1,8 @@
 # UBB_PostUni
 <ul>
   <li>
-    <a href="https://github.com/gdincu/UBB_PostUni/tree/master/Sem1">
-    :open_file_folder: Sem1
+    
+    :open_file_folder: **Sem1** (https://github.com/gdincu/UBB_PostUni/tree/master/Sem1)
     </a>
     <ul>
       <li>
@@ -30,7 +30,7 @@
   
   <li>
     <a href="https://github.com/gdincu/UBB_PostUni/tree/master/Sem2">
-    :open_file_folder: Sem2
+    :open_file_folder: **Sem2**
     </a>
     <ul>
       <li>
