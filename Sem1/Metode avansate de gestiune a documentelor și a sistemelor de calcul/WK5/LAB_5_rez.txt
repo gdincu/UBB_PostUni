@@ -1,0 +1,59 @@
+1. 
+- grep diana /etc/passwd
+- grep -r "a" ~ sau grep -r "a" $HOME
+2. 
+- grep --color "^[0-9]\{3\} " grep-ex.txt
+- grep --color "[aeiou].[aeiou]" grep-ex.txt
+- grep -v "^S" grep-ex.txt
+- grep -i --color "ca" grep-ex.txt
+- grep -n --color "@" grep-ex.txt
+- grep -v -w "Sep\." grep-ex.txt
+- grep --color "\<de\>" grep-ex.txt
+- grep -cw "High" grep-ex.txt
+3. sed -i '1i Angajat,IdA'  fis.txt
+4. sed -i '1a ------------'  fis.txt
+5. sed -i '$a ------------'  fis.txt
+6. sed -i '/Angajat 2/a Angajat 5, 1005' fis.txt
+7. sed -i '/Angajat 2/i Angajat 5, 1005' fis.txt
+8. sed 's/^/Fruct: /' fructe.txt
+9. sed 's/$/Fruct: /' fructe.txt
+10. sed 's/a/A/' fructe.txt
+11. sed 's/a/A/g' fructe.txt
+12. sed 's/a/A/2' fructe.txt
+13. sed 's/a/A/2g' fructe.txt
+14. sed '3s/a/A/g' fructe.txt
+15. sed '1,3s/a/A/g' fructe.txt
+16. sed 's/.*/& is a Fruit/' fructe.txt
+17. sed 's/a/A/g; s/p/P/g' fructe.txt sau sed -e 's/a/A/g' -e 's/p/P/g' fructe.txt sau sed 'y/ap/AP/' fructe.txt
+18. sed '' social.txt
+19. sed -n '/Gmail/p' social.txt
+20. sed '/Gmail/d' social.txt
+21. sed 's/^../XX/' users.txt sau sed 's/../XX/' users.txt
+22. sed 's/^..//' users.txt
+23. sed 's/..$//' users.txt
+24. sed 's/.*/"&"/' users.txt
+25. sed 's/^.// ;s/.$//' users.txt
+26. sed 's/^[^0-9]*//' users.txt
+27. sed 's/.*://' users.txt
+28. Sed 's/[^:]*://' users.txt
+29.
+- sed -e '/<article>/d' -e '/<\/article>/d' sed-ex.txt
+- sed -e 's/<title>/Title:/g' -e 's/<\/title>//g' sed-ex.txt
+- sed -e 's/<emphasis>/\*/g' -e 's/<\/emphasis>/\*/g' sed-ex.txt
+- sed 's/web/Web/g' sed-ex.txt
+- sed 's/^<listing>/---begin listing/g' sed-ex.txt
+- sed 's/^<\/listing>/---end listing/g' sed-ex.txt
+- sed 's/\&lt;/</g' sed-ex.txt
+- sed 's/\&gt;/>/g' sed-ex.txt
+- sed 's/\&amp;/\&/g' sed-ex.txt
+
+
+
+
+
+
+
+
+
+
+

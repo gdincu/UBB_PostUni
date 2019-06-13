@@ -1,0 +1,141 @@
+CD /?  = afiseaza numele sau schimba directorul curent
+
+CD  = afiseaza calea absoluta spre directorul curent
+
+CD \ = schimba directorul curent in directorul ROOT
+
+CD Folder = directorul curent define directorul Folder care  ebuie sa fie un subdirector al directorului curent; altfel se obtine eroare.
+
+CD .. = schimba directorul curent cu directorul parinte
+
+CD /D D: = schimba unitatea curenta cu unitatea de disk specificata (in acest caz D:)
+
+------------------------------------------------
+
+DIR /? = afiseaza lista tuturor fisierelor si subdirectoarelor din directorul curent sau din directorul specificat
+
+DIR /A = se foloseste pentru a afisa fisierele/ directoarele care respecta o anumita conditie
+- DIR /A:D = se afiseaza doar directoarele din directorul curent
+- DIR /A:R = se afiseaza doar fisierele read-only
+
+DIR /B = se afiseaza lista tuturor fisierelor si directoarelor din directorul curent intr-un format scurt
+
+DIR /D = se afiseaza lista tuturor fisierelor si directoarelor din directorul curent pe coloane, sortate alfabetic pe coloane
+
+DIR /O = se afiseaza lista tuturor fisierelor si directoarelor din directorul curent pe coloane, sortate alfabetic dupa un parametru 
+- DIR /O:N = sortarea se face dupa nume
+- DIR /O:E = sortarea de face dupa extensie
+- DIR /O:S = sortarea se face dupa dimensiune
+- DIR /O:D = sortarea se face dupa data
+
+DIR /P = se afiseaza lista tuturor fisierelor si directoarelor din directorul curent (cat incape pe un ecran)
+
+DIR /Q = se afiseaza in lista tuturor fisierelor si directoarelor din directorul curent proprietarul acestora
+
+DIR /T = se afiseaza in lista tuturor fisierelor si directoarelor din directorul curent data cand fisierul a fost creat, accesat sau modificat
+- DIR /T:C = se afiseaza data crearii
+- DIR /T:A = se afiseaza data ultimei accesari
+- DIR /T:W = se afiseaza data ultimei modificari
+
+DIR /W = se afiseaza lista tuturor fisierelor si directoarelor din directorul curent pe coloane, sortate alfabetic pe linii 
+
+------------------------------------------------
+
+MD /? = creeaza un director
+
+MD Folder = creeaza un director cu numele Folder
+
+------------------------------------------------
+
+RD /? = sterge un director
+
+RD /S Folder = sterge toate subdirectoarele si fisierele din directorul cu numele Folder impreuna cu directorul Folder cerand aprobare de stergere
+
+RD /Q Folder = sterge toate subdirectoarele si fisierele din directorul cu numele Folder impreuna cu directorul Folder fara sa ceara aprobare de stergere
+
+------------------------------------------------
+
+COPY /? = copiaza unul sau mai multe fisiere de la o locatie la alta
+
+COPY /A sursa destinatie = se poate folosi pentru a se specifica copierea un fisier ASCII (text)
+
+COPY /B sursa destinatie = se poate folosi pentru a se specifica copierea unui fisier binar (imagine)
+
+------------------------------------------------
+
+XCOPY /? = copiaza fisiere si directoare
+
+XCOPY /S sursa destinatie = copiaza directoare si subdirectoare exceptie facand directoarele goale
+
+XCOPY /E sursa destinatie = copiaza directoare si subdirectoare, conssiderand inclusiv directoarele goale
+
+------------------------------------------------
+
+REN /? = redenumeste unul sau mai multe fisiere
+
+REN nume-vechi nume-nou
+
+------------------------------------------------
+
+DEL /? = sterge unul sau mai multe fisiere
+
+DEL /P nume-fisier = sterge numele fisierului cerand aprobare de stergere
+
+DEL /F nume-fisier = forteaza stergerea fisierelor read-only
+
+DEL /Q nume-fisier = sterge fisierul fara sa ceara aprobare de stergere 
+
+DEL /A nume-fisier = sterge fisier selectiv, pe baza tipului
+- DEL /A:R nume-fisier = sterge fisierele care sunt read-only
+- DEL /A:H nume-fisier = sterge fisierele care sunt hidden
+
+------------------------------------------------
+
+IPCONFIG /? = ofera detalii despre conexiunea curenta
+
+IPCONFIG = ofera detalii despre IP, Netmask, DNS, Default Gateway
+
+IPCONFIG /all = afiseaza informatii despre intreaga configuratie
+
+IPCONFIG /release = se renunta la setarile de configurare ale retelei
+
+IPCONFIG /renew = se reconfigureaza setarile retelei
+
+IPCONFIG /displaydns = afiseaza serverele DNS interogate, care sunt salvate in cache-ul local
+
+IPCONFIG /flushdns = sterge cache-ul de DNS
+
+IPCONFIG /registerdns = inregistrarea unui server DNS care sa fie interogat
+
+GETMAC = afiseaza adresa MAC
+
+PING target = se trimit pachete ICMP catre target cu scopul de a verifica daca exista o conexiune activa
+
+PING -t target = se trimit pachete pana cand se intrerupe aceasta actiune (CTRL + C)
+
+NETSTAT = afiseaza conexiunile curente de pe placa de retea
+
+TRACERT target = afiseaza locurile prin care trec pachetele pana ajung la target (routere, servere)
+
+ROUTE = manipularea tabelelor de rutare 
+
+ARP -a = afiseaza tabela de mac-uri asociate ip-urilor din retea
+
+hostname = afiseaza numele calculatorului
+
+control netconnections = deschide fereastra Network Connection (Control Panel)
+
+------------------------------------------------
+
+CLS = curata ecranul
+
+------------------------------------------------
+
+FIND /? = cauta un text intr-un fisier
+
+FIND sir fisier = cauta textul sir in fisier
+- FIND /V sir fisier = afiseaza liniile din fisier care nu contin sirul
+- FIND /C sir fisier = afiseaza numai numar de linii care contin sirul
+- FIND /I sir fisier = nu tine cont de litere mari / mici
+
+------------------------------------------------

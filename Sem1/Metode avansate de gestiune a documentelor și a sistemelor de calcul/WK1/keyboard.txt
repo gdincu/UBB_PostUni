@@ -1,0 +1,7 @@
+SHIFT + F6 - Selectarea Address Bar
+SHIFT + F4 - Crearea unui fisier
+ALT + F1 - Schimbare disk fereastra din stanga
+ALT + F2 - Schimbare disk fereastra din dreapta
+ALT + F8 - Command Line
+
+Lista completa: https://shortcutworld.com/Total-Commander/win/Total-Commander_8_Shortcuts

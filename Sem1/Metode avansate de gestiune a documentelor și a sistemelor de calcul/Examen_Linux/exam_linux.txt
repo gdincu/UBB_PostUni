@@ -1,0 +1,73 @@
+1.
+mkdir Universitate
+cd Universitate
+touch descriere.txt
+mkdir Facultate
+touch Facultate/profesori.txt
+touch Facultate/departamente.txt
+mkdir Facultate/Cursuri
+mkdir Facultate/DiverseText
+touch Facultate/Cursuri/GDSC.txt
+touch Facultate/Cursuri/Retele.txt
+touch Facultate/Cursuri/Programare.txt
+touch Facultate/DiverseText/text1.doc
+touch Facultate/DiverseText/text2.doc
+
+2. ls -R Facultate > descriere.txt 
+
+3.
+mkdir Optionale 
+cp Facultate/Cursuri/GDSC.txt Optionale
+cp Facultate/Cursuri/Retele.txt Optionale
+
+4. rm Facultate/*.txt
+
+5. sort descriere.txt > Facultate/descriereSortat.txt
+
+6. grep -v 'xt$' descriere.txt
+
+7. grep --color 'sur' descriere.txt
+
+8. grep -v 'doc' descriere.txt
+
+9. sed 's/\....$/&&/g' descriere.txt
+
+10. sed -i '/\..../d' descriereSortat.txt | sort | uniq -c
+
+11. 
+#!/bin/sh
+#Folosim primul parametru dat in linia de comanda ca valoarea lui x
+if [ $1 -lt 3 ]
+then
+rez=$(($1*$1))
+fi
+
+if [ $1 -gt 3 ]
+then
+rez=$(($1/2))
+fi
+echo -e "E(x)=$rez"
+
+12.
+for (( i=1; i<999; i++ ))
+do
+
+#conditia de iesire din for - parametrul este BLANK
+if [ -z "$1" ]
+then
+break
+fi
+
+#determinam lungimea variabilei si folosim cut pentru a extrage ultima cifra
+var=$1
+lungime=${#var}
+ultima=$(echo $1 | cut -c $lungime-$lungime)
+
+if (($var % 3 == 0)) && [ "$ultima" -eq "6" ]
+then
+count=$(($count+1))
+fi
+
+shift
+done
+echo $count

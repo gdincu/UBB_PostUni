@@ -1,0 +1,59 @@
+1. echo Hello, there.  Or is "hi" or "howdy" more to your liking? | egrep --color -e "Hello|hi|howdy"
+Hello, there. Or is hi or howdy more to your liking?
+Egrep |,+,?
+
+grep –i “the”
+echo How many sentences are here\? There are two.  No, three! | grep --color "\<[a-z]*\>[\.\?\!]“
+echo 'How many sentences are here ? There are two. No, three!' | egrep --color "\<[a-z]*\> ?[\.\?\!]"
+echo How many sentences are here \? There are two.  No, three! | egrep --color "\<[a-z]*\> ?[\.\?\!]“	- aici lasam si un spatiu intre cuvant si semnul de punctuatie
+
+echo ?    - afiseaza toate fisierele din directorul curent care au un caracter
+si echo *   - afiseaza toate fisierele
+
+grep “[0-9][0-9][0-9]-[0-9][0-9]-[0-9] [0-9] [0-9] [0-9]”
+        echo '045-35-2344' | grep --color '[0-9]\{3\}-[0-9]\{2\}-[0-9]\{4\}'
+
+grep \<[a-z]\{5,}\>
+6. echo How many sentences are here? There are two.  No, three! | egrep --color "\<[A-Z][^ ]*\>“
+ echo How many sentences are here? There are two.  No, three! | egrep --color "\<[A-Z][a-z]*\>"
+7. echo 'How many sentences are here? There are two.  No, three!'| grep --color '.*\.'
+8. echo Politicians can act artificial, but do they have intelligence? | grep --color "artificial.*intelligence"
+9. echo computer science is the study of computing, and how computers work.| egrep --color "comput(ers|ing|er)"
+10. sed '/^$/d' faculty.details11. sed -n '/Anderson Hall/p' faculty.details 
+-n nu afiseaza tot , p afiseaza doar linia cu pattern-ul
+12. cat faculty.details | sed "/Perugini/a Asistent Universitar"
+13. sed 's/Name: \(.*\) Office: \(.*\) Course: \(.*\)/\1:\2:\3/' faculty.details
+14. sed 's/Name: \(.*\) Office: \(.*\) Course: \(.*\)/\3:\2:\1/' faculty.details 
+15. sed 's/Name: \(.*\) Office: \(.*\) Course: \(.*\)/\1\n\2\n\3/' faculty.details
+16. cat last.fake | grep Sun | grep economica | cut -d" " -f1 | sort | uniq	
+Sort –u -> face unique	
+17. cat last.fake | grep 23:|cut -f1 -d" "|sort|uniq  	(peste tot aproape cut e optional)
+18. cat passwd.fake| cut -d":" -f5,3 | grep ":M" | grep "7:" 	 - daca luam cu cut doar anumite field-uri, putem cauta doar “7:”  ca restu le-am eliminat, sau cautam expresia completa: 
+cat passwd.fake| grep ":M" | grep "[a-z]\{4\}[0-9]\{3\}7:"
+19. cat passwd.fake| cut -d":" -f1| grep "88$"		
+20. cat passwd.fake| cut -d":" -f1,3| grep ":23[0-9]:" | cut -d":" -f1		
+21. sed 's/\([aeiou]\)/\1\1/g' ps.fake
+22. cat passwd.fake | sed "s/[ a-zA-Z]//g“ | sort | uniq	
+23. cat passwd.fake | sed "s/[^r]//g" | sort | uniq
+24. cat ps.fake| sed "s/\s\s*/ /g"|cut -d" " -f2 | sed "/^$/d" | sed "/PID/d" > pid.txt     -> pid contine si alte chestii
+Dar daca zicem:   cat ps.fake| sed "s/\s\s*/ /g"|cut -d" " -f2 |grep "^[0-9]" > pid.txt   (atunci pare ok)
+
+
+#!/bin/sh
+pids=`cat pid.txt`
+sum=0
+n=0
+for x in $pids
+do
+sum=`expr $sum + $x`
+n=`expr $n + 1`
+done
+echo $sum $n
+medie=`expr $sum / $n`
+echo $medie
+
+
+
+
+
+

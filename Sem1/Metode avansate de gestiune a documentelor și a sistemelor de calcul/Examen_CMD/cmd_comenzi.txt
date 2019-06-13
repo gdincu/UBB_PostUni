@@ -1,0 +1,92 @@
+RANDUL 1
+
+dir /A:D Piese > piese1.txt
+----------------------------------------
+dir C:\Teatru\Piese\SpectacoleCurente > piese2.txt
+----------------------------------------
+dir /O:N /L  C:\Teatru\Piese\SpectacoleCurente > piese3.txt
+----------------------------------------
+Sort C:\Teatru\Piese\DescrierePiese.txt > infos.txt
+----------------------------------------
+@echo off
+setlocal enabledelayedexpansion
+
+:: Aflta numarul de linii
+set /a counta=1
+for /f "delims=*" %%a in (infos.txt) do (
+set /a counta=!counta!+1
+)
+
+::Parcurge din nou textul incepand cu linia N/2
+set /a countb = (%counta% - 1)/2
+set countc = 1
+
+for /f "delims=*" %%z in (infos.txt) do (
+	set /a countc = !countc! + 1
+	if !countc! GEQ %countb% echo %%z
+	)
+----------------------------------------
+md CopiePiese
+----------------------------------------
+copy Piese\SpectacoleCurente\*.jpg \CopiePiese
+----------------------------------------
+ren CopiePiese\antigona.JPG "Antigona -redenumit".jpg
+----------------------------------------
+move CopiePiese Piese\SpectacoleCurente
+----------------------------------------
+del /s /p Piese\SpectacoleCurente\CopiePiese
+rd /s /q Piese\SpectacoleCurente\CopiePiese
+----------------------------------------
+del Piese\SpectacoleCurente\???.*
+----------------------------------------
+
+find /V /N "Uniter" Piese\DescrierePiese.txt
+----------------------------------------
+@echo off
+if %1 GTR 3 (
+set /a rez = 2*%1+5
+) ELSE (
+set /a rez = %1*%1
+)
+echo %rez%
+----------------------------------------
+@echo off
+setlocal enabledelayedexpansion
+set count=0
+if [%1]==[] goto :EOF
+set string=%1
+
+for /l %%i in (1,1,5) do (
+call set caracter%%i=%%string:~0,1%%
+call set string=%%string:~1%%
+IF "!caracter%%i!" == "~0,1" goto :print
+set /a rest = caracter%%i %% 2
+::echo !rest!
+if !rest! NEQ 0 set /a count = !count! + 1 
+)
+
+:print
+if %count% == 1 (
+echo Cuvantul dat ca parametru in linia de comanda contine cifre impare) ELSE (
+echo Cuvantul dat ca parametru in linia de comanda nu contine cifre impare
+)
+----------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+

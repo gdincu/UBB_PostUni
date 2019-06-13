@@ -1,0 +1,89 @@
+-----------------------------------------------------------------------------
+EXEMPLU - AFISAREA VALORII UNEI VARIABILE - OUTPUT: first second
+-----------------------------------------------------------------------------
+Setlocal EnableDelayedExpansion
+Set _var=first
+Set _var=second& Echo %_var% !_var!
+-----------------------------------------------------------------------------
+EXEMPLU - UTILIZAREA OPERATORILOR PREDEFINITI IN VARIABILE
+-----------------------------------------------------------------------------
+Setlocal EnableDelayedExpansion
+Set _html=Hello^>World
+Echo !_html!
+-----------------------------------------------------------------------------
+EXEMPLU - INLOCUIREA UNEI VARIABILE CU ALTA
+-----------------------------------------------------------------------------
+@echo off
+setlocal EnableDelayedExpansion
+Set var1=Hello ABC how are you
+Set var2=ABC
+Set result=!var1:%var2%=Beautiful!
+Echo [!result!]
+-----------------------------------------------------------------------------
+EXEMPLU - Extragerea caracterelor de la inceputul unui sir de caractere
+-----------------------------------------------------------------------------
+set str=politic
+echo %str%
+set str=%str:~0,4%
+echo %str%
+-----------------------------------------------------------------------------
+EXEMPLU - Extragerea unui sir de carcatere in functie de pozitie si lungime
+-----------------------------------------------------------------------------
+echo Date   : %date%
+echo Month  : %date:~3,3%
+echo Day    : %date:~0,2%
+echo Year   : %date:~7,2%
+-----------------------------------------------------------------------------
+EXEMPLU - Inlocuirea unui sir de caractere cu alt sir de caractere
+-----------------------------------------------------------------------------
+set str=teh cat in teh hat
+echo %str%
+set str=%str:teh=the%
+echo %str%
+-----------------------------------------------------------------------------
+EXEMPLU - IF
+-----------------------------------------------------------------------------
+1. 
+@echo off
+IF EXIST C:\test\*.txt (Echo .txt file exists)
+2. 
+@echo off
+IF DEFINED _department ECHO Got the %_department% variable
+3. 
+@echo off
+IF DEFINED _commission SET /A _salary=%_salary% + %_commission% 
+4.
+IF EXIST filename.txt (
+    Echo deleting filename.txt
+    Del filename.txt
+ ) ELSE ( 
+    Echo The file was not found.
+ )
+-----------------------------------------------------------------------------
+EXEMPLU - FOR
+-----------------------------------------------------------------------------
+1. 
+@echo off
+FOR %%G IN (a,b,c,d) DO (md C:\test\%%G)
+2. 
+@echo off
+FOR /F "tokens=1-5" %%A IN ("This is a short sentence") DO @echo %%A %%B %%D
+3.
+@echo off
+SET count=1
+FOR /f "tokens=*" %%G IN ('dir /b') DO (call :subroutine "%%G")
+GOTO :eof
+:subroutine
+ echo %count%:%1
+ set /a count+=1
+ GOTO :eof
+:eof
+-----------------------------------------------------------------------------
+EXEMPLU - CITIRE DE LA TASTATURA
+-----------------------------------------------------------------------------
+@echo off
+echo Introduceti numele: 
+set /p input=""
+cls
+echo Salut %input%
+pause
