@@ -1,5 +1,5 @@
 # UBB_PostUni
-[comment]: <> (** Used to bold text; [linkText](a.html) Used to create a hyperlink)
+[//]: # "** Used to bold text; [linkText](a.html) Used to create a hyperlink)"
 * [ **Sem1** ](https://github.com/gdincu/UBB_PostUni/tree/master/Sem1)
   * :open_file_folder: [ Fundamentele Programarii si algoritmica ](https://github.com/gdincu/UBB_PostUni/tree/master/Sem1/Fundamentele%20program%C4%83rii%20%C5%9Fi%20algoritmic%C4%83)
   * :open_file_folder: [ Introducere in Programare ](https://github.com/gdincu/UBB_PostUni/tree/master/Sem1/Introducere%20%C3%AEn%20programare)
