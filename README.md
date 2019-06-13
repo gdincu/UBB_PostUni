@@ -1,18 +1,23 @@
 # UBB_PostUni
-[//]: # "
+[//]: # "---------------------------------------------------------------------------
          ** Used to bold text
          [linkText](a.html) Used to create a hyperlink
          Emoji: https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md
          * Used for an ordered list
            * Used for an unordered sub point
+        ----------------------------------------------------------------------------
 "
 
-* [ **Sem1** ](https://github.com/gdincu/UBB_PostUni/tree/master/Sem1)
+* :open_file_folder: [ **Sem1** ](https://github.com/gdincu/UBB_PostUni/tree/master/Sem1)
   * :open_file_folder: [ Fundamentele Programarii si algoritmica ](https://github.com/gdincu/UBB_PostUni/tree/master/Sem1/Fundamentele%20program%C4%83rii%20%C5%9Fi%20algoritmic%C4%83)
   * :open_file_folder: [ Introducere in Programare ](https://github.com/gdincu/UBB_PostUni/tree/master/Sem1/Introducere%20%C3%AEn%20programare)
   * :open_file_folder: [ Metode avansate de gestiune a documentelor și a sistemelor de calcul ](https://github.com/gdincu/UBB_PostUni/tree/master/Sem1/Metode%20avansate%20de%20gestiune%20a%20documentelor%20%C8%99i%20a%20sistemelor%20de%20calcul)
   * :open_file_folder: [ Programare și structuri de date ](https://github.com/gdincu/UBB_PostUni/tree/master/Sem1/Programare%20%C8%99i%20structuri%20de%20date)
 
+[//]: # "---------------------------------------------------------------------------
+Can also be done via a <ul><li> construct"
+        ----------------------------------------------------------------------------
+"
 <ul>
   <li>
     <a href="https://github.com/gdincu/UBB_PostUni/tree/master/Sem2">
