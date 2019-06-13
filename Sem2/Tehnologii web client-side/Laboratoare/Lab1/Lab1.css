@@ -1,0 +1,13 @@
+div {
+	background: yellow;
+}
+
+#rosu {
+	background: none;
+	color: red;
+}
+
+table, tr, td, th {
+	border: 1px solid black;
+	border-collapse: collapse;
+}

@@ -1,0 +1,65 @@
+/*Pozitionarea tabelului in pagina*/
+table {
+	width: 50%;
+	margin: 0 auto;
+	border-collapse: collapse;
+	table-layout:fixed;
+	font-family: Arial;
+}
+
+/*Borduri td si th*/
+td, th {
+	border: 1px solid black;
+
+}
+
+/*Font si alignment pentru headere*/
+th {
+	font-weight: bold;
+	text-align: center;
+	width: 100%;
+}
+
+/*Background pentru headere bazat pe id*/
+#header1 {
+	background: yellow;
+}
+
+#header2 {
+	background: red;
+}
+
+/*Pozitionare dreapata pt butonul final*/
+#button {
+	text-align: right;
+}
+
+/*Incadrare input-uri in tabel*/
+.n8 {
+	width: 98%;
+	height: 98%;
+}
+
+.n9 {
+	width: 99%;
+	height: 98%;
+}
+
+/*Text bold pentru categorii*/
+.categorie {
+	font-weight: bold;
+}
+
+/*Aliniere select*/
+#sel {
+	text-align: center;
+}
+
+/*Schimba culoarea codului de oras la hover*/
+#rosuHover:hover {
+	color: red;
+}
+
+fieldset {
+	border: none;
+}

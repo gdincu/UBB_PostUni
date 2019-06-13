@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Lab4</title>
+	<script src="form.js"></script>
+	<script src="ex1.js"></script>
+	<script src="ex2.js"></script>
+	<script src="ex3.js"></script>
+	<script src="ex4.js"></script>
+	<link rel="stylesheet" type="text/css" href="form.css">
+</head>
+<body>
+	
+	
+	<div>
+		<span class="header">Ex1</span>
+		<br><br>
+		<span>Judet</span>
+		<span>
+			<select multiple="multiple" size="4" id="judDeAles">
+				<option>Bucuresti</option>
+				<option>Cluj</option>
+				<option>Dolj</option>
+				<option>Timisoara</option>
+			</select>
+		</span>
+		<span>Oras</span>
+		<span>
+			<input type="text" name="judet" id="judetulAles">
+		</span>
+	</div>
+
+	<hr>
+	
+	<div>
+	<span class="header">Judete & Orase</span>
+	<br><br>
+	<span>Judet</span>
+	<span><select id="selectieJudet"></select></span>
+	<span>Oras</span>
+	<select id="selectieOras"></select>
+	</div>
+
+	<hr>
+
+	<div>
+	<span class="header">Ex2</span>
+	<br><br>
+		<div id="deMiscat"></div>
+	</div>
+
+	<hr>
+
+	<div>
+	<span class="header">Ex3</span>
+	<br><br>
+
+	<div class="test">
+	<input type="text" name="form1" id="form1" placeholder="Doar litere mici">
+	<div id="chkForm1"></div>
+	</div>
+
+	<br>
+
+	<div class="test">
+	<input type="text" name="form2" id="form2" placeholder="Doar cifre">
+	<div id="chkForm2"></div>
+	</div>	
+	</div>
+
+	<hr>
+
+	<div>
+	<span class="header">Ex4</span>
+	<br><br>
+	<button onclick="tableCreate(3,3)">Genereaza Tabel</button>
+	</div>
+
+</body>
+</html>

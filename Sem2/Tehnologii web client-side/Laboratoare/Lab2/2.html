@@ -1,0 +1,185 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="2.css">
+	<title>Formular Sanatate</title>
+</head>
+
+<body>
+
+<form id="form1">
+	<fieldset>
+		<legend hidden="hidden">Laborator2</legend>
+<table>
+
+	<!-- Header1 -->
+	<tr>
+		<th id="header1" colspan="6">Formular Sanatate</th>
+	</tr>
+		
+	
+	<!-- Rand1 -->
+	<tr>
+  		<td class="categorie">Nume</td>
+		<td colspan="2">
+			<input type="text" name="NumePacient" placeholder="Ion Popescu" class="n8" required="required" oninvalid="this.setCustomValidity('Adauga numele pacientului !')" oninput="this.setCustomValidity('')"/>
+		</td>
+		<td class="categorie">Data</td>
+		<td colspan="2"> 
+			<input type="date" name="Calendar" class="n8" required="required" oninvalid="this.setCustomValidity('Adauga data internarii !')" oninput="this.setCustomValidity('')"/>
+		</td>
+	</tr>
+
+
+	<!-- Rand2 -->
+	<tr>
+		<td class="categorie">Adresa</td>
+		<td colspan="5">
+			<input type="text" name="Adresa" placeholder="str. M. Kogalniceanu, nr. 1" class="n9" required="required" oninvalid="this.setCustomValidity('Adauga adresa pacientului !')" oninput="this.setCustomValidity('')">
+		</td>
+	</tr>
+
+
+	<!-- Rand3 -->
+	<tr>
+		<td class="categorie">Oras</td>
+		<td>
+			<input type="text" name="Oras" placeholder="Cluj-Napoca" class="n8" required="required" oninvalid="this.setCustomValidity('Adauga orasul de resedinta !')" oninput="this.setCustomValidity('')">
+		</td>
+		<td class="categorie">Judet</td>
+		<td>
+			<input type="text" name="Judet" minlength="2" maxlength="2" placeholder="" class="n8" required="required" oninvalid="this.setCustomValidity('Adauga codul judetului (2 caractere)!')" oninput="this.setCustomValidity('')" id="rosuHover">
+		</td>
+		<td class="categorie">Cod Postal</td>
+		<td>
+			<input type="text" name="CodPostal" maxlength="6" pattern="[0-9]{6}" placeholder="400321" class="n8" required="required" oninvalid="this.setCustomValidity('Adauga codul postal (6 cifre)!')" oninput="this.setCustomValidity('')">
+		</td>
+	</tr>
+
+
+	<!-- Rand4 -->
+	<tr>
+		<td class="categorie">Email</td>
+		<td colspan="2">
+			<input type="Email" name="Email" placeholder="ion.popescu@example.com" class="n8" required="required" oninvalid="this.setCustomValidity('Adauga adresa de email !')" oninput="this.setCustomValidity('')">
+		</td>
+		<td class="categorie">
+			Sex
+		</td>
+		<td colspan="2">
+			<input type="radio" name="Sex" value="M" checked="checked">M
+			<input type="radio" name="Sex" value="F">F
+		</td>
+	</tr>
+
+
+	<!-- Rand5 -->
+	<tr>
+		<td class="categorie">Tel. fix</td>
+		<td colspan="2">
+			<input type="text" name="Telefon" maxlength="10" pattern="[0-9]{10}" placeholder="1234567890" class="n8" required="required">
+		</td>
+		<td class="categorie">Tel. mobil</td>
+		<td colspan="2">
+			<input type="text" name="TelefonMobil" maxlength="10" pattern="[0-9]{10}" placeholder="1234567890" class="n8" required="required">
+		</td>
+	</tr>
+
+
+	<!-- Rand6 -->
+	<tr>
+	<th id="header2" colspan="6">Medicamente Prescrise</th>
+	</tr>
+
+
+	<!-- Rand7 -->
+	<tr>
+	<th>Nr.</th>	
+	<th>Cod</th>
+	<th colspan="3">Medicament</th>
+	<th>Cantitate</th>
+	</tr>
+
+
+	<!-- Rand8 -->
+	<tr>
+		<td class="categorie">1</td>
+		<td>
+			<input type="text" name="med1" placeholder="SDKAD34" class="n8" required="required">
+		</td>
+		<td colspan="3">
+			<input type="text" name="med1" placeholder="Aspirina" class="n8" required="required">
+		</td>
+		<td>
+			<input type="number" name="med1" placeholder="3" class="n8" required="required">
+		</td>
+	</tr>
+
+
+	<!-- Rand9 -->
+	<tr>
+		<td class="categorie">2</td>
+		<td>
+			<input type="text" name="med2" placeholder="L424NJN" class="n8" required="required">
+		</td>
+		<td colspan="3">
+			<input type="text" name="med2" placeholder="Paracetamol" class="n8" required="required">
+		</td>
+		<td>
+			<input type="number" name="med2" placeholder="2" class="n8" required="required">
+		</td>
+	</tr>
+
+
+	<!-- Rand10 -->
+	<tr>
+		<td class="categorie">3</td>
+		<td>
+			<input type="text" name="med3" placeholder="24213AD" class="n8" required="required">
+		</td>
+		<td colspan="3">
+			<input type="text" name="med3" placeholder="Ampicilina" class="n8" required="required">
+		</td>
+		<td>
+			<input type="number" name="med3" placeholder="1" class="n8" required="required">
+		</td>
+	</tr>
+
+
+	<!-- Rand11 -->
+	<tr>
+		<td class="categorie">Simptome</td>
+		<td colspan="5" id="sel">
+			<select multiple="multiple" class="latimeParinte" size="10" disabled="disabled">
+			  <option value="raceala">Raceala</option>
+			  <option value="gripa">Gripa</option>
+			  <option value="dureri" selected="selected">Dureri de cap</option>
+			</select>
+		</td>
+	</tr>
+
+
+	<!-- Rand12 -->
+	<tr>
+		<td class="categorie">Observatii</td>
+		<td colspan="5">
+			<textarea name="observatii" placeholder="A se completa cu eventuale observatii" cols="80" rows="10" readonly="readonly"></textarea>
+		</td>
+	</tr>
+
+
+	<!-- Rand13 -->
+	<tr>
+		<td colspan="6" id="button">
+			<button type="submit" form="form1" value="Submit">Salvează și tipărește</button>
+		</td>
+	</tr>
+</table>
+
+</fieldset>
+</form>
+
+</body>
+</html>

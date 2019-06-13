@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="Lab1.css">
+	<title>Laborator1</title>
+</head>
+<body>
+<!-- Ex1 -->
+Welcome
+<!-- Ex2 -->
+<h1>Header1</h1>
+<h2>Header2</h2>
+<h3>Header3</h3>
+<h4>Header4</h4>
+<h5>Header5</h5>
+<h6>Header6</h6>
+<!-- Ex3 -->
+<p>Paragraf 1</p>
+<p>Paragraf 2</p>
+<!-- Ex4 -->
+<p>Linia1<br>Linia2</p>
+<!-- Ex5 -->
+<!-- Lista simpla -->
+<ul>
+	<li>A</li>
+	<li>B</li>
+</ul>
+<!-- Lista ordonata -->
+<ol>
+	<li>A</li>
+	<li>B</li>
+</ol>
+<!-- Lista ordonata ce incepe la 35 -->
+<ol start="35">
+	<li>A</li>
+	<li>B</li>
+	<li>C</li>
+	<li>A</li>
+	<li>B</li>
+</ol>
+<!-- Imagina -->
+<img src="https://cdn2.iconfinder.com/data/icons/knowledge-management/64/creation-imagine-creative-idea-concept-128.png" width="70" height="50" alt="Imagine de pe net">
+<!-- Ex7 -->
+<div>Hello!</div>
+<!-- Ex8 -->
+Marul este <span id="rosu">rosu</span>
+<!-- Ex9 -->
+<a href="2.html" target="_blank">Pagina 2 (tab nou)</a>
+<a href="2.html">Pagina 2 (tab curent)</a>
+<!-- Ex10 -->
+<br>
+<table>
+<tr>
+	<th>Ora</th>
+	<th>Luni</th>
+	<th>Marti</th>
+	<th>Miercuri</th>
+	<th>Joi</th>
+	<th>Vineri</th>
+	<th>Sambata</th>
+	<th>Duminica</th>
+</tr>
+<tr>
+	<td>8</td>
+	<td>a</td>
+	<td>b</td>
+	<td>c</td>
+	<td>d</td>
+	<td>e</td>
+	<td rowspan="6">liber</td>
+	<td rowspan="6">liber</td>
+</tr>
+<tr>
+	<td>9</td>
+	<td>a</td>
+	<td>b</td>
+	<td>c</td>
+	<td>d</td>
+	<td>e</td>
+</tr>
+<tr>
+	<td>10</td>
+	<td colspan="5">pauza</td>
+</tr>
+<tr>
+	<td>11</td>
+	<td>a</td>
+	<td>b</td>
+	<td>c</td>
+	<td>d</td>
+	<td>e</td>
+</tr>
+<tr>
+	<td>12</td>
+	<td>a</td>
+	<td>b</td>
+	<td>c</td>
+	<td>d</td>
+	<td>e</td>
+</tr>
+<tr>
+	<td>13</td>
+	<td>a</td>
+	<td>b</td>
+	<td>c</td>
+	<td>d</td>
+	<td>e</td>
+</tr>
+</table>
+
+<!-- Ex12 -->
+<table>
+<tr>
+	<th>Name</th>
+	<th>Form</th>
+</tr>
+
+<!-- calendar -->
+<tr>
+	<td>Calendar</td>
+	<td><input type="date" name="calendar"/></td>
+</tr>
+<!-- numar -->
+<tr>
+<td>Number</td>
+<td><input type="Number" name="numar" placeholder="1000" /></td>
+</tr>
+<!-- range -->
+<tr>
+<td>Range</td>
+<td><input type="Range" name="range" min="1" max="12"/></td>
+</tr>
+<!-- text -->
+<tr>
+<td>Text</td>
+<td><input type="Text" name="text" maxlength="12" pattern="\d{6}\w{3}" placeholder="Introdu text"/></td>
+</tr>
+<!-- text readonly -->
+<tr>
+<td>ReadOnly</td>
+<td><input type="Text" name="text" size=3 placeholder="ReadOnly" readonly/></td>
+<!-- culoare -->
+<tr>
+<td>Culoare</td>
+<td><input type="color"></td>
+</tr>
+<!-- fisier -->
+<tr>
+<td>Fisier</td>
+<td><input type="File"></td>
+</tr>
+<!-- checkbox -->
+<tr>
+<td>Checkbox</td>
+<td><input type="Checkbox" checked="checked"></td>
+</tr>
+<!-- radiobox -->
+<tr>
+<td>Radiobox</td>
+<td><input type="Radio" disabled="disabled"></td>
+</tr>
+<!-- reste si submit -->
+<tr>
+	<td>Reset/Submit</td>
+<td>
+		<label for="id">User ID:</label>
+        <input type="text" id="id" name="id" />
+        <input type="reset" value="Reset" accesskey="r">
+        <input type="submit" value="Submit" accesskey="s">
+
+</td></tr>
+<!-- login si parola -->
+<tr>
+	<td>Login&Password</td>
+	<td>
+		<label>Text: <input type="text" name="id"></label> 
+		<label>Password: <input type="Password" name="passkey"></label>
+		<button>Login</button>
+	</td>
+</tr>
+<!-- email validation -->
+<tr>
+	<td>Email Validation</td>
+	<td>
+		<form action="Lab1(2)_forms.html" method="get">
+		<label for="user">Email</label>
+		<input type="email" id="user" placeholder="abc@def.com" required>
+		<label for="key">Parola</label>
+		<input type="password" id="key" placeholder="qwerty1234" required>
+		<button>Submit</button>
+</form>
+	</td>
+</tr>
+<!-- radio,select tag,textarea tag -->
+<tr>
+	<td>Demo</td>
+	<td>
+		Cats/Dogs?
+		<form>
+			<label for="dogs">Dogs: </label>
+			<input type="radio" id="dogs" name="petChoice" value="dog">
+			<label for="cats">Cats: </label>
+			<input type="radio" id="cats" name="petChoice" value="cat">
+			<button>Submit</button>
+		</form>
+	</td>
+</tr>
+<!-- select tag -->
+<tr>
+<td>Select</td>
+<td>
+	<form>
+	<select name="Selchoice">
+		<option value="A">A</option>
+		<option value="B" selected="selected">B</option>
+		<option value="C">C</option>
+	</select>
+	<button>Submit</button>
+	</form>
+</td>
+</tr>
+<!-- select multiple -->
+<tr>
+<td>Select Multiple</td>
+<td>
+	<form>
+	<select multiple="multiple">
+		<option value="A">A</option>
+		<option value="B">B</option>
+	</select>
+	<button>Submit</button>
+	</form>
+</td>
+</tr>
+<!-- textarea -->
+<tr>
+	<td>TextArea</td>
+	<td>
+		<form>
+		<textarea name="paragraf" rows="10" cols="100">	</textarea>
+		<button>Submit</button>
+		</form>
+	</td>
+</tr>	
+</table>
+</body>
+</html>

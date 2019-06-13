@@ -1,0 +1,23 @@
+.header {
+	background-color: yellow;
+	font-weight: bold;
+}
+
+#chkForm1,#chkForm2 {
+  width: 10px;
+  height: 10px;
+  background-color: black;
+  }
+
+  .test {
+  	display: inline-block;
+  }
+
+table {
+	border-collapse: collapse;
+	table-layout:fixed;
+}
+
+td, th,tr {
+	border: 1px solid black;
+}

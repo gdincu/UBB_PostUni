@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>JS_1</title>
+	<link rel="stylesheet" type="text/css" href="1.css">
+	<script type="text/javascript" src="1.js"></script>
+</head>
+
+<body>
+
+<table>
+	<tr>
+		<td>
+			<form method="GET">
+			<input type="number" id="num" placeholder="Add a number">
+			</form>
+		</td>
+
+		<td>
+			<button onclick="counter()">Console Count</button>			
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+			<form method="GET">
+			<input type="range" id="fact">
+			</form>
+		</td>
+
+		<td>
+			<button onclick="factorial()">Factorial</button>			
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+			<form method="GET">
+			<input type="color" id="cul">
+			</form>
+		</td>
+
+		<td>
+			<button onclick="col()">Change Background</button>			
+			<button onclick="colreset()">Reset Background</button>				
+		</td>
+	</tr>	
+
+	<tr>
+		<td><input type="date" name="calendar" id="calendar" placeholder="Select a date"></td>
+		<td>
+			<button onclick="weekDay()">Get Day of the Week</button>
+			<span> Day of the week : </span><span id="demo"></span>
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+		<input type="Text" name="text" maxlength="12" pattern="\d{6}\w{3}" placeholder="Your name : " id="nume"/>
+		</td>
+		<td>
+			<span>Lowercase: </span>
+			<span id="low"></span>
+			
+			<br>
+			<button onclick="low(),upp()">Change</button>
+			<br>
+
+			<span>Uppercase: </span>
+			<span id="upp"></span>
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+			<img src="1.png" width="50px" height="50px" id="img1">
+		</td>
+		<td>
+			<button onclick="incWidth()">Width +</button>
+			<button onclick="incHeight()">Height +</button>
+			<br>
+			<button onclick="enl()">Auto Enlarge</button>
+		</td>
+	</tr>
+
+</table>
+
+
+</body>
+</html>
