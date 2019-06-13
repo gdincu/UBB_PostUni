@@ -1,5 +1,5 @@
 # UBB_PostUni
-**Sem1** [] (https://github.com/gdincu/UBB_PostUni/tree/master/Sem1)
+**Sem1** [linkto] (https://github.com/gdincu/UBB_PostUni/tree/master/Sem1)
 
 <ul>
   <li>
