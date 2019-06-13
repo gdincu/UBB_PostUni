@@ -1,5 +1,7 @@
 # UBB_PostUni
 [//]: # "---------------------------------------------------------------------------
+        Using Markdown: https://guides.github.com/features/mastering-markdown/#examples
+        
          ** Used to bold text
          [linkText](a.html) Used to create a hyperlink
          Emoji: https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md
@@ -15,7 +17,9 @@
   * :open_file_folder: [ Programare și structuri de date ](https://github.com/gdincu/UBB_PostUni/tree/master/Sem1/Programare%20%C8%99i%20structuri%20de%20date)
 
 [//]: # "---------------------------------------------------------------------------
-Can also be done via a <ul><li> construct
+        Using HTML
+        
+
         ----------------------------------------------------------------------------
 "
 <ul>
