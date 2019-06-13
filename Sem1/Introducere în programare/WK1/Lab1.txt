@@ -1,0 +1,149 @@
+C
+-----------------------------------
+#include <stdio.h>
+
+
+int main(void) {
+
+printf ("ana are mere\n\n");
+
+printf ("ana\n\n\n");
+
+printf ("are\n\n");
+
+printf ("mere\n\n");
+
+printf ("anaaremere");
+
+
+	return 0;
+
+}
+
+PHP
+-----------------------------------
+<?php
+
+$a1="ana";
+
+$a2="are";
+
+$a3="mere";
+
+echo "$a1 $a2 $a3\n$a1\n\n\n$a2\n$a3\n$a1$a2$a3";
+
+
+Python
+-----------------------------------
+a1 = "ana"
+
+a2 = "are"
+
+a3 = "mere"
+
+print (a1+"\n"+a2+"\n\n\n"+a3+"\n"+a1+a2+a3)
+
+C
+-----------------------------------
+int a1=3, a2=4, a3=1, rez=a1+a2-a3*a2;
+	
+printf("%d",rez);
+
+int a1=12, a2=6, a3=3, rez=(a1-a2)-(a3+(a1/a1));
+
+printf("%d",rez);
+
+int a1=3, a2=5, a3=1, rez=(a1*a2+a3)/(a2-a3);
+	
+printf("%d",rez);
+
+int a1=3, a2=5, a3=1, rez=a3*(a2-a1)*a1;
+	
+printf("%d",rez);
+
+
+PHP
+-----------------------------------
+<?php
+$a1 = 3;
+$a2 = 4;
+$rez = $a1+$a2-($a2-$a1)*$a2;
+echo $rez;
+
+<?php
+
+$a1 = 2;
+
+$a2 = 6;
+
+$rez = (($a1*$a2)-$a2)-(($a2/2)+($a2/$a2));
+
+echo $rez;
+
+<?php
+
+$a1=3;
+
+$a2=4;
+
+echo max($a2,$a1);
+
+
+Python
+-----------------------------------
+a1 = 3
+
+a2 = 4
+
+print (a1+a2-1*a2)
+
+a1 = 3
+
+a2 = 4
+a3 = 5
+
+print (max(a1,a2,a3))
+
+
+
+
+C
+-----------------------------------
+
+#include 
+<stdio.h>
+
+
+int main(void) {
+
+int x, y;
+
+scanf ("%d", &y);
+
+scanf("%d", &x);
+
+printf("%d", x+y);
+	
+return 0;
+
+}
+
+
+
+Python
+-----------------------------------
+x = input()
+
+y = input()
+
+z = int(x) * int(y)
+
+print (z)
+
+PHP
+-----------------------------------
+$a1 = readline();
+echo $a1;
+
+
+
