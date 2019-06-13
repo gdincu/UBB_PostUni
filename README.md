@@ -1,7 +1,7 @@
 # UBB_PostUni
 <ul>
   <li>
-    <a href="https://github.com/gdincu/UBB_PostUni/tree/master/Sem1">
+    <a href="https://github.com/gdincu/UBB_PostUni/tree/master/Sem1 target="_blank"">
     :open_file_folder: Sem1
     </a>
     <ul>
