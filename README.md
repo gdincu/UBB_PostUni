@@ -11,7 +11,7 @@
         </a>
       </li>
       <li>
-        <a href="https://github.com/gdincu/UBB_PostUni/tree/master/Sem1/Introducere%20%C3%AEn%20programare"> 
+        <a href="https://github.com/gdincu/UBB_PostUni/tree/master/Sem1/Introducere%20%C3%AEn%20programare" target="_blank"> 
           :open_file_folder:  Introducere in Programare
         </a>
       </li>
