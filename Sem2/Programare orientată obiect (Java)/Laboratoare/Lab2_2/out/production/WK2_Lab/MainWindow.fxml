@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+<TabPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+         minWidth="-Infinity" prefHeight="700.0" prefWidth="700.0" tabClosingPolicy="UNAVAILABLE"
+         xmlns="http://javafx.com/javafx/8" fx:controller="UI.MainController">
+
+    <tabs>
+        <Tab text="Drugs">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+
+                <HBox alignment="center">
+                    <VBox>
+                        <TableView fx:id="tblDrug" editable="true">
+                            <columns>
+                                <TableColumn text="Id">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="id" />
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <TableColumn text="Name">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="name" />
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <TableColumn text="Producer">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="producer" />
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <TableColumn text="Price">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="price" />
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <TableColumn text="Receipt">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="receiptNeeded" />
+                                    </cellValueFactory>
+                                </TableColumn>
+                            </columns>
+                        </TableView>
+                        <TextField fx:id="txtDrugId" promptText="Drug Id"/>
+                        <TextField fx:id="txtDrugName" promptText="Drug Name"/>
+                        <TextField fx:id="txtDrugProducer" promptText="Drug Producer"/>
+                        <TextField fx:id="txtDrugPrice" promptText="Drug Price"/>
+                        <CheckBox fx:id="chkDrugRecipe" text="Receipt needed: "/>
+                        <TextField fx:id="txtDrugMinPrice" promptText="Drug Min Price"/>
+                        <TextField fx:id="txtPctIncrease" promptText="Increase to be applied"/>
+
+                        <MenuBar>
+                            <menus>
+                                <Menu mnemonicParsing="true" text="Add/Remove">
+                                    <items>
+                                        <MenuItem mnemonicParsing="false" text="Add/Update"
+                                                  onAction="#btnAddAndUpdateDrugClick"/>
+                                        <MenuItem mnemonicParsing="false" text="Remove" onAction="#btnRemoveDrugClick"/>
+                                    </items>
+                                </Menu>
+                                <Menu mnemonicParsing="false" text="Search">
+                                    <items>
+                                        <MenuItem mnemonicParsing="false" text="Search"
+                                                  onAction="#setBtnSearchAllDrugs"/>
+                                        <MenuItem mnemonicParsing="false" text="Refresh List"
+                                                  onAction="#setBtnGetAllDrugs"/>
+                                    </items>
+                                </Menu>
+                                <Menu mnemonicParsing="false" text="Others">
+                                    <items>
+                                        <MenuItem mnemonicParsing="false" text="Price Increase"
+                                                  onAction="#setBtnIncreasePrice"/>
+                                        <MenuItem mnemonicParsing="false" text="Order by Sales"
+                                                  onAction="#OrderDrugsBySales"/>
+                                        <MenuItem mnemonicParsing="false" text="Undo"
+                                                  onAction="#DrugUndo"/>
+                                        <MenuItem mnemonicParsing="false" text="Redo"
+                                                  onAction="#DrugRedo"/>
+                                    </items>
+                                </Menu>
+                            </menus>
+                        </MenuBar>
+
+
+                    </VBox>
+                </HBox>
+            </content>
+        </Tab>
+
+
+        <Tab text="Client Cards">
+
+            <content>
+
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+
+
+                <HBox alignment="center">
+                    <VBox>
+                        <TableView fx:id="tblClient" editable="true">
+                            <columns>
+                                <TableColumn text="Id">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="id" />
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <TableColumn text="Surname">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="surname" />
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <TableColumn text="Forename">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="forename" />
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <TableColumn text="CNP">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="CNP" />
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <TableColumn text="DOB">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="DOB" />
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <TableColumn text="DOR">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="regDate" />
+                                    </cellValueFactory>
+                                </TableColumn>
+                            </columns>
+                        </TableView>
+
+                        <TextField fx:id="txtClientId" promptText="Client Id"/>
+                        <TextField fx:id="txtClientSurname" promptText="Client Surname"/>
+                        <TextField fx:id="txtClientForename" promptText="Client Forename"/>
+                        <TextField fx:id="txtClientCNP" promptText="Client CNP"/>
+                        <TextField fx:id="txtClientDateOfBirth" promptText="Client DOB"/>
+                        <TextField fx:id="txtClientDateOfRegistration" promptText="Client Registration Date"/>
+
+                        <MenuBar>
+                            <menus>
+                                <Menu mnemonicParsing="true" text="Add/Remove">
+                                    <items>
+                                        <MenuItem mnemonicParsing="false" text="Add"
+                                                  onAction="#btnAddAndUpdateClientClick"/>
+                                        <MenuItem mnemonicParsing="false" text="Remove"
+                                                  onAction="#btnRemoveClientClick"/>
+                                    </items>
+                                </Menu>
+                                <Menu mnemonicParsing="false" text="Search">
+                                    <items>
+                                        <MenuItem mnemonicParsing="false" text="Search"
+                                                  onAction="#btnSearchAllClientsClick"/>
+                                        <MenuItem mnemonicParsing="false" text="Refresh List"
+                                                  onAction="#btnGetAllClientsClick"/>
+                                    </items>
+                                </Menu>
+                                <Menu mnemonicParsing="false" text="Others">
+                                    <items>
+                                        <MenuItem mnemonicParsing="false" text="Order by Total Discounts"
+                                                  onAction="#OrderClientsByDiscounts"/>
+                                        <MenuItem mnemonicParsing="false" text="Undo"
+                                                  onAction="#ClientUndo"/>
+                                        <MenuItem mnemonicParsing="false" text="Redo"
+                                                  onAction="#ClientRedo"/>
+                                    </items>
+                                </Menu>
+                            </menus>
+                        </MenuBar>
+
+                    </VBox>
+                </HBox>
+            </content>
+
+        </Tab>
+
+
+        <Tab text="Transactions">
+
+            <content>
+
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+
+                <HBox alignment="center">
+                    <VBox>
+                        <TableView fx:id="tblTransaction" editable="true">
+                            <columns>
+                                <TableColumn text="Id">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="id" />
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <TableColumn text="D_Id">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="drugId" />
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <TableColumn text="CC_Id">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="clientCardId" />
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <TableColumn text="Quantity">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="quantity" />
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <TableColumn text="Discount">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="discount"/>
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <TableColumn text="Price Paid">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="price"/>
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <TableColumn text="DOT">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="date" />
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <TableColumn text="Time">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="time" />
+                                    </cellValueFactory>
+                                </TableColumn>
+                            </columns>
+                        </TableView>
+                        <TextField fx:id="txtTransactionId" promptText="Transaction Id"/>
+                        <TextField fx:id="txtTransactionIdMedicine" promptText="Drug Id"/>
+                        <TextField fx:id="txtTransactionIdClientCard" promptText="Client Card Id"/>
+                        <TextField fx:id="txtTransactionNumberMedicine" promptText="Transaction Quantity"/>
+                        <TextField fx:id="txtTransactionDate" promptText="Transaction Date"/>
+                        <TextField fx:id="txtTransactionHour" promptText="Transaction Time"/>
+                        <TextField fx:id="txtStartDate" promptText="Start Date - For filtering and removing"/>
+                        <TextField fx:id="txtEndDate" promptText="End Date - For filtering and removing"/>
+
+                        <MenuBar>
+                            <menus>
+                                <Menu mnemonicParsing="true" text="Add/Remove">
+                                    <items>
+                                        <MenuItem mnemonicParsing="false" text="Add/Update"
+                                                  onAction="#btnAddAndUpdateTransactionClick"/>
+                                        <MenuItem mnemonicParsing="false" text="Remove"
+                                                  onAction="#btnRemoveTransactionClick"/>
+                                    </items>
+                                </Menu>
+                                <Menu mnemonicParsing="false" text="Search">
+                                    <items>
+                                        <MenuItem mnemonicParsing="false" text="> Average"
+                                                  onAction="#btnAverageTransactionClick"/>
+                                        <MenuItem mnemonicParsing="false" text="Refresh List"
+                                                  onAction="#btnGetAllTransactionsClick"/>
+                                    </items>
+                                </Menu>
+                                <Menu mnemonicParsing="false" text="Other">
+                                    <items>
+                                        <MenuItem mnemonicParsing="false" text="Filter by Date"
+                                                  onAction="#btnFilterTransactionByDateClick"/>
+                                        <MenuItem mnemonicParsing="false" text="Remove by Date"
+                                                  onAction="#btnRemoveTransactionByDateClick"/>
+                                        <MenuItem mnemonicParsing="false" text="Undo"
+                                                  onAction="#TransactionUndo"/>
+                                        <MenuItem mnemonicParsing="false" text="Redo"
+                                                  onAction="#TransactionRedo"/>
+                                    </items>
+                                </Menu>
+                            </menus>
+                        </MenuBar>
+
+                    </VBox>
+                </HBox>
+            </content>
+
+        </Tab>
+
+
+    </tabs>
+
+</TabPane>
