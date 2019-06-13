@@ -1,0 +1,5 @@
+{"Id":100,"DrugId":100,"ClientCardId":100,"Quantity":10,"Discount":15,"Price":102,"Date":"15/12/2012","Time":"22:20","id":0}
+{"Id":101,"DrugId":107,"ClientCardId":100,"Quantity":1000,"Discount":10,"Price":10800,"Date":"10/10/2010","Time":"01:10","id":0}
+{"Id":102,"DrugId":100,"ClientCardId":102,"Quantity":5000,"Discount":15,"Price":51000,"Date":"01/01/2000","Time":"12:12","id":0}
+{"Id":104,"DrugId":104,"ClientCardId":103,"Quantity":1000,"Discount":0,"Price":67500,"Date":"12/10/2005","Time":"12:19","id":0}
+{"Id":11,"DrugId":100,"ClientCardId":100,"Quantity":100,"Discount":15,"Price":2040,"Date":"01/01/2003","Time":"12:22","id":0}

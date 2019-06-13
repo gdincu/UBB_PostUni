@@ -1,0 +1,11 @@
+{"Id":100,"Price":24,"Name":"Med1","Producer":"Prod1","ReceiptNeeded":true,"id":0}
+{"Id":102,"Price":98,"Name":"Med3","Producer":"Prod2","ReceiptNeeded":true,"id":0}
+{"Id":103,"Price":22,"Name":"Med4","Producer":"Prod3","ReceiptNeeded":true,"id":0}
+{"Id":104,"Price":75,"Name":"Med5","Producer":"Prod1","ReceiptNeeded":false,"id":0}
+{"Id":10,"Price":124,"Name":"IIIO","Producer":"XXX","ReceiptNeeded":false,"id":0}
+{"Id":107,"Price":24,"Name":"AA","Producer":"BB","ReceiptNeeded":false,"id":0}
+{"Id":11,"Price":100,"Name":"TEST","Producer":"TEST","ReceiptNeeded":false,"id":0}
+{"Id":108,"Price":18,"Name":"DD","Producer":"FF","ReceiptNeeded":true,"id":0}
+{"Id":12,"Price":56,"Name":"ttt","Producer":"uuuu","ReceiptNeeded":false,"id":0}
+{"Id":60,"Price":124,"Name":"OO","Producer":"PP","ReceiptNeeded":false,"id":0}
+{"Id":110,"Price":100,"Name":"TTR","Producer":"UUI1","ReceiptNeeded":true,"id":0}
