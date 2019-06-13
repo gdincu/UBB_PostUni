@@ -20,8 +20,9 @@ Can also be done via a <ul><li> construct
 "
 <ul>
   <li>
+    :open_file_folder:
     <a href="https://github.com/gdincu/UBB_PostUni/tree/master/Sem2">
-    :open_file_folder: Sem2
+            <b>Sem2</b>
     </a>
     <ul>
       <li>
