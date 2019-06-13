@@ -1,7 +1,7 @@
 # UBB_PostUni
 [//]: # "---------------------------------------------------------------------------
         Using Markdown: https://guides.github.com/features/mastering-markdown/#examples
-        
+        --
          ** Used to bold text
          [linkText](a.html) Used to create a hyperlink
          Emoji: https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md
