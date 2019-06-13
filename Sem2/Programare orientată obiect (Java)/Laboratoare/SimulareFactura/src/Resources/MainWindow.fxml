@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="UI.MainController"
+            prefHeight="330.0" prefWidth="575.0">
+
+    <VBox>
+        <TableView fx:id="tblReceipt" editable="true">
+            <columns>
+                <TableColumn fx:id="colReceiptId" text="Id">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="id" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="colReceiptPrice" text="Price">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="price" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="colReceiptDescription" text="Description">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="description" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="colReceiptDate" text="Date">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="date" />
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+        <TextField fx:id="txtReceiptId" promptText="Receipt Id"/>
+        <TextField fx:id="txtReceiptPrice" promptText="Receipt Price"/>
+        <TextField fx:id="txtReceiptDescription" promptText="Description"/>
+        <TextField fx:id="txtReceiptDate" promptText="Transaction Date"/>
+        <Button fx:id="btnAddReceipt" text="Add/Update Receipt" onAction="#btnAddAndUpdateReceiptClick"/>
+        <Button fx:id="btnRemoveReceipt" text="Remove Receipt" onAction="#btnRemoveReceiptClick"/>
+        <Button fx:id="btnSearchAllReceipt" text="Search Receipts" onAction="#btnGetAllReceiptClick"/>
+    </VBox>
+
+
+</AnchorPane>
