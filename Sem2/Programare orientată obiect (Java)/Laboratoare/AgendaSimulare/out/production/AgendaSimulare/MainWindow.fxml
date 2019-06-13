@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="UI.MainController"
+            prefHeight="600.0" prefWidth="575.0">
+
+    <VBox>
+        <TableView fx:id="tblEvent" editable="true">
+            <columns>
+                <TableColumn fx:id="colEventId" text="Id">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="id" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="colEventName" text="Name">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="name" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="colEventDate" text="Date">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="date" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="colEventLength" text="Length">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="length" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="colEventStartTime" text="Start Time">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="startTime" />
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+
+
+        <TextField fx:id="txtEventId" promptText="Event Id"/>
+        <TextField fx:id="txtEventName" promptText="Event Name"/>
+        <TextField fx:id="txtEventDate" promptText="Date"/>
+        <TextField fx:id="txtEventLength" promptText="Length"/>
+        <TextField fx:id="txtEventStartTime" promptText="Start Time"/>
+        <Button fx:id="btnAddEvent" text="Add Event" onAction="#btnAddAndUpdateEventClick"/>
+        <Button fx:id="btnRemoveEvent" text="Remove Event" onAction="#btnRemoveEventClick"/>
+        <Button fx:id="btnMaxEvent" text="Show Max Event" onAction="#setBtnSearchMaxEvent"/>
+        <Button fx:id="btnSearchMaxEvent" text="Get All Events" onAction="#btnGetAllEventClick"/>
+    </VBox>
+
+
+</AnchorPane>
