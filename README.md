@@ -1,7 +1,4 @@
 # UBB_PostUni
-<style type="text/css">
-background-color: orange;
-</style>
 <ul>
   <li>
     <a href="https://github.com/gdincu/UBB_PostUni/tree/master/Sem1">
