@@ -1,6 +1,9 @@
 # UBB_PostUni
 <ul>
-  <li>:open_file_folder: Sem1
+  <li>
+    <a href="https://github.com/gdincu/UBB_PostUni/tree/master/Sem1">
+    :open_file_folder: Sem1
+    </a>
     <ul>
       <li>
         <a href="https://github.com/gdincu/UBB_PostUni/tree/master/Sem1/Fundamentele%20program%C4%83rii%20%C5%9Fi%20algoritmic%C4%83"> 
