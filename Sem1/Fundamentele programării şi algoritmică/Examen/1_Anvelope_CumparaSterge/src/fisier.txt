@@ -1,0 +1,8 @@
+VinRosu,sec,100,10,20
+VinRosu,demisec,150,150,30
+VinRosu,demidulce,50,50,10
+VinRosu,dulce,150,15,12
+VinAlb,sec,200,180,25
+VinAlb,demisec,75,75,22
+VinAlb,demidulce,130,20,50
+VinAlb,dulce,125,0,40

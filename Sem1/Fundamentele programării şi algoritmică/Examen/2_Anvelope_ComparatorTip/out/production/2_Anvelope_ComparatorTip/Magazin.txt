@@ -1,0 +1,8 @@
+Michelin10*10,Vara,100,10,200
+Pirelli10*20,Vara,150,150,300
+Buzau10*12,Vara_Iarna,50,4,100
+Buzau12*14,Vara_Iarna,150,15,125
+Michelin10*10,Iarna,200,8,250
+Michelin10*12,Iarna,75,0,225
+Pirelli10*20,Special,130,20,500
+Buzau12*14,Special,125,0,400
