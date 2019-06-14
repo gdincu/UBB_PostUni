@@ -1,0 +1,5 @@
+1. Java: A Beginner's Guide
+2. Effective Java - 3rd / 2nd edition
+3. Head First Java
+4. Head First Design Patterns
+5. Head First Object-Oriented Analysis and Design
