@@ -1,0 +1,1 @@
+https://stackoverflow.com/questions/52467561/intellij-cant-recognize-javafx-11-with-openjdk-11
