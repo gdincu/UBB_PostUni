@@ -1,0 +1,1481 @@
+
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+	<title>Tehnologii Web Client-Side</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../../style.css">
+	<link rel="stylesheet" href="../style.css">
+</head>
+
+<body class="shower list">
+
+	<header class="caption">
+		<h1>Tehnologii Web Client-Side, Curs 6</h1>
+		<p><a href="http://www.cs.ubbcluj.ro/~sanda">Sanda-Maria AVRAM</a>, Ph. D.</p>
+	</header>
+
+	<section class="slide">
+		<h2>Conținut:</h2>
+		<dl class="to5right">
+			<dt><span class="strong">jQuery</span>. De ce jQuery? Ce este jQuery?</dt>
+			<dd></dd>
+			<dt>Selectarea elementelor DOM:</dt>
+			<dd class="small to5right to1top"><span class="to5right">- <span class="strong">selectori</span> jQuery (stil CSS, filtre).</span></dd>
+			<dt class="to1bottom">Reaizarea unor acțiuni: </dt>
+			<dd class="small to5right to1top"><span class="to5right">- <span class="strong">metode</span> jQuery
+				(filtrul de conținut, căutarea de elemente, dimensiune/poziție, efecte și animație)</span></dd>
+			<dt>Tratarea evenimentelor (<span class="small dimText">events</span>): </dt>
+			<dd class="small to5right to1top"><span class="to5right">- <span class="strong">evenimente</span> jQuery (.on(), .ready()).</span></dd>
+		</dl>
+		<span class="small em copyright bottom ">Curs de formare şi dezvoltare profesională în Informatică. Studii postuniversitare.
+		</span>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top"><img src="../../PWg/6/img/640px-JQuery-Logo.svg.png" alt="jQuery. write less, do more." height="150"></h2>
+		<ul class="to2top to2right small">
+			<li><span class="strong">Bibliotecă</span> JavaScript care <span class="strong">simplifică</span> utilizarea JavaScript pe site-uri web:
+				<ul class="to5right">
+					<li class="to2right">Traversarea și manipularea HTML/DOM</li>
+					<li class="to2right">Tratarea evenimentelor</li>
+					<li class="to2right">Efecte și animație</li>
+					<li class="to2right">AJAX</li>
+				</ul>
+			</li>
+			<li>cea mai <span class="strong">populară</span> și <span class="strong">extensibilă</span> bibliotecă JavaScript
+				<ul class="to5right">
+					<li class="to2right">o mare comunitate de dezvoltare</li>
+				</ul>
+			</li>
+		</ul>
+		<span class="copyright bottom">
+			<a href="http://www.slideshare.net/signer/javascript-and-jquery-lecture-04-web-technologies-1019888bnr" target="_blank">JavaScript and jQuery - Web Technologies </a>, by <a href="http://www.slideshare.net/signer?utm_campaign=profiletracking&utm_medium=sssite&utm_source=ssslideview"
+			  target="_blank">
+				Beat Signer</a>, on 11 Mar 2016</span>
+	</section>
+
+	<section class="slide">
+		<h2>De ce jQuery?</h2>
+		<blockquote class="large to2bottom to1right" cite="http://eu.wiley.com/WileyCDA/WileyTitle/productCd-1118531647.html">
+			O modalitate ușoară de a realiza o varietate de sarcini comune JavaScript
+			<span class="strong">rapid</span> și <span class="strong">consistent</span>,
+			în toate browserele majore și fără a fi necesar cod suplimentar (<span class="em dimText">fallback</span>).
+		</blockquote>
+		<span class="copyright bottom"><a href="http://eu.wiley.com/WileyCDA/WileyTitle/productCd-1118531647.html" target="_blank">JavaScript and jQuery: Interactive Front-End Web Development</a>, by <a href="http://eu.wiley.com/WileyCDA/Section/id-302479.html?query=Jon+Duckett"
+			  target="_blank">Jon Duckett</a>, July 2014 (@page: 294)</span>
+	</section>
+
+	<section class="slide">
+		<h2>Ce este jQuery?</h2>
+		<blockquote class="large to2bottom to1right" cite="http://eu.wiley.com/WileyCDA/WileyTitle/productCd-1118531647.html">
+			Permite <span class="strong">căutarea</span> elementelor cu ajutorul selectori de stil CSS și
+			<span class="strong">manipularea</span> elementelor cu ajutorul metode jQuery.
+		</blockquote>
+		<span class="copyright bottom"><a href="http://eu.wiley.com/WileyCDA/WileyTitle/productCd-1118531647.html" target="_blank">JavaScript and jQuery: Interactive Front-End Web Development</a>, by <a href="http://eu.wiley.com/WileyCDA/Section/id-302479.html?query=Jon+Duckett"
+			  target="_blank">Jon Duckett</a>, July 2014 (@page: 294)</span>
+	</section>
+
+	<section class="slide">
+		<h2 class="shout">Căutarea elementelor <br>în DOM</h2>
+	</section>
+
+	<section class="slide">
+		<h2><span class="strong">Căutarea</span> elementelor</h2>
+		<div class="place center">
+			<span class="to1left to3bottom em">Funcția jQuery () (creează un obiect jQuery)</span><br>
+			<img src="../../PWg/6/img/find_elem.png" alt="Find element" class="to3bottom to2left" /><br>
+			<span class="to2bottom to5right em">Selectori de stil CSS</span>
+		</div>
+		<span class="copyright bottom"><a href="http://eu.wiley.com/WileyCDA/WileyTitle/productCd-1118531647.html" target="_blank">JavaScript and jQuery: Interactive Front-End Web Development</a>, by <a href="http://eu.wiley.com/WileyCDA/Section/id-302479.html?query=Jon+Duckett"
+			  target="_blank">Jon Duckett</a>, July 2014 (@page 296)</span>
+		<footer class="notes">A function called <strong>jQuery()</strong> lets you find one or more elements in the page.
+			It creates an object called <strong>jQuery</strong> which holds reference to those elements.
+			<br>
+			<strong>$()</strong> is often used as a shorthand to save typing jQuery().
+			<br><br>
+			The <strong>jQuery()</strong> function has one parameter: a CSS-style selector.
+		</footer>
+	</section>
+
+	<section class="slide">
+		<h2>Selectori de bază</h2>
+		<table class="small to3bottom">
+			<tr>
+				<th>*</th>
+				<td>toate elementele</td>
+			</tr>
+			<tr>
+				<th class="em">element</th>
+				<td>toate elementele cu numele <span class="strong">element</span></td>
+			</tr>
+			<tr>
+				<th>#id</th>
+				<td>elementul a cărui atribut id are valoarea specificată <span class="strong">id</span></td>
+			</tr>
+			<tr>
+				<th>.class</th>
+				<td>elemente a căror atribut de clasă are valoarea specificată <span class="strong">class</span></td>
+			</tr>
+			<tr>
+				<th>selector1, selector2</th>
+				<td>elemente care se potrivesc cu mai mult de un selector</td>
+			</tr>
+		</table>
+		<span class="copyright bottom">
+			<a href="http://eu.wiley.com/WileyCDA/WileyTitle/productCd-1118531647.html" target="_blank">JavaScript and jQuery: Interactive Front-End Web Development</a>, by <a href="http://eu.wiley.com/WileyCDA/Section/id-302479.html?query=Jon+Duckett"
+			  target="_blank">Jon Duckett</a>, July 2014 (@page 302)
+		</span>
+	</section>
+
+	<section class="slide">
+		<h2>Selectori de bază. Exemple</h2>
+		<div class="to2bottom">
+			<textarea id="basicSelectors">
+			$('*').css('border','1px solid red');
+			$('li').addClass('with_border');
+			$('#subtitle').addClass('with_backgound');
+			$('.hasLatinText').addClass('with_border').addClass('with_border2')
+			  			  			 	  				  			  			 	  				  			  			 	  				  			  			 	  	.addClass('with_backgound').addClass('with_padding');
+			$('h1, p').addClass('with_border').addClass('with_padding');
+		</textarea>
+		</div>
+		<span class="copyright bottom"><a href="../../PWg/6/examples/selectors.html" target="_blank">Exemple cu toți selectorii</a></span>
+	</section>
+
+	<section class="slide">
+		<h2>Selectori ierarhie</h2>
+		<table class="small to2bottom">
+			<tr>
+				<th>strămoș descendent</th>
+				<td>un element care provine dintr-un alt element</td>
+			</tr>
+			<tr>
+				<th class="em">părinte > copil</th>
+				<td>un element care este direct subordonat unui alt element</td>
+			</tr>
+			<tr>
+				<th>precedent + următor</th>
+				<td>selector frate învecinat: selectează numai elementele care <br>urmează imediat după câte un element <span class="strong">precedent</span></td>
+			</tr>
+			<tr>
+				<th>precedent ~ frați</th>
+				<td>selector de frați: selectează toate elementele care <br>sunt frați ai elementului <span class="strong">precedent</span></td>
+			</tr>
+		</table>
+		<span class="copyright bottom">
+			<a href="http://eu.wiley.com/WileyCDA/WileyTitle/productCd-1118531647.html" target="_blank">JavaScript and jQuery: Interactive Front-End Web Development</a>, by <a href="http://eu.wiley.com/WileyCDA/Section/id-302479.html?query=Jon+Duckett"
+			  target="_blank">Jon Duckett</a>, July 2014 (@page 302)
+		</span>
+	</section>
+
+	<section class="slide">
+		<h2>Selectori ierarhie. Exemple</h2>
+		<div class="to3bottom">
+			<textarea id="hierarchySelectors">
+			$('ul strong').addClass('with_border').addClass('with_backgound');
+			$('li>strong').addClass('with_border');
+			$('#subtitle+ul').addClass('with_backgound').addClass('with_padding');
+			$('#subtitle~p').addClass('with_padding').addClass('with_border');
+		</textarea>
+		</div>
+		<span class="copyright bottom"><a href="../../PWg/6/examples/selectors.html" target="_blank">Exemple cu toți selectorii</a></span>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">Filtre de bază</h2>
+		<table class="small to2top">
+			<tr>
+				<th>:not(<em>selector</em>)</th>
+				<td>toate elementele cu excepția <span class="strong em">selector</span></td>
+			</tr>
+			<tr>
+				<th>:first</th>
+				<td>primul element din selecție</td>
+			</tr>
+			<tr>
+				<th>:last</th>
+				<td>ultimul element din selecție</td>
+			</tr>
+			<tr>
+				<th>:even</th>
+				<td>elemente având în selecție indici pari </td>
+			</tr>
+			<tr>
+				<th>:odd</th>
+				<td>elemente având în selecție indici impari</td>
+			</tr>
+			<tr>
+				<th>:eq(<span class="em">index</span>)</th>
+				<td>elemente cu indice egal cu <span class="strong em">index</span></td>
+			</tr>
+			<tr>
+				<th>:gt(<span class="em">index</span>)</th>
+				<td>elemente cu indice mai mare decât <span class="strong em">index</span></td>
+			</tr>
+			<tr>
+				<th>:lt(<span class="em">index</span>)</th>
+				<td>elemente cu indice mai mic decât <span class="strong em">index</span></td>
+			</tr>
+			<tr>
+				<th>:header</th>
+				<td>toate elementele &lt;h1&gt;-&lt;h6&gt;</td>
+			</tr>
+			<tr>
+				<th>:animated</th>
+				<td>elemente care sunt animate</td>
+			</tr>
+			<tr>
+				<th>:focus</th>
+				<td>elementul care are focus</td>
+			</tr>
+		</table>
+		<span class="copyright right">
+			<a href="http://eu.wiley.com/WileyCDA/WileyTitle/productCd-1118531647.html" target="_blank">JavaScript and jQuery: Interactive Front-End Web Development</a>, by <a href="http://eu.wiley.com/WileyCDA/Section/id-302479.html?query=Jon+Duckett"
+			  target="_blank">Jon Duckett</a>, July 2014 (@page 302)
+		</span>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">Filtre de bază. Exemple</h2>
+		<div class="to1top">
+			<textarea id="grundFilterEx">
+			$(':not(p)').addClass('with_border').addClass('with_padding');
+      $('li:first').addClass('with_border').addClass('with_backgound').addClass('with_padding');
+      $('p:last').addClass('with_border').addClass('with_backgound');
+      $('li:even').addClass('with_border').addClass('with_backgound').addClass('with_padding');
+      $('li:odd').addClass('with_border').addClass('with_padding');
+      $('li:eq(5)').addClass('with_border').addClass('with_backgound').addClass('with_padding');
+      $('li:gt(7)').addClass('with_border').addClass('with_padding');
+      $('li:lt(5)').addClass('with_border').addClass('with_backgound').addClass('with_padding');
+      $(':header').addClass('with_border').addClass('with_backgound').addClass('with_padding');
+
+      $("input").focus();
+      $(':focus').addClass('with_border').addClass('with_backgound');
+		</textarea>
+		</div>
+		<span class="copyright bottom"><a href="../../PWg/6/examples/selectors.html" target="_blank">Exemple cu toți selectorii</a></span>
+	</section>
+
+	<section class="slide">
+		<h2>Filtre de conținut</h2>
+		<table class="small to3bottom">
+			<tr>
+				<th>:contains('<em>text</em>')</th>
+				<td>elemente care conțin '<span class="strong em">text</span>'</td>
+			</tr>
+			<tr>
+				<th>:empty</th>
+				<td>toate elementele care nu au copii</td>
+			</tr>
+			<tr>
+				<th>:parent</th>
+				<td>toate elementele care au cel puțin <br>un nod copil (poate fi text sau element)</td>
+			</tr>
+			<tr>
+				<th>:has(<em>selector</em>)</th>
+				<td>elemente care conțin cel puțin un <span class="strong em">selector</span></td>
+			</tr>
+		</table>
+		<span class="copyright bottom">
+			<a href="http://eu.wiley.com/WileyCDA/WileyTitle/productCd-1118531647.html" target="_blank">JavaScript and jQuery: Interactive Front-End Web Development</a>, by <a href="http://eu.wiley.com/WileyCDA/Section/id-302479.html?query=Jon+Duckett"
+			  target="_blank">Jon Duckett</a>, July 2014 (@page 303)
+		</span>
+	</section>
+
+	<section class="slide">
+		<h2>Filtre de conținut. Exemple</h2>
+		<div class="to2bottom">
+			<textarea id="inhaltsFilterEx">
+			$('p:contains("ipsum")').addClass('with_border').addClass('with_backgound');
+      $(':empty').addClass('with_border').addClass('with_backgound');
+      $(':parent').addClass('with_border').addClass('with_backgound')
+			  			  			 	  				  			  			 	  				  			  			 	  				  			  			 	  	.addClass('with_padding');
+      $('ul:has(li)').addClass('with_border').addClass('with_backgound')
+			  			  			 	  				  			  			 	  				  			  			 	  				  			  			 	  	.addClass('with_padding');
+		</textarea>
+		</div>
+		<span class="copyright bottom"><a href="../../PWg/6/examples/selectors.html" target="_blank">Exemple cu toți selectorii</a></span>
+	</section>
+
+	<section class="slide">
+		<h2>Filtre de vizibilitate</h2>
+		<table class="small">
+			<tr>
+				<th>:hidden</th>
+				<td>toate elementele ascunse</td>
+			</tr>
+			<tr>
+				<th>:visible</th>
+				<td>toate elementele care ocupă spațiu în pagină:
+				</td>
+			</tr>
+		</table>
+		<ul class="small to3right to1top">
+			<li class="to5right">nu este selectat dacă:
+				<ul class="small to5right">
+					<li value=" " class="to5right to2top"><span class="to1right">- <code class="small">display: none;</code></span></li>
+					<li value=" " class="to5right to2top"><span class="to1right">- <code class="small">width/height: 0;</code></span></li>
+					<li value=" " class="to5right to2top"><span class="to1right">- strămoșul (<span class="small dimText">ancestor</span>) este ascuns;</span></li>
+				</ul>
+			</li>
+			<li class="to5right to1top">selectat dacă:
+				<ul class="small to5right">
+					<li value=" " class="to4right to2top">- <code class="small">visibility: hidden;</code></li>
+					<li value=" " class="to4right to2top">- <code class="small">opacity: 0;</code></li>
+				</ul>
+				<span class="to2top">deoarece ar avea nevoie de spațiu în pagină</span>
+			</li>
+		</ul>
+		<span class="copyright bottom">
+			<a href="http://eu.wiley.com/WileyCDA/WileyTitle/productCd-1118531647.html" target="_blank">JavaScript and jQuery: Interactive Front-End Web Development</a>, by <a href="http://eu.wiley.com/WileyCDA/Section/id-302479.html?query=Jon+Duckett"
+			  target="_blank">Jon Duckett</a>, July 2014 (@page 303)
+		</span>
+	</section>
+
+	<section class="slide">
+		<h2>Filtre de vizibilitate. Exemple</h2>
+		<div class="to4bottom">
+			<textarea id="sichtbarkeitsFilterEx">
+			$(':hidden').css("display","inline-block").addClass('with_border')
+			  			  			 	  				  			  			 	  				  			  			 	  				  			  			 	  	.addClass('with_backgound').addClass('with_padding');
+      $('li:visible').css("display", "none");
+		</textarea>
+		</div>
+		<span class="copyright bottom"><a href="../../PWg/6/examples/selectors.html" target="_blank">Exemple cu toți selectorii</a></span>
+	</section>
+
+	<section class="slide">
+		<h2>Filtre pentru copii</h2>
+		<table class="small to3bottom">
+			<tr>
+				<th>:nth-child(<span class="em">expr</span>)</th>
+				<td>al <span class="em strong">expr</span> copil din selecție, <br>unde <span class="em strong">expr</span> este o valoare nenulă</td>
+			</tr>
+			<tr>
+				<th>:first-child</th>
+				<td>primul copil din selecția curentă</td>
+			</tr>
+			<tr>
+				<th>:last-child</th>
+				<td>ultimul copil din selecția curentă</td>
+			</tr>
+			<tr>
+				<th>:only-child</th>
+				<td>dacă există doar un copil al elementului</td>
+			</tr>
+		</table>
+		<span class="copyright bottom">
+			<a href="http://eu.wiley.com/WileyCDA/WileyTitle/productCd-1118531647.html" target="_blank">JavaScript and jQuery: Interactive Front-End Web Development</a>, by <a href="http://eu.wiley.com/WileyCDA/Section/id-302479.html?query=Jon+Duckett"
+			  target="_blank">Jon Duckett</a>, July 2014 (@page 303)
+		</span>
+	</section>
+
+	<section class="slide">
+		<h2>Filtre pentru copii. Exemple</h2>
+		<div class="to3bottom">
+			<textarea id="childFilterEx">
+			$('ul li:nth-child(2)').addClass('with_border').addClass('with_backgound');
+      $('ul li:first-child').addClass('with_border').addClass('with_backgound');
+      $('li:last-child').css("display","inline-block")
+			  			  			 	  				  			  			 	  				  			  			 	  				  			  			 	  	.addClass('with_border').addClass('with_backgound');
+      $('input:only-child').addClass('with_border').addClass('with_backgound');
+		</textarea>
+		</div>
+		<span class="copyright bottom"><a href="../../PWg/6/examples/selectors.html" target="_blank">Exemple cu toți selectorii</a></span>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">Filtre de atribute</h2>
+		<table class="small to1top">
+			<tr>
+				<th>[<span class="em">attr</span>]</th>
+				<td><span class="to1right">elementele care au atributul <span class="em strong">attr</span></span></td>
+			</tr>
+			<tr>
+				<th>[<span class="em">attr</span>='<span class="em">val</span>']</th>
+				<td><span class="to1right">elementele care au atributul <span class="em strong">attr</span> cu valoarea <span class="em strong">val</span> </span></td>
+			</tr>
+			<tr>
+				<th>[<span class="em">attr</span>!='<span class="em">val</span>']</th>
+				<td><span class="to1right">elementele care nu au atributul <span class="em strong">attr</span> cu valoarea <span class="em strong">val</span> </span></td>
+			</tr>
+			<tr>
+				<th>[<span class="em">attr</span>^='<span class="em">val</span>']</th>
+				<td><span class="to1right">valoarea atributului <span class="em strong">attr</span> începe cu <span class="em strong">val</span></span></td>
+			</tr>
+			<tr>
+				<th>[<span class="em">attr</span>$='<span class="em">val</span>']</th>
+				<td><span class="to1right">valoarea atributului <span class="em strong">attr</span> se termină cu <span class="em strong">val</span></span></td>
+			</tr>
+			<tr>
+				<th>[<span class="em">attr</span>*='<span class="em">val</span>']</th>
+				<td><span class="to1right">valoarea atributului <span class="em strong">attr</span> conține <span class="em strong">val</span></span></td>
+			</tr>
+			<tr>
+				<th>[<span class="em">attr</span>|='<span class="em">val</span>']</th>
+				<td><span class="to1right">valoarea atributului <span class="em strong">attr</span> este egală cu <span class="em strong">val</span>  sau începe cu  <span class="em strong">val</span> urmat de un -</span></td>
+			</tr>
+			<tr>
+				<th>[<span class="em">attr</span>~='<span class="em">val</span>']</th>
+				<td><span class="to1right"><span class="em strong">val</span> ar trebui să fie una dintre valorile lui <span class="em strong">attr</span> într-o listă separată de spațiu</span></td>
+			</tr>
+			<tr>
+				<th>[<span class="em">attr1</span>][<span class="em">attr2</span>]</th>
+				<td><span class="to1right">elementele care se potrivesc tuturor selectorilor, adică <span class="em strong">attr1</span> și <span class="em strong">attr2</span></span></td>
+			</tr>
+		</table>
+		<span class="copyright bottom">
+			<a href="http://eu.wiley.com/WileyCDA/WileyTitle/productCd-1118531647.html" target="_blank">JavaScript and jQuery: Interactive Front-End Web Development</a>, by <a href="http://eu.wiley.com/WileyCDA/Section/id-302479.html?query=Jon+Duckett"
+			  target="_blank">Jon Duckett</a>, July 2014 (@page 303)
+		</span>
+	</section>
+
+	<section class="slide">
+		<h2>Filtre de atribute. Exemple</h2>
+		<div class="to2bottom">
+			<textarea id="attributFilterEx">
+			$('[class]').addClass('with_border').addClass('with_backgound');
+      $('[method="post"]').addClass('with_border').addClass('with_backgound');
+      $('p[class!="hasLatinText"]').addClass('with_border').addClass('with_backgound');
+      $('p[class^="has"]').addClass('with_border').addClass('with_backgound');
+      $('[type$="t"]').addClass('with_border').addClass('with_backgound');
+      $('[id*="e"]').addClass('with_border').addClass('with_backgound');
+      $('[type][name]').addClass('with_border').addClass('with_backgound');
+		</textarea>
+		</div>
+		<span class="copyright bottom"><a href="../../PWg/6/examples/selectors.html" target="_blank">Exemple cu toți selectorii</a></span>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">Filtre pentru formulare</h2>
+		<table class="small to3top to5right">
+			<tr class="small">
+				<th><span class="em">:input</span></th>
+				<td>toate elementele <span class="em strong">input</span></td>
+			</tr>
+			<tr class="small">
+				<th><span class="em">:text</span></th>
+				<td>toate elementele <span class="em strong">text</span></td>
+			</tr>
+			<tr class="small">
+				<th><span class="em">:password</span></th>
+				<td>toate elementele <span class="em strong">password</span></td>
+			</tr>
+			<tr class="small">
+				<th><span class="em">:radio</span></th>
+				<td>toate elementele <span class="em strong">radio</span></td>
+			</tr>
+			<tr class="small">
+				<th><span class="em">:checkbox</span></th>
+				<td>toate elementele <span class="em strong">checkbox</span></td>
+			</tr>
+			<tr class="small">
+				<th><span class="em">:submit</span></th>
+				<td>toate elementele <span class="em strong">submit</span></td>
+			</tr>
+			<tr class="small">
+				<th><span class="em">:image</span></th>
+				<td>toate elementele <span class="em strong">&lt;img&gt;</span></td>
+			</tr>
+			<tr class="small">
+				<th><span class="em">:reset</span></th>
+				<td>toate elementele <span class="em strong">reset</span></td>
+			</tr>
+			<tr class="small">
+				<th><span class="em">:button</span></th>
+				<td>toate elementele <span class="em strong">&lt;button&gt;</span></td>
+			</tr>
+			<tr class="small">
+				<th><span class="em">:file</span></th>
+				<td>toate elementele <span class="em strong">file</span></td>
+			</tr>
+			<tr class="small">
+				<th><span class="em">:selected</span></th>
+				<td>toate elementele selectate dintr-o listă <span class="dimText">dropdown</span></td>
+			</tr>
+			<tr class="small">
+				<th><span class="em">:enabled</span></th>
+				<td>toate elementele <span class="em strong">enabled</span></td>
+			</tr>
+			<tr class="small">
+				<th><span class="em">:disabled</span></th>
+				<td>toate elementele <span class="em strong">disabled</span></td>
+			</tr>
+			<tr class="small">
+				<th><span class="em">:checked</span></th>
+				<td>toate elementele <span class="em strong">radio buttons</span> sau <span class="em strong">checkboxes</span> care sunt marcate</td>
+			</tr>
+		</table>
+		<span class="copyright right">
+			<a href="http://eu.wiley.com/WileyCDA/WileyTitle/productCd-1118531647.html" target="_blank">JavaScript and jQuery: Interactive Front-End Web Development</a>, by <a href="http://eu.wiley.com/WileyCDA/Section/id-302479.html?query=Jon+Duckett"
+			  target="_blank">Jon Duckett</a>, July 2014 (@page 303)
+		</span>
+	</section>
+
+	<section class="slide">
+		<h2 class="shout">Reaizarea <br>de acțiuni</h2>
+	</section>
+
+	<section class="slide">
+		<h2><span class="strong">Manipularea</span> elementelor</h2>
+		<div class="place center">
+			<span class="to2right to2bottom">obiect jQuery <span class="to5right"><span class="to5right"><span class="to1right">metodă</span></span></span></span>
+			<img class=" to2bottom" src="../../PWg/6/img/method.png" alt="" width="800">
+			<span class="to5right to1bottom">Operator membru <span class="to5right"><span class="to5right"><span class="to1right">parametru</span></span></span></span>
+		</div>
+		<span class="copyright bottom"><a href="http://eu.wiley.com/WileyCDA/WileyTitle/productCd-1118531647.html" target="_blank">JavaScript and jQuery: Interactive Front-End Web Development</a>, by <a href="http://eu.wiley.com/WileyCDA/Section/id-302479.html?query=Jon+Duckett"
+			  target="_blank">Jon Duckett</a>, July 2014 (@page 297)</span>
+		<footer class="notes">
+			One can use the methods of <strong>jQuery</strong> object to update the elements that it contains.
+		</footer>
+	</section>
+
+	<section class="slide">
+		<h2>Metode de filtrare de conținut</h2>
+		<p class="large to3bottom">Preluarea sau modificarea conținutului <strong>elementelor</strong>, <strong>atributelor</strong> și/sau <strong>nodurilor text</strong>.</p>
+		<span class="copyright bottom"><a href="http://eu.wiley.com/WileyCDA/WileyTitle/productCd-1118531647.html" target="_blank">JavaScript and jQuery: Interactive Front-End Web Development</a>, by <a href="http://eu.wiley.com/WileyCDA/Section/id-302479.html?query=Jon+Duckett"
+			  target="_blank">Jon Duckett</a>, July 2014 (@page 304)</span>
+	</section>
+
+	<section class="slide">
+		<h2>Metode de filtrare de conținut</h2>
+		<h3 class="to1top">Preluarea/modificarea conținutului </h3>
+		<table class="small">
+			<tr>
+				<th>.html()</th>
+				<td>preia/setează conținutul HTML</td>
+			</tr>
+			<tr>
+				<th><span class="to1top">.text()</span></th>
+				<td>preia/setează conținutul textului combinat al fiecărui <br>element pe care se aplică, inclusiv descendenții săi</td>
+			</tr>
+			<tr>
+				<th>.replaceWith()</th>
+				<td>înlocuiește orice element pe care se aplică cu noul conținut</td>
+			</tr>
+			<tr>
+				<th>.remove()</th>
+				<td>elimină din DOM elementele pe care se aplică</td>
+			</tr>
+		</table>
+		<span class="copyright bottom"><a href="http://eu.wiley.com/WileyCDA/WileyTitle/productCd-1118531647.html" target="_blank">JavaScript and jQuery: Interactive Front-End Web Development</a>, by <a href="http://eu.wiley.com/WileyCDA/Section/id-302479.html?query=Jon+Duckett"
+			  target="_blank">Jon Duckett</a>, July 2014 (@page 316)</span>
+	</section>
+
+	<section class="slide">
+		<h2>Metode de filtrare de conținut</h2>
+		<h3 class="to1top">Preluarea/modificarea conținutului. Exemple</h3>
+		<div class="to3right">
+			<textarea id="inhaltsFilterMethodenEx">
+			$('li').html('Updated');
+			$('li.hot').html(function(){
+			  			  			 	  	return '<em> '+ $(this).text() + '</em>';
+      });
+			var content=$('li').text();
+			$('div.second').replaceWith('<h2>New heading</h2>');
+			$('.hello').remove();
+		</textarea>
+		</div>
+		<span class="copyright bottom"><a href="http://www.cs.ubbcluj.ro/~sanda/teaching/subject/PWg/6/examples/methods.html" target="_blank">Exemple cu metodele</a></span>
+	</section>
+
+	<section class="slide">
+		<h2>Metode de filtrare de ...</h2>
+		<h3 class="to1top">Elemente</h3>
+		<div class="place top right">
+			<img src="../../../2016-2017/PWg/curs6/images/adding.png" alt="Where an element can be added" class="to3left to1bottom" width="360">
+		</div>
+		<table class="small to1bottom">
+			<tr>
+				<th>.before()</th>
+				<td>introduce conținut <strong>înaintea</strong> fiecărui element pe care se aplică</td>
+			</tr>
+			<tr>
+				<th>.after()</th>
+				<td>introduce conținut <strong>după</strong> fiecărui element pe care se aplică</td>
+			</tr>
+			<tr>
+				<th>.predend()</th>
+				<td>introduce conținut <strong>la începutul</strong> fiecărui element pe care se aplică</td>
+			</tr>
+			<tr>
+				<th>.append()</th>
+				<td>introduce conținut <strong>la sfârșitul</strong> fiecărui element pe care se aplică</td>
+			</tr>
+		</table>
+		<span class="copyright bottom"><a href="http://eu.wiley.com/WileyCDA/WileyTitle/productCd-1118531647.html" target="_blank">JavaScript and jQuery: Interactive Front-End Web Development</a>, by <a href="http://eu.wiley.com/WileyCDA/Section/id-302479.html?query=Jon+Duckett"
+			  target="_blank">Jon Duckett</a>, July 2014 (@page 318)</span>
+	</section>
+
+	<section class="slide">
+		<h2>Metode de filtrare de conținut</h2>
+		<h3 class="to1top">Elemente. Exemple</h3>
+		<div class="to2right">
+			<textarea id="inhaltsElementeMethodenEx">
+			var content=$('li').html();
+      $('li').append('<em> '+ content + '</em>');
+			$('ul').before('<p class="notice">Just Updated</p>');
+      $('li.hot').prepend('+ ');
+      var $newListItem=$('<li><em>this is</em> another list item</li>');
+      $('li:last').after($newListItem);
+		</textarea>
+		</div>
+		<span class="copyright bottom"><a href="http://www.cs.ubbcluj.ro/~sanda/teaching/subject/PWg/6/examples/methods.html" target="_blank">Exemple cu metodele</a></span>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">Metode de filtrare de conținut</h2>
+		<h3 class="to3top">Elemente (Cont.)</h3>
+		<table class="small to2top">
+			<tr>
+				<th>.remove()</th>
+				<td><span class="to1right">elimină din DOM elementele pe care se aplică</span></td>
+			</tr>
+			<tr>
+				<th>.clone()</th>
+				<td><span class="to1right">creează o copie a elementelor pe care se aplică</span></td>
+			</tr>
+			<tr>
+				<th>.unwrap()</th>
+				<td><span class="to1right">elimină din DOM elementele părinte ale elementelor pe care se aplică</span></td>
+			</tr>
+			<tr>
+				<th>.detach()</th>
+				<td><span class="to1right">ca și <span class="strong">.remove()</span>, dar păstrează toate datele jQuery ale elementelor eliminate</span></td>
+			</tr>
+			<tr>
+				<th>.empty()</th>
+				<td><span class="to1right">elimină din DOM toate nodurile copil ale elementelor pe care se aplică</span></td>
+			</tr>
+			<tr>
+				<th>.add()</th>
+				<td><span class="to1right">creează un nou obiect jQuery cu elemente adăugate la elementele pe care se aplică</span></td>
+			</tr>
+		</table>
+		<span class="copyright bottom"><a href="http://eu.wiley.com/WileyCDA/WileyTitle/productCd-1118531647.html" target="_blank">JavaScript and jQuery: Interactive Front-End Web Development</a>, by <a href="http://eu.wiley.com/WileyCDA/Section/id-302479.html?query=Jon+Duckett"
+			  target="_blank">Jon Duckett</a>, July 2014 (@page 318)</span>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">Metode de filtrare de conținut</h2>
+		<h3 class="to3top">Atribute</h3>
+		<table class="small to2top">
+			<tr>
+				<th><span class="to1top">.attr()</span></th>
+				<td><span class="to1right">obține sau stabilește valoarea unui atribut pentru primul element <br>din lista elementelor pe care se aplică</span></td>
+			</tr>
+			<tr>
+				<th>.removeAttr()</th>
+				<td><span class="to1right">elimină un atribut din fiecare element</span></td>
+			</tr>
+			<tr>
+				<th>.addClass()</th>
+				<td><span class="to1right">adaugă clasele CSS specificate fiecărui element</span></td>
+			</tr>
+			<tr>
+				<th>.removeClass()</th>
+				<td><span class="to1right">elimină clasele CSS (una, mai multe sau toate) din fiecare element</span></td>
+			</tr>
+			<tr>
+				<th>.css()</th>
+				<td><span class="to1right">setează proprietăți CSS </span></td>
+			</tr>
+		</table>
+		<span class="copyright bottom"><a href="http://eu.wiley.com/WileyCDA/WileyTitle/productCd-1118531647.html" target="_blank">JavaScript and jQuery: Interactive Front-End Web Development</a>, by <a href="http://eu.wiley.com/WileyCDA/Section/id-302479.html?query=Jon+Duckett"
+			  target="_blank">Jon Duckett</a>, July 2014 (@page 320-322)</span>
+	</section>
+
+	<section class="slide">
+		<h2>Metode de filtrare de conținut</h2>
+		<h3 class="to1top">Atribute. Exemple</h3>
+		<div class="place center">
+			<div class="to3bottom">
+				<textarea id="inhaltsAttributeMethodenEx">
+			$('li#tenth').removeClass('hot');
+      $('li.hot').addClass('favorite');
+      $('ul').css('color', 'blue');
+
+      $('li').css({
+			  			  			 	  	'background-color': '#B7B7B7',
+			  			  			 	  	'font-family': 'Courier',
+			  			  			 	  	'padding-left': '+=200'
+      });
+		</textarea>
+			</div>
+		</div>
+		<span class="copyright bottom"><a href="http://www.cs.ubbcluj.ro/~sanda/teaching/subject/PWg/6/examples/methods.html" target="_blank">Exemple cu metodele</a></span>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">Metode de filtrare de conținut</h2>
+		<h3 class="to3top">Valori din formulare</h3>
+		<table class="small ">
+			<tr>
+				<th><span class="to2top">.val()</span></th>
+				<td><span class="to1right">
+						<span class="small">- utilizat în principal pentru elementele <code class="small">&lt;input&gt;</code>, <code class="small">&lt;select&gt;</code> și <code class="small">&lt;textarea&gt;</code></span><br>
+						- <strong>primește</strong> valoarea primului element sau <br>
+						- <strong>actualizează</strong> valoarea tuturor elementelor</span></td>
+			</tr>
+			<tr>
+				<th><span class="to1top">.isNumeric()</span></th>
+				<td><span class="to1right">verifică dacă valoarea reprezintă o valoare numerică; <br>returnează o valoare booleană</span></td>
+			</tr>
+		</table>
+		<span class="copyright bottom"><a href="http://eu.wiley.com/WileyCDA/WileyTitle/productCd-1118531647.html" target="_blank">JavaScript and jQuery: Interactive Front-End Web Development</a>, by <a href="http://eu.wiley.com/WileyCDA/Section/id-302479.html?query=Jon+Duckett"
+			  target="_blank">Jon Duckett</a>, July 2014 (@page 343)</span>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">Metode de filtrare de conținut</h2>
+		<h3 class="to3top">Valori din formulare. Exemple</h3>
+		<div class="to3top to2right">
+			<textarea id="inhaltsFormularwerteMethodenEx">
+			// obține valoarea din opțiunea selectată dintr-o listă dropdown
+			$('select#foo option:checked').val();
+			// obține valoarea dintr-o serie de butoane radio
+			$('input[type=radio][name=baz]:checked').val();
+
+			// returnează TRUE pentru următoarele
+			$.isNumeric(1); $.isNumeric("2");
+			$.isNumeric(+2); $.isNumeric(-3);
+			$.isNumeric(4.4); $.isNumeric(0xFF);
+		</textarea>
+		</div>
+		<span class="copyright bottom"><a href="http://www.cs.ubbcluj.ro/~sanda/teaching/subject/PWg/6/examples/methods.html" target="_blank">Exemple cu metodele</a></span>
+	</section>
+
+	<section class="slide">
+		<h2><span class="small">Metode pentru găsirea elementelor</span></h2>
+		<p class="large to3bottom">Cautarea și selectarea elementelor cu care să lucreze și pentru a parcurge DOM-ul.</p>
+		<span class="copyright bottom"><a href="http://eu.wiley.com/WileyCDA/WileyTitle/productCd-1118531647.html" target="_blank">JavaScript and jQuery: Interactive Front-End Web Development</a>, by <a href="http://eu.wiley.com/WileyCDA/Section/id-302479.html?query=Jon+Duckett"
+			  target="_blank">Jon Duckett</a>, July 2014 (@page 304)</span>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top"><span class="small">Metode pentru găsirea elementelor</span></h2>
+		<h3 class="to3top">Generale</h3>
+		<table class="small to4top">
+			<tr class="small">
+				<th>.find()</th>
+				<td>primește descendenții fiecărui element (<span class="small">filtrat de un selector, un obiect jQuery sau un element</span>)</td>
+			</tr>
+			<tr class="small">
+				<th>.closest()</th>
+				<td>primește primul element corespunzător parametrului</td>
+			</tr>
+			<tr class="small">
+				<th>.parent()</th>
+				<td>primește părintele fiecărui element</td>
+			</tr>
+			<tr class="small">
+				<th>.parents()</th>
+				<td>primește strămoșii fiecărui element</td>
+			</tr>
+			<tr class="small">
+				<th>.children()</th>
+				<td>primește copiii fiecărui element</td>
+			</tr>
+			<tr class="small">
+				<th>.siblings()</th>
+				<td>primește frații fiecărui element</td>
+			</tr>
+			<tr class="small">
+				<th>.next()</th>
+				<td>primește frații imediat următori ai fiecărui element</td>
+			</tr>
+			<tr class="small">
+				<th>.nextAll()</th>
+				<td>primește toți urmatorii frați ai fiecărui element</td>
+			</tr>
+			<tr class="small">
+				<th>.prev()</th>
+				<td>primește fratele imediat precedent al fiecărui element</td>
+			</tr>
+			<tr class="small">
+				<th>.prevAll()</th>
+				<td>primește toți frații precedenți ai fiecărui element</td>
+			</tr>
+		</table>
+		<span class="copyright bottom"><a href="http://eu.wiley.com/WileyCDA/WileyTitle/productCd-1118531647.html" target="_blank">JavaScript and jQuery: Interactive Front-End Web Development</a>, by <a href="http://eu.wiley.com/WileyCDA/Section/id-302479.html?query=Jon+Duckett"
+			  target="_blank">Jon Duckett</a>, July 2014 (@page 336)</span>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top"><span class="small">Metode pentru găsirea elementelor</span></h2>
+		<h3 class="to3top">Generale. Exemple</h3>
+		<div class="place center">
+			<div class="to2bottom">
+				<textarea id="auffindenElementeMethodenEx">
+			var $h2=$('h2');
+			$('ul').hide();
+			$h2.append('<a> show</a>');
+			$h2.on('click', function() {
+			  			  			 	  	$h2.next().next()
+			  			  			 	  				  			  			 	  	.fadeIn(1000)
+			  			  			 	  				  			  			 	  	.children('.hot')
+			  			  			 	  				  			  			 	  	.addClass('notice');
+			  			  			 	  	$h2.find('a').fadeOut();
+			});
+		</textarea>
+			</div>
+		</div>
+		<span class="copyright bottom"><a href="http://www.cs.ubbcluj.ro/~sanda/teaching/subject/PWg/6/examples/methods.html" target="_blank">Exemple cu metodele</a></span>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top"><span class="small">Metode pentru găsirea elementelor</span></h2>
+		<h3 class="to3top">Filtre/Teste</h3>
+		<table class="to2top">
+			<tr class="small">
+				<th>.filter()</th>
+				<td>reduce numărul de elemente pe care se aplică</td>
+			</tr>
+			<tr class="small">
+				<th>.not()</th>
+				<td>îndepărtează elementele parametrii din elementele pe care se aplică</td>
+			</tr>
+			<tr class="small">
+				<th><span class="to1top">.has()</span></th>
+				<td>reduce elementele pe care se aplică la cele ale căror descendenți se <br>potrivesc cu parametrul</td>
+			</tr>
+			<tr class="small">
+				<th>.is()</th>
+				<td>verifică elementele pe care se aplică față de parametru</td>
+			</tr>
+			<tr class="small">
+				<th>.contains()</th>
+				<td>verifică dacă un element DOM este descendent al unui alt element DOM</td>
+			</tr>
+		</table>
+		<span class="copyright bottom"><a href="http://eu.wiley.com/WileyCDA/WileyTitle/productCd-1118531647.html" target="_blank">JavaScript and jQuery: Interactive Front-End Web Development</a>, by <a href="http://eu.wiley.com/WileyCDA/Section/id-302479.html?query=Jon+Duckett"
+			  target="_blank">Jon Duckett</a>, July 2014 (@page 338)</span>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top"><span class="small">Metode pentru găsirea elementelor</span></h2>
+		<h3 class="to3top">Filtre/Teste. Exemple</h3>
+		<div class="place center">
+			<div class="to2bottom">
+				<textarea id="findenTestElementeMethodenEx">
+			var $listItems=$('li');
+			$listItems.filter('.hot:last').removeClass('hot');
+			$('li:not(.hot)').addClass('cool');
+			$listItems.has('strong').addClass('notice');
+			$listItems.each(function() {
+			  			  			 	  	var $this=$(this);
+			  			  			 	  	if($this.is('.hot')) {
+			  			  			 	  				  			  			 	  	$this.prepend('Priority item: ');
+			  			  			 	  	}
+			});
+			$('li:contains("seven")').append(' (7777)');
+		</textarea>
+			</div>
+		</div>
+		<span class="copyright bottom"><a href="http://www.cs.ubbcluj.ro/~sanda/teaching/subject/PWg/6/examples/methods.html" target="_blank">Exemple cu metodele</a></span>
+	</section>
+
+	<section class="slide">
+		<h2><span class="small">Metode pentru găsirea elementelor</span></h2>
+		<h3 class="to1top">Selecție după ordine</h3>
+		<table class="to2bottom">
+			<tr class="small">
+				<th>.eq()</th>
+				<td>returnează elementul specificat de parametrul index</td>
+			</tr>
+			<tr class="small">
+				<th>:lt()</th>
+				<td>selectează toate elementele cu index-ul &lt; decât index-ul dat ca parametru</td>
+			</tr>
+			<tr class="small">
+				<th>:gt()</th>
+				<td>selectează toate elementele cu index-ul &gt; decât index-ul dat ca parametru</td>
+			</tr>
+		</table>
+		<span class="copyright bottom"><a href="http://eu.wiley.com/WileyCDA/WileyTitle/productCd-1118531647.html" target="_blank">JavaScript and jQuery: Interactive Front-End Web Development</a>, by <a href="http://eu.wiley.com/WileyCDA/Section/id-302479.html?query=Jon+Duckett"
+			  target="_blank">Jon Duckett</a>, July 2014 (@page 338)</span>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top"><span class="small">Metode pentru găsirea elementelor</span></h2>
+		<h3 class="to3top">Selecție după ordine. Exemple</h3>
+		<div class="place center">
+			<div class="to2bottom">
+				<textarea id="reihenfolgeElementeMethodenEx">
+			$( "li" ).eq( 2 ).css( "background-color", "red" );
+			$( "td:lt(4)" ).css( "backgroundColor", "yellow" );
+			$( "td:gt(-2)" ).css( "color", "red" );
+			//Un număr negativ indică o poziție care începe la sfârșitul propoziției
+		</textarea>
+			</div>
+		</div>
+		<!-- <span class="copyright bottom"><a href="http://www.cs.ubbcluj.ro/~sanda/teaching/subject/PWg/6/examples/methods.html" target="_blank">Exemple cu metodele</a></span> -->
+	</section>
+
+	<section class="slide">
+		<h2 class="">Dimensiune</h2>
+		<p class="em to1top">- obținerea sau actualizarea dimensiunii unui element</p>
+		<table class="small to1bottom">
+			<tr class="small">
+				<th>.height()</th>
+				<td>obține înălțimea pentru primul element sau stabilește înălțimea fiecărui element</td>
+			</tr>
+			<tr class="small">
+				<th>.width()</th>
+				<td>obține lățimea pentru primul element sau stabilește lățimea fiecărui element</td>
+			</tr>
+			<tr class="small">
+				<th>.innerHeight()</th>
+				<td>obține/stabilește înălțimea interioară include <span class="dimText">padding</span>, dar fără <span class="dimText">border</span></td>
+			</tr>
+			<tr class="small">
+				<th>.innerWidth()</th>
+				<td>obține/stabilește lățimea interioară include <span class="dimText">padding</span>, dar fără <span class="dimText">border</span></td>
+			</tr>
+			<tr class="small">
+				<th>.outerHeight()</th>
+				<td>obține/stabilește înălțimea exterioară include <span class="dimText">padding</span>, <span class="dimText">border</span> și opțional și <span class="dimText">margin</span></td>
+			</tr>
+			<tr class="small">
+				<th>.outerWidth()</th>
+				<td>obține/stabilește lățimea exterioară include <span class="dimText">padding</span>, <span class="dimText">border</span> și opțional și <span class="dimText">margin</span></td>
+			</tr>
+		</table>
+		<span class="copyright bottom"><a href="http://eu.wiley.com/WileyCDA/WileyTitle/productCd-1118531647.html" target="_blank">JavaScript and jQuery: Interactive Front-End Web Development</a>, by <a href="http://eu.wiley.com/WileyCDA/Section/id-302479.html?query=Jon+Duckett"
+			  target="_blank">Jon Duckett</a>, July 2014 (@page 348-350)</span>
+	</section>
+
+	<section class="slide">
+		<h2>Dimensiune (Cont.)</h2>
+		<div class="columns two">
+			<table class="small to4bottom to1right">
+				<tr class="small">
+					<th>$(document).height()</th>
+					<td></td>
+				</tr>
+				<tr class="small">
+					<th>$(document).width()</th>
+					<td></td>
+				</tr>
+				<tr class="small">
+					<th>$(window).height()</th>
+					<td></td>
+				</tr>
+				<tr class="small">
+					<th>$(window).width()</th>
+					<td></td>
+				</tr>
+			</table>
+			<img src="../../PWg/6/img/window.png" alt="" width="500" class="tofront">
+		</div>
+		<span class="copyright bottom"><a href="http://eu.wiley.com/WileyCDA/WileyTitle/productCd-1118531647.html" target="_blank">JavaScript and jQuery: Interactive Front-End Web Development</a>, by <a href="http://eu.wiley.com/WileyCDA/Section/id-302479.html?query=Jon+Duckett"
+			  target="_blank">Jon Duckett</a>, July 2014 (@page 348-350)</span>
+	</section>
+
+	<section class="slide">
+		<h2>Dimensiune. Exemple</h2>
+		<div class="place center">
+			<div class="to2bottom">
+				<textarea id="dimensionMethodenEx">
+			function showWidth( ele, w ) {
+			  			  			 	  	$( "div" ).text( "The width for the " + ele + " is " + w + "px." );
+			}
+			$( "#getp" ).click(function() {
+			  			  			 	  	showWidth( "paragraph", $( "p" ).width() );
+			});
+			$( "#getd" ).click(function() {
+			  			  			 	  	showWidth( "document", $( document ).width() );
+			});
+			$("#getw").click(function() {
+			  			  			 	  	showWidth( "window", $( window ).width() );
+			});
+				</textarea>
+			</div>
+		</div>
+		<!-- <span class="copyright bottom"><a href="http://www.cs.ubbcluj.ro/~sanda/teaching/subject/PWg/6/examples/methods.html" target="_blank">Exemple cu metodele</a></span> -->
+	</section>
+
+	<section class="slide">
+		<h2>Poziție</h2>
+		<p class="em to1top">- obține sau stabilește poziția unui element</p>
+		<table class="small to2bottom">
+			<tr class="small">
+				<th><span class="to1top">.offset()</span></th>
+				<td>coordonatele elementului în raport cu <br>colțul din stânga sus al documentului</td>
+			</tr>
+			<tr class="small">
+				<th><span class="to1top">.position()</span></th>
+				<td>coordonatele elementului față de <br>un strămoș preluat din fluxul normal</td>
+			</tr>
+			<tr class="small">
+				<th>.scrollLeft()</th>
+				<td>preia poziția orizontală a barei de derulare (<span class="small dimText">scroll</span>)</td>
+			</tr>
+			<tr class="small">
+				<th>.scrollTop()</th>
+				<td>preia poziția verticală a barei de derulare (<span class="small dimText">scroll</span>)</td>
+			</tr>
+		</table>
+		<div class="place right">
+			<img src="../../PWg/6/img/position.png" alt="" width="400" class="to2left to3top">
+		</div>
+		<span class="copyright bottom"><a href="http://eu.wiley.com/WileyCDA/WileyTitle/productCd-1118531647.html" target="_blank">JavaScript and jQuery: Interactive Front-End Web Development</a>, by <a href="http://eu.wiley.com/WileyCDA/Section/id-302479.html?query=Jon+Duckett"
+			  target="_blank">Jon Duckett</a>, July 2014 (@page 350-351)</span>
+	</section>
+
+	<section class="slide">
+		<h2>Poziție. Exemple</h2>
+		<div class="place center">
+			<div class="to2bottom">
+				<textarea id="positionMethodenEx">
+			var p = $( "p:last" );
+			var offset = p.offset();
+			p.html( "left: " + offset.left + ", top: " + offset.top );
+
+			var p = $( "p:first" );
+			var position = p.position();
+			$( "p:last" ).text( "left: " + position.left + ", top: " + position.top );
+
+			var p = $( "p:first" );
+			$( "p:last" ).text( "scrollLeft:" + p.scrollLeft() );
+		</textarea>
+			</div>
+		</div>
+		<!-- <span class="copyright bottom"><a href="http://www.cs.ubbcluj.ro/~sanda/teaching/subject/PWg/6/examples/methods.html" target="_blank">Exemple cu metodele</a></span> -->
+	</section>
+
+	<section class="slide">
+		<h2>Efecte și metode de animație</h2>
+		<h3 class="to1top">De bază (<span class="small dimText">Basic</span>)</h3>
+		<table class="to1bottom">
+			<tr class="small">
+				<th>.show()</th>
+				<td>afișează elementele pe care se aplică</td>
+			</tr>
+			<tr class="small">
+				<th>.hide()</th>
+				<td>ascunde elementele pe care se aplică </td>
+			</tr>
+			<tr class="small">
+				<th>.toggle()</th>
+				<td>afișează sau ascunde elementele pe care se aplică</td>
+			</tr>
+		</table>
+		<span class="copyright bottom"><a href="http://eu.wiley.com/WileyCDA/WileyTitle/productCd-1118531647.html" target="_blank">JavaScript and jQuery: Interactive Front-End Web Development</a>, by <a href="http://eu.wiley.com/WileyCDA/Section/id-302479.html?query=Jon+Duckett"
+			  target="_blank">Jon Duckett</a>, July 2014 (@page 332)</span>
+	</section>
+
+	<section class="slide">
+		<h2>Efecte și metode de animație</h2>
+		<h3 class="to1top dimText">Fading</h3>
+		<table class="to1bottom">
+			<tr class="small">
+				<th>.fadeIn()</th>
+				<td>afișează elementele pe care se aplică devenind opace</td>
+			</tr>
+			<tr class="small">
+				<th>.fadeOut()</th>
+				<td>ascunde elementele pe care se aplică devenind transparente</td>
+			</tr>
+			<tr class="small">
+				<th>.fadeTo()</th>
+				<td>reglează opacitatea elementelor pe care se aplică </td>
+			</tr>
+			<tr class="small">
+				<th><span class="to1top">.fadeToggle()</span></th>
+				<td>afișează sau ascunde elementele pe care se aplică prin <br>opacitatea animată</td>
+			</tr>
+		</table>
+		<span class="copyright bottom"><a href="http://eu.wiley.com/WileyCDA/WileyTitle/productCd-1118531647.html" target="_blank">JavaScript and jQuery: Interactive Front-End Web Development</a>, by <a href="http://eu.wiley.com/WileyCDA/Section/id-302479.html?query=Jon+Duckett"
+			  target="_blank">Jon Duckett</a>, July 2014 (@page 332)</span>
+	</section>
+
+	<section class="slide">
+		<h2>Efecte și metode de animație</h2>
+		<h3 class="to1top">Alunecare (<span class="small dimText">Sliding</span>)</h3>
+		<table class="to1bottom">
+			<tr class="small">
+				<th>.slideDown()</th>
+				<td>afișează elementele pe care se aplică cu o mișcare de alunecare în jos</td>
+			</tr>
+			<tr class="small">
+				<th>.slideUp()</th>
+				<td>ascunde elementele pe care se aplică cu o mișcare de alunecare în sus</td>
+			</tr>
+			<tr class="small">
+				<th><span class="to1top">.slideToggle()</span></th>
+				<td>afișează sau ascunde elementele pe care se aplică cu o mișcare de <br>alunecare</td>
+			</tr>
+		</table>
+		<span class="copyright bottom"><a href="http://eu.wiley.com/WileyCDA/WileyTitle/productCd-1118531647.html" target="_blank">JavaScript and jQuery: Interactive Front-End Web Development</a>, by <a href="http://eu.wiley.com/WileyCDA/Section/id-302479.html?query=Jon+Duckett"
+			  target="_blank">Jon Duckett</a>, July 2014 (@page 332)</span>
+	</section>
+
+	<section class="slide">
+		<h2>Efecte și metode de animație</h2>
+		<h3 class="to1top">Personalizat (<span class="small dimText">Custom</span>)</h3>
+		<table class="to1bottom">
+			<tr class="small">
+				<th><span class="to1top">.delay()</span></th>
+				<td>stabilește un cronometru pentru a întârzia executarea<br> unei acțiuni pe elementele</td>
+			</tr>
+			<tr class="small">
+				<th>.stop()</th>
+				<td>oprește animația curentă a elementelor pe care se aplică</td>
+			</tr>
+			<tr class="small">
+				<th><span class="to1top">.animate()</span></th>
+				<td>efectuează o animație personalizată a unui set de <br>proprietăți CSS</td>
+			</tr>
+		</table>
+		<span class="copyright bottom"><a href="http://eu.wiley.com/WileyCDA/WileyTitle/productCd-1118531647.html" target="_blank">JavaScript and jQuery: Interactive Front-End Web Development</a>, by <a href="http://eu.wiley.com/WileyCDA/Section/id-302479.html?query=Jon+Duckett"
+			  target="_blank">Jon Duckett</a>, July 2014 (@page 332)</span>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">Efecte și metode de animație</h2>
+		<h3 class="to3top">Exemple</h3>
+		<div class="place center">
+			<div class="to2bottom">
+				<textarea id="effekteAnimationsMethodenEx">
+			$('h2').hide().slideDown();
+      var $li=$('li');
+      $li.hide().each(function(index){
+			  			  			 	  	$(this).delay(700*index).fadeIn(700);
+      });
+      $li.on('click', function() {
+			  			  			 	  	$(this).fadeOut(700);
+      });
+		</textarea>
+			</div>
+		</div>
+		<span class="copyright bottom"><a href="http://www.cs.ubbcluj.ro/~sanda/teaching/subject/PWg/6/examples/methods.html" target="_blank">Exemple cu metodele</a></span>
+	</section>
+
+	<section class="slide">
+		<h2>Efecte și metode de animație</h2>
+		<h3 class="to1top">Animarea proprietăților CSS</h3>
+		<div class="place center">
+			<img src="../../../2016-2017/PWg/curs6/images/animate.png" alt=".animate() method" class="to3bottom" width="700">
+		</div>
+		<span class="copyright bottom"><a href="http://eu.wiley.com/WileyCDA/WileyTitle/productCd-1118531647.html" target="_blank">JavaScript and jQuery: Interactive Front-End Web Development</a>, by <a href="http://eu.wiley.com/WileyCDA/Section/id-302479.html?query=Jon+Duckett"
+			  target="_blank">Jon Duckett</a>, July 2014 (@page 334)</span>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">Efecte și metode de animație</h2>
+		<h3 class="to3top">Animarea proprietăților CSS. Exemple</h3>
+		<div class="place center">
+			<div class="to2bottom">
+				<textarea id="cssAnimationsMethodenEx">
+			$('li').on('click', function() {
+			  			  			 	  	$(this).animate({
+			  			  			 	  				  			  			 	  	opacity: 0.0,
+			  			  			 	  				  			  			 	  	paddingLeft: '+=80'
+			  			  			 	  	}, 500, function() {
+			  			  			 	  				  			  			 	  	// când animația este finalizată
+			  			  			 	  				  			  			 	  	$(this).remove();
+			  			  			 	  	});
+      });
+		</textarea>
+			</div>
+		</div>
+		<span class="copyright bottom"><a href="http://www.cs.ubbcluj.ro/~sanda/teaching/subject/PWg/6/examples/methods.html" target="_blank">Exemple cu metodele</a></span>
+	</section>
+
+	<section class="slide">
+		<h2><span class="small">Lucrul cu DOM. Diferențe față de JavaScript</span></h2>
+		<ul class="small to5bottom">
+			<li class="to3top">Este <span class="strong dimText">Cross-Browser</span> => nu este nevoie să se scrie <span class="dimText">Fallback-Code</span></li>
+			<li class="to2top">Metodele afectează <span class="strong">toate elementele selectate</span> fără a trebui să treacă prin fiecare element individual</li>
+			<li class="to1top">Pentru sarcinile frecvente, sunt furnizate <span class="strong">metode suplimentare</span> (<span class="small">de exemplu, <span class="em">animații</span></span>)</li>
+			<li>Odată ce o selecție a fost făcută, pot fi utilizate <span class="strong">mai multe metode</span></li>
+		</ul>
+		<span class="copyright bottom"><a href="http://eu.wiley.com/WileyCDA/WileyTitle/productCd-1118531647.html" target="_blank">JavaScript and jQuery: Interactive Front-End Web Development</a>, by <a href="http://eu.wiley.com/WileyCDA/Section/id-302479.html?query=Jon+Duckett"
+			  target="_blank">Jon Duckett</a>, July 2014 (@page 297)</span>
+	</section>
+
+	<section class="slide">
+		<h2 class="shout">Gestionarea evenimentelor <br>(<span class="dimText">Events handling</span>)</h2>
+	</section>
+
+
+	<section class="slide">
+		<h2><span class="small">Gestionarea evenimentelor (<span class="small dimText">Events handling</span>)</span></h2>
+		<p class="to1top em">- creează <span class="dimText strong">event listeners</span> pentru fiecare element din selecție</p>
+		<p class="small">Anterior, au existat metode pentru tipurile de evenimente individuale (de exemplu
+			<code class="small">.click()</code>, <code class="small">.hover()</code>, <code class="small">.submit()</code>).
+			Se recomandă să utilizeze pentru interacțiunea utilizatorului numai <code class="small strong">.on()</code>.</p>
+		<img src="../../PWg/6/img/on.png" alt="Complete set of parameters for .on() method" class="to2bottom" width="800" />
+		<span class="copyright bottom"><a href="http://eu.wiley.com/WileyCDA/WileyTitle/productCd-1118531647.html" target="_blank">JavaScript and jQuery: Interactive Front-End Web Development</a>, by <a href="http://eu.wiley.com/WileyCDA/Section/id-302479.html?query=Jon+Duckett"
+			  target="_blank">Jon Duckett</a>, July 2014 (@page 330)</span>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top"><span class="small">Gestionarea evenimentelor (<span class="small dimText">Events handling</span>)</span></h2>
+		<h3 class="to3top">Evenimente jQuery</h3>
+		<p class="small em to4top">Evenimentele suplimentare adăugate de jQuery sunt marcate cu <span class="attention">*</span>.</p>
+		<table class="small to3top">
+			<tr>
+				<td>UI</td>
+				<td><span class="to1right">focus, blur, change</span></td>
+			</tr>
+			<tr>
+				<td>KEYBOARD</td>
+				<td><span class="to1right">input, keydown, keyup, keypressed</span></td>
+			</tr>
+			<tr>
+				<td>MOUSE</td>
+				<td><span class="to1right">click, dblclick, mouseup, mousedown, mouseover, mousemove, mouseout, hover<sup class="attention">*</sup></span></td>
+			</tr>
+			<tr>
+				<td>FORM</td>
+				<td><span class="to1right">submit, select, change</span></td>
+			</tr>
+			<tr>
+				<td>DOCUMENT</td>
+				<td><span class="to1right">
+						<!-- ready<sup class="attention">*</sup>,  -->load, unload<sup class="attention">*</sup></span></td>
+			</tr>
+			<tr>
+				<td>BROWSER</td>
+				<td><span class="to1right">error, resize, scroll</span></td>
+			</tr>
+		</table>
+		<span class="copyright bottom"><a href="http://eu.wiley.com/WileyCDA/WileyTitle/productCd-1118531647.html" target="_blank">JavaScript and jQuery: Interactive Front-End Web Development</a>, by <a href="http://eu.wiley.com/WileyCDA/Section/id-302479.html?query=Jon+Duckett"
+			  target="_blank">Jon Duckett</a>, July 2014 (@page 326)</span>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top"><span class="small">Gestionarea evenimentelor (<span class="small dimText">Events handling</span>)</span></h2>
+		<h3 class="to3top">Exemple</h3>
+		<div class="place center">
+			<div class="to2bottom">
+				<textarea id="ereignisMethodenEx">
+			var ids='';
+      var $listItems=$('li');
+      $listItems.on('mouseover click', function() {
+			  			  			 	  	ids=this.id;
+			  			  			 	  	$listItems.children('span').remove();
+			  			  			 	  	$(this).append(' <span class="favorite">'+ids+'</span>');
+      });
+      $listItems.on('mouseout', function() {
+			  			  			 	  	$listItems.children('span').remove();
+      });
+		</textarea>
+			</div>
+		</div>
+		<span class="copyright bottom"><a href="http://www.cs.ubbcluj.ro/~sanda/teaching/subject/PWg/6/examples/methods.html" target="_blank">Exemple cu metodele</a></span>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top"><span class="small">Gestionarea evenimentelor (<span class="small dimText">Events handling</span>)</span></h2>
+		<h3 class="to3top">.ready()</h3>
+		<p class="to4top small em">- specifică o funcție de executat atunci când DOM este încărcat complet</p>
+		<span class="to4right to2top"> obiect jQuery <span class="to3right"><span class="to5right"><span class="to1right">metoda <span class="dimText">ready</span></span></span></span></span>
+		<img src="../../PWg/6/img/ready.png" alt=".ready() method" class="to2top to2right" width="700" />
+		<span class="copyright bottom"><a href="http://eu.wiley.com/WileyCDA/WileyTitle/productCd-1118531647.html" target="_blank">JavaScript and jQuery: Interactive Front-End Web Development</a>, by <a href="http://eu.wiley.com/WileyCDA/Section/id-302479.html?query=Jon+Duckett"
+			  target="_blank">Jon Duckett</a>, July 2014 (@page 312)</span>
+		<footer class="notes"><strong>$(document)</strong> creates JQuery object representing the page.
+			When the page is ready the function inside the pharantesis of <strong>.ready()</strong> method is run.
+			<br><br>
+			<strong>.load()</strong> or <strong>.on('load')</strong> fires after the page and all its resources
+			(images, CSS and scripts) have loaded. Recomandation: when one needs for instance the dimension of an image.
+			<br><br>
+			<strong>.ready()</strong> fires as soon as the DOM has loaded.
+			<br><br>
+			When the code is placed at the end of the page (before the closing <strong>&lt;/body&gt;</strong> tag)
+			the HTML will have loaded into the DOM before the script runs.
+		</footer>
+	</section>
+
+	<section class="slide">
+		<h2><span class="small">Gestionarea evenimentelor (<span class="small dimText">Events handling</span>)</span></h2>
+		<h3 class="to1top">Forma scurtă a metodei .ready()</h3>
+		<span class="to2right">Forma scurtă a metodei <span class="dimText">ready</span> aplicată pe obiectul document</span>
+		<img src="../../PWg/6/img/short_ready.png" alt=".ready() method" class="to5right" width="500" />
+		<span class="copyright bottom"><a href="http://eu.wiley.com/WileyCDA/WileyTitle/productCd-1118531647.html" target="_blank">JavaScript and jQuery: Interactive Front-End Web Development</a>, by <a href="http://eu.wiley.com/WileyCDA/Section/id-302479.html?query=Jon+Duckett"
+			  target="_blank">Jon Duckett</a>, July 2014 (@page 313)</span>
+	</section>
+
+	<section class="slide">
+		<h2><span class="small">Gestionarea evenimentelor (<span class="small dimText">Events handling</span>)</span></h2>
+		<h3 class="to1top">Proprietățile obiectului <span class="dimText">Event</span></h3>
+		<table class="small to1top">
+			<tr>
+				<td class="strong">type</td>
+				<td>Tipul evenimentului (de exemplu, <em>click</em>, <em>mouseover</em>)</td>
+			</tr>
+			<tr>
+				<td class="strong">which</td>
+				<td>Tasta care a fost apăsată</td>
+			</tr>
+			<tr>
+				<td class="strong">data</td>
+				<td>Obiect care conține informații suplimentare</td>
+			</tr>
+			<tr>
+				<td class="strong">target</td>
+				<td>Elementul DOM care a inițiat evenimentul</td>
+			</tr>
+			<tr>
+				<td class="strong">pageX</td>
+				<td>Poziția mouse-ului de la marginea din stânga a ferestrei</td>
+			</tr>
+			<tr>
+				<td class="strong">pageY</td>
+				<td>Poziția mouse-ului din partea de sus a ferestrei</td>
+			</tr>
+			<tr>
+				<td class="strong">timeStamp</td>
+				<td>Numărul de milisecunde din 1 ianuarie 1970</td>
+			</tr>
+		</table>
+		<span class="copyright bottom"><a href="http://eu.wiley.com/WileyCDA/WileyTitle/productCd-1118531647.html" target="_blank">JavaScript and jQuery: Interactive Front-End Web Development</a>, by <a href="http://eu.wiley.com/WileyCDA/Section/id-302479.html?query=Jon+Duckett"
+			  target="_blank">Jon Duckett</a>, July 2014 (@page 328)</span>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top"><span class="small">Gestionarea evenimentelor (<span class="small dimText">Events handling</span>)</span></h2>
+		<h3 class="to3top">Proprietățile obiectului <span class="dimText">Event</span>. Exemple</h3>
+		<div class="place center">
+			<div class="to2bottom">
+				<textarea id="ereignisObjektEigenEx">
+				$('li').on('click', function(e) {
+				  			  			 	  	eventType=e.type;
+				  			  			 	  	console.log('type: '+e.type +', target: '+e.target +', pageX: '+e.pageX +
+				  			  			 	  				  			  			 	  				  			  			 	  				  			  			 	  	', pageY: '+e.pageY +', timeStamp: '+e.timeStamp);
+				});
+
+				var listItem, itemStatus, eventType;
+	      $('ul').on(
+				  			  			 	  	'click mouseover',
+				  			  			 	  	':not(#tenth)',
+				  			  			 	  	{status:'important'},
+				  			  			 	  	function(e) {
+				  			  			 	  				  			  			 	  	listItem='Item: ' + e.target.textContent + '<br />';
+				  			  			 	  				  			  			 	  	itemStatus='Status: ' + e.data.status + '<br />';
+				  			  			 	  				  			  			 	  	eventType='Event: '+ e.type;
+				  			  			 	  				  			  			 	  	$('#notes').html(listItem + itemStatus + eventType);
+				  			  			 	  	}
+	      );
+			</textarea>
+			</div>
+		</div>
+		<span class="copyright bottom"><a href="http://www.cs.ubbcluj.ro/~sanda/teaching/subject/PWg/6/examples/methods.html" target="_blank">Exemple cu metodele</a></span>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top"><span class="small">Gestionarea evenimentelor (<span class="small dimText">Events handling</span>)</span></h2>
+		<h3 class="to3top">Proprietățile obiectului <span class="dimText">Event</span></h3>
+		<table class="to4top small">
+			<tr>
+				<td>.preventDefault()</td>
+				<td>previne comportamentul implicit (de ex. trimiterea datelor unui formular)</td>
+			</tr>
+			<tr>
+				<td>.stopPropagation()</td>
+				<td>oprește propagarea evenimentului către strămoși în DOM</td>
+			</tr>
+		</table>
+		<div class="place center">
+			<div class="to5bottom">
+				<textarea id="ereignisObjektMethodenEx">
+			$( "a" ).on('click', function( event ) {
+				  			  			 	  	event.preventDefault();
+				  			  			 	  	// Do something
+			});
+
+			$( "p" ).on('click', function( event ) {
+				  			  			 	  	event.stopPropagation();
+				  			  			 	  	// Do something
+			});
+		</textarea>
+			</div>
+		</div>
+		<!-- <span class="copyright bottom"><a href="http://eu.wiley.com/WileyCDA/WileyTitle/productCd-1118531647.html" target="_blank">JavaScript and jQuery: Interactive Front-End Web Development</a>, by <a href="http://eu.wiley.com/WileyCDA/Section/id-302479.html?query=Jon+Duckett" target="_blank">Jon Duckett</a>, July 2014 (@page 328)</span> -->
+	</section>
+
+	<section class="slide">
+		<h2>Avantaje jQuery</h2>
+		<ul class="to5right">
+			<li>Selectori simpli;</li>
+			<li>Specificarea de activități obișnuite în mai puțin cod
+				<ul class="dimText small to4right">
+					<li>parcurgerea elementelor</li>
+					<li>adăugarea/eliminarea elementelor în/din DOM</li>
+					<li>tratarea evenimentelor</li>
+					<li>afișarea/ascunderea elementelor</li>
+					<li>apelurile AJAX</li>
+				</ul>
+			</li>
+			<li>Compatibilitatea <span class="dimText">cross-browser</span></li>
+		</ul>
+		<span class="copyright bottom"><a href="http://eu.wiley.com/WileyCDA/WileyTitle/productCd-1118531647.html" target="_blank">JavaScript and JQuery: Interactive Front-End Web Development</a>, by <a href="http://eu.wiley.com/WileyCDA/Section/id-302479.html?query=Jon+Duckett"
+			  target="_blank">Jon Duckett</a>, July 2014 (@page 300-301)</span>
+	</section>
+
+	<section class="slide">
+		<div class="place center">
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/-Hw_vlEb8zU" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		</div>
+		<span class="copyright bottom"><a href="http://roubenmeschian.com/tuts/lessons/JQuery.html" target="_blank">http://roubenmeschian.com/tuts/lessons/JQuery.html</a></span>
+	</section>
+
+	<section class="slide">
+		<h2 class="shout">Sfârșit</h2>
+	</section>
+
+	<div class="progress"></div>
+
+	<footer class="badge">
+		<a href="http://www.cs.ubbcluj.ro/~sanda/html/feedback/">
+			<svg width="200" height="100" viewBox="100 50 200 100" aria-hidden="true">
+				<path id="path0" d="M192.857 19.359 C 129.640 25.381,95.764 95.850,130.742 148.571 C 166.258 202.102,247.229 196.406,275.020 138.422 C 302.762 80.540,256.367 13.309,192.857 19.359 M243.212 50.267 C 248.480 52.892,253.304 59.531,253.323 64.182 C 253.340 68.326,252.460 69.619,243.488 78.642 L 235.115 87.062 236.604 90.637 C 241.855 103.251,241.486 117.302,235.587 129.401 L 234.121 132.407 237.217 144.061 C 238.920 150.470,240.181 155.714,240.019 155.714 C 239.857 155.714,234.625 154.344,228.392 152.670 L 217.059 149.625 213.172 151.446 C 185.904 164.219,153.666 147.848,147.512 118.102 C 139.960 81.597,177.084 51.348,211.734 65.773 L 215.319 67.266 223.736 58.896 C 234.308 48.383,237.020 47.181,243.212 50.267 M211.578 71.071 C 209.738 72.970,208.101 74.952,207.941 75.476 C 206.651 79.701,201.429 99.459,201.429 100.117 C 201.429 101.347,202.027 101.244,214.526 97.848 C 228.731 93.988,227.772 94.401,231.660 90.483 L 234.915 87.203 233.291 84.510 C 229.796 78.714,224.661 73.497,218.589 69.572 C 214.838 67.148,215.521 67.002,211.578 71.071 M220.589 81.780 C 230.210 91.385,230.178 91.881,219.740 94.778 L 213.095 96.622 209.427 92.954 L 205.759 89.286 207.603 82.641 C 210.496 72.216,210.978 72.184,220.589 81.780 M165.119 104.800 C 162.809 106.146,162.273 109.708,164.060 111.833 C 167.120 115.469,172.381 113.399,172.381 108.558 C 172.381 105.408,167.983 103.132,165.119 104.800 M191.096 104.856 C 189.665 105.547,188.407 108.326,188.803 109.921 C 189.562 112.978,192.905 114.548,195.642 113.132 C 201.214 110.251,196.751 102.124,191.096 104.856 M216.227 105.519 C 214.995 106.556,214.762 107.088,214.762 108.873 C 214.762 113.567,220.260 115.479,223.042 111.753 C 226.383 107.279,220.514 101.911,216.227 105.519 ">
+				</path>
+			</svg>
+			Lăsați <br>un feedback
+		</a>
+	</footer>
+	<script src="../../../../includes/js/shower.min.js"></script>
+	<script src="../../../../includes/codemirror/lib/codemirror.js"></script>
+	<script src="../../../../includes/codemirror/addon/edit/matchbrackets.js"></script>
+	<script src="../../../../includes/codemirror/addon/selection/selection-pointer.js"></script>
+	<script src="../../../../includes/codemirror/mode/xml/xml.js"></script>
+	<script src="../../../../includes/codemirror/mode/javascript/javascript.js"></script>
+	<script src="../../../../includes/codemirror/mode/css/css.js"></script>
+	<script src="../../../../includes/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+	<script src="../../../../includes/codemirror/mode/http/http.js"></script>
+	<script src="../../script.js"></script>
+	<script src="../script.js"></script>
+	<script>
+	set('basicSelectors', 'javascript', 800, 250, 18, 22);
+	set('hierarchySelectors', 'javascript', 800, 160, 18, 22);
+	set('grundFilterEx', 'javascript', 820, 360, 15, 15);
+	set('inhaltsFilterEx', 'javascript', 820, 240, 18, 22);
+	set('sichtbarkeitsFilterEx', 'javascript', 820, 100, 18, 16);
+	set('childFilterEx', 'javascript', 820, 190, 18, 20);
+	set('attributFilterEx', 'javascript', 850, 250, 17, 20);
+	set('inhaltsFilterMethodenEx', 'javascript', 600, 250, 17, 20);
+	set('inhaltsElementeMethodenEx', 'javascript', 700, 220, 17, 20);
+	set('inhaltsAttributeMethodenEx', 'javascript', 400, 330, 17, 20);
+	set('inhaltsFormularwerteMethodenEx', 'javascript', 750, 340, 17, 20);
+	set('auffindenElementeMethodenEx', 'javascript', 350, 360, 17, 20);
+	set('findenTestElementeMethodenEx', 'javascript', 540, 360, 17, 20);
+	set('reihenfolgeElementeMethodenEx', 'javascript', 540, 160, 17, 20);
+	set('dimensionMethodenEx', 'javascript', 800, 360, 17, 13);
+	set('positionMethodenEx', 'javascript', 800, 365, 17, 20);
+	set('effekteAnimationsMethodenEx', 'javascript', 450, 285, 17, 20);
+	set('cssAnimationsMethodenEx', 'javascript', 500, 285, 17, 20);
+	set('ereignisMethodenEx', 'javascript', 600, 300, 15, 15);
+	set('ereignisObjektEigenEx', 'javascript', 800, 385, 15, 5);
+	set('ereignisObjektMethodenEx', 'javascript', 550, 235, 15, 5);
+	set('dom', mixedMode, 400, 350, 18, 18);
+
+	</script>
+</body>
+
+</html>

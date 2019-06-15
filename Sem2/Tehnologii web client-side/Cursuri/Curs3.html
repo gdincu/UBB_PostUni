@@ -1,0 +1,548 @@
+
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+	<title>Tehnologii Web Client-Side</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="../../style.css">
+		<link rel="stylesheet" href="../style.css">
+		<style media="screen">
+			.circle {
+				display: inline-block;
+				width: 1em;
+				height: 1em;
+				-webkit-border-radius: .75em;
+				-moz-border-radius: .75em;
+				border-radius: .75em;
+				border: .1em solid rgb(225,225,225);
+				background-color: rgb(237,108,83);
+				text-align: center;
+				padding: .125em;
+				font: .75em "Palatino Linotype", "Book Antiqua", Palatino, serif;
+			}
+		</style>
+</head>
+<body class="shower list">
+
+    <header class="caption">
+        <h1>Tehnologii Web Client-Side, Curs 3</h1>
+        <p><a href="http://www.cs.ubbcluj.ro/~sanda">Sanda-Maria AVRAM</a>, Ph. D.</p>
+    </header>
+
+		<section class="slide">
+			<h2>Conținut:</h2>
+			<dl class="to5right">
+				<dt class="strong">HTTP – HyperText Transfer Protocol</dt>
+				<dd class="">Noțiuni de bază, resurse, URL</dd>
+				<dt>Cerere HTTP</dt>
+				<dd class="small">Verbele HTTP, antetele de cerere HTTP</dd>
+				<dt>Răspunsul HTTP</dt>
+				<dd class="small">Coduri de stare HTTP, anteturi de răspuns HTTP</dd>
+				<dt class="to1bottom">Instrumente pentru dezvoltatorii web - <span class="small">Chrome Developer Tools</span></dt>
+				<dd></dd>
+			</dl>
+			<span class="small em copyright bottom ">Curs de formare şi dezvoltare profesională în Informatică. Studii postuniversitare.
+			</span>
+		</section>
+
+		<section class="slide">
+			<h2>HTTP (<span class="small">HyperText Transfer Protocol</span>)</h2>
+			<ul class="to2bottom to3right">
+				<li>este un protocol <strong>cerere-răspuns</strong> (<span class="dimText">Request-Response</span>)</li>
+				<li>nu are <strong>stare</strong> (nu menține starea unei sesiuni) și
+					<strong>asincron</strong> (un document HTML este încărcat asincron de browser în momentul în care sunt disponibile părți din acesta)</li>
+				<li class="to2bottom">este standardizată de IETF (RFC 2616)</li>
+			</ul>
+			<footer class="notes">
+				The Hypertext Transfer Protocol (HTTP) is an application-level protocol for distributed, collaborative, hypermedia information systems. This is the foundation for data communication for the World Wide Web (i.e. internet) since 1990. HTTP is a
+				generic and stateless protocol which can be used for other purposes as well using extensions of its request methods, error codes, and headers.
+			</footer>
+		</section>
+
+		<section class="slide">
+			<h2>HTTP - Versiuni</h2>
+			<dl>
+				<dt class="strong">HTTP/0.9</dt>
+				<dd class="small">prima versiune a lui Tim Berners-Lee și a echipei sale.</dd>
+				<dt class="strong">HTTP/1.0</dt>
+				<dd>o nouă conexiune este utilizată pentru fiecare schimb de cereri/răspunsuri
+					(<span class="small">versiunea creată în 1996 și standardizată în RFC 1945</span>).</dd>
+				<dt class="strong">HTTP/1.1</dt>
+				<dd>O conexiune poate fi utilizată pentru una sau mai multe schimburi de cereri/răspunsuri.</dd>
+			</dl>
+		</section>
+
+		<section class="slide">
+			<h2>HTTP-Elemente de bază</h2>
+			<img src="../../PWg/7/img/HTTPreq_res.png" alt="HTTP request-response" class="to2right to3bottom" />
+			<footer class="notes">
+				<p>
+					A browser is an HTTP client because it sends requests to an HTTP server (Web server), which then sends responses back to the client.
+				</p>
+				<p>
+					The communication usually takes place over TCP/IP, but any reliable transport can be used. The default port for TCP/IP is 80, but other ports can also be used.
+				</p>
+				<p>
+					Communication between a host and a client occurs, via a request/response pair. The client initiates an HTTP request message, which is serviced through a HTTP response message in return.
+				</p>
+			</footer>
+		</section>
+
+		<section class="slide">
+			<h2>Ce sunt "resursele"?</h2>
+			<div class="to3right">
+				<span>HTTP este folosit pentru a transfera <em>resurse</em>: </span>
+				<ul class="small to5right">
+					<li>un fișier;</li>
+					<li>un rezultat de interogare generat dinamic;</li>
+					<li>ieșirea (<span class="dimText">output</span>-ul) unui script CGI;</li>
+					<li>un document disponibil în mai multe limbi;</li>
+					<li>altceva.</li>
+				</ul>
+				<p>O <em>resursă</em> este o informație care poate fi identificată printr-o adresă URL (este <strong>R</strong>-ul din <strong>URL</strong>).</p>
+			</div>
+		</section>
+
+		<section class="slide clear">
+			<img src="../../PWg/1/img/url-anatomy.png" alt="Non-SEO HTTP URL Anatomy" class="cover" />
+			<span class="copyright right">
+				<a href="https://cascadingmedia.com/insites/2015/02/url-anatomy-seo-tips.html" target="_blank">URL Anatomy with SEO Tips</a>, by Benjamin Patch, February 10, 2015
+			</span>
+			<footer class="notes">
+				At the heart of web communications is the request message, which are sent via Uniform Resource Locators (URLs).
+			</footer>
+		</section>
+
+		<section class="slide">
+			<h2 class="to1top">URI – Uniform Resource Identifier</h2>
+			<div class="to2top to3right">
+				<img src="../../PWg/7/img/mailto_uri.png" alt="HTTP UIR" /><br><br>
+				<img src="../../PWg/7/img/http_uri.png" alt="HTTP UIR" /><br><br>
+				<img src="../../PWg/7/img/ftp_uri.png" alt="FTP URI" />
+			</div>
+			<span class="copyright bottom">
+				<span><a href="http://cpp-netlib.org/0.9.4/in_depth/uri.html" target="_blank">Generic URI syntax overview</a>, by cpp-netlib v0.9.4</span>
+			</span>
+		</section>
+
+		<section class="slide">
+			<h2>HTTP-Elemente de bază</h2>
+			<img src="../../PWg/7/img/HTTPreq_res2.png" alt="HTTP request-response" class="to3bottom to2right" />
+			<footer class="notes">
+				<p>
+					The communication usually takes place over TCP/IP, but any reliable transport can be used. The default port for TCP/IP is 80, but other ports can also be used.
+				</p>
+				<p>
+					Communication between a host and a client occurs, via a request/response pair. The client initiates an HTTP request message, which is serviced through a HTTP response message in return.
+				</p>
+			</footer>
+		</section>
+
+		<section class="slide">
+			<h2>Exemplu HTTP. Cerere client <span class="circle">1</span></h2>
+			<div class="to3bottom to5right">
+			<textarea id="clientRequest">
+				GET /index.html HTTP/1.1
+				Host: www.example.com
+				...
+			</textarea>
+			</div>
+		</section>
+
+		<section class="slide">
+			<h2>Exemplu HTTP. Răspuns server <span class="circle">2</span></h2>
+			<div class="to4right">
+			<textarea id="serverResponse">
+				HTTP/1.1 200 OK
+				Date: Mon, 23 May 2005 22:38:34 GMT
+				Content-Type: text/html; charset=UTF-8
+				Content-Length: 138
+				...
+
+				&lt;html&gt;
+				...
+			</textarea>
+			</div>
+		</section>
+
+		<section class="slide">
+			<h2><span class="circle">1</span> Cerere HTTP</h2>
+			<pre class="to1bottom">
+			<code>
+	Request-Method <span class="comment">SP</span> Request-URL <span class="comment">SP</span> HTTP-Version <span class="comment">&lt;CR&gt;&lt;LF&gt;</span>
+	(generic-header | request-header | entity-header <span class="comment">&lt;CR&gt;&lt;LF&gt;</span>)
+	<span class="comment">&lt;CR&gt;&lt;LF&gt;</span>
+	[message body]
+			</code>
+			</pre>
+			<span class="copyright bottom">
+				<a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html" target="_blank">part of Hypertext Transfer Protocol -- HTTP/1.1, RFC2616</a>  Fielding, et al., September 2004
+			</span>
+		</section>
+
+		<section class="slide">
+			<h2><span class="circle">1</span> Cerere HTTP</h2>
+			<pre class="to1bottom">
+			<code>
+	<mark>Request-Method</mark> <span class="comment">SP</span> Request-URL <span class="comment">SP</span> HTTP-Version <span class="comment">&lt;CR&gt;&lt;LF&gt;</span>
+	(generic-header | request-header | entity-header <span class="comment">&lt;CR&gt;&lt;LF&gt;</span>)
+	<span class="comment">&lt;CR&gt;&lt;LF&gt;</span>
+	[message body]
+			</code>
+			</pre>
+			<span class="copyright bottom">
+				<a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html" target="_blank">part of Hypertext Transfer Protocol -- HTTP/1.1, RFC2616</a>  Fielding, et al., September 2004
+			</span>
+		</section>
+
+		<section class="slide">
+			<h2><span class="circle">1</span> Verbe HTTP (<span class="small dimText">Request-Method</span>)</h2>
+			<ul class="to3bottom to2right">
+				<li value="GET" class="small em to3top"><span class="to1right"><strong>solicită</strong> o resursă existentă. Adresa URL conține toate informațiile necesare <br>pe care serverul trebuie să le găsească și să returneze resursa.
+					<!-- [<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/GET#Example" target="_blank" class="small"> Exemplu </a>] --> </span></li>
+				<li value="POST" class="small em to2top"><span class="to1right"><strong>creează</strong> o nouă resursă. Cererile POST poartă, de obicei, un <span class="dimText">payload</span>, <br>care specifică datele pentru noua resursă.
+					[<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST#Example" target="_blank" class="small"> Exemplu </a>]</span></li>
+				<li value="PUT" class="small em to1top"><span class="to1right"><strong>actualizează</strong> o resursă existentă. <span class="dimText">Payload</span>-ul poate conține datele actualizate <br>pentru resursă.
+					[<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/PUT#Example" target="_blank" class="small"> Exemplu </a>]</span></li>
+				<li value="DELETE" class="small em"><span class="to1right"><strong>șterge</strong> o resursă existentă.
+					[<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/DELETE#Example" target="_blank" class="small"> Exemplu </a>]</span></li>
+			</ul>
+			<span class="copyright right">
+				<a href="https://code.tutsplus.com/tutorials/http-the-protocol-every-web-developer-must-know-part-1--net-31177" target="_blank">HTTP: The Protocol Every Web Developer Must Know - Part 1</a> by Pavan Podila, 8 Apr 2013
+			</span>
+		</section>
+
+		<section class="slide">
+			<h2><span class="circle">1</span> Verbe HTTP (<span class="small dimText">Request-Method</span>)
+				<small>cont.</small>
+			</h2>
+			<ul class="to2bottom to2right">
+				<li value="HEAD" class="small em to2top"><span class="to1right">utilizat pentru a prelua anteturile de server pentru o anumită resursă, pentru <br>a verifica, în general, dacă resursa s-a schimbat, prin intermediul marcatorilor <br> de timp.
+					(<span class="small">similar cu GET, dar fără corpul mesajului</span>)
+					<!-- [<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/HEAD#Example" target="_blank" class="small"> Exemplu </a>] -->
+				</span></li>
+				<li value="TRACE" class="small em to1top"><span class="to1right">folosit pentru a afla puctele intermediare de pe traseul cererii de la server la client. <br>
+					Fiecare proxy intermediar sau gateway injectează numele IP-ul sau DNS-ul său în <br><span class="dimText">header</span>-ul Via. Aceasta poate fi utilizat în scopuri de diagnosticare.
+					<!-- [<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/TRACE#Example" target="_blank" class="small"> Exemplu </a>] -->
+				</span></li>
+				<li value="OPTIONS" class="small em"><span class="to1right">utilizate pentru a afla capabilitățile serverului. Pe partea clientului, acesta poate fi folosit pentru a modifica cererea pe baza funcționalităților pe care serverul le poate suporta.
+					[<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/OPTIONS#Examples" target="_blank" class="small"> Ex. </a>]</span></li>
+			</ul>
+			<span class="copyright right">
+				<a href="https://code.tutsplus.com/tutorials/http-the-protocol-every-web-developer-must-know-part-1--net-31177" target="_blank">HTTP: The Protocol Every Web Developer Must Know - Part 1</a> by Pavan Podila, 8 Apr 2013
+			</span>
+		</section>
+
+		<section class="slide">
+			<h2><span class="circle">1</span> Cerere HTTP</h2>
+			<pre class="to1bottom">
+			<code>
+	<mark class="important">Request-Method</mark> <span class="comment">SP</span> Request-URL <span class="comment">SP</span> HTTP-Version <span class="comment">&lt;CR&gt;&lt;LF&gt;</span>
+	(generic-header | <mark>request-header</mark> | entity-header <span class="comment">&lt;CR&gt;&lt;LF&gt;</span>)
+	<span class="comment">&lt;CR&gt;&lt;LF&gt;</span>
+	[message body]
+			</code>
+			</pre>
+			<span class="copyright bottom">
+				<a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html" target="_blank">part of Hypertext Transfer Protocol -- HTTP/1.1, RFC2616</a>  Fielding, et al., September 2004
+			</span>
+		</section>
+		<section class="slide">
+			<h2><span class="circle">1</span> HTTP-elemente în <span class="dimText">header</span>-ul cererii</h2>
+			<table class="small">
+				<tr class="Content negotiation">
+					<td class="strong rightText">Accept </td>
+					<td class="small em"><span class="to1right">informează serverul despre tipurile de date care pot fi trimise înapoi</span></td>
+				</tr>
+				<tr class="Content negotiation">
+					<td class="strong rightText">Accept-Charset </td>
+					<td class="small em"><span class="to1right">informează serverul despre setul de caractere pe care clientul îl poate înțelege</span></td>
+				</tr>
+				<tr class="Content negotiation">
+					<td class="strong rightText">Accept-Encoding </td>
+					<td class="small em" title="Informează serverul despre algoritmul de codificare, de obicei un algoritm de comprimare, care poate fi utilizat pe resursa trimisă înapoi"><span class="to1right">tipul de codificare/comprimare acceptată de către browser</span></td>
+				</tr>
+				<tr class="Content negotiation">
+					<td class="strong rightText">Accept-Language </td>
+					<td class="small em"><span class="to1right">limba acceptată de browser; pe care serverul este așteptat să o trimită înapoi</span></td>
+				</tr>
+				<tr title="Authentication">
+					<td class="strong rightText">Authorization</td>
+					<td class="small em"><span class="to1right">conține credențialele de autentificare</span></td>
+				</tr>
+				<tr class="Request context">
+					<td class="strong rightText">Host</td>
+					<td class="small em"><span class="to1right">specifică adresa serverului și numărul portului resursei solicitate</span></td>
+				</tr>
+				<tr class="Request context">
+					<td class="strong rightText">Referer</td>
+					<td class="small em"><span class="to1right">URL-ul documentului care a determinat trimiterea la această adresă URL</span></td>
+				</tr>
+				<tr class="Request context">
+					<td class="strong rightText">User-Agent</td>
+					<td class="small em"><span class="to1right">informații despre agentul utilizator care a inițiat solicitarea</span></td>
+				</tr>
+			</table>
+			<span class="copyright bottom">
+				<a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html" target="_blank">part of Hypertext Transfer Protocol -- HTTP/1.1, RFC2616</a>  Fielding, et al., September 2004
+			</span>
+			<span class="copyright right">
+				<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers" target="_blank">HTTP headers</a>, MDN web docs Mozilla, Last updated on May 9, 2019
+			</span>
+		</section>
+
+		<section class="slide">
+			<h2><span class="circle">1</span> HTTP-<span class="dimText">header</span>-ul cererii. Exemplu</h2>
+			<img src="../../PWg/7/img/HTTP_reqHeader.png" alt="HTTP Request Header Example" class="to3left" width="970"/>
+		</section>
+
+		<section class="slide">
+			<h2>HTTP-Elemente de bază</h2>
+			<img src="../../PWg/7/img/HTTPreq_res2.png" alt="HTTP request-response" class="to3bottom to2right" />
+		</section>
+
+		<section class="slide">
+			<h2><span class="circle">2</span> Răspunsul HTTP </h2>
+			<pre class="to1bottom">
+			<code>
+	Http-Version <span class="comment">SP</span> Status-Code <span class="comment">SP</span> Reason-Phrase <span class="comment">&lt;CR&gt;&lt;LF&gt;</span>
+	(generic-header | response-header | entity-header <span class="comment">&lt;CR&gt;&lt;LF&gt;</span>)
+	<span class="comment">&lt;CR&gt;&lt;LF&gt;</span>
+	[message body]
+			</code>
+			</pre>
+			<span class="copyright bottom">
+				<a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec6.html" target="_blank">part of Hypertext Transfer Protocol -- HTTP/1.1, RFC2616</a>  Fielding, et al., September 2004
+			</span>
+		</section>
+
+		<section class="slide">
+			<h2><span class="circle">2</span> Răspunsul HTTP </h2>
+			<pre class="to1bottom">
+			<code>
+	Http-Version <span class="comment">SP</span> <mark>Status-Code</mark> <span class="comment">SP</span> <mark>Reason-Phrase</mark> <span class="comment">&lt;CR&gt;&lt;LF&gt;</span>
+	(generic-header | response-header | entity-header <span class="comment">&lt;CR&gt;&lt;LF&gt;</span>)
+	<span class="comment">&lt;CR&gt;&lt;LF&gt;</span>
+	[message body]
+			</code>
+			</pre>
+			<span class="copyright bottom">
+				<a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec6.html" target="_blank">part of Hypertext Transfer Protocol -- HTTP/1.1, RFC2616</a>  Fielding, et al., September 2004
+			</span>
+		</section>
+
+		<section class="slide">
+			<h2 class="to1top"><span class="circle">2</span> HTTP-coduri de stare <small class="dimText">Status-Codes</small> </h2>
+			<ul class="to1bottom to2right">
+				<li value="2xx" class="small em to3top"><strong>Successful</strong>
+					 <span class="small">- Informează clientul că cererea a fost procesată cu succes. <code class="small strong">200 OK</code> este cea mai des întâlnită.</span>
+				</li>
+				<li value="3xx" class="small em to1top"><strong>Redirection</strong>
+					 <span class="small">- solicită clientului să ia măsuri suplimentare. Cea mai obișnuită situație de utilizare este să treceți la o altă adresă URL pentru a obține resursa.</span>
+				</li>
+				<li value="4xx" class="small em to1bottom"><strong>Client Error</strong>
+					 <span class="small">- serverul consideră că este o eroare la client, fie prin solicitarea unei resurse nevalide, fie prin crearea unei solicitări incorecte. Cel mai comun cod din această clasă este <code class="small strong">404 Not Found</code>.</span>
+				</li>
+				<li value="5xx" class="small em to3bottom"><strong>Server Error</strong>
+					 <span class="small">-  folosit pentru a indica o eroare de server în timpul procesării cererii. Cel mai frecvent utilizat cod de eroare este <code class="small strong">500 Internal Server Error</code>.</span>
+				</li>
+			</ul>
+			<span class="copyright right">
+				<a href="https://code.tutsplus.com/tutorials/http-the-protocol-every-web-developer-must-know-part-1--net-31177" target="_blank">HTTP: The Protocol Every Web Developer Must Know - Part 1</a> by Pavan Podila, 8 Apr 2013
+			</span>
+		</section>
+
+		<section class="slide">
+			<h2><span class="circle">2</span> Răspunsul HTTP </h2>
+			<pre class="to1bottom">
+			<code>
+	Http-Version <span class="comment">SP</span> <mark class="important">Status-Code</mark> <span class="comment">SP</span> <mark class="important">Reason-Phrase</mark> <span class="comment">&lt;CR&gt;&lt;LF&gt;</span>
+	(generic-header | <mark>response-header</mark> | entity-header <span class="comment">&lt;CR&gt;&lt;LF&gt;</span>)
+	<span class="comment">&lt;CR&gt;&lt;LF&gt;</span>
+	[message body]
+			</code>
+			</pre>
+			<span class="copyright bottom">
+				<a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec6.html" target="_blank">part of Hypertext Transfer Protocol -- HTTP/1.1, RFC2616</a>  Fielding, et al., September 2004
+			</span>
+		</section>
+
+		<section class="slide">
+			<h2 class="to1top"><span class="circle">2</span> Răspunsul HTTP header</h2>
+			<table class="small to2top">
+				<tr title="Range requests">
+					<td class="strong rightText">Accept-Ranges </td>
+					<td class="small em"><span class="to1right">indică unitatea care poate fi utilizată pentru a defini un interval (<small class="dimText">range</small>).</span></td>
+				</tr>
+				<tr title="Message body information">
+					<td class="strong rightText">Content-Length</td>
+					<td class="small em"><span class="to1right">indică dimensiunea corpului răspunsului, în număr de octeți, <br>trimisă destinatarului.</span></td>
+				</tr>
+				<tr title="Message body information">
+					<td class="strong rightText">Content-Type</td>
+					<td class="small em"><span class="to1right">Indică tipul media al resurselor.</span></td>
+				</tr>
+				<tr title="Security">
+					<td class="strong rightText">Content-Security-Policy</td>
+					<td class="small em"><span class="to1right">controlează resursele pe care agentul utilizator le poate încărca <br>pentru o anumită pagină.</span></td>
+				</tr>
+				<tr>
+					<td class="strong rightText">Date </td>
+					<td class="small em"><span class="to1right">Conține data și ora la care s-a generat răspunsul.</span></td>
+				</tr>
+				<tr title="Conditionals">
+					<td class="strong rightText">ETag </td>
+					<td class="small em"><span class="to1right">este un validator; un șir unic care identifică versiunea resursei.</span></td>
+				</tr>
+				<tr title="Conditionals">
+					<td class="strong rightText">Last-Modified</td>
+					<td class="small em"><span class="to1right">este un validator; ultima dată de modificare a resursei</span></td>
+				</tr>
+				<tr title="Conditionals">
+					<td class="strong rightText">Strict-Transport-Security</td>
+					<td class="small em"><span class="to1right">specifică faptul că un site trebuie accesat numai folosind HTTPS</span></td>
+				</tr>
+			</table>
+			<span class="copyright bottom">
+				<a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec6.html" target="_blank">part of Hypertext Transfer Protocol -- HTTP/1.1, RFC2616</a>  Fielding, et al., September 2004
+			</span>
+			<span class="copyright right">
+				<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers" target="_blank">HTTP headers</a>, MDN web docs Mozilla, Last updated on May 9, 2019
+			</span>
+			<footer class="notes">
+				<p><strong>HTTP range requests</strong> allow to send only a portion of an HTTP message from a server to a client. Partial requests are useful for large media or downloading files with pause and resume functions, for example.</p>
+			</footer>
+		</section>
+
+		<section class="slide">
+			<h2 class="to1top"><span class="circle">2</span> Răspunsul HTTP header. Exemplu</h2>
+			<img src="../../PWg/7/img/HTTP_resHeader.png" alt="HTTP Response Header Example" class="to3right to2top" width="600"/>
+		</section>
+
+		<section class="slide">
+			<h2><span class="small dimText"> ... alte resurse</span></h2>
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/PUPDGbnpSjw?start=584" allow="autoplay; encrypted-media" allowfullscreen  class="to5right"></iframe>
+		</section>
+
+		<section class="slide">
+			<h2><span class="small dimText"> ... alte resurse</span></h2>
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/wdAfILoJWcI?start=1380" allowfullscreen class="to5right"></iframe>
+		</section>
+
+		<section class="slide">
+			<h2>Publicarea unui site Web</h2>
+			<ol class="to3right">
+				<li>obținerea unui nume de domeniu
+					(<span class="small dimText">achiziționare de la  <a href="https://www.godaddy.com/">GoDaddy</a> sau <a href="https://domains.google/">Google Domains</a></span>)
+				</li>
+				<li>obținere de hosting:
+					<ul class="small dimText">
+						<li>proprie</li>
+						<li>închirierea de servicii de găzduire (mai practică și mai rentabilă)</li>
+					</ul>
+				</li>
+				<li>configurări și setări
+					(<span class="small dimText">de exemplu, configurare de Nameserver</span>)
+				</li>
+				<li>încărcarea fișierelor pe server
+					(<span class="small dimText">de exemplu, prin SFTP</span>)
+				</li>
+				<li>implementarea aplicațiilor de pe partea de server</li>
+			</ol>
+		</section>
+
+		<section class="slide">
+			<h2 class="shout">Instrumente pt. dezvoltatorii web <br>
+			<small class="dimText"><a href="https://developers.google.com/web/tools/chrome-devtools/" target="_blank">
+				<img src="../../../../resources/logo/browsers/Google_Chrome.png" alt="" width="45"></a>
+				Chrome Developer Tools</small>
+			</h2>
+			<footer class="notes">
+			<ul>
+				<li>Click dreapta -> "Inspect" (<span class="small">right click -> "inspect"</span>)</li>
+				<li>F12</li>
+			</ul>
+		</footer>
+		</section>
+
+		<section class="slide">
+			<h2 class="to1top">Elementele HTML și DOM-ul</h2>
+			<!-- <h3 class="copyright top">Chrome DevTools</h3> -->
+			<img src="../../PWg/7/img/1-elements.png" alt="HTML elements" height="400" class="to2top to5right">
+		</section>
+
+		<section class="slide">
+			<h2 class="to1top">Silizare și <small class="dimText">Box-model</small>-ul</h2>
+			<img src="../../PWg/7/img/2-style.png" alt="Style. Bow model" height="400" class="to2top to5right">
+		</section>
+
+		<section class="slide">
+			<h2 class="to1top"><small class="dimText">Network</small></h2>
+			<img src="../../PWg/7/img/3-network.png" alt="Network" height="400" class="to2top to2right">
+		</section>
+
+		<section class="slide">
+			<h2 class="to1top"><small class="dimText">Network</small>. Detalii legate de încărcare</h2>
+			<img src="../../PWg/7/img/4-netLoading.png" alt="Network.Loading details" height="400" class="to2top to4right">
+		</section>
+
+
+		<section class="slide">
+			<h2 class="to1top"><small class="dimText">Network</small>. Antete (<small class="dimText">Headers</small>)</h2>
+			<img src="../../PWg/7/img/5-netHeaders.png" alt="Network.Headers" height="400" class="to2top to2right">
+		</section>
+
+		<section class="slide">
+			<h2 class="to1top">Aplicații</h2>
+			<img src="../../PWg/7/img/6-app.png" alt="Application" height="400" class="to2top to2right">
+		</section>
+
+		<section class="slide">
+			<h2 class="to1top">Emulare diverse dispozitive</h2>
+			<img src="../../PWg/7/img/7-device.png" alt="Device mode" height="400" class="to2top to5right">
+		</section>
+
+		<section class="slide">
+			<h2 class="to1top">Adăugare dispozitiv nou</h2>
+			<img src="../../PWg/7/img/8-devSet.png" alt="Device mode. Add custom device" height="400" class="to2top to5right">
+		</section>
+
+		<section class="slide">
+			<h2 class="to1top">Afișare <small class="dimText">Media Queries</small></h2>
+			<img src="../../PWg/7/img/9-devMQ.png" alt="Device mode. Show media queries" height="400" class="to2top to5right">
+		</section>
+
+    <section class="slide">
+        <h2 class="shout">Sfârșit</h2>
+    </section>
+
+    <div class="progress"></div>
+
+	<footer class="badge">
+		<a href="http://www.cs.ubbcluj.ro/~sanda/html/feedback/">
+			<svg width="200" height="100" viewBox="100 50 200 100" aria-hidden="true">
+				<path id="path0" d="M192.857 19.359 C 129.640 25.381,95.764 95.850,130.742 148.571 C 166.258 202.102,247.229 196.406,275.020 138.422 C 302.762 80.540,256.367 13.309,192.857 19.359 M243.212 50.267 C 248.480 52.892,253.304 59.531,253.323 64.182 C 253.340 68.326,252.460 69.619,243.488 78.642 L 235.115 87.062 236.604 90.637 C 241.855 103.251,241.486 117.302,235.587 129.401 L 234.121 132.407 237.217 144.061 C 238.920 150.470,240.181 155.714,240.019 155.714 C 239.857 155.714,234.625 154.344,228.392 152.670 L 217.059 149.625 213.172 151.446 C 185.904 164.219,153.666 147.848,147.512 118.102 C 139.960 81.597,177.084 51.348,211.734 65.773 L 215.319 67.266 223.736 58.896 C 234.308 48.383,237.020 47.181,243.212 50.267 M211.578 71.071 C 209.738 72.970,208.101 74.952,207.941 75.476 C 206.651 79.701,201.429 99.459,201.429 100.117 C 201.429 101.347,202.027 101.244,214.526 97.848 C 228.731 93.988,227.772 94.401,231.660 90.483 L 234.915 87.203 233.291 84.510 C 229.796 78.714,224.661 73.497,218.589 69.572 C 214.838 67.148,215.521 67.002,211.578 71.071 M220.589 81.780 C 230.210 91.385,230.178 91.881,219.740 94.778 L 213.095 96.622 209.427 92.954 L 205.759 89.286 207.603 82.641 C 210.496 72.216,210.978 72.184,220.589 81.780 M165.119 104.800 C 162.809 106.146,162.273 109.708,164.060 111.833 C 167.120 115.469,172.381 113.399,172.381 108.558 C 172.381 105.408,167.983 103.132,165.119 104.800 M191.096 104.856 C 189.665 105.547,188.407 108.326,188.803 109.921 C 189.562 112.978,192.905 114.548,195.642 113.132 C 201.214 110.251,196.751 102.124,191.096 104.856 M216.227 105.519 C 214.995 106.556,214.762 107.088,214.762 108.873 C 214.762 113.567,220.260 115.479,223.042 111.753 C 226.383 107.279,220.514 101.911,216.227 105.519 ">
+				</path>
+			</svg>
+			Lăsați <br>un feedback
+		</a>
+	</footer>
+
+	<script src="../../../../includes/js/shower.min.js"></script>
+	<script src="../../../../includes/codemirror/lib/codemirror.js"></script>
+	<script src="../../../../includes/codemirror/addon/edit/matchbrackets.js"></script>
+	<script src="../../../../includes/codemirror/addon/selection/selection-pointer.js"></script>
+	<script src="../../../../includes/codemirror/mode/xml/xml.js"></script>
+	<script src="../../../../includes/codemirror/mode/javascript/javascript.js"></script>
+	<script src="../../../../includes/codemirror/mode/css/css.js"></script>
+	<script src="../../../../includes/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+	<script src="../../../../includes/codemirror/mode/http/http.js"></script>
+	<script src="../../script.js"></script>
+	<script src="../script.js"></script>
+	<script>
+	set('clientRequest', 'http', 400, 158, 24, 24);
+	set('serverResponse', 'http', 580, 370, 24, 24);
+	</script>
+</body>
+</html>

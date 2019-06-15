@@ -1,0 +1,1731 @@
+
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+	<title>Tehnologii Web Client-Side</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../../style.css">
+	<link rel="stylesheet" href="../style.css">
+	<style media="screen">
+		.obj1 {
+			top: 320px;
+			left: 200px;
+		}
+		.obj2 {
+			top: 370px;
+			left: 470px;
+		}
+		.obj3 {
+			top: 235px;
+			left: 200px;
+		}
+		.link1 {
+			position: absolute;
+			top: 345px;
+			left: 320px;
+			width: 145px;
+		}
+		.objTable {
+			width: 200px;
+			position: absolute;
+			font-size: 0;
+		}
+		.objTable span {
+			font-size: 12px;
+		}
+		.objCell {
+			position: relative;
+			background-color: #eee;
+			border-bottom: 1px solid silver;
+			border-left: 1px solid silver;
+			padding: 5px;
+			display: inline-block;
+			width: 40px;
+			height: 18px;
+			/* margin: 0; */
+			/* line-height: 18px; */
+			/* top: -20px; */
+		}
+		.objCell + .objCell {
+			width: 120px;
+		}
+
+		.tab1 {
+			width: 400px !important;
+			margin: 0 !important;
+		}
+
+		.tab1 tr {
+			height: 100px;
+		}
+
+		.tab1 th, .tab1 td {
+			padding-left: 20px !important;
+		}
+		.tab1 th + th, .tab1 td + td {
+			padding-right: 20px !important;
+			padding-left: 0 !important;
+		}
+	</style>
+</head>
+
+<body class="shower list">
+
+	<header class="caption">
+		<h1>Tehnologii Web Client-Side, Curs 5</h1>
+		<p><a href="http://www.cs.ubbcluj.ro/~sanda">Sanda-Maria AVRAM</a>, Ph. D.</p>
+	</header>
+
+	<section class="slide">
+		<h2>Conținut:</h2>
+		<dl class="to5right">
+			<dt class="strong">JavaScript</dt>
+			<dd></dd>
+			<dt>Sintaxa</dt>
+			<dd class="small">
+				- funcții, bucle (<span class="small dimText">loops</span>),
+				condiții, tablouri (<span class="small dimText">arrays</span>), obiecte.
+			</dd>
+			<dt>Evenimente. Funcții anonime. <span class="small dimText">Callbacks</span>.</dt>
+			<dd></dd>
+			<dt class="dimText">Local storage. Geolocation. Google’s Maps service (API)</dt>
+			<dd></dd>
+			<dt><!-- Bildmanipulationen.  -->JSON.<!-- Ajax.  --></dt>
+			<dd></dd>
+		</dl>
+		<span class="small em copyright bottom ">Curs de formare şi dezvoltare profesională în Informatică. Studii postuniversitare.
+		</span>
+	</section>
+
+	<section class="slide">
+		<blockquote cite="https://www.slideshare.net/guest03a6e6/javascript-148492" class="large place center">
+			<p class="large centerText">The World's Most <br>
+				Misunderstood <br>
+				Programming Language</p>
+		</blockquote>
+		<div class="place bottom left strong">
+			<a class="to2right small" href="https://www.slideshare.net/guest03a6e6/javascript-148492" target="_blank">Douglas Crockford: The JavaScript Programming Language, 2007</a>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">Surse de înțelegere "greșită"</h2>
+		<ul class="to1top to3right">
+			<li>Numele
+				<!-- (<span class="small">JavaScript ist völlig unabhängig von Java</span>) -->
+			</li>
+			<li>poziționarea incorectă</li>
+			<li>erori de proiectare</li>
+			<li>Implementări necorespunzătoare</li>
+			<li>Browserul</li>
+			<li>Cărți proaste</li>
+			<li>Standard substandard</li>
+			<li>JavaScript este un limbaj funcțional (<span class="small">ca LISP</span>)</li>
+		</ul>
+		<span class="copyright bottom">
+			<a href="https://www.youtube.com/watch?v=v2ifWcnQs6M">The JavaScript Programming Language</a>, Douglas Crockford, 2007
+		</span>
+	</section>
+
+	<section class="slide">
+		<img src="../../PWg/5/img/JavaScriptBook.jpg" alt="JavaScriptBook" class="cover">
+	</section>
+
+	<section class="slide">
+		<h2>Ce este JavaScript?</h2>
+		<ul class="to5bottom to2right">
+			<!-- <li>a lightweight interpreted client-side programming language introduced by Netscape in 1995.</li> -->
+			<li class="to2top">un limbaj de programare <strong>ușor</strong>, interpretat de client, introdus de Netscape în 1995 </li>
+			<li class="to2bottom">probabil cel mai frecvent utilizat limbaj de programare</li>
+		</ul>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">Ce este JavaScript?
+			<span class="small">Idei importante</span>
+		</h2>
+		<ul class="to4bottom to5right">
+			<li class="to4top" title="Load and go delivery">încărcare și livrare</li>
+			<li class="to3top">"Loose Typing"</li>
+			<li class="to2top" title="Objects as general containers">Obiecte ca recipiente generale</li>
+			<li class="to1top" title="Prototypal inheritance">Moștenire prototopică (<span class="small dimText">inheritance</span>)</li>
+			<li title="Linkage through global variables">Legătura prin variabile globale</li>
+		</ul>
+	</section>
+
+	<section class="slide">
+		<h2>Valori</h2>
+
+		<ul class="to5right">
+			<li class="strong to5right">Numere (<span class="small dimText">Numbers</span>)</li>
+			<li class="strong to5right">String-uri (<span class="small dimText">Strings</span>)</li>
+			<li class="strong to5right">Valori booleene (<span class="small dimText">Booleans</span>)</li>
+			<li class="strong to5right">Obiecte (<span class="small dimText">Objects</span>)</li>
+			<li class="to5right">null</li>
+			<li class="to5right">undefined</li>
+		</ul>
+	</section>
+
+	<section class="slide">
+		<h2>Numere</h2>
+		<p class="">- un singur tip de număr: <strong>64-bit floating point</strong> (IEEE-754, cunoscut și ca Double)</p>
+		<div class="to3bottom">
+			<span class="small em">- nu este în concordanță cu înțelegerea generală a aritmeticii:</span>
+			<br>
+			<div class="to3right">
+				0.1 + 0.2 = 0.30000000000000004
+				<!-- <script> var a = 0.1 + 0.2; document.write(a); </script> -->
+			</div>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2>Numere. <strong>NaN</strong></h2>
+		<div class="to4right">
+			<p class="">- un număr special: <strong>Not a Number</strong></p>
+			<p class="small em to3bottom">- Rezultatul operațiilor nedefinite sau eronate</p>
+			<p class="small em to4bottom">- fiecare operație aritmetică cu <strong>NaN ca intrare</strong> are <strong>ca rezultat NaN</strong></p>
+			<p class="small em to5bottom">- NaN nu este <strong>egal cu nici o valoare</strong>, inclusiv NaN</p>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">Numere. <br>
+			<em class="small">Funcții<span class="small"> care convertesc o valoare într-un număr</span></em></h2>
+		<div class="to1top">
+			<textarea id="numberFunction">Number(val);</textarea>
+			<div class="to5right">
+				<ul class="small to5right to2top">
+					<!-- <li class="to5right">wandelt den Wert in eine Zahl um</li> -->
+					<li class="to5right">produce NaN dacă există o problemă</li>
+					<li class="to5right">Similar operatorului de prefix <code>+</code></li>
+				</ul>
+			</div>
+		</div>
+		<textarea id="parseIntFunction">
+			parseInt(val,10);
+
+			parseInt("08"); // === 0
+			parseInt("08",10);  // === 8
+		</textarea>
+		<div class="to5right to5top">
+			<ul class="small to5right to1top">
+				<!-- <li class="to5right">wandelt den Wert in eine Zahl um</li> -->
+				<li class="to5right">se oprește la primul caracter, care nu este un număr</li>
+				<li class="to5right">se recomandă specificarea bazei de numerație (10)</li>
+			</ul>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">Numere. <em>Obiectul <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math">Math</a></em></h2>
+		<p class="small em to2top">- modelat după clasa Java Math</p>
+		<p class="small em to2top">- include:</p>
+		<div class="to5right to4top">
+			<div class="to2right">
+				<textarea id="mathMethods">
+			Math.abs(x); // valoarea absolută a unui număr x
+			Math.floor(x); // cel mai mare număr întreg <= cu x
+			Math.log(x); // logaritmul natural (baza e) a unui număr x
+			Math.max(1, 3, 2); // maximul
+			Math.pow(4, 2); //=16 ridicarea la putere
+			Math.random(); // Numărul aleatoriu (random number)
+			Math.round(x); // x rotunjit la cel mai apropiat număr întreg
+			Math.sin(x); // sinusul de x
+			Math.sqrt(x); // rădăcina pătrată a unui număr
+		</textarea>
+			</div>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2>String-uri
+			<!-- (<span class="small dimText">Strings</span>) -->
+		</h2>
+		<div class="to1bottom">
+			<p class="small em">- sunt secvențe de 0 sau mai multe caractere pe 16 biți</p>
+			<p class="small">- <strong>un caracter</strong> e reprezentat ca și șir de lungime 1</p>
+			<p class="small">- sunt <strong>imuabile</strong> (nu se pot schimba)</p>
+			<p class="small">- string-urile similare sunt <strong>egale</strong> (==)</p>
+			<p class="small">- String-ul literal se poate reda folosind apostroafe <code>'</code> sau ghilimele <code>"</code> </p>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2>String-uri. <em>Obiectul <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></em></h2>
+		<div class="to1bottom">
+			<h3>proprietatea <span class="dimText">length</span></h3>
+			<textarea id="lengthString">
+				str.length; // returnează lungimea string-ului str
+			</textarea>
+		</div>
+		<div class="to2bottom">
+			<h3>funcția <span class="dimText">String</span></h3>
+			<textarea id="StringFunction">
+				String(thing); // convertește o valoare într-un string
+			</textarea>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">String-uri. <em>Metode ale <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></em></h2>
+		<div class="to2top">
+			<textarea id="StringMethoden">
+				str.charAt(index) // returnează caracterul de la indexul specificat
+				str.concat(str1, str2) // concatenează str1 și str2 cu str
+				str.indexOf(searchTerm) //  indexul în str al primei apariții a searchTerm
+				str.lastIndexOf(searchTerm) // indexul în str al ultimei apariții a searchTerm
+				str.match(regex) // verificarea str cu o expresie regulară
+				str.replace(regex, str2) // ce se potrivește cu regex - înlocuit cu str2
+				str.search(regex) // căutarea unei potriviri a regex în str
+				str.slice(poz, len) // o secțiune din str de la poziția poz, de lungime len
+				str.split(sep) // împarte str într-un tabou de striguri
+				str.substring(start, end) // partea de str dintre start și end
+				str.toLowerCase() // str este convertit în litere mici
+				str.toUpperCase() // str este convertit la majuscule
+			</textarea>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2>Valori booleene</h2>
+		<p class="to5right"><code>true</code> <span class="to1right">și <code class="to1right">false</code></span></p>
+		<div class="to2bottom">
+			<h3>Funcția <span class="dimText">Boolean</span></h3>
+			<textarea id="booleanFunction">Boolean(val);</textarea>
+			<div class="to5right">
+				<ul class="small to5right to2top">
+					<li class="to5right">returnează <strong>true</strong> dacă <em>val</em> este adevărat (<span class="small dimText">valoare de adevăr</span>)</li>
+					<li class="to5right">returnează <strong>false</strong> dacă <em>val</em> este fals (<span class="small dimText">valoare de neadevăr</span>)</li>
+					<li class="to5right">similar cu operatorul prefix <code>!!</code></li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2>null</h2>
+		<p class="to5right to5bottom">- o valoare care nu este nimic</p>
+	</section>
+
+	<section class="slide">
+		<h2>undefined</h2>
+		<p class="to5right to1bottom">- o valoare care nu este nimic, nici măcar <span class="small dimText">null</span></p>
+		<p class="to5right to3bottom">- valoarea implicită pentru variabile și parametri</p>
+		<p class="to5right to5bottom">- valoarea datelor membre lipsă din obiecte</p>
+	</section>
+
+	<section class="slide">
+		<h2>Valoarea fals (<span class="small dimText">Valoarea de neadevăr</span>)</h2>
+		<textarea id="falsyValues">
+			false
+			null
+			undefined
+			"" // String gol
+			0
+			NaN
+		</textarea>
+		<h3>Toate celelalte valori (inclusiv toate obiectele) sunt adevărate!</h3>
+		<p> - de asemenea "0" și "false"</p>
+	</section>
+
+	<section class="slide">
+		<h2 class="shout">Tot restul sunt obiecte</h2>
+	</section>
+
+	<section class="slide">
+		<h2>Obiecte dinamice</h2>
+		<div class="small to2bottom">
+			<p>- <code>new Object()</code> creează un container gol cu perechi <strong>Name</strong>/<strong>Val</strong></p>
+			<p class="to1bottom">- Un <strong>Name</strong> poate fi orice string, o <strong>Val</strong> poate fi orice valoare, cu excepția <em>undefined</em></p>
+			<p class="to2bottom">- Membrii pot fi accesați utilizând <strong>notația cu punct</strong> sau <strong>indexarea</strong> </p>
+		</div>
+		<span class="copyright bottom">
+			<a href="https://youtu.be/v2ifWcnQs6M?t=1300">The JavaScript Programming Language</a>, Douglas Crockford, 2007
+		</span>
+	</section>
+
+	<section class="slide">
+		<h2>Operatori</h2>
+		<table class="to3bottom">
+			<tr>
+				<th>aritmetici</th>
+				<td>+ <span class="to2right">- <span class="to2right">* <span class="to2right">/ <span class="to2right">%</span></span></span></span></td>
+			</tr>
+			<tr>
+				<th>de comparare</th>
+				<td>== <span class="to2right">!= <span class="to2right">&lt; <span class="to2right">&gt; <span class="to2right">&lt;= <span class="to2right">&gt;=</span></span></span></span></span></td>
+			</tr>
+			<tr>
+				<th>logici</th>
+				<td>&& <span class="to2right">|| <span class="to2right">!</span></span></td>
+			</tr>
+			<tr>
+				<th>pe biți</th>
+				<td>&amp;<span class="to2right">|<span class="to2right">^<span class="to2right">&gt;&gt;<span class="to2right">&gt;&gt;&gt;<span class="to2right">&lt;&lt;</span></span></span></span></span></td>
+			</tr>
+			<tr>
+				<th>ternar</th>
+				<td>?:</td>
+			</tr>
+		</table>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">Operatori. <span class="strong to1right">+</span></h2>
+		<h3 class="to1top"> ca operator <br>binar </h3>
+		<div class="small to5right to3top">
+			<div class="to5right to5top">-
+				<strong>adunare</strong>
+				(<span class="small">dacă toți operanzii sunt numere</span>) și <br>
+				<strong>concatenare</strong>
+				(<span class="small">ambii operanzi sunt convertiți la șir</span>)
+				<textarea id="plusOperator"> '$' + 3 + 4 = '$34'</textarea>
+			</div>
+		</div>
+		<div class="to5top">
+			<h3>ca operator <br>unar</h3>
+			<div class="to3right to5top">
+				<div class="to5right">
+					<textarea id="plusOperator2">
+				+"42" //=42 poate converti șirul la numere
+
+				/* Similar cu: */ Number("42") //=42 de asemenea
+				/* Similar cu: */ parseInt("42",10) //=42 de asemenea
+
+				+"3" + (+"4") //=7
+			</textarea>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">Operatori. <span class="strong to1right">/</span></h2>
+		<p class="to1bottom">- Împărțirea a două numere întregi poate produce un rezultat non-întreg:</p>
+		<div class="to5right to2bottom">
+			10 / 3 =
+			<script>
+				var a = 10 / 3;
+				document.write(a);
+			</script>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">Operatori. <span class="strong to1right">==</span><span class="strong to3right">!=</span></h2>
+		<p>- se face cu "type coercion" (<span class="small dimText"><strong>coerciția de tip</strong>=convertirea valorii de la un tip la altul</span>) = convertește valoarea de la un tip la altul</p>
+		<p><code>===</code> pentru potrivirea exactă (atât valoare cât și tip) și <code>!==</code></p>
+		<textarea id="equalOperator">
+			if (a==null) {...} // rău
+
+			if (a===null) {...} // bine
+			if (!a) {...} // bine
+		</textarea>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">Operatori. <span class="strong to1right">&amp;&amp;</span></h2>
+		<p>- Dacă primul operand <strong>este adevărat</strong>, rezultatul este <strong>al doilea</strong> operand. În <strong>caz contrar</strong>, rezultatul este <strong>primul</strong> operand.</p>
+		<div class="columns two to1bottom">
+			<p class="small em to2right">Poate fi folosit pentru a evita referințele nule:</p>
+			<div class="to3left">
+				<textarea id="andOperator">
+					if (a==null) {
+					  			  			 	  	return a.member;
+					} else {
+					  			  			 	  	return a;
+					}
+					// poate fi scris ca:
+					return a && a.member;
+				</textarea>
+			</div>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">Operatori. <span class="strong to1right">||</span></h2>
+		<p>- Dacă primul operand <strong>este adevărat</strong>, rezultatul este <strong>primul</strong> operand. În <strong>caz contrar</strong>, rezultatul este <strong>al doilea</strong> operand.</p>
+		<div class="columns two to2bottom">
+			<p class="small em to2right">Poate fi folosit pentru a introduce valorile implicite:</p>
+			<div class="to3left to2bottom">
+				<textarea id="orOperator">
+					var last = input || nr_items;
+				</textarea>
+			</div>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">Operatori. <span class="strong to1right">!</span></h2>
+		<p>- Dacă operandul <strong>este adevărat</strong>, rezultatul este <code class="small strong">false</code>. În caz contrar, rezultatul este <code class="small strong">true</code>.</p>
+		<p class="to2bottom"><code class="strong">!!</code> - generează boolean.</p>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">Operatori. <span class="strong to1right">Pe biți</span></h2>
+		<h3>&amp;<span class="to2right">|<span class="to2right">^<span class="to2right">&gt;&gt;<span class="to2right">&gt;&gt;&gt;<span class="to2right">&lt;&lt;</span></span></span></span></span></h3>
+		<p class="to2bottom">- convertesc operandul la un număr întreg de 32 biți și apoi îl convertesc din nou la o valoare în virgulă flotantă pe 64 de biți.</p>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">Instrucțiuni
+			(<span class="small dimText">Statements</span>)
+		</h2>
+		<div class="columns two">
+			<p class="to2top to4right">- similar cu cele din C:</p>
+			<ul class="to2top to2left">
+				<!-- <li>Ausdruck (<span class="small dimText">expression</span>)</li> -->
+				<li class="strong">if</li>
+				<li class="strong">switch <span class="dimText">«</span></li>
+				<!--3-->
+				<li class="strong">while </li>
+				<li class="strong">do</li>
+				<li class="strong">for <span class="dimText">«</span></li>
+				<!--2-->
+				<li class="strong">break <span class="dimText">«</span></li>
+				<!--1-->
+				<li class="strong">continue</li>
+				<li class="strong">return <span class="dimText">«</span></li>
+				<!--6-->
+				<li class="strong">throw/try <span class="dimText">«</span></li>
+				<!--4/5-->
+			</ul>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">Instrucțiuni. <span class="strong to1right">break</span></h2>
+		<ul>
+			<li class="to1top">Instrucțiunile pot avea etichete.</li>
+			<li>cu intrucțiunea <strong>break</strong> se pot referi la aceste etichete.</li>
+		</ul>
+		<textarea id="breakExample">
+			loop: for (;;) {
+					  			  			 	  	...
+					  			  			 	  	if (...) {
+					  			  			 	  						  			  			 	  	break loop;
+					  			  			 	  	}
+					  			  			 	  	...
+			}
+		</textarea>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">Instrucțiuni. <span class="strong to1right">for</span></h2>
+		<span class="to2top">- iterarea prin toate elementele unei matrice.</span>
+		<div class="to5right to2top">
+			<textarea id="forExample">
+			for (var i = 0; i < array.length; i += 1) {
+					  			  			 	  	// în buclă
+					  			  			 	  	// i este indexul elementului curent
+					  			  			 	  	// array[i] este elementul curent
+			}
+		</textarea>
+		</div>
+		<span class="to1top">- iterarea prin toți membrii unui obiect</span>
+		<div class="to5right to1top">
+			<textarea id="forExample2">
+			for (var name in obj) {
+					  			  			 	  	if (obj.hasOwnProperty(name)) {
+					  			  			 	  						  			  			 	  	// în buclă
+					  			  			 	  						  			  			 	  	// name este cheia membrului curent
+					  			  			 	  						  			  			 	  	// obj[name] este valoarea curentă
+					  			  			 	  	}
+			}
+		</textarea>
+		</div>
+		<footer class="note">
+			The second iteration will go through all the inhereted members. That is why it is recomended to have the "if" statement.
+			See more @ <a href="https://youtu.be/v2ifWcnQs6M?t=1908">Douglas Crockford: The JavaScript Programming Language</a>, 31:48
+		</footer>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">Instrucțiuni. <span class="strong to1right">switch</span></h2>
+		<div class="to2top">
+			<textarea id="switchExample">
+			switch (expr) {
+					  			  			 	  	case ';':
+					  			  			 	  	case ',':
+					  			  			 	  	case '.':
+					  			  			 	  						  			  			 	  	punctuation();
+					  			  			 	  						  			  			 	  	break;
+					  			  			 	  	default:
+					  			  			 	  						  			  			 	  	noneOfTheAbove();
+			}</textarea>
+		</div>
+		<div class="to1top small">
+			<p>- Valoarea comutatorului (<span class="small dimText">switch value</span>)  poate să fie atât un număr cât și un șir.</p>
+			<p>- Valoarea cazului (<span class="small dimText">case value</span>) poate fi o expresie.</p>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">Instrucțiuni. <span class="strong to1right">throw/try</span></h2>
+		<div class="columns two to1top">
+			<textarea id="exceptExample">
+			throw new Error(reason);
+
+			// sau folosiți un obiect literal
+			throw {
+					  			  			 	  	name: exceptionName,
+					  			  			 	  	message: reason
+			};
+		</textarea>
+			<textarea id="tryExample">
+			try {
+					  			  			 	  	...
+			} catch (e) { //numai un catch!
+					  			  			 	  	switch (e.name){
+					  			  			 	  						  			  			 	  	case 'Error':
+					  			  			 	  						  			  			 	  						  			  			 	  	...
+					  			  			 	  						  			  			 	  						  			  			 	  	break;
+					  			  			 	  						  			  			 	  	default:
+					  			  			 	  						  			  			 	  						  			  			 	  	throw e;
+					  			  			 	  	}
+			};
+		</textarea>
+		</div>
+		<p class="small to4top">
+			Implementarea JavaScript poate <br>genera următoarele nume de excepții: <br>
+			<code>Error</code>, <code>EvalError</code>,
+			<code>RangeError</code>, <code>SyntaxError</code>,
+			<code>TypeError</code>, <code>URIError</code>.
+		</p>
+		<footer class="notes">
+			Because there are no classes in JavaScript there is only ONE <code>catch</code> clause, and not one per exception class. The <code>catch</code> clause has to determine what sort of exception there is, if it wants to handle id or throw it on.
+		</footer>
+
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">Instrucțiuni. <span class="strong to1right">function</span></h2>
+		<div class="to3bottom to5right">
+			<textarea id="funcExample">
+			function name(parametri) {
+					  			  			 	  	instructiuni;
+			}
+		</textarea>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">Instrucțiuni. <span class="strong to1right">var</span></h2>
+		<div class="to3right">
+			<p>- definește variabile într-o funcție.</p>
+			<p>- tipurile nu sunt specificate.</p>
+			<p>- valorile inițiale sunt opționale.</p>
+			<br>
+			<textarea id="varExample">
+			var name;
+			var nrErrors = 0;
+			var a, b, c;
+		</textarea>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2>Domeniu de vizibilitate  (<span class="small dimText">Scope</span>)</h2>
+		<ul class="to5bottom to4right">
+			<li class="to3top">În JavaScript, <code class="small">{blocuri}</code> nu au domeniu de vizibilitate.</li>
+			<li class="to1top">Numai funcțiile au un domeniu de vizibilitate.</li>
+			<li class="to1bottom">Variabilele definite într-o funcție nu sunt vizibile în afara funcției.</li>
+		</ul>
+	</section>
+
+	<section class="slide">
+		<h2>Instrucțiuni. <span class="strong to1right">return</span></h2>
+		<div class="to3right to2bottom">
+			<textarea id="returnExample">
+				return expr;
+				// sau
+				return;
+			</textarea>
+			<br>
+			<p>- Dacă nu există <code class="small">expr</code>, valoarea returnată este <code class="small">undefined</code>.</p>
+			<p>- Cu excepția constructorilor a căror valoare implicită este <code class="small">this</code>.</p>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2>Obiecte</h2>
+		<ul class="to5bottom to4right">
+			<li class="to2top">Obiectele pot conține <strong>date</strong> și <strong>metode</strong>.</li>
+			<li>Obiectele pot <strong>moșteni</strong> alte obiecte.</li>
+		</ul>
+	</section>
+
+	<section class="slide">
+		<h2>Obiecte = Colecții</h2>
+		<ul class="to5right to5bottom">
+			<li value="Object" class="to3top em"> = colecție neordonată de perechi de nume-valoare
+				<ul class="em">
+					<li value="nume" class=""> sunt șiruri de caractere</li>
+					<li value="valori"> sunt orice tipuri, inclusiv alte obiecte</li>
+				</ul>
+			</li>
+			<li>Fiecare obiect este o mică bază de date.</li>
+		</ul>
+	</section>
+
+	<section class="slide">
+		<h2>Obiect literal</h2>
+		<ul class="to5right to2bottom">
+			<li value="Literali_ob." class="to1top em"><span class="to3right"> sunt cuprinse în <code class="small">{}</code>.</span>
+				<ul class="em">
+					<li value="nume" class=""> pot fi nume sau șiruri de caractere</li>
+					<li value="valori"> pot fi expresii</li>
+					<li value=":"> separă numele și valorile</li>
+					<li value=","> separă perechile de nume-valoare</li>
+				</ul>
+			</li>
+			<li class="to3left">poate fi folosit oriunde poate fi afișată o valoare.</li>
+		</ul>
+	</section>
+
+	<section class="slide">
+		<h2>Obiect literal (Cont.)</h2>
+		<div class="columns two to3bottom">
+			<div class="to2left">
+				<textarea id="objLitEx">
+					var myObject = {name: "Joseph Murlock",
+					'goto': "UCLA", grade: "A", level: 3};
+
+					var derName = myObject.name;
+					var woHin = myObject['goto'];
+				</textarea>
+			</div>
+			<table class="to3left">
+				<tr>
+					<td>"name"</td>
+					<td><span class="to2right">"Joseph Murlock"</span></td>
+				</tr>
+				<tr>
+					<td>"goto"</td>
+					<td><span class="to2right">"UCLA"</span></td>
+				</tr>
+				<tr>
+					<td>"grade"</td>
+					<td><span class="to2right">"A"</span></td>
+				</tr>
+				<tr>
+					<td>"level"</td>
+					<td><span class="to2right">3</span></td>
+				</tr>
+			</table>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2>Funcție de creare</h2>
+		<div class="to4right">
+			<textarea id="objMakerEx">
+				function maker(name, where, grade, level) {
+					  			  			 	  	var it = {}; // creează un nou obiect gol
+					  			  			 	  	it.name = name;
+					  			  			 	  	it['goto'] = where;
+					  			  			 	  	it.grade = grade;
+					  			  			 	  	it.level = level;
+					  			  			 	  	return it;
+				}
+
+				myObject = maker("Joseph Murlock", "UCLA", "A", 3);
+			</textarea>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2>Obiect literal (Cont.)</h2>
+		<div class="to4right">
+			<textarea id="objLitExExt">
+				var myObject = {
+					  			  			 	  	name: "Joseph Murlock",
+					  			  			 	  	'goto': "UCLA",
+					  			  			 	  	grade: "A",
+					  			  			 	  	format: {
+					  			  			 	  						  			  			 	  	type: 'rect',
+					  			  			 	  						  			  			 	  	width: 1920,
+					  			  			 	  						  			  			 	  	height: 1080,
+					  			  			 	  						  			  			 	  	interlace: false,
+					  			  			 	  						  			  			 	  	framerate: 24 // nici o virgulă aici
+					  			  			 	  	} // nici o virgulă aici
+															};
+			</textarea>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2>Obiect literal (Cont.)</h2>
+		<p class="small em">- Un obiect literal poate fi <strong>folosit</strong> oriunde <strong>se așteaptă o valoare</strong>.</p>
+		<div class="to3right">
+			<textarea id="objLitExPla">
+				myFunktion({					  			  			 	  	// trimite un obiect literal ca parametru
+					  			  			 	  	type: 'rect',
+					  			  			 	  	width: 1920,
+					  			  			 	  	height: 1080
+				});
+
+				throw {					  			  			 	  	// creează dinamic un obiect de generare a unei excepții
+					  			  			 	  	name: 'error',
+					  			  			 	  	message: 'out of bounds'
+				};
+			</textarea>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2>Obiecte ca parametru de funcții</h2>
+		<div class="to5right to1bottom">
+			<textarea id="objLitExPar">
+				// în loc de mai mulți parametri ...
+				function SuperDiv(width, height,
+					  			  			 	  	left, top, zIndex, position,
+					  			  			 	  	color, visibility, html,
+					  			  			 	  	cssClass)
+
+				// ... utilizați mai bine un obiect
+				function SuperDiv(spec)
+			</textarea>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2>Extinderea obiectelor</h2>
+		<p class="small em to1bottom">- Elementele noi pot fi adăugate unui obiect printr-o simplă atribuire</p>
+
+		<p class="small em to2bottom">- Nu este necesară definirea unei noi clase</p>
+		<div class="to5right to3bottom">
+			<textarea id="objAugument">
+				myObject.format.colorModel = 'HUsd';
+
+				myObject[name]=wert;
+			</textarea>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2 title="Linkage between objects"><strong>Legarea (<small class="dimText">Linkage</small>)</strong> între obiecte</h2>
+		<p class="small em">- Aceasta este metoda prin care se obține moștenirea.</p>
+		<ul class="small to5bottom to2right">
+			<li class="to3top" title="The function object(o) creates a new empty object with a link to object o">Funcția <code class="small">object(o)</code> reează un nou obiect gol cu o legătură către obiectul <code class="small">o</code></li>
+			<li class="to1top" title="If an attempt to access a name fails, the linked object is used.">Dacă o încercare de accesare a unui nume eșuează, este utilizat obiectul asociat.</li>
+			<li title="The link is not used when saving/storing. New members are added only to the primary object.">Legătura nu este utilizată la salvare. Membrii noi sunt adăugați numai la obiectul principal.</li>
+		</ul>
+	</section>
+
+	<section class="slide">
+		<h2 title="Linkage">Legarea (<small class="dimText">Linkage</small>)</h2>
+		<div class="to5right to3bottom">
+			<textarea id="objLinkage">
+				var myNewObject = object(myOldObject);
+			</textarea>
+		</div>
+
+		<div class="objTable obj1">
+			<span>myNewObject</span><br>
+			<span class="objCell"></span><span class="objCell"></span><br>
+		</div>
+		<img src="../../PWg/5/img/linkArrow.png" alt="" class="link1">
+		<div class="objTable obj2">
+			<span>myOldObject</span><br>
+			<span class="objCell">"name"</span><span class="objCell">"Joseph Murlock"</span><br>
+			<span class="objCell">"goto"</span><span class="objCell">"UCLA"</span><br>
+			<span class="objCell">"grade"</span><span class="objCell">"A"</span><br>
+			<span class="objCell">"level"</span><span class="objCell">3</span><br>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">Legarea (<small class="dimText">Linkage</small>) (Cont.)</h2>
+		<div class="to2top to2right"><div class="to5right"><div class="to5right">
+			<textarea id="objLinkageNew">
+				myNewObject.name = "Thomas Olivie";
+				myNewObject.level += 1;
+				myNewObject.art = 'sculpture';
+			</textarea>
+		</div></div></div>
+
+		<div class="objTable obj3">
+			<span>myNewObject</span><br>
+			<span class="objCell">"name"</span><span class="objCell">"Thomas Olivie"</span><br>
+			<span class="objCell">"level"</span><span class="objCell">4</span><br>
+			<span class="objCell">"art"</span><span class="objCell">"sculpture"</span><br>
+			<span class="objCell"></span><span class="objCell"></span><br>
+		</div>
+		<img src="../../PWg/5/img/linkArrow.png" alt="" class="link1">
+		<div class="objTable obj2">
+			<span>myOldObject</span><br>
+			<span class="objCell">"name"</span><span class="objCell">"Joseph Murlock"</span><br>
+			<span class="objCell">"goto"</span><span class="objCell">"UCLA"</span><br>
+			<span class="objCell">"grade"</span><span class="objCell">"A"</span><br>
+			<span class="objCell">"level"</span><span class="objCell">3</span><br>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2>Moștenirea</h2>
+		<p class="small em to5right to1bottom" title="Linkage provides simple inheritance">- Legarea oferă moștenire simplă.</p>
+		<p class="small em to5right to2bottom" title="An object can inherit from an older object.">- Un obiect poate moșteni un obiect mai vechi.</p>
+		<img src="../../PWg/5/img/linkArrow.png" alt="" class="link1">
+	</section>
+
+	<section class="slide">
+		<h2>Moștenire prototipică</h2>
+		<p class="to2right small to3bottom">- Unele limbaje de programare au clase, metode, constructori și module.</p>
+		<p class="to2right strong to4bottom">- Funcțiile JavaScript fac toate acestea.</p>
+		<p class="to2right em to5bottom">- În loc de moștenire clasică, JavaScript are moștenire prototipică.</p>
+	</section>
+
+	<section class="slide">
+		<h2>Moștenire prototipică (Cont.)</h2>
+		<p class="to2bottom"><span class="dimText">În loc de organizarea obiectelor în clase rigide</span>, obiectele noi sunt create ca obiecte <strong>similare cu</strong> cele existente și apoi sunt <strong>personalizate</strong> (<span class="small dimText">customized</span>).</p>
+
+		<p class="to4bottom">Personalizarea obiectelor necesită mult <strong>mai puțină muncă</strong> <span class="dimText">decât crearea unei clase</span> și mai puțin <span class="small dimText">overhead</span>.</p>
+	</section>
+
+	<section class="slide">
+		<h2>Metode de obiect</h2>
+		<p class="small">- Toate obiectele sunt direct sau indirect legate de <code class="small">Object.prototype</code>.</p>
+
+		<p class="small to1bottom">- Toate obiectele moștenesc câteva metode de bază. Cele mai multe nu sunt foarte utile, cu excepția:</p>
+		<p class="small to5right to2top"><code class="small">hasOwnProperty(name)</code> <span class="dimText small">// Este "name" un membru adevărat al acestui obiect?</span></p>
+
+
+		<p class="small to1top">-  Nici o metodă de copiere</p>
+		<p class="small">- Nu există o metodă de comparare</p>
+	</section>
+
+	<section class="slide">
+		<h2>Crearea unui obiect</h2>
+		<p class="to1bottom">- crearea unui nou obiect gol:</p>
+		<div class="to5right to2bottom">
+			<textarea id="objConstruct">
+				new Object()
+				{} // este preferat
+				object(Object.prototype)
+			</textarea>
+		</div>
+		<p class="to4bottom">Toate cele trei modalități au <strong>exact același rezultat</strong>.</p>
+	</section>
+
+	<section class="slide">
+		<h2>Ștergerea</h2>
+		<p class="to2bottom">Membrii pot fi eliminați dintr-un obiect folosind operatorul de ștergere <code class="small">delete</code>:</p>
+		<div class="to5right to4bottom">
+			<textarea id="objDelete">
+				delete myObject[name];
+			</textarea>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2 class="shout">Tablouri<br><span class="dimText">Arrays</span></h2>
+	</section>
+
+	<section class="slide">
+		<h2>Tablouri (<span class="dimText">Arrays</span>)</h2>
+		<div class="to1bottom">
+		<p>- <code class="small">Array</code> moștenește <code class="small">Object</code></p>
+		<p>- Nu e necesară specificarea <strong>dimensiunii</strong> sau a <strong>tipului elementelor</strong> la crearea unui Array.</p>
+		<p>- <strong>Indicii</strong> sunt convertiți în șiruri de caractere și folosiți ca nume pentru a obține valori.</p>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2>Tablouri (<span class="dimText">Arrays</span>) <span class="small strong to1right">length</span></h2>
+		<p>- Array-urile, <span class="dimText">spre deosebire de Obiecte</span>, au un element special: <code class="small">length</code></p>
+		<p>- Aceasta permite utilizarea instrucțiunii tradiționale  <code class="small">for</code></p>
+		<div class="to5right">
+			<textarea id="arrLength">
+				for (i = 0; i < a.length; i += 1) {
+					  			  			 	  	...
+				}
+			</textarea>
+		</div>
+		<p class="to1bottom">- Nu utilizați <code class="small">for ... in</code> cu tablouri (Arrays)</p>
+	</section>
+
+	<section class="slide">
+		<h2>Literali Array</h2>
+		<p class="to3right small">- Un Array-Literal folosește <code class="small">[]</code></p>
+		<div>
+			<textarea id="arrLiteral">
+				// poate conține orice număr de expresii separate prin virgule:
+				myList = ['Arbuști', 'Ferigi', 'Palmieri'];
+
+				myList[myList.length] = 'Pini'; // se pot atașa elemente noi
+			</textarea>
+		</div>
+
+		<p class="to2bottom to3right small">- <strong>notația cu punct</strong> NU trebuie folosită cu tablouri</p>
+		<p class="to2bottom to3right small">- <code class="small">[]</code> este preferată față de <code class="small">new Array()</code></p>
+	</section>
+
+	<section class="slide">
+		<h2>Metode Array</h2>
+		<table class="to1bottom">
+			<tr><td class="strong">concat</td><td><span class="to1right">Conectează două sau mai multe tablouri (Arrays)</span></td></tr>
+			<tr><td class="strong">join</td><td><span class="to1right">Combină toate elementele unui tablou într-un șir</span></td></tr>
+			<tr><td class="strong">pop</td><td><span class="to1right">Elimină ultimul element al unui tablou</span></td></tr>
+			<tr><td class="strong">push</td><td><span class="to1right">Adaugă elemente noi la sfârșitul unui tablou</span></td></tr>
+			<tr><td class="strong">slice</td><td><span class="to1right">Selectează o parte dintr-un tablou</span></td></tr>
+			<tr><td class="strong">sort</td><td><span class="to1right">Sortează elementele unui tablou</span></td></tr>
+			<tr><td class="strong">splice</td><td><span class="to1right">Adaugă/elimină elemente dintr-un tablou</span></td></tr>
+		</table>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">Ștergerea elementelor</h2>
+		<div class="to1top">
+			<textarea id="arrDelete">
+				// elimină elementul, dar lasă o gaură în numerotare:
+				delete arr[number]
+
+				// elimină elementul și renumerotează toate elementele următoare:
+				arr.splice(number, 1)
+			</textarea>
+		</div>
+		<div class="to1bottom to5right">
+			<textarea id="arrDeleteEx">
+				myArray = ['a', 'b', 'c', 'd'];
+				delete myArray[1]; // => ['a', undefined, 'c', 'd']
+
+				myArray.splice(1, 1); // => ['a', 'c', 'd']
+			</textarea>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2>Arrays versus obiecte</h2>
+		<p class="to1right to3bottom">- Folosiți <strong>obiecte</strong> dacă numele sunt <strong>șiruri de caractere</strong></p>
+		<p class="to1right to4bottom">- Folosiți <strong>tablouri</strong> dacă numele sunt <strong>numere secvențiale întregi</strong></p>
+		<p class="to1right to5bottom">- Nu vă lăsați amăgiți de termenul de <span class="em strong">matrice asociativă</span></p>
+	</section>
+
+	<!-- <section class="slide">
+		<h2>Arrays unterscheiden</h2>
+		? 80
+	</section> -->
+
+	<section class="slide">
+		<h2 class="shout">Funcții</h2>
+	</section>
+
+	<section class="slide">
+		<h2>Funcții</h2>
+		<!-- <p class="to2right to2bottom">Funcții sind erstklassige Objekte ???</p> -->
+		<p class="to2right to3bottom">- Funcțiile pot fi <strong>transmise</strong> (ca parametri) ca alte valori, <strong>returnate</strong> și <strong>salvate</strong>.</p>
+		<p class="to2right to4bottom">- Funcțiile moștenesc <code class="small">Object</code> și pot stoca perechi de nume-valoare</p>
+	</section>
+
+	<section class="slide">
+		<h2>Operatorul <span class="dimText">function</span></h2>
+		<div class="to1bottom to3right">
+			<textarea id="funcStruct">
+				// ia un nume opțional, o listă de parametri și un bloc de instrucțiuni și returnează un obiect funcție
+				function Name (parametrii) {
+					  			  			 	  	// instrucțiuni
+				}
+			</textarea>
+		</div>
+		<p class="to3bottom">O funcție poate apărea oriunde ar putea apărea o expresie.</p>
+	</section>
+
+	<!-- <section class="slide">
+		<h2>lambda? 84</h2>
+	</section> -->
+
+	<section class="slide">
+		<h2>Instrucțiunea <span class="dimText">function</span></h2>
+		<p class="to1bottom">- este doar o abreviere pentru o declarație var cu o valoare de tip funcție</p>
+		<div class="to2bottom to3right">
+			<textarea id="funcStatement">
+				function foo() {}
+
+				// extins la
+
+				var foo = function foo() {};
+			</textarea>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2>Funcții interioare</h2>
+		<p class="to3right to3bottom">- Funcțiile nu trebuie să fie definite la nivelul superior</p>
+		<p class="to3right to5bottom">- Funcțiile pot fi definite în cadrul altor funcții</p>
+	</section>
+
+	<section class="slide">
+		<h2>Domeniu de vizibilitate (<span class="small dimText">Scope</span>)</h2>
+		<p class="to3bottom">-  O funcție interioară are <strong>acces</strong> la <strong>variabilele</strong> și <strong>parametrii</strong> funcțiilor în care este cuprinsă</p>
+		<p class="to5bottom">-  este cunoscut ca <strong>domeniu de vizibilitate static</strong> sau <strong>domeniu de vizibilitate lexical</strong></p>
+	</section>
+
+	<section class="slide">
+		<h2>Închidere (<span class="small dimText">Closure</span>)</h2>
+		<p class="to3bottom">-  Domeniul de vizibilitate pe care îl are o funcție internă continuă și după terminarea funcțiilor părinte</p>
+		<p class="to5bottom">-  este cunoscut ca <strong>Închidere (<span class="small dimText">Closure</span>)</strong> </p>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">Exemplu</h2>
+		<div class="to2top to3right">
+			<textarea id="funcClosure">
+				function fade (id) {
+					  			  			 	  	var dom = document.getElementById(id), level = 1;
+					  			  			 	  	function step () {
+					  			  			 	  						  			  			 	  	var h = level.toString(16);
+					  			  			 	  						  			  			 	  	dom.style.backgroundColor = '#FFFF' + h + h;
+					  			  			 	  						  			  			 	  	if (level < 15) {
+					  			  			 	  						  			  			 	  						  			  			 	  	level += 1;
+					  			  			 	  						  			  			 	  						  			  			 	  	setTimeout(step, 100);
+					  			  			 	  						  			  			 	  	}
+					  			  			 	  	}
+					  			  			 	  	setTimeout(step, 100);
+				}
+			</textarea>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2>Metode</h2>
+		<p class="to2right to3bottom">- Deoarece funcțiile sunt valori, funcțiile pot fi stocate în obiecte</p>
+		<p class="to2right to5bottom">- O funcție a unui obiect se numește o <strong>metodă</strong></p>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">Apel</h2>
+		<p class="to1top">- Dacă se apelează o funcție cu <strong>prea multe argumente</strong>, argumentele suplimentare sunt <strong>ignorate</strong></p>
+		<p class="to1bottom">- Dacă o funcție este apelată cu <strong>prea puține argumente</strong>, valorile lipsă sunt <code class="small">undefined</code></p>
+		<p class="to3bottom">- Nu există nici o verificare implicită a tipului argumentelor</p>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">Apel (Cont.)</h2>
+		<p class="to1top">- Există 4 modalități de a apela o funcție:</p>
+		<div class="to1left to1top">
+			<textarea id="funcInvocation">
+				functionObject(arguments) // apel funcție (function form)
+
+				thisObject.methodName(arguments) // apel metodă (method form)
+				thisObject.["methodName"](arguments) // apel metodă (method form)
+
+				new functionObject(arguments) // apel constrictor (constructor form)
+
+				functionObject.apply(thisObject, [arguments]) // apel cu apply (apply form)
+			</textarea>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2>Apel (Cont.) <span class="small strong to1right">this</span></h2>
+		<div class="columns two to1bottom">
+			<ul class="small">
+				<li><code class="small">this</code> este un parametru suplimentar. Valoarea lui depinde de forma de apelare</li>
+				<li class="to2bottom"><code class="small">this</code> oferă acces metodelor la obiectele lor</li>
+				<li class="to4bottom"><code class="small">this</code> este legat de tipul de apel</li>
+			</ul>
+			<table class="small tab1 to2top">
+				<tr><th>Tip de apel</th><th>this</th></tr>
+				<tr><td>apel funcție</td><td>obiectul global</td></tr>
+				<tr><td>apel metodă</td><td>obiectul</td></tr>
+				<tr><td>apel constructor</td><td>noul obiect</td></tr>
+			</table>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2>Apel (Cont.) <span class="small strong to1right">arguments</span></h2>
+		<ul class="to5bottom to2right">
+			<li class="to3top">Când este apelată o funcție, ea primește și un parametru special, <br>numit <code class="small">arguments</code> în plus față de parametrii săi</li>
+			<li class="to2top">Acesta conține toate argumentele din apel</li>
+			<li class="to1top">Este un obiect asemănător unui array</li>
+			<li><code class="small">arguments.length</code> este numărul de argumente transmise</li>
+		</ul>
+	</section>
+
+	<section class="slide">
+		<h2>Exemplu</h2>
+		<div class="to2bottom to4right">
+			<textarea id="funcArguments">
+				function sum () {
+					  			  			 	  	var i, n = arguments.length, total = 0;
+					  			  			 	  	for (i = 1; i < n; i += 1) {
+					  			  			 	  						  			  			 	  	total += arguments[i];
+					  			  			 	  	}
+					  			  			 	  	return total;
+				}
+			</textarea>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2><span class="small strong to1right">eval</span></h2>
+		<p>- Aceasta este ceea ce browserul folosește pentru a <strong>transforma șirurile în acțiuni</strong></p>
+		<div class="to3right to1bottom">
+			<textarea id="evalEx">
+				// compilează și execută un șir și returnează rezultatul:
+				eval(string)
+			</textarea>
+		</div>
+		<p class="to2bottom">- este caracteristica <strong>cea mai greșit folosită</strong> a limbajului!</p>
+	</section>
+
+	<section class="slide">
+		<h2 class="shout"><span class="small"><span class="small">Modificarea și accesarea</span></span> <br><span class="large">DOM</span><span class="small">-ului</span></h2>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">DOM (Document Object Model)</h2>
+		<div class="columns two">
+		<div class="toright">
+			<textarea id="dom">
+				<!DOCTYPE html>
+				<html>
+					  			  			 	  	<head>
+					  			  			 	  						  			  			 	  	<title>hello, world</title>
+					  			  			 	  	</head>
+					  			  			 	  	<body>
+					  			  			 	  						  			  			 	  	hello, world
+					  			  			 	  	</body>
+				</html>
+			</textarea>
+		</div>
+		<img src="../../PWg/5/img/dom.png" alt="" width="350" class="to2top">
+		</div>
+		<span class="copyright bottom"><a href="https://video.cs50.net/2016/fall/lectures/10?t=10m00s" target="_blank">CS50</a> Harvard University, by David Malan, Fall, 2016</span>
+</section>
+
+	<section class="slide">
+		<h2>Modificarea și accesarea DOM-ului</h2>
+		<ul class="small to4right">
+			<li>document.<a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement">createElement</a>(tagName[, options]);</li>
+			<li>document.<a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/createAttribute">createAttribute</a>(name);</li>
+			<li>element.<a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute">setAttribute</a>(name, value);</li>
+			<li>element.<a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild">appendChild</a>(aChild);</li>
+			<li>element.<a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML">innerHTML</a>;</li>
+		</ul>
+		<ul class="small to4right">
+			<li>document.<a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById">getElementById</a>(id);</li>
+			<li>element.<a href="https://developer.mozilla.org/ro/docs/Web/API/Element/getElementsByTagName">getElementsByTagName</a>(tagName);</li>
+		</ul>
+		<span class="copyright bottom">Mai multe despre metodele obiectului document @: <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document#Methods" target="_blank">https://developer.mozilla.org/en-US/docs/Web/API/Document#Methods</a> <br>
+		sau despre metodele unui nod din DOM @: <a href="https://developer.mozilla.org/en-US/docs/Web/API/Node#Methods" target="_blank">https://developer.mozilla.org/en-US/docs/Web/API/Node#Methods</a></span>
+	</section>
+
+	<section class="slide">
+		<h2>Evenimente</h2>
+		<div class="place middle small">
+		click <br>
+		mousedown <br>
+		mouseup <br>
+		mouseover <br>
+		drag <br>
+		keypress <br>
+		load <br>
+		unload <br>
+		change <br>
+		submit <br>
+		focus <br>
+		touchmove <br>
+		...
+	</div>
+	<span class="copyright bottom">Pentru o listă completă, accesați:  <a href="http://www.w3schools.com/jsref/dom_obj_event.asp" target="_blank">http://www.w3schools.com/jsref/dom_obj_event.asp</a></span>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">Exemplu DOM <span class="small strong to1right">onsubmit</span></h2>
+		<div class="to3top">
+		<textarea id="dom0Ex">
+			<!DOCTYPE html>
+			<html>
+					  			  			 	  	<head>
+					  			  			 	  						  			  			 	  	<script>
+					  			  			 	  						  			  			 	  						  			  			 	  	function greet()
+					  			  			 	  						  			  			 	  						  			  			 	  	{
+					  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  	alert('hello, world');
+					  			  			 	  						  			  			 	  						  			  			 	  	}
+					  			  			 	  						  			  			 	  	</script>
+					  			  			 	  						  			  			 	  	<title>dom0</title>
+					  			  			 	  	</head>
+					  			  			 	  	<body>
+					  			  			 	  						  			  			 	  	<form id="demo" onsubmit="greet(); return false;">
+					  			  			 	  						  			  			 	  						  			  			 	  	<input id="name" placeholder="Name" type="text"/>
+					  			  			 	  						  			  			 	  						  			  			 	  	<input type="submit"/>
+					  			  			 	  						  			  			 	  	</form>
+					  			  			 	  	</body>
+			</html>
+		</textarea>
+		</div>
+		<span class="copyright right"><a href="https://video.cs50.net/2016/fall/lectures/10?t=18m00s" target="_blank">CS50</a> Harvard University, by David Malan, Fall, 2016</span>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">Exemplu DOM <span class="small strong to1right">getElementById</span></h2>
+		<div class="to3top">
+		<textarea id="dom00Ex">
+			<!DOCTYPE html>
+			<html>
+					  			  			 	  	<head>
+					  			  			 	  						  			  			 	  	<script>
+					  			  			 	  						  			  			 	  						  			  			 	  	function greet()
+					  			  			 	  						  			  			 	  						  			  			 	  	{
+					  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  	alert('hello, ' + document.getElementById('name').value + '!');
+					  			  			 	  						  			  			 	  						  			  			 	  	}
+					  			  			 	  						  			  			 	  	</script>
+					  			  			 	  						  			  			 	  	<title>dom0</title>
+					  			  			 	  	</head>
+					  			  			 	  	<body>
+					  			  			 	  						  			  			 	  	<form id="demo" onsubmit="greet(); return false;">
+					  			  			 	  						  			  			 	  						  			  			 	  	<input id="name" placeholder="Name" type="text"/>
+					  			  			 	  						  			  			 	  						  			  			 	  	<input type="submit"/>
+					  			  			 	  						  			  			 	  	</form>
+					  			  			 	  	</body>
+			</html>
+		</textarea>
+	</div>
+	<span class="copyright right"><a href="https://video.cs50.net/2016/fall/lectures/10?t=20m14s" target="_blank">CS50</a> Harvard University, by David Malan, Fall, 2016 </span>
+	<footer class="notes">"document" - the special global variable that is accesible to the JavaScript code that you write, beeing the upper most node in the DOM tree.
+		Associated with that node (i.e., object) are a buch of methods that come with Javascript and your browser support them.
+	</footer>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">Exemplu DOM <span class="small to1right"><small>Funcțiile Lambda (anonime)</small></span></h2>
+		<div class="to3top">
+		<textarea id="dom1Ex">
+			<!DOCTYPE html>
+			<html>
+					  			  			 	  	<head>
+					  			  			 	  						  			  			 	  	<title>dom1</title>
+					  			  			 	  	</head>
+					  			  			 	  	<body>
+					  			  			 	  						  			  			 	  	<form id="demo">
+					  			  			 	  						  			  			 	  						  			  			 	  	<input id="name" placeholder="Name" type="text"/>
+					  			  			 	  						  			  			 	  						  			  			 	  	<input type="submit"/>
+					  			  			 	  						  			  			 	  	</form>
+					  			  			 	  						  			  			 	  	<script>
+					  			  			 	  						  			  			 	  						  			  			 	  	document.getElementById('demo').onsubmit = function() {
+					  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  	alert('hello, ' + document.getElementById('name').value + '!');
+					  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  	return false;
+					  			  			 	  						  			  			 	  						  			  			 	  	};
+					  			  			 	  						  			  			 	  	</script>
+					  			  			 	  	</body>
+			</html>
+		</textarea>
+	</div>
+	<span class="copyright right"><a href="https://video.cs50.net/2016/fall/lectures/10?t=25m10s" target="_blank">CS50</a> Harvard University, by David Malan, Fall, 2016 </span>
+	<footer class="notes">
+		Lamda functions. Functions do not need names if you want to call them once or if you want to reffer to them really once.
+	</footer>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">Exemplu DOM <span class="small strong to1right">window.onload</span></h2>
+		<div class="to3top">
+		<textarea id="dom2Ex">
+			<!DOCTYPE html>
+			<html>
+					  			  			 	  	<head>
+					  			  			 	  						  			  			 	  	<script>
+					  			  			 	  						  			  			 	  						  			  			 	  	window.onload = function() {
+					  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  	document.getElementById('demo').onsubmit = function() {
+					  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  	alert('hello, ' + document.getElementById('name').value + '!');
+					  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  	return false;
+					  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  	};
+					  			  			 	  						  			  			 	  						  			  			 	  	}
+					  			  			 	  						  			  			 	  	</script>
+					  			  			 	  						  			  			 	  	<title>dom2</title>
+					  			  			 	  	</head>
+					  			  			 	  	<body>
+					  			  			 	  						  			  			 	  	<form id="demo">
+					  			  			 	  						  			  			 	  						  			  			 	  	<input id="name" placeholder="Name" type="text"/>
+					  			  			 	  						  			  			 	  						  			  			 	  	<input type="submit"/>
+					  			  			 	  						  			  			 	  	</form>
+					  			  			 	  	</body>
+			</html>
+		</textarea>
+	</div>
+	<span class="copyright right"><a href="https://video.cs50.net/2016/fall/lectures/10?t=35m00s" target="_blank">CS50</a> Harvard University, by David Malan, Fall, 2016 </span>
+	</section>
+
+	<section class="slide">
+		<h2>Callbacks</h2>
+		<p class="to2bottom em">- sunt funcții care sunt "rechemate" la un eveniment (<span class="small dimText">event</span>).</p>
+		<p class="to4bottom">Un handler de evenimente sau funcția care apelează un ascultător de evenimente la apariția unui eveniment este un exemplu de <span class="dimText">callback</span>.</p>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">Exemplu de validare de formular </h2>
+		<div class="to3top">
+		<textarea id="formValidEx">
+			<!DOCTYPE html>
+			<html>
+					  			  			 	  	<head>
+					  			  			 	  						  			  			 	  	<title>form1</title>
+					  			  			 	  	</head>
+					  			  			 	  	<body>
+					  			  			 	  						  			  			 	  	<form action="/register" id="registration" method="get">
+					  			  			 	  						  			  			 	  						  			  			 	  	<input name="email" placeholder="Email" type="text"/>
+					  			  			 	  						  			  			 	  						  			  			 	  	<input name="password" placeholder="Password" type="password"/>
+					  			  			 	  						  			  			 	  						  			  			 	  	<input name="confirmation" placeholder="Password (again)" type="password"/>
+					  			  			 	  						  			  			 	  						  			  			 	  	<input name="agreement" type="checkbox"/> I agree
+					  			  			 	  						  			  			 	  						  			  			 	  	<input type="submit" value="Register"/>
+					  			  			 	  						  			  			 	  	</form>
+					  			  			 	  						  			  			 	  	<script>
+					  			  			 	  						  			  			 	  						  			  			 	  	var form = document.getElementById('registration');
+					  			  			 	  						  			  			 	  						  			  			 	  	form.onsubmit = function() {
+					  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  	if (form.email.value == '') {
+					  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  	alert('missing email');
+					  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  	return false;
+					  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  	}
+					  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  	else if (form.password.value == '') {
+					  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  	alert('missing password');
+					  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  	return false;
+					  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  	}
+					  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  	else if (form.password.value != form.confirmation.value) {
+					  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  	alert('passwords don\'t match');
+					  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  	return false;
+					  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  	}
+					  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  	else if (!form.agreement.checked) {
+					  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  	alert('checkbox unchecked');
+					  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  	return false;
+					  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  	}
+					  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  	return true;
+					  			  			 	  						  			  			 	  						  			  			 	  	};
+					  			  			 	  						  			  			 	  	</script>
+					  			  			 	  	</body>
+			</html>
+		</textarea>
+	</div>
+	<span class="copyright right"><a href="https://video.cs50.net/2016/fall/lectures/10?t=41m00s" target="_blank">CS50</a> Harvard University, by David Malan, Fall, 2016 </span>
+	<footer class="notes">You can make it prettyer by using Bootstrap. For validation also for better user experience. (form2.html and even more prettier form3.html @t=47m00s)
+		<br><br>One can disable Javascript to pass such validations (@1h23m10s) Inspect - Settings - Debugger - Disable JavaScript <br>
+		So JavaScript is a client side nicety (responsivness, better user experience), but it is not an alternative to security checks, to validation of data on the server.
+	</footer>
+	</section>
+
+	<section class="slide">
+		<h2>JavaScript &amp; CSS</h2>
+		<p class="small to1bottom">
+			Proprietățile CSS, cum ar fi <code class="small">background-color</code> sau <code class="small">font-family</code>,
+			pot fi accesate în JavaScript prin intermediul <code class="small">backgroundColor</code> sau  <code class="small">fontFamily</code> prin notarea <span class="strong em">CamelCase</span>.
+		</p>
+		<ul class="strong to3bottom to5right">
+			<li class="to1top">className</li>
+			<li>style</li>
+		</ul>
+		<span class="copyright bottom">Mai multe despre JavaScript și CSS @: <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Getting_started/JavaScript" target="_blank">https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Getting_started/JavaScript</a></span>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">Exemplu JavaScript &amp; CSS</h2>
+		<div class="to3top">
+		<textarea id="cssBlinkEx">
+			<!DOCTYPE html>
+			<html>
+					  			  			 	  	<head>
+					  			  			 	  						  			  			 	  	<script>
+					  			  			 	  						  			  			 	  						  			  			 	  	// toggles visibility of greeting
+					  			  			 	  						  			  			 	  						  			  			 	  	function blink() {
+					  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  	var div = document.getElementById('greeting');
+					  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  	if (div.style.visibility == 'hidden') {
+					  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  	div.style.visibility = 'visible';
+					  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  	}
+					  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  	else {
+					  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  	div.style.visibility = 'hidden';
+					  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  	}
+					  			  			 	  						  			  			 	  						  			  			 	  	}
+					  			  			 	  						  			  			 	  						  			  			 	  	// blink every 500ms
+					  			  			 	  						  			  			 	  						  			  			 	  	window.setInterval(blink, 500);
+					  			  			 	  						  			  			 	  	</script>
+					  			  			 	  						  			  			 	  	<style>
+					  			  			 	  						  			  			 	  						  			  			 	  	#greeting {
+					  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  	font-size: 96pt;
+					  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  	margin: 240px;
+					  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  	text-align: center;
+					  			  			 	  						  			  			 	  						  			  			 	  	}
+					  			  			 	  						  			  			 	  	</style>
+					  			  			 	  						  			  			 	  	<title>blink</title>
+					  			  			 	  	</head>
+					  			  			 	  	<body>
+					  			  			 	  						  			  			 	  	<div id="greeting">
+					  			  			 	  						  			  			 	  						  			  			 	  	hello, world
+					  			  			 	  						  			  			 	  	</div>
+					  			  			 	  	</body>
+			</html>
+		</textarea>
+	</div>
+	<span class="copyright right"><a href="https://video.cs50.net/2016/fall/lectures/10?t=52m44s" target="_blank">CS50</a> Harvard University, by David Malan, Fall, 2016 </span>
+	</section>
+
+	<section class="slide">
+		<h2>JavaScript Timing Events</h2>
+		<div class="to2bottom to4right">
+		<textarea id="timingEvents">
+			window.setTimeout(function, milliseconds); // apelează o funcție după ce așteaptă un anumit număr de milisecunde
+
+			window.setInterval(function, milliseconds); // același ca setTimeout(), dar repetă executarea continuă a funcției
+		</textarea>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">Spațiu de stocare local</h2>
+		<div class="to2top">
+		<textarea id="localStorageEx">
+			<!DOCTYPE html>
+			<html>
+					  			  			 	  	<head>
+					  			  			 	  						  			  			 	  	<title>storage</title>
+					  			  			 	  	</head>
+					  			  			 	  	<body>
+					  			  			 	  						  			  			 	  	<script>
+					  			  			 	  						  			  			 	  						  			  			 	  	if (!localStorage.getItem('counter')) {
+					  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  	localStorage.setItem('counter', 0);
+					  			  			 	  						  			  			 	  						  			  			 	  	}
+					  			  			 	  						  			  			 	  						  			  			 	  	document.write(localStorage.getItem('counter'));
+					  			  			 	  						  			  			 	  						  			  			 	  	localStorage.setItem('counter', parseInt(localStorage.getItem('counter')) + 1);
+					  			  			 	  						  			  			 	  	</script>
+					  			  			 	  	</body>
+			</html>
+		</textarea>
+		</div>
+		<p class="small to1top">- <code class="small">localStorage</code> este o variabilă globală care poate fi accesată la nivel global.</p>
+		<p class="small to2top">- perechile cheie-valoare pot fi stocate local ca șiruri de caractere în browser</p>
+		<span class="copyright right"><a href="https://video.cs50.net/2016/fall/lectures/10?t=58m04s" target="_blank">CS50</a> Harvard University, by David Malan, Fall, 2016 </span>
+	</section>
+
+
+	<section class="slide">
+		<h2>Geolocation</h2>
+		<div class="to1bottom">
+		<textarea id="geolocationEx">
+			<!DOCTYPE html>
+			<html>
+					  			  			 	  	<head>
+					  			  			 	  						  			  			 	  	<title>geolocation</title>
+					  			  			 	  	</head>
+					  			  			 	  	<body>
+					  			  			 	  						  			  			 	  	<script>
+					  			  			 	  						  			  			 	  						  			  			 	  	navigator.geolocation.getCurrentPosition(function(position) {
+					  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  	document.write(position.coords.latitude + ', ' + position.coords.longitude);
+					  			  			 	  						  			  			 	  						  			  			 	  	});
+					  			  			 	  						  			  			 	  	</script>
+					  			  			 	  	</body>
+			</html>
+		</textarea>
+		</div>
+		<span class="copyright bottom"><a href="https://video.cs50.net/2016/fall/lectures/10?t=1h2m27s" target="_blank">CS50</a> Harvard University, by David Malan, Fall, 2016 (<a href="http://docs.cs50.net/2016/fall/notes/10/week10.html">notes</a>)
+		</span>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">Google’s Maps service. API.</h2>
+		<div class="to3top">
+		<textarea id="googleApiEx">
+			 ...
+					  			  			 	  	<body>
+					  			  			 	  						  			  			 	  	<div id="map"></div>
+					  			  			 	  						  			  			 	  	<script>
+					  			  			 	  						  			  			 	  						  			  			 	  	function initMap() {
+					  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  	var map = new google.maps.Map(document.getElementById('map'), {
+					  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  	center: {lat: 39.833, lng: -98.583},
+					  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  	zoom: 4
+					  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  	});
+					  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  	var marker = new google.maps.Marker({
+					  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  	map: map,
+					  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  	position: {lat: 42.3762, lng: -71.1158}
+					  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  	});
+					  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  	var marker = new google.maps.Marker({
+					  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  	map: map,
+					  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  	position: {lat: 41.3104, lng: -72.9289}
+					  			  			 	  						  			  			 	  						  			  			 	  						  			  			 	  	});
+					  			  			 	  						  			  			 	  						  			  			 	  	}
+					  			  			 	  						  			  			 	  	</script>
+					  			  			 	  						  			  			 	  	<script src="https://maps.googleapis.com/maps/api/js?key=...&callback=initMap">
+					  			  			 	  						  			  			 	  	</script>
+					  			  			 	  	</body>
+				...
+		</textarea>
+		</div>
+		<span class="copyright right"><a href="https://video.cs50.net/2016/fall/lectures/10?t=1h30m0s" target="_blank">CS50</a> Harvard University, by David Malan, Fall, 2016 </span>
+	</section>
+
+	<section class="slide">
+		<h2>Notația JSON</h2>
+		<div class="columns two">
+			<div class="to1bottom">
+			<textarea id="JSONNotaEx">
+				{
+					  			  			 	  	"name": "Laptop",
+					  			  			 	  	"price": 3489.78,
+					  			  			 	  	"stock": "available"
+				};
+			</textarea>
+			</div>
+			<img src="../../PWg/5/img/JSON.png" alt="JSON format" width="450" class="to3top">
+		</div>
+		<span class="copyright bottom"><a href="http://www.slideshare.net/nri94/4d-summit-europe-2014-confrence-dac-consulting-xml-demystified" target="_blank">XML Demystified</a>, <a target="_blank" href="http://www.slideshare.net/nri94?utm_campaign=profiletracking&utm_medium=sssite&utm_source=ssslideview">Nathalie Richomme</a>, 4D Summit Europe 2014 <!--- Conférence d'A&amp;C--> </span>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">JSON versus XML</h2>
+		<div class="columns two to2left to1top">
+			<span class="to2right">JSON:</span>
+			<span class="to1left">XML:</span>
+		</div>
+		<div class="columns two small to3top">
+		<div class="to4right">
+			<textarea id="JSONexample">
+				{
+			  			  			 	  	"child": [
+			  			  			 	  				  			  			 	  	{
+			  			  			 	  				  			  			 	  				  			  			 	  	"name": "Laura",
+			  			  			 	  				  			  			 	  				  			  			 	  	"dob": "1973-10-21"
+			  			  			 	  				  			  			 	  	},
+			  			  			 	  				  			  			 	  	{
+			  			  			 	  				  			  			 	  				  			  			 	  	"name": "Camelia",
+			  			  			 	  				  			  			 	  				  			  			 	  	"dob": "1974-10-17"
+			  			  			 	  				  			  			 	  	}
+			  			  			 	  	]
+				}
+			</textarea>
+		</div>
+		<div>
+			<textarea id="XMLexample">
+				<children>
+			  			  			 	  	<child name="Laura" dob="1973-10-21"/>
+			  			  			 	  	<child name="Camelia" dob="1974-10-17"/>
+				</children>
+			</textarea>
+		</div>
+		</div>
+		<div class="small to2top">
+		<div class="small">JSON compact:
+			<div class="small to5right"><code class="small">{"child":[{"name":"Laura","dob":"1973-10-21"},{"name":"Camelia","dob":"1974-10-17"}]}</code>
+		</div></div>
+		<div class="small">XML compact:
+			<div class="small to5right"><code class="small">&lt;children>&lt;child name="Laura" dob="1973-10-21"/&gt;&lt;child name="Camelia" dob="1974-10-17"/&gt;&lt;/children&gt;</code>
+		</div></div>
+		</div>
+		<span class="copyright right"><a href="http://www.slideshare.net/nri94/4d-summit-europe-2014-confrence-dac-consulting-xml-demystified" target="_blank">XML Demystified</a>, <a target="_blank" href="http://www.slideshare.net/nri94?utm_campaign=profiletracking&utm_medium=sssite&utm_source=ssslideview">Nathalie Richomme</a>, 4D Summit Europe 2014 <!--- Conférence d'A&amp;C--> </span>
+	</section>
+
+	<section class="slide">
+		<h2>Ordinea de procesare a scripturilor și a stylesheet-urilor</h2>
+		<div class="to2bottom">
+		<img src="../../PWg/5/img/styleSheets_scriptFiles1.png" alt="Unoptimize order of styles and scripts">
+		<img src="../../PWg/5/img/styleSheets_scriptFiles2.png" alt="Optimized order of styles and scripts">
+		</div>
+		<span class="copyright bottom"><a href="https://developers.google.com/speed/docs/best-practices/rtt#PutStylesBeforeScripts" target="_blank">Optimize the order of styles and scripts</a> by Google Developers</span>
+		<footer class="notes">
+		<ul>
+			<li><strong>Scripts</strong>: synchronous model; the parsing of the document halts until the script was executed; the parsing halts until the resource is fetched from the network; authors could mark the script as "defer" and thus it will not halt the document parsing and will execute after it is parsed; HTML5 adds an option to mark the script as asynchronous so it will be parsed and executed by a different thread.</li>
+			<li><strong>Speculative parsing</strong>: While executing scripts, another thread parses the rest of the document and finds out what other resources need to be loaded from the network and loads them. the speculative parser doesn't modify the DOM tree and leaves that to the main parser.</li>
+			<li><strong>Style sheets</strong>: Since style sheets don't change the DOM tree, there is no reason to wait for them and stop the document parsing. There is an issue, though, of scripts asking for style information during the document parsing stage. If the style is not loaded and parsed yet, the script will get wrong answers and apparently this caused lots of problems. </li>
+		</ul>
+		</footer>
+	</section>
+
+	<section class="slide">
+		<h2>Exemplele făcute la curs</h2>
+		<div class="to4right">
+		<iframe id="exemple" src="http://www.cs.ubbcluj.ro/~sanda/teaching/subject/TWCS/5/ex/" width="700" height="350"></iframe>
+		<!-- <p><a href="http://www.cs.ubbcluj.ro/~sanda/teaching/subject/TWCS/5/ex/">Aici</a> găsiți exemplele făcute la curs.</p> -->
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2 class="shout">Sfârșit</h2>
+	</section>
+
+	<div class="progress"></div>
+
+	<footer class="badge">
+		<a href="http://www.cs.ubbcluj.ro/~sanda/html/feedback/">
+			<svg width="200" height="100" viewBox="100 50 200 100" aria-hidden="true">
+				<path id="path0" d="M192.857 19.359 C 129.640 25.381,95.764 95.850,130.742 148.571 C 166.258 202.102,247.229 196.406,275.020 138.422 C 302.762 80.540,256.367 13.309,192.857 19.359 M243.212 50.267 C 248.480 52.892,253.304 59.531,253.323 64.182 C 253.340 68.326,252.460 69.619,243.488 78.642 L 235.115 87.062 236.604 90.637 C 241.855 103.251,241.486 117.302,235.587 129.401 L 234.121 132.407 237.217 144.061 C 238.920 150.470,240.181 155.714,240.019 155.714 C 239.857 155.714,234.625 154.344,228.392 152.670 L 217.059 149.625 213.172 151.446 C 185.904 164.219,153.666 147.848,147.512 118.102 C 139.960 81.597,177.084 51.348,211.734 65.773 L 215.319 67.266 223.736 58.896 C 234.308 48.383,237.020 47.181,243.212 50.267 M211.578 71.071 C 209.738 72.970,208.101 74.952,207.941 75.476 C 206.651 79.701,201.429 99.459,201.429 100.117 C 201.429 101.347,202.027 101.244,214.526 97.848 C 228.731 93.988,227.772 94.401,231.660 90.483 L 234.915 87.203 233.291 84.510 C 229.796 78.714,224.661 73.497,218.589 69.572 C 214.838 67.148,215.521 67.002,211.578 71.071 M220.589 81.780 C 230.210 91.385,230.178 91.881,219.740 94.778 L 213.095 96.622 209.427 92.954 L 205.759 89.286 207.603 82.641 C 210.496 72.216,210.978 72.184,220.589 81.780 M165.119 104.800 C 162.809 106.146,162.273 109.708,164.060 111.833 C 167.120 115.469,172.381 113.399,172.381 108.558 C 172.381 105.408,167.983 103.132,165.119 104.800 M191.096 104.856 C 189.665 105.547,188.407 108.326,188.803 109.921 C 189.562 112.978,192.905 114.548,195.642 113.132 C 201.214 110.251,196.751 102.124,191.096 104.856 M216.227 105.519 C 214.995 106.556,214.762 107.088,214.762 108.873 C 214.762 113.567,220.260 115.479,223.042 111.753 C 226.383 107.279,220.514 101.911,216.227 105.519 ">
+				</path>
+			</svg>
+			Lăsați <br>un feedback
+		</a>
+	</footer>
+	<script src="../../../../includes/js/shower.min.js"></script>
+	<script src="../../../../includes/codemirror/lib/codemirror.js"></script>
+	<script src="../../../../includes/codemirror/addon/edit/matchbrackets.js"></script>
+	<script src="../../../../includes/codemirror/addon/selection/selection-pointer.js"></script>
+	<script src="../../../../includes/codemirror/mode/xml/xml.js"></script>
+	<script src="../../../../includes/codemirror/mode/javascript/javascript.js"></script>
+	<script src="../../../../includes/codemirror/mode/css/css.js"></script>
+	<script src="../../../../includes/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+	<script src="../../../../includes/codemirror/mode/http/http.js"></script>
+	<script src="../../script.js"></script>
+	<script src="../script.js"></script>
+	<script>
+	set('numberFunction', 'javascript', 285, 30, 17, 20);
+	set('parseIntFunction', 'javascript', 285, 140, 17, 20);
+	set('mathMethods', 'javascript', 670, 330, 17, 20);
+	set('lengthString', 'javascript', 600, 30, 17, 20);
+	set('StringFunction', 'javascript', 600, 30, 17, 20);
+	set('StringMethoden', 'javascript', 850, 440, 17, 20);
+	set('booleanFunction', 'javascript', 250, 30, 17, 20);
+	set('falsyValues', 'javascript', 250, 210, 17, 20);
+	set('plusOperator', 'javascript', 250, 30, 17, 20);
+	set('plusOperator2', 'javascript', 600, 200, 17, 18);
+	set('equalOperator', 'javascript', 600, 200, 17, 18);
+	set('andOperator', 'javascript', 400, 200, 17, 13);
+	set('orOperator', 'javascript', 400, 30, 17, 20);
+	set('breakExample', 'javascript', 800, 200, 18, 10);
+	set('forExample', 'javascript', 630, 140, 18, 10);
+	set('forExample2', 'javascript', 630, 200, 18, 10);
+	set('switchExample', 'javascript', 800, 240, 18, 8);
+	set('exceptExample', 'javascript', 400, 200, 18, 10);
+	set('tryExample', 'javascript', 350, 310, 18, 10);
+	set('funcExample', 'javascript', 350, 80, 18, 10);
+	set('varExample', 'javascript', 350, 80, 18, 10);
+	set('returnExample', 'javascript', 350, 80, 18, 10);
+	set('objLitEx', 'javascript', 450, 180, 16, 20);
+	set('objMakerEx', 'javascript', 600, 370, 18, 20);
+	set('objLitExExt', 'javascript', 450, 350, 16, 14);
+	set('objLitExPla', 'javascript', 700, 290, 16, 14);
+	set('objLitExPar', 'javascript', 450, 310, 18, 21);
+	set('objAugument', 'javascript', 450, 110, 18, 21);
+	set('objLinkage', 'javascript', 450, 30, 18, 21);
+	set('objLinkageNew', 'javascript', 400, 80, 15, 15);
+	set('objConstruct', 'javascript', 400, 120, 18, 22);
+	set('objDelete', 'javascript', 400, 30, 18, 22);
+	set('arrLength', 'javascript', 400, 110, 18, 22);
+	set('arrLiteral', 'javascript', 800, 120, 15, 15);
+	set('arrDelete', 'javascript', 800, 180, 18, 18);
+	set('arrDeleteEx', 'javascript', 580, 150, 18, 18);
+	set('funcStruct', 'javascript', 650, 150, 18, 18);
+	set('funcStatement', 'javascript', 650, 180, 18, 18);
+	set('funcClosure', 'javascript', 650, 420, 18, 18);
+	set('funcInvocation', 'javascript', 900, 290, 18, 18);
+	set('funcArguments', 'javascript', 500, 250, 18, 18);
+	set('dom', mixedMode, 400, 350, 18, 18);
+	set('evalEx', 'javascript', 600, 100, 18, 22);
+	set('dom0Ex', mixedMode, 850, 460, 17, 7);
+	set('dom00Ex', mixedMode, 850, 460, 17, 7);
+	set('dom1Ex', mixedMode, 850, 460, 17, 7);
+	set('dom2Ex', mixedMode, 850, 460, 16, 5);
+	set('formValidEx', mixedMode, 850, 460, 15, 5);
+	set('cssBlinkEx', mixedMode, 850, 460, 15, 5);
+	set('timingEvents', 'javascript', 600, 200, 18, 22);
+	set('localStorageEx', mixedMode, 850, 320, 15, 5);
+	set('geolocationEx', mixedMode, 850, 280, 15, 5);
+	set('googleApiEx', mixedMode, 850, 460, 15, 5);
+	set('JSONNotaEx', mixedMode, 300, 200, 18, 22);
+	set('JSONexample', 'javascript', 280, 250, 14, 5);
+	set('XMLexample', 'xml', 380, 250, 14, 15);
+
+	document.getElementById("exemple").contentWindow.scrollTo(0,document.getElementById("exemple").contentWindow.document.body.scrollHeight)
+
+	</script>
+</body>
+
+</html>

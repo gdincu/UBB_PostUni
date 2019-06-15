@@ -1,0 +1,980 @@
+
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+	<title>Tehnologii Web Client-Side</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="../../style.css">
+		<link rel="stylesheet" href="../style.css">
+		<style media="screen">
+			.body {
+				width: 820px;
+				font-family: Arial;
+				background-color: rgb(185, 179, 175);
+			}
+
+			.body h3 {
+				color: rgb(255, 255, 255);
+				padding-left: 20px;
+			}
+
+			p.myNote {
+				background-color: rgb(240, 240, 240);
+				padding-left: 20px;
+				font-size: smaller;
+				width: 480px;
+			}
+
+			p.myNote:first-letter {
+				font-size: 200%;
+			}
+
+			p.myNote:first-line {
+				font-weight: bold;
+			}
+
+			.ergebnis {
+				padding-left: 20px;
+				background-color: rgb(240, 240, 240);
+				width: 350px;
+			}
+
+			.ergebnis a:link {
+			  color: deeppink;
+			}
+			.ergebnis a:visited {
+			  color: silver;
+			}
+			.ergebnis a:hover {
+			  background-color: yellow;
+			}
+			.ergebnis a:active {
+			  color: darkcyan;
+			}
+
+			input {
+			  padding: 6px 12px;
+			  border: 1px solid orange;
+			  color: #fff;
+			}
+			input.text:focus {
+			  color: orange;
+			}
+
+			.vorrangRezultat {
+				padding-left: 20px;
+				background-color: rgb(240, 240, 240);
+				width: 750px;
+			}
+
+			.vorrangRezultat strong { color: green; }
+			.vorrangRezultat strong { color: red; }
+			.vorrangRezultat em { color: pink; }
+			.vorrangRezultat p em { color: blue !important; }
+			.vorrangRezultat p em { color: violet; }
+			.vorrangRezultat p#intro { font-size: .75em; }
+			.vorrangRezultat p { font-size: 1em; }
+
+			.vererbungRezultat {
+			font-family: TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif;
+			color: #665544;
+			padding: 10px;
+			font-size: small;
+			width: 350px;
+			margin-left: -20px;
+		}
+		.vererbungRezultat .page {
+			border: 1px solid #665544;
+			background-color: #efefef;
+			padding: inherit;
+		}
+		</style>
+</head>
+<body class="shower list">
+
+    <header class="caption">
+        <h1>Tehnologii Web Client-Side, Curs 2</h1>
+        <p><a href="http://www.cs.ubbcluj.ro/~sanda">Sanda-Maria AVRAM</a>, Ph. D.</p>
+    </header>
+
+		<section class="slide">
+			<h2>Conținut:</h2>
+			<dl class="to2right">
+				<dt>
+					<span>- Avantajele standardelor</span>
+				</dt>
+				<dd></dd>
+				<dt>
+					<span>- modul de funcționare a browserul: redare și parsare;</span>
+				</dt>
+				<dd></dd>
+				<dt>
+					<span>- Reguli CSS: selectori, cascadă, moștenire</span>
+				</dt>
+				<dd></dd>
+				<dt>- Culori. Imagini. Fonturi</dt>
+				<dd></dd>
+				<dt>- CSS: <em class="dimText">box model, display, positioning</em></dt>
+				<dd></dd>
+				<dt>- <em class="dimText">Media queries</em> &amp; elemente avansate de CSS</dt>
+				<dd></dd>
+			</dl>
+			<span class="small em copyright bottom ">Curs de formare şi dezvoltare profesională în Informatică. Studii postuniversitare.
+			</span>
+		</section>
+
+		<section class="slide">
+			<img src="../../PWg/2/img/web-standards-timeline.png" alt="Web Standards Timeline" class="cover" />
+		</section>
+
+		<section class="slide">
+			<h2 class="to1top">Tagsoup</h2>
+			<div class="small to2top">
+				<ul class="small">
+					<li class="small"><span class="dimText">[înainte de CSS]</span> nici o modalitate de a <strong>poziționa</strong> elementele, cu excepția atributului <strong class="em">align</strong> pentru imagini; </li>
+					<li class="small"><span class="dimText">[înainte de CSS]</span> pentru a crea <strong class="dimText">layout</strong>-uri complete, complexe și atrăgătoare, s-au folosit tabele;</li>
+					<li class="small"><span class="dimText">[înainte de CSS]</span> distribuția la nivel mondial a editoarelor WYSIWYG (What You See Is What You Get);</li>
+					<li class="small"><strong>Browser</strong>-ele au interpretat greșit specificațiile, ceea ce a cauzat mai multe probleme, chiar și cu <span class="dimText">layout</span>-uri simple de pagini.</li>
+				</ul>
+				<img src="../../PWg/2/img/tag-soup-content.jpg" alt="Tag soup content" width="800" class="to2bottom" />
+			</div>
+			<span class="copyright bottom ">
+				<a href="http://en.wikipedia.org/wiki/Tag_soup" target="_blank">Tag soup</a> on Wikipedia
+			</span>
+		</section>
+
+		<section class="slide">
+			<h2>Zen Garden</h2>
+			<div class="columnstwo">
+				<a href="http://www.mezzoblue.com/zengarden/alldesigns/" target="_blank"><img src="../../PWg/2/img/ZenGarden_small.png" alt="Zen Garden" height="300" /></a>
+				<a href="http://en.wikipedia.org/wiki/The_Zen_of_CSS_Design" target="_blank" class="to3right"><img src="../../PWg/2/img/ZenGarden_book.png" alt="Zen Garden" height="290" /></a>
+			</div>
+			<span class="copyright bottom">
+				<a href="http://www.csszengarden.com/" target="_blank">The Zen of CSS Design</a> Web site launched on May 8, 2003 - to change how people perceive Web design. The <a href="http://en.wikipedia.org/wiki/The_Zen_of_CSS_Design" target="_blank">book</a>
+				was published in 2005.
+			</span>
+		</section>
+
+		<section class="slide">
+			<h2>Avantajele standardelor</h2>
+			<ul class="small to5bottom">
+				<li class="to4top"><strong>Compatibilitate</strong>:
+					<!-- Eine standardkonforme Site ist  -->
+					cu browserele anterioare și viitoare și cu dispozitivele de internet;
+				</li>
+				<li class="to3top"><strong>Independența față de dispozitiv</strong>:
+					prezentări pentru dispozitive specifice;
+				</li>
+				<li class="to2top"><strong class="em">Accesibilitate</strong>:
+					+ permite utilizatorilor accesul deplin la un document, chiar dacă CSS este dezactivat sau nu este acceptat;
+				</li>
+				<li class="to1top"><strong>Întreținerea codului</strong> (<em class="dimText">code maintenance</em>):
+					Standard = mai ușor și mai curat decât Tagsoup;
+				</li>
+				<li><strong>Indexarea motoarelor de căutare</strong>:
+					Dacă există mai mult text decât marcaje/tag-uri, pagina va fi mai bine indexată. CSS vă permite să reduceți marcajul redundant.
+				</li>
+			</ul>
+			<span class="copyright right">
+				<a href="https://gabrieleromanato.wordpress.com/2012/02/04/css-a-web-standard-in-context/" target="_blank">Web standards and CSS</a> by Gabriele Romanato, February 4, 2012
+			</span>
+		</section>
+
+		<section class="slide">
+			<h2>Cum funcționează browserele?</h2>
+			<img src="../../PWg/2/img/layers.png" alt="Browser main components" class="to5right" />
+			<span class="copyright bottom">
+				<a href="http://taligarsiel.com/Projects/howbrowserswork1.htm#The_browser_high_level_structure" target="_blank">How browsers work</a> by Tali Garsiel
+			</span>
+			<footer class="notes">
+				<ol>
+					<li><strong>The user interface</strong> - includes the address bar, back/forward button, bookmarking menu etc.
+						<!-- Every part of the browser display except the main window where you see the requested page.-->
+					</li>
+					<li><strong>The browser engine</strong> - the interface for querying and manipulating the rendering engine.</li>
+					<li><strong>The rendering engine</strong> - responsible for displaying the requested content
+						<!--. For example if the requested content is HTML, it is responsible for parsing the HTML and CSS and displaying the parsed content--> on the screen.</li>
+					<li><strong>Networking</strong> - used for network calls, like HTTP requests. It has platform independent interface and underneath implementations for each platform.</li>
+					<li><strong>UI backend</strong> - used for drawing basic widgets like combo boxes and windows. It exposes a generic interface that is not platform specific. Underneath it uses the operating system user interface methods.</li>
+					<li><strong>JavaScript interpreter</strong>. Used to parse and execute the JavaScript code.</li>
+					<li><strong>Data storage</strong>. This is a persistence layer. The browser needs to save all sorts of data on the hard disk, for examples, cookies. The new HTML specification (HTML5) defines 'web database' which is a complete (although light)
+						database in the browser.</li>
+				</ol>
+			</footer>
+		</section>
+
+		<section class="slide">
+			<h2 class="to1top"><small>Cum funcționează browserele? <span class="dimText">Rendering.</span></small></h2>
+			<img src="../../PWg/2/img/flow.png" alt="Rendering. The main flow" class="to2top to5right" />
+			<img src="../../PWg/2/img/webkitflow.png" alt="Rendering. The main flow" class="to2top to5right" />
+			<span class="copyright bottom">
+				&rarr; <a href="http://taligarsiel.com/Projects/howbrowserswork1.htm#The_rendering_engine" target="_blank">How browsers work. The rendering engine</a>, 2009; &nbsp;&nbsp;&nbsp;&nbsp;
+				&rarr; <a href="http://friendlybit.com/css/rendering-a-web-page-step-by-step/" target="_blank">Rendering a web page – step by step</a>, 2010 by Emil Stenström; &nbsp;&nbsp;&nbsp;&nbsp;<br>
+				&rarr; <a href="https://developers.google.com/speed/docs/best-practices/rendering" target="_blank">Optimize browser rendering</a>, 2015; &nbsp;&nbsp;&nbsp;&nbsp;
+				&rarr; <a href="http://css-tricks.com/efficiently-rendering-css/" target="_blank">Efficiently Rendering CSS</a>, 2010 by Chris Coyier
+			</span>
+			<footer class="notes">
+				A content sink is an object that sits between the parser and the content model (DOM tree) and gets data (tokenized on the markup level like start element, end element, etc.) from the parser and builds the content model (DOM tree).
+			</footer>
+		</section>
+
+		<section class="slide">
+			<h2><small>Cum funcționează browserele? <span class="dimText">Parsing.</span></small></h2>
+			<div class="columns two to1bottom">
+				<img src="../../PWg/2/img/parsingHTML.png" alt="parsing HTML: Document Object Model" height="300" />
+				<img src="../../PWg/2/img/parsingCSS.png" alt="parsing CSS" height="300" />
+			</div>
+			<span class="copyright bottom">
+				<a href="http://taligarsiel.com/Projects/howbrowserswork1.htm#Parsing_general" target="_blank">How browsers work. Parsing</a>, 2009.
+			</span>
+		</section>
+
+		<section class="slide">
+			<h2>Cascading Style Sheets (<strong class="small">CSS</strong>). <small>Versiuni</small></h2>
+			<dl class="small to4bottom to5right">
+				<dt class="to3top"><span class="dimText">1996</span> - <strong>CSS1</strong>
+					 a devenit o recomandare W3C
+				</dt>
+				<dd class="small em to1right to4top"><span class="dimText">font, alignment, margin, border, background, float,</span> etc.</dd>
+
+				<dt class="to1top"><span class="dimText">1998</span> - <strong>CSS2</strong> cu caracteristici avansate
+					<!-- with advanced features -->
+				</dt>
+				<dd class="small em to1right to1top">
+					<span class="dimText">table cell display,</span>
+					<!-- sheets could import others,  --><span class="dimText">CSS @import,</span>
+					<!-- targeted different output media, etc.  --> diferite tipuri de ieșiri <span class="dimText">media</span>, etc.
+				</dd>
+				<!-- Some parts of CSS2 were very difficult to implement, so the W3C decided to revise the specification, thus CSS2.1 (<span style="font-size:smaller;">CSS level 2, revision 1</span>). -->
+				<dt class="to1bottom"><span class="dimText">2011</span>- <strong>CSS3</strong> este împărțit în documente separate numite "module" </dt>
+				<!-- <dd>Each module adds new capabilities or extends features defined in CSS 2, preserving backward compatibility: </dd> -->
+				<dd class="small em to1right to1bottom">Color, Selectors Level 3, Namespaces, Media Queries, etc.</dd>
+			</dl>
+			<span class="copyright bottom">
+				<a href="http://en.wikipedia.org/wiki/CSS3#Variations" target="_blank">Cascading Style Sheets. Variations</a> on Wikipedia, October 2016; &nbsp;&nbsp;&nbsp;<a href="http://evolutionofweb.appspot.com/" target="_blank">Web Evolution Timeline</a>
+			</span>
+		</section>
+
+		<section class="slide">
+			<h2 class="to1top">CSS: <small>o lume în schimbare rapidă</small></h2>
+			<div class="to5right to1top">
+				<iframe src="//www.slideshare.net/slideshow/embed_code/16555873" width="427" height="356" allowfullscreen> </iframe>
+			</div>
+			<span class="copyright bottom">
+				<a href="http://www.slideshare.net/maxdesign/css-a-rapidly-changing-world" title="CSS: a rapidly changing world" target="_blank">CSS: a rapidly changing world</a> from <a href="http://www.slideshare.net/maxdesign" target="_blank">Russ Weakley</a>
+				on Feb 15, 2013
+			</span>
+		</section>
+
+		<section class="slide">
+			<h2>Anatomia unei reguli CSS</h2>
+			<img src="img/css-rule.jpg" alt="Anatomy of an CSS rule" width="820" class="to2bottom" />
+		</section>
+
+		<section class="slide">
+			<h2 class="to1top">Utilizare CSS extern <strong class="small">&lt;link&gt;</strong></h2>
+			<div class="columns two to2top">
+				<div>
+					<span class="small">index.html</span>
+					<textarea id="extCSShtml">
+				<head>
+				  			  <link rel="stylesheet" href="style.css">
+				</head>
+				<body>
+				  			  <h3>Utilizare CSS extern</h3>
+			</textarea>
+				</div>
+				<div>
+					<span class="small">style.css</span>
+					<textarea id="extCSScss">
+				body {
+				  font-family: Arial;
+				  background-color: rgb(185,179,175);
+				}
+				h3 {
+				  color: rgb(255,255,255);
+				}		</textarea>
+				</div>
+			</div>
+			<span class="small">Rezultat</span>
+			<div class="to1top body">
+				<h3>Utilizare CSS extern</h3>
+			</div>
+		</section>
+
+		<section class="slide">
+			<h2 class="to1top">Utilizare CSS intern <strong class="small">&lt;style&gt;</strong></h2>
+			<div class="to3top">
+				<span class="small to1bottom">index.html</span>
+				<div class="to5right to1top">
+					<textarea id="intCSShtml">
+				<head>
+				  			  <style media="screen">
+				  			  			  			  body {
+				  			  			  			  			  			  font-family: Arial;
+				  			  			  			  			  			  background-color: rgb(185,179,175);
+				  			  			  			  }
+				  			  			  			  h3 {
+				  			  			  			  			  			  color: rgb(255,255,255);
+				  			  			  			  }
+				  			  </style>
+				</head>
+				<body>
+				  			  <h3>Utilizare CSS intern</h3>
+			</textarea>
+				</div>
+			</div>
+			<span class="small to4top">Rezultat</span>
+			<div class="to5top body">
+				<h3>Utilizare CSS intern</h3>
+			</div>
+		</section>
+
+		<section class="slide">
+			<h2>Recomandare: Utilizați CSS extern</h2>
+			<ul class="to5bottom">
+				<li class="to3top">toate paginile utilizează <strong>același stil</strong> (în loc să o repeta pe fiecare pagină);</li>
+				<li class="to1top">păstrează conținutul <strong>separat</strong> de aspectul paginii;</li>
+				<li class="to1bottom">Schimbarea stilului pentru mai multe pagini prin editarea a <strong>unui singur fișier</strong>.</li>
+			</ul>
+		</section>
+
+		<section class="slide">
+			<h2>Selectori element</h2>
+			<table class="small">
+				<tr>
+					<th>Selector</th>
+					<th>Semnificație</th>
+					<th>Exemplu</th>
+				</tr>
+				<tr>
+					<td>selector universal</td>
+					<td class="small em">se aplică tuturor elementelor din document</td>
+					<th class="small">* {}</th>
+				</tr>
+				<tr>
+					<td>selector de tip</td>
+					<td class="small em">se potrivește cu numele elementelor</td>
+					<th class="small">h1, h2, h3 {}</th>
+				</tr>
+				<tr>
+					<td>selector de clasă</td>
+					<td class="small em">elemente cu numele acestei clase</td>
+					<th class="small">.note {} p.note {}</th>
+				</tr>
+				<tr>
+					<td>selector ID</td>
+					<td class="small em">Elemente cu acest ID</td>
+					<th class="small">#introduction {}</th>
+				</tr>
+				<tr>
+					<td>selector copil</td>
+					<td class="small em">elementul care este copilul direct al altui element</td>
+					<th class="small"> li > a {}</th>
+				</tr>
+				<tr>
+					<td>selector de descendent</td>
+					<td class="small em">elementul care este descendent al altui element</td>
+					<th class="small">p a {}</th>
+				</tr>
+				<tr>
+					<td>selector frați adiacenți</td>
+					<td class="small em">elementul care este următorul frate al altui element</td>
+					<th class="small">h1+p {}</th>
+				</tr>
+				<tr>
+					<td>selector de frate</td>
+					<td class="small em">element care este fratele altui element</td>
+					<th class="small">h1~p {}</th>
+				</tr>
+			</table>
+		</section>
+
+		<section class="slide">
+			<h2 class="to1top">Selectori atribut</h2>
+			<table class="small to2top">
+				<tr>
+					<th>Selector</th>
+					<th>Semnificație</th>
+					<th>Exemplu</th>
+				</tr>
+				<tr>
+					<td>existență</td>
+					<td class="small em">elementul care are un atribut specific</td>
+					<th class="small">p[class] {}</th>
+				</tr>
+				<tr>
+					<td>egalitate</td>
+					<td class="small em">elementul care are un atribut specific cu o valoare specifică</td>
+					<th class="small">p[class="note"] {}</th>
+				</tr>
+				<tr>
+					<td>spațiu</td>
+					<td class="small em">elementul cu o valoare a atributului afișat într-o listă de <br>cuvinte separate de spațiu</td>
+					<th class="small">p[class~="note"] {}</th>
+				</tr>
+				<tr>
+					<td>prefix</td>
+					<td class="small em">elementul cu o valoare de atribut care începe cu un anumit <br>șir de caractere</td>
+					<th class="small">p[class^="n"] {}</th>
+				</tr>
+				<tr>
+					<td>subșir</td>
+					<td class="small em">elementul cu o valoare a atributului, care conține un anumit subșir</td>
+					<th class="small">p[class*="no"] {}</th>
+				</tr>
+				<tr>
+					<td>sufix</td>
+					<td class="small em">elementul cu o valoare a atributului, care se termină cu un anumit <br>subșir</td>
+					<th class="small">p[class$="te"] {}</th>
+				</tr>
+			</table>
+		</section>
+
+		<section class="slide">
+			<h2>Pseudo elemente</h2>
+			<p class="small em to5right">- se comportă ca un element suplimentar în cod.</p>
+			<div class="columns two to1bottom">
+				<div class="small">
+					style.css
+					<textarea id="pseudoElem">
+				p.note:first-letter {
+				  			  font-size: 200%;
+				}
+				p.note:first-line {
+				  			  font-weight: bold;
+				}		</textarea>
+				</div>
+				<div class="small">
+					<span class="">Rezultat</span>
+					<p class="myNote">
+						Pentru pseudo elementele :first-letter și :first-line este ca și cum ar exista un element suplimentar în jurul primei litere sau linii pentru care puteți aplica propriile stiluri.
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="slide">
+			<h2 class="to1top">Pseudo-clase</h2>
+			<div class="to2top">
+				<p class="small em to5right">- se comportă ca o valoare suplimentară pentru un atribut de clasă.</p>
+				<div class="columns two">
+					<div class="small">
+						<span>style.css</span>
+						<div class="to5right to1top">
+							<textarea id="pseudoKlasse">
+						a:link {
+						  color: deeppink;
+						}
+						a:visited {
+						  color: silver;
+						}
+						a:hover {
+						  background-color: yellow;
+						}
+						a:active {
+						  color: darkcyan;
+						}		</textarea>
+						</div>
+					</div>
+					<div class="small">
+						<span class="">Rezultat</span>
+						<p class="ergebnis">
+							În cazul pseudo-clasei <a href="#">:visited</a>, puteți utiliza stiluri diferite pentru link-urile vizitate. În mod similar, pseudo-clasa <a href="http://yahoo.com">:hover</a> permite stilizarea elementelor atunci când un utilizator se deplasează peste ele.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="slide">
+			<h2>Pseudo-clase (cont.)</h2>
+			<p class="small em">- Pseudo clasele care permit modificarea aspectul unui element atunci când un utilizator interacționează cu acesta:
+				<strong>:hover</strong>, <strong>:active</strong> și <strong>:focus</strong>.
+			</p>
+			<div class="columns two">
+				<div class="small">
+					<span>style.css</span>
+					<textarea id="pseudoKlasse2">
+						input {
+						  padding: 6px 12px;
+						  border: 1px solid orange;
+						  color: #fff;
+						}
+						input.text:focus {
+						  color: orange;
+						}		</textarea>
+				</div>
+				<div class="small">
+					<span class="">Rezultat</span>
+					<form class="ergebnis">
+						<br>
+						<input type="text" name="t" class="text">
+						<br><br>
+						<p>... pseudo-clasa <a href="#">:hover</a> permite stilizarea elementelor atunci când un utilizator se deplasează peste ele.</p>
+					</form>
+				</div>
+			</div>
+		</section>
+
+		<section class="slide">
+			<h2 class="to1top">Cascadarea</h2>
+			<p class="small em to3top">Cascada CSS atribuie o greutate fiecărei reguli de stil. Dacă se aplică mai multe reguli, regula cu cea mai mare greutate are prioritate.</p>
+			<img src="../../PWg/2/img/CSS-cascade.jpg" alt="" width="600" class="to2top to5right">
+			<span class="copyright right">
+				<a href="https://webstyleguide.com/wsg3/5-site-structure/3-site-file-structure.html">Web Style Guide</a>, 3rd Edition, by Patrick J. Lynch and Sarah Horton
+			</span>
+		</section>
+
+		<section class="slide">
+			<h2>Cum se cascadează regulile CSS?</h2>
+			<ul class="to5bottom to1right">
+				<li class="to4top"><strong>Ultima regulă:</strong>
+					<span class="small">dacă doi selectori sunt identici, ultimul dintre ei are prioritate.</span>
+				</li>
+				<li class="to2top"><strong>Specificitate:</strong>
+					<span class="small">regula mai specifică are prioritate față de cele mai generale.</span>
+				</li>
+				<li><strong><span class="dimText">!important</span>:</strong>
+					<span class="small"> <strong>!important</strong> adăugat după o proprietate, indică faptul că este mai importantă decât alte reguli care se aplică aceluiași element.</span>
+				</li>
+			</ul>
+		</section>
+
+		<section class="slide">
+			<h2 class="copyright top">Cum se cascadează regulile CSS? Exemple.</h2>
+			<div class="columns two">
+				<div class="small">
+					<span>index.html</span>
+					<textarea id="htmlVorrang">
+							<p id="intro">Ce <strong>regulă</strong> are prioritate atunci când două sau mai multe <em>reguli</em> se aplică aceluiași element?</p>
+							<p>Dacă înțelegeți asta, puteți scrie mai ușor CSS.</p>
+						</textarea>
+				</div>
+				<div class="small">
+					<span>style.css</span>
+					<textarea id="cssVorrang">
+							strong { color: green; }
+							strong { color: red; }
+							em { color: pink; }
+							p em { color: blue !important; }
+							p em { color: violet; }
+							p#intro { font-size: .75em; }
+							p { font-size: 1em; }
+						</textarea>
+				</div>
+			</div>
+			<div class="small to2bottom">Rezultat</div>
+			<div class="vorrangRezultat to2bottom">
+				<p id="intro">Ce <strong>regulă</strong> are prioritate atunci când două sau mai multe <em>reguli</em> se aplică aceluiași element?</p>
+				<p>Dacă înțelegeți asta, puteți scrie mai ușor CSS.</p>
+			</div>
+		</section>
+
+		<section class="slide">
+			<h2 class="to1top">Moștenire (<span class="dimText">Inheritance</span>)</h2>
+			<p class="small em to3top">
+				<span class="small">- anumite proprietăți sunt moștenite de la un element părinte la elementele copilului (<small>ca și genetica</small>).</span>
+			</p>
+			<div class="columns two to3top">
+				<div class="small">
+					<span>index.html</span>
+					<textarea id="htmlVererbung">
+						<div class="page">
+				  			<p>Dacă proprietățile ...</p>
+				  			<p>Cu valoarea "inherit" ...</p>
+						</div>
+					</textarea>
+					<div class="to1bottom">Rezultat</div>
+					<div class="vererbungRezultat to1bottom">
+						<div class="page">
+							<p>Dacă proprietățile: font-family sau color sunt specificate pentru un element, se aplică majorității elementelor copil. </p>
+							<p>Cu valoarea "inherit" proprietățile pot fi moștenite.</p>
+						</div>
+					</div>
+				</div>
+				<div class="small to3left">
+					<span>style.css</span>
+					<textarea id="cssVererbung">
+							body {
+				  						  			font-family: TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif;
+				  						  			color: #665544;
+				  						  			padding: 10px;
+							}
+							.page {
+				  						  			border: 1px solid #665544;
+				  						  			background-color: #efefef;
+				  						  			padding: inherit;
+							}
+						</textarea>
+				</div>
+			</div>
+			<div class="to5top">
+			</div>
+		</section>
+
+		<section class="slide">
+			<h2>De ce este utilă moștenirea?</h2>
+			<div class="to5bottom">
+				<p class="small em to2top">În caz contrar, regulile CSS ar fi <strong>redundante</strong>.
+					Fără moștenire, ar trebui să fie setate individual stiluri precum <span class="dimText">font-family</span>, <span class="dimText">font-size</span> și <span class="dimText">color</span> - pentru fiecare tip de element.</p>
+				<p class="small em to2bottom">Există proprietăți care <strong>nu sunt moștenite</strong>! De exemplu:
+					<span class="dimText">background</span> sau <span class="dimText">border</span>.
+					<!-- Hintergrund oder Rand. -->
+				</p>
+			</div>
+		</section>
+
+		<section class="slide">
+			<h2 class="">Painting. CSS Box model</h2>
+			<div class="columns two">
+				<img src="../../PWg/2/img/css-box-model.png" alt="" height="300">
+				<textarea id="cssBoxModel">
+				#menu {
+				  						  			margin: 12px;
+				  						  			padding: 2px 3px;
+				  						  			border-bottom: 1px solid blue;
+				}
+				.modell{
+				  						  			margin: 4px 105px 16px;
+				  						  			padding-left: 50px;
+				  						  			border: 1px solid red;
+				}
+
+			</textarea>
+			</div>
+			<span class="copyright bottom">
+				<a href="http://taligarsiel.com/Projects/howbrowserswork1.htm#CSS_Box_model" target="_blank">How browsers work. CSS Box model</a>;
+				<a href="http://www.w3.org/TR/CSS2/box.html" target="_blank">Box model - W3C Recommendation</a>
+			</span>
+		</section>
+
+		<section class="slide">
+			<h2>Painting. CSS display</h2>
+			<div class="columns two">
+				<img src="../../PWg/2/img/css_display.png" alt="CSS Display: inline and block" height="280" class="to2right" />
+				<img src="../../PWg/2/img/css_display_lines.png" alt="lines" height="280" />
+			</div>
+			<span class="copyright bottom">
+				<a href="http://taligarsiel.com/Projects/howbrowserswork1.htm#Box_types" target="_blank">How browsers work. CSS display</a>
+			</span>
+			<footer class="notes">
+			Blocks are formatted vertically one after the other. Inlines are formatted horizontally.
+
+			Inline boxes are put inside lines or "line boxes". The lines are at least as tall as the tallest box but can be taller, when the boxes are aligned "baseline" - meaning the bottom part of an element is aligned at a point of another box other then the bottom. In case the container width is not enough, the inlines will be put in several lines. This is usually what happens in a paragraph.
+			</footer>
+		</section>
+
+		<section class="slide">
+			<h2>Painting. CSS Positioning</h2>
+			<div class="columns two">
+				<iframe width="560" height="315" src="//www.youtube.com/embed/gKvxlYCzJXw" allowfullscreen></iframe>
+				<ul>
+					<li>static</li>
+						<li>relative</li>
+						<li>absolute</li>
+						<li>fixed <br><br><br></li>
+						<li>z-index</li>
+				</ul>
+			</div>
+			<span class="copyright bottom">
+				<a href="http://kilianvalkhof.com/2008/css-xhtml/understanding-css-positioning-part-1/" target="_blank">Understanding CSS Positioning Part 1</a> by Kilian Valkhof;
+				&nbsp;&nbsp;<a href="http://www.w3schools.com/css/css_positioning.asp" target="_blank">CSS Positioning</a> on w3schools.com
+			</span>
+			<footer class="notes">
+			One of the most misunderstood properties of CSS, bacause it’s not so much the position you declare, but in what way the element should interact with the elements around it. Positioning also differs when you use the display property with it. The way positioning and display interact is a bit tricky: position:static and position:relative can be both display:block and display:inline, while position:absolute and position:fixed (and floats, more on that in the next article) will always be displayed as block elements.
+			</footer>
+		</section>
+
+		<section class="slide">
+			<h2>Culori. Imagini. Fonturi.</h2>
+			<div class="columns three to1bottom to3right">
+				<span class=" ">
+					<a href="colors.html?full#colors">Culori</a>
+					<img src="../../PWg/2/img/Color_circle.png" alt="" width="200" class="to2bottom to3left">
+				</span>
+				<span class=" "><a href="images.html?full#img">Imagini</a>
+					<img src="../../PWg/2/img/imageFormats.png" alt="" class="to3left to1bottom">
+				</span>
+				<span class=" "><a href="fonts.html?full#fonts" class="to2left">Fonturi</a>
+					<img src="../../PWg/2/img/Schriftbild.jpg" alt="" width="200" class="to3left">
+				</span>
+			</div>
+		</section>
+
+		<section class="slide">
+			<h2 class="to1top">CSS Media</h2>
+			<div class="to2right to2top">
+				<img src="../../PWg/2/img/CSS_presentation.png" alt="CSS for presentation" class="to5right"  height="400"/>
+			</div>
+			<span class="copyright bottom">
+				<a href="http://oc.course.com/webwarrior/sklar4/" target="_blank">Principles of Web Design</a>, 4th Edition, Joel Sklar, chapter 1: Understanding the Web Design Environment, 2009.
+			</span>
+		</section>
+
+		<section class="slide">
+			<h2 class="to1top">Tipuri de CSS Media</h2>
+			<div class="small">
+			<table class="small to2top">
+				<tr>
+					<td class="rightText large">Tipuri de Media</td><td class="large"><span class="to2right">Descriere</span></td>
+				</tr>
+				<tr>
+					<td class="rightText strong">all</td>
+					<td class="em"><span class="to2right">utilizat pentru toate dispozitivele media</span></td>
+				</tr>
+				<tr>
+					<td class="rightText strong">aural</td>
+					<td class="em"><span class="to2right">utilizat pentru sintetizatoare de vorbire și sunet</span></td>
+				</tr>
+				<tr>
+					<td class="rightText strong">braille</td>
+					<td class="em"><span class="to2right">utilizat pentru dispozitive tactile Braille</span></td>
+				</tr>
+				<tr>
+					<td class="rightText strong">embossed</td>
+					<td class="em"><span class="to2right">utilizat pentru imprimantele Braille</span></td>
+				</tr>
+				<tr>
+					<td class="rightText strong">handheld</td>
+					<td class="em"><span class="to2right">utilizat pentru telefoane</span></td>
+				</tr>
+				<tr>
+					<td class="rightText strong">print</td>
+					<td class="em"><span class="to2right">utilizate pentru imprimante</span></td>
+				</tr>
+				<tr>
+					<td class="rightText strong">projection</td>
+					<td class="em"><span class="to2right">utilizat pentru prezentări proiectate</span></td>
+				</tr>
+				<tr>
+					<td class="rightText strong">screen</td>
+					<td class="em"><span class="to2right">utilizate pentru ecrane de calculator</span></td>
+				</tr>
+				<tr>
+					<td class="rightText strong">tty</td>
+					<td class="em"><span class="to2right">utilizat pentru terminale (care utilizează o grila de caractere fixe)</span></td>
+				</tr>
+				<tr>
+					<td class="rightText strong">tv</td>
+					<td class="em"><span class="to2right">utilizat pentru televizoare</span></td>
+				</tr>
+			</table>
+			</div>
+		</section>
+
+		<section class="slide">
+			<h2 class="to1top">CSS Media queries</h2>
+			<div class="small em to2top">- permite direcționarea regulilor CSS, de exemplu în funcție de dimensiunea ecranului, orientarea dispozitivului sau densitatea afișajului.</div>
+			<textarea id="mediaQueries">
+				@media screen and (max-width: 800px) { #site-header { display: none; } }
+				@media screen and (display-mode: fullscreen) { /* se aplică numai ecranelor în modul ecran complet */ }
+				@media all and (orientation: landscape) { /* se aplică doar pentru format peisaj */ }
+				@media screen and (min-device-width: 500px) { /* se aplică numai la o lățime de cel puțin 500 de pixeli */ }
+				@media screen, print { /* stiluri pentru dispozitive de tipărire și imprimare */ }
+				@media screen and (min-resolution: 192dpi), (-webkit-min-device-pixel-ratio: 2) { /* pentru Retina-Displays (cu densități mai mari ale pixelilor) */ }
+			</textarea>
+			<span class="copyright bottom">
+				<a href="http://www.w3.org/TR/css3-mediaqueries/" target="_blank">Media queries</a> - W3C recommendation on CSS3;
+				<a href="http://cssmediaqueries.com/overview.html" target="_blank" class="strong">CSS3 Media Queries overview</a> by Niels van Hove
+			</span>
+		</section>
+
+		<section class="slide">
+			<h2>Șabloane de stil separate</h2>
+			<div class="to2bottom to3right">
+			<textarea id="separateCSS">
+				<link rel="stylesheet"
+				  						  						  						  						  						  			media="screen and (min-width: 321px) and (max-width: 800px)"
+				  						  						  						  						  						  			href="/css/style1.css">
+
+				<link rel="stylesheet"
+				  						  						  						  						  						  			media="screen and (min-width: 801px)"
+				  						  						  						  						  						  			href="/css/style2.css">
+			</textarea>
+			</div>
+		</section>
+
+		<section class="slide">
+			<h2>CSS3</h2>
+			<h3>Mai eficient</h3>
+			<p class="em to2bottom">- oferă o mulțime de instrumente noi cum ar fi
+				<strong>border-radius, gradients, shadows, web-fonts, animations, transforms, transitions</strong>
+				și multe altele.
+			</p>
+		</section>
+
+		<section class="slide">
+			<h2>Responsive Web Design</h2>
+			<h3>Trecerea de la design fix la fluid</h3>
+			<p class="em to2bottom">- este vorba despre crearea de layout-uri flexibile care se pot adapta dimensiunii ecranului și/sau a orientării fiecărui dispozitiv.</p>
+		</section>
+
+		<section class="slide">
+			<h2>OOCSS (<span class="small dimText">Object-oriented CSS</span>)</h2>
+			<h3>CSS complet abstractizat</h3>
+			<p class="em to2bottom">- permite reutilizarea codului, precum și foi de stil mai rapide și mai eficiente, care sunt mai ușor de adăugat și de gestionat.</p>
+		</section>
+
+		<section class="slide">
+			<h2>SMACSS (<span class="small dimText"><small><small>Scalable and Modular Architecture for CSS</small></small></span>)</h2>
+			<h3>Definirea arhitecturii și a convențiilor</h3>
+			<p class="em to2bottom">- este mai mult un ghid de stil decât un cadru rigid - o încercare de a documenta o abordare consecventă a dezvoltării site-ului atunci când se utilizează CSS.</p>
+		</section>
+
+		<section class="slide">
+			<h2>Preprocesoare (<span class="small"><span class="small dimText">Preprocessors: </span><span class="strong small">less, sass, ...</span></span>)</h2>
+			<h3>Scrierea de CSS mai eficient</h3>
+			<p class="em to2bottom">- adăugarea de
+				<strong>reguli imbricate, variabile, mixin-uri</strong> și <strong>moștenire de selectori</strong>.
+			</p>
+		</section>
+
+		<section class="slide">
+			<h2>Framework-uri</h2>
+			<h3>Începutul abstractizării CSS</h3>
+			<p class="em to2bottom">- Instrumente, biblioteci, convenții și bune practici care combină sarcinile de rutină cu module generice care pot fi refolosite.</p>
+		</section>
+
+		<section class="slide">
+			<h2 class="to1top">Reguli de stil CSS
+				<!-- (<small>Google-Empfehlungen</small>) -->
+			</h2>
+			<ul class="small to2top to2right">
+				<li>
+					<a target="blank" href="https://google.github.io/styleguide/htmlcssguide.html#CSS_Validity">
+						VUtilizați CSS valid</a>; Utilizați
+					<a target="blank" href="https://jigsaw.w3.org/css-validator/">
+						Validatorul CSS W3C</a>
+				</li>
+				<li>
+					<a target="blank" href="https://google.github.io/styleguide/htmlcssguide.html#ID_and_Class_Name_Style">
+						Utilizați nume de clase sau ID semnificative sau generice</a>;
+					<a target="blank" href="https://google.github.io/styleguide/htmlcssguide.html#ID_and_Class_Name_Style">
+						nume cât mai scurte posibil, dar atât de lugi cât e necesar</a>
+				</li>
+				<li>
+					<a target="blank" href="https://google.github.io/styleguide/htmlcssguide.html#Type_Selectors">
+						Evitați specificarea selectorilor element împreună cu ID-uri și clase.</a>
+				</li>
+				<li>
+					<a target="blank" href="https://google.github.io/styleguide/htmlcssguide.html#Shorthand_Properties">
+						Utilizați proprietățile prescurtate</a>;
+					<a target="blank" href="https://google.github.io/styleguide/htmlcssguide.html#0_and_Units">
+						Omiteți specificarea unității după „0“</a>;
+					<a target="blank" href="https://google.github.io/styleguide/htmlcssguide.html#Leading_0s">
+						Omiteti "0" la începutul valorilor numerice </a>
+				</li>
+				<li>
+					<a target="blank" href="https://google.github.io/styleguide/htmlcssguide.html#Hexadecimal_Notation">
+						Dacă este posibil, utilizați o notație hexazecimală din 3 cifre</a>
+				</li>
+				<li>
+					<a target="blank" href="https://google.github.io/styleguide/htmlcssguide.html#Prefixes">
+						Prefix selectors with an application-specific prefix (optional)</a>
+				</li>
+				<li>
+					<a target="blank" href="https://google.github.io/styleguide/htmlcssguide.html#ID_and_Class_Name_Delimiters">
+						Separarea cuvintele în ID și numele de clase cu o cratimă (<span class="small dimText">hyphen</span>)</a>
+				</li>
+				<li>
+					<a target="blank" href="https://google.github.io/styleguide/htmlcssguide.html#Hacks">
+						Evitați detectarea <em>user agent</em>-ului și "hack-urile" CSS (<small>încercați mai întâi o altă abordare</small>)</a>
+				</li>
+			</ul>
+			<span class="copyright bottom">
+				<a target="blank" href="https://google.github.io/styleguide/htmlcssguide.html">Google HTML/CSS Style Guide</a>
+			</span>
+		</section>
+
+		<section class="slide">
+			<h2 class="to1top">Reguli de formatare CSS
+				<!-- (<span class="small"><small>Google-Empfehlungen</small></span>) -->
+			</h2>
+			<ul class="small to2top to2right">
+				<li>
+					<a target="blank" href="https://google.github.io/styleguide/htmlcssguide.html#Declaration_Order">
+						Ordonare alfabetică a declarațiilor</a>
+				</li>
+				<li>
+					<a target="blank" href="https://google.github.io/styleguide/htmlcssguide.html#Block_Content_Indentation">
+						Indentați conținutul blocurilor</a>
+				</li>
+				<li>
+					<a target="blank" href="https://google.github.io/styleguide/htmlcssguide.html#Declaration_Stops">
+						Utilizați un punct și virgulă după fiecare declarație</a>
+				</li>
+				<li>
+					<a target="blank" href="https://google.github.io/styleguide/htmlcssguide.html#Property_Name_Stops">
+						Utilizați un spațiu după două puncte care urmează după numele unei proprietăți</a>
+				</li>
+				<li>
+					<a target="blank" href="https://google.github.io/styleguide/htmlcssguide.html#Declaration_Block_Separation">
+						Utilizați un spațiu între ultimul selector și blocul de declarații</a>
+				</li>
+				<li>
+					<a target="blank" href="https://google.github.io/styleguide/htmlcssguide.html#Selector_and_Declaration_Separation">
+						Separați selectorii și declarațiile cu linii noi</a>
+				</li>
+				<li>
+					<a target="blank" href="https://google.github.io/styleguide/htmlcssguide.html#Rule_Separation">
+						Separați regulile cu linii noi</a>
+				</li>
+				<li>
+					<a target="blank" href="https://google.github.io/styleguide/htmlcssguide.html#CSS_Quotation_Marks">
+						Utilizați apostroafe pentru selectorii de atribute și valorile proprietăților</a>
+				</li>
+				<li>
+					<a target="blank" href="https://google.github.io/styleguide/htmlcssguide.html#Section_Comments">
+						Gruparea secțiunilor după comentariul secțiunii (opțional)</a>
+				</li>
+			</ul>
+			<span class="copyright bottom">
+				<a target="blank" href="https://google.github.io/styleguide/htmlcssguide.html">Google HTML/CSS Style Guide</a>
+			</span>
+		</section>
+
+    <section class="slide">
+        <h2 class="shout">Sfârșit</h2>
+    </section>
+
+    <div class="progress"></div>
+
+	<footer class="badge">
+		<a href="http://www.cs.ubbcluj.ro/~sanda/html/feedback/">
+			<svg width="200" height="100" viewBox="100 50 200 100" aria-hidden="true">
+				<path id="path0" d="M192.857 19.359 C 129.640 25.381,95.764 95.850,130.742 148.571 C 166.258 202.102,247.229 196.406,275.020 138.422 C 302.762 80.540,256.367 13.309,192.857 19.359 M243.212 50.267 C 248.480 52.892,253.304 59.531,253.323 64.182 C 253.340 68.326,252.460 69.619,243.488 78.642 L 235.115 87.062 236.604 90.637 C 241.855 103.251,241.486 117.302,235.587 129.401 L 234.121 132.407 237.217 144.061 C 238.920 150.470,240.181 155.714,240.019 155.714 C 239.857 155.714,234.625 154.344,228.392 152.670 L 217.059 149.625 213.172 151.446 C 185.904 164.219,153.666 147.848,147.512 118.102 C 139.960 81.597,177.084 51.348,211.734 65.773 L 215.319 67.266 223.736 58.896 C 234.308 48.383,237.020 47.181,243.212 50.267 M211.578 71.071 C 209.738 72.970,208.101 74.952,207.941 75.476 C 206.651 79.701,201.429 99.459,201.429 100.117 C 201.429 101.347,202.027 101.244,214.526 97.848 C 228.731 93.988,227.772 94.401,231.660 90.483 L 234.915 87.203 233.291 84.510 C 229.796 78.714,224.661 73.497,218.589 69.572 C 214.838 67.148,215.521 67.002,211.578 71.071 M220.589 81.780 C 230.210 91.385,230.178 91.881,219.740 94.778 L 213.095 96.622 209.427 92.954 L 205.759 89.286 207.603 82.641 C 210.496 72.216,210.978 72.184,220.589 81.780 M165.119 104.800 C 162.809 106.146,162.273 109.708,164.060 111.833 C 167.120 115.469,172.381 113.399,172.381 108.558 C 172.381 105.408,167.983 103.132,165.119 104.800 M191.096 104.856 C 189.665 105.547,188.407 108.326,188.803 109.921 C 189.562 112.978,192.905 114.548,195.642 113.132 C 201.214 110.251,196.751 102.124,191.096 104.856 M216.227 105.519 C 214.995 106.556,214.762 107.088,214.762 108.873 C 214.762 113.567,220.260 115.479,223.042 111.753 C 226.383 107.279,220.514 101.911,216.227 105.519 ">
+				</path>
+			</svg>
+			Lăsați <br>un feedback
+		</a>
+	</footer>
+
+	<script src="../../../../includes/js/shower.min.js"></script>
+	<script src="../../../../includes/codemirror/lib/codemirror.js"></script>
+	<script src="../../../../includes/codemirror/addon/edit/matchbrackets.js"></script>
+	<script src="../../../../includes/codemirror/addon/selection/selection-pointer.js"></script>
+	<script src="../../../../includes/codemirror/mode/xml/xml.js"></script>
+	<script src="../../../../includes/codemirror/mode/javascript/javascript.js"></script>
+	<script src="../../../../includes/codemirror/mode/css/css.js"></script>
+	<script src="../../../../includes/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+	<script src="../../script.js"></script>
+	<script src="../script.js"></script>
+	<script>
+		set('extCSShtml', mixedMode, 400, 158, 15, 15);
+		set('extCSScss', 'css', 400, 158, 15, 7);
+		set('intCSShtml', mixedMode, 500, 300, 15, 7);
+		set('pseudoElem', 'css', 250, 170, 15, 15);
+		set('pseudoKlasse', 'css', 250, 360, 15, 15);
+		set('pseudoKlasse2', 'css', 300, 245, 15, 15);
+		set('htmlVorrang', mixedMode, 300, 220, 15, 25);
+		set('cssVorrang', 'css', 300, 220, 15, 15);
+		set('htmlVererbung', mixedMode, 320, 120, 15, 15);
+		set('cssVererbung', 'css', 460, 338, 15, 17);
+		set('cssBoxModel', 'css', 300, 320, 15, 18);
+		set('mediaQueries', 'css', 840, 250, 15, 18);
+		set('separateCSS', 'css', 700, 225, 15, 18);
+	</script>
+</body>
+</html>
