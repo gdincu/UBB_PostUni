@@ -54,7 +54,7 @@
      </li>
 </ul>
 
-<hr>
+<hr style="height:1px; border:none; color:#000; background-color:#000;">
 <a href="http://www.cs.ubbcluj.ro/programul-postuniversitar-de-pregatire-si-formare-profesionala-in-informatica/">
 <img src="http://www.cs.ubbcluj.ro/wp-content/uploads/Post-universitar-Informatica-2017.jpg" alt="logo" width="80%" height="300px"/>
 </a>
