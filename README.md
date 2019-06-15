@@ -56,5 +56,5 @@
 
 <hr>
 <a href="http://www.cs.ubbcluj.ro/programul-postuniversitar-de-pregatire-si-formare-profesionala-in-informatica/">
-<img src="http://www.cs.ubbcluj.ro/wp-content/themes/CSUBB/images/logo.png" alt="logo" width="80%" height="300px"/>
+<img src="http://www.cs.ubbcluj.ro/wp-content/themes/CSUBB/images/logo.png" alt="logo"/>
 </a>
