@@ -1,6 +1,6 @@
 # UBB_PostUni
 
-<img src="http://www.cs.ubbcluj.ro/wp-content/uploads/Post-universitar-Informatica-2017.jpg" alt="drawing" width="200" height="100"/>
+<img src="http://www.cs.ubbcluj.ro/wp-content/uploads/Post-universitar-Informatica-2017.jpg" alt="drawing" width="100%" height="100"/>
 
 [//]: # "---------------------------------------------------------------------------
         Using Markdown: https://guides.github.com/features/mastering-markdown/#examples
