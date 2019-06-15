@@ -1,5 +1,4 @@
 # UBB_PostUni
-<hr>
 [//]: # "---------------------------------------------------------------------------
         Using Markdown: https://guides.github.com/features/mastering-markdown/#examples
         https://help.github.com/en/articles/basic-writing-and-formatting-syntax
