@@ -1,7 +1,9 @@
 # UBB_PostUni
+<center>
 <a href="http://www.cs.ubbcluj.ro/programul-postuniversitar-de-pregatire-si-formare-profesionala-in-informatica/">
 <img src="http://www.cs.ubbcluj.ro/wp-content/uploads/Post-universitar-Informatica-2017.jpg" alt="drawing" width="50%" height="200px"/>
 </a>
+</center>
 
 [//]: # "---------------------------------------------------------------------------
         Using Markdown: https://guides.github.com/features/mastering-markdown/#examples
