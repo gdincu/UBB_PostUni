@@ -33,17 +33,14 @@
                 <a href="https://github.com/gdincu/UBB_PostUni/tree/master/Sem2/Administrarea%20si%20securitatea%20sistemelor%20de%20calcul"> 
             Administrarea si securitatea sistemelor de calcul</a>                  
                 </li>
-                
                 <li>
                 :open_file_folder:              
                 <a href="https://github.com/gdincu/UBB_PostUni/tree/master/Sem2/Baze%20de%20date">Baze de date</a>
                 </li>
-                
                 <li>
                 :open_file_folder:
                 <a href="https://github.com/gdincu/UBB_PostUni/tree/master/Sem2/Programare%20orientat%C4%83%20obiect%20(Java)">Programare orientată obiect (Java)</a>              
                 </li>
-          
                 <li>
                 :open_file_folder:
                 <a href="https://github.com/gdincu/UBB_PostUni/tree/master/Sem2/Tehnologii%20web%20client-side">Tehnologii web client-side</a>                
