@@ -19,11 +19,13 @@ durata int
 )
 
 CREATE TABLE CantecCantaret (
-idCantec int primary key,
+idCantec int,
 idCantaret int,
+primary key(idCantec,idCantaret),
 constraint FK_idCantec foreign key (idCantec) references Cantec(id),
 constraint FK_idCantaret foreign key (idCantaret) references Cantaret(id)
 )
+
 
 CREATE TABLE Concert (
 id int primary key,
@@ -33,8 +35,9 @@ ora int
 )
 
 CREATE TABLE ConcertCantaret (
-idConcert int primary key,
+idConcert int,
 idCantaret int,
+primary key(idConcert,idCantaret),
 constraint FK_idConcert foreign key (idConcert) references Concert(id),
 constraint FK_idCantaret1 foreign key (idCantaret) references Cantaret(id)
 )
@@ -42,6 +45,7 @@ constraint FK_idCantaret1 foreign key (idCantaret) references Cantaret(id)
 CREATE TABLE AlbumCantec (
 idAlbum int,
 idCantec int,
+primary key(idAlbum,idCantec),
 constraint FK_idAlbum foreign key (idAlbum) references Album(id),
 constraint FK_idCantec1 foreign key (idCantec) references Cantec(id)
 )
