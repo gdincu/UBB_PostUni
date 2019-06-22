@@ -44,35 +44,49 @@ document.getElementById(tempId).addEventListener('click',adauga);
 pozitie++;
 }
 
+// function adauga(){
+// // Iesire daca au fost adaugate toate imaginile din matrice
+// if(pozitie > Imagini.length-1)
+// 	return;
+
+// var li = document.createElement('li');
+// ul.appendChild(li);
+
+// var img = document.createElement('img');
+// li.appendChild(img);
+
+// var atrSrc = document.createAttribute('src');
+// atrSrc.value = Imagini[pozitie];
+// img.setAttributeNode(atrSrc);
+
+// var widthTemp = document.createAttribute('width');
+// widthTemp.value = 20;
+// img.setAttributeNode(widthTemp);
+
+// var heightTemp = document.createAttribute('height');
+// heightTemp.value = 20;
+// img.setAttributeNode(heightTemp);
+
+// var idTemp = document.createAttribute('id');
+// tempId = numeId + pozitie;
+// idTemp.value = tempId;
+// img.setAttributeNode(idTemp);
+
+
+// document.getElementById(tempId).addEventListener('click',adauga);
+// pozitie++;
+// }
+
 function adauga(){
 // Iesire daca au fost adaugate toate imaginile din matrice
 if(pozitie > Imagini.length-1)
 	return;
 
-var li = document.createElement('li');
-ul.appendChild(li);
-
-var img = document.createElement('img');
-li.appendChild(img);
+document.getElementById(tempId).removeAttribute("src");
 
 var atrSrc = document.createAttribute('src');
 atrSrc.value = Imagini[pozitie];
-img.setAttributeNode(atrSrc);
+document.getElementById(tempId).setAttributeNode(atrSrc);
 
-var widthTemp = document.createAttribute('width');
-widthTemp.value = 20;
-img.setAttributeNode(widthTemp);
-
-var heightTemp = document.createAttribute('height');
-heightTemp.value = 20;
-img.setAttributeNode(heightTemp);
-
-var idTemp = document.createAttribute('id');
-tempId = numeId + pozitie;
-idTemp.value = tempId;
-img.setAttributeNode(idTemp);
-
-
-document.getElementById(tempId).addEventListener('click',adauga);
 pozitie++;
 }
