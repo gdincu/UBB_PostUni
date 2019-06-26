@@ -1,1 +1,8 @@
-s
+.c1 {
+	margin: 0 1vw;
+	width: 31vw;
+	min-height: 20vh;
+	background-color: green;
+	position: relative;
+	border: 1px solid black;
+}
