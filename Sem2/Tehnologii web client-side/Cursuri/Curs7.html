@@ -1,0 +1,1324 @@
+
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+	<title>Tehnologii Web Client-Side</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../../style.css">
+	<link rel="stylesheet" href="../style.css">
+	<style media="screen">
+		.arrow_box {
+			position: relative;
+			background: #ffffff;
+			/* border: 0; */
+			border-right: 4px solid rgb(88, 90, 94);
+			top: 85px;
+			left: 80px;
+			padding: 12px 0;
+			width: 300px;
+		}
+
+		.arrow_box:after,
+		.arrow_box:before {
+			left: 100%;
+			top: 50%;
+			border: solid transparent;
+			content: " ";
+			height: 0;
+			width: 0;
+			position: absolute;
+			pointer-events: none;
+		}
+
+		.arrow_box:after {
+			border-color: rgba(255, 255, 255, 0);
+			border-left-color: #ffffff;
+			border-width: 30px;
+			margin-top: -30px;
+		}
+
+		.arrow_box:before {
+			border-color: rgba(24, 245, 32, 0);
+			border-left-color: rgb(88, 90, 94);
+			border-width: 36px;
+			margin-top: -36px;
+		}
+	</style>
+</head>
+
+<body class="shower list">
+
+	<header class="caption">
+		<h1>Tehnologii Web Client-Side, Curs 7</h1>
+		<p><a href="http://www.cs.ubbcluj.ro/~sanda">Sanda-Maria AVRAM</a>, Ph. D.</p>
+	</header>
+
+	<section class="slide">
+		<h2>Conținut:</h2>
+		<dl class="to5right">
+			<dt class="strong">XML - eXtensible Markup Language</dt>
+			<dd></dd>
+			<dt>Document XML. Structura</dt>
+			<dd class="small">
+				- elemente XML. Atributele XML. Modele de conținut. Entități. CDATA. <br>
+				- Structura (DTD și schema). <span class="dimText">Namespaces</span>. Vizualizare (DOM).
+			</dd>
+			<dt>XPATH. XSLT (eXtensible Stylesheet Language Transformations).</dt>
+			<dd></dd>
+			<dt>Alternative XML. XML în comparație cu JSON.</dt>
+			<dd></dd>
+		</dl>
+		<span class="small em copyright bottom ">Curs de formare şi dezvoltare profesională în Informatică. Studii postuniversitare.
+		</span>
+	</section>
+
+	<section class="slide">
+		<h2>Ce este XML?</h2>
+		<ul class="small to4right">
+			<li>Este un <strong>limbaj de markup</strong> (<span class="small dimText">markup language</span>):
+				<ul>
+					<li>destinat <strong>stocării</strong>  și <strong>transportului</strong> de date;</li>
+					<li>folosit pentru <strong>structurarea</strong>  și <strong> auto-descrierea</strong> datelor;</li>
+				</ul>
+			</li>
+			<li>Descrie <strong>sintaxa</strong>  și <strong> semantica</strong> datelor.</li>
+		</ul>
+		<ul class="small to1bottom to4right">
+			<li>Este un <strong>meta-limbaj</strong>, <span class="small"> folosit în crearea altor limbaje de marcare (XHTML, XSLT, RDF, SMIL, etc.)</span>;</li>
+			<li>Este <strong>ușor de citit</strong> pentru oameni și mașini;</li>
+			<li>Este <strong>independent de software și hardware</strong>, deoarece este text simplu (<span class="small dimText">plain text</span>).</li>
+		</ul>
+	</section>
+
+	<section class="slide">
+		<h2 class="shout">Istoria XML</h2>
+	</section>
+
+	<section class="slide">
+		<img src="../../PWg/4/img/xml_history.png" alt="Where does XML come from?" class="cover" />
+		<span class="copyright right">
+			<a href="http://www.slideshare.net/nri94/4d-summit-europe-2014-confrence-dac-consulting-xml-demystified" target="_blank">XML Demystified</a>,
+			<a target="_blank" href="http://www.slideshare.net/nri94?utm_campaign=profiletracking&utm_medium=sssite&utm_source=ssslideview">Nathalie Richomme</a>, 4D Summit Europe 2014
+			<!--- Conférence d'A&amp;C-->
+		</span>
+		<footer class="notes">
+			<ul>
+				<li>GML: Goldfarb, Mosher, Lorie (Generic coding)
+					<cite><a href="https://www.youtube.com/watch?v=Ccg8rWnfBng">XML: History of XML</a></cite>
+				</li>
+				<li>SGML:
+					late 1970s &amp; early 1980s, a team at IBM lead by Charles Goldfarb (trained as a lawyer) came to the idea to put tags into documents, to say what the component parts of the document were. It was a tagset notation.
+					<cite><a href="https://www.youtube.com/watch?v=RH0o-QjnwDg">SGML HTML XML What's the Difference?</a></cite>
+				</li>
+				<li>HTML:
+					early 1990s, Tim Berners-Lee (1992): uses the pointet-bracket notationof SGML to specify webpages
+					<cite><a href="https://www.youtube.com/watch?v=RH0o-QjnwDg">SGML HTML XML What's the Difference?</a></cite>
+				</li>
+				<li>XML:
+					1996 - a subset, clean, abstract subset
+					<cite><a href="https://www.youtube.com/watch?v=Q4dYwEyjZcY&index=2&list=PLzH6n4zXuckqTQBIEuBTyjsO-Ef7562_Z">HTML: Poison or Panacea?</a></cite>
+				</li>
+			</ul>
+		</footer>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">Exemplu XML</h2>
+		<div class="place center">
+			<div class="to2bottom to4right">
+				<textarea id="xmlEx">
+			<order>
+			  			  			 	  				  			  <sold-to>
+			  			  			 	  				  			  			  			  			 	  				  			  <person id="1234">
+			  			  			 	  				  			  			  			  			 	  				  			  			  			  			 	  				  			  <firstname>Sanda</firstname>
+			  			  			 	  				  			  			  			  			 	  				  			  			  			  			 	  				  			  <lastname>Avram</lastname>
+			  			  			 	  				  			  			  			  			 	  				  			  </person>
+			  			  			 	  				  			  </sold-to>
+			  			  			 	  				  			  <sold-on>789091200</sold-on>
+			  			  			 	  				  			  <item>
+			  			  			 	  				  			  			  			  			 	  				  			  <price>23.47</price>
+			  			  			 	  				  			  			  			  			 	  				  			  <book>
+			  			  			 	  				  			  			  			  			 	  				  			  			  			  			 	  				  			  <title>Dune</title>
+			  			  			 	  				  			  			  			  			 	  				  			  			  			  			 	  				  			  <author>Frank Herbert</author>
+			  			  			 	  				  			  			  			  			 	  				  			  </book>
+			  			  			 	  				  			  </item>
+			</order>
+		</textarea>
+			</div>
+		</div>
+		<div class="place center tofront">
+			<img src="img/xml_example_arrows.png" alt="" class="to1bottom" height="480" width="800">
+			<!-- font: Noteworthy, 24, bold -->
+		</div>
+		<span class="copyright right">
+			Building Dynamic Websites, <a href="http://cdn.cs75.net/2012/summer/lectures/3/lecture3.pdf" target="_blank">Lecture 3: XML</a>, <a href="http://www.cs.harvard.edu/malan/" target="_blank">David J. Malan</a>, Harvard, 2012
+		</span>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">Extensibilitate</h2>
+		<div class="columns two">
+			<div class="small em tofront">
+				<div class="arrow_box"><span class="to2left">- extinderea structurii fără a afecta datele și aplicațiile existente.</span><br><br></div>
+			</div>
+			<div class="to2top to5left">
+				<textarea id="xmlExtEx">
+				<order>
+			  			  			 	  				  			  <sold-to>
+			  			  			 	  				  			  			  			  			 	  				  			  		<person id="1234">
+			  			  			 	  				  			  			  			  			 	  				  			  			  			  			 	  				  			  				<firstname>Sanda</firstname>
+			  			  			 	  				  			  			  			  			 	  				  			  			  			  			 	  				  			  				<lastname>Avram</lastname>
+			  			  			 	  				  			  			  			  			 	  				  			  			  			  			 	  				  			  				<middlename>Maria</middlename>
+			  			  			 	  				  			  			  			  			 	  				  			  			  			  			 	  				  			  				<address>
+			  			  			 	  				  			  			  			  			 	  				  			  			  			  			 	  				  			  			  			  			 	  				  			  <street>Fericirii</street>
+			  			  			 	  				  			  			  			  			 	  				  			  			  			  			 	  				  			  			  			  			 	  				  			  <number>13</number>
+			  			  			 	  				  			  			  			  			 	  				  			  			  			  			 	  				  			  			  			  			 	  				  			  <city>Tg-Mures</city>
+			  			  			 	  				  			  			  			  			 	  				  			  			  			  			 	  				  			  				</address>
+			  			  			 	  				  			  			  			  			 	  				  			  		</person>
+			  			  			 	  				  			  </sold-to>
+			  			  			 	  				  			  <sold-on>789091200</sold-on>
+			  			  			 	  				  			  <item> ... </item>
+				</order>
+			</textarea>
+			</div>
+		</div>
+		<span class="copyright bottom">
+			Building Dynamic Websites, <a href="http://cdn.cs75.net/2012/summer/lectures/3/lecture3.pdf" target="_blank">Lecture 3: XML</a>, <a href="http://www.cs.harvard.edu/malan/" target="_blank">David J. Malan</a>, Harvard, 2012
+		</span>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">Un exemplu complet</h2>
+		<div class="to2top">
+			<textarea id="fullEx">
+				<?xml version="1.0" encoding="UTF-8"?>
+				<!-- Acesta este un document XML care descrie studenți  -->
+				<students>
+			  			  			 	  				  			  <student id="0001">
+			  			  			 	  				  			  			  			  			 	  				  			  <name>John X</name>
+			  			  			 	  				  			  			  			  			 	  				  			  <status>graduate</status>
+			  			  			 	  				  			  			  			  			 	  				  			  <addr />
+			  			  			 	  				  			  			  			  			 	  				  			  <description>
+			  			  			 	  				  			  			  			  			 	  				  			  			  			  			 	  				  			  <![CDATA[ <h1>John X</h1>
+			  			  			 	  				  			  			  			  			 	  				  			  			  			  			 	  				  			  HELLO! Here is a photo of me: <img src="johnx.png">]]>
+			  			  			 	  				  			  			  			  			 	  				  			  </description>
+			  			  			 	  				  			  </student>
+			  			  			 	  				  			  <student id="0002">
+			  			  			 	  				  			  			  			  			 	  				  			  			  			  			 	  				  			  	...
+			  			  			 	  				  			  </student>
+				</students>
+			</textarea>
+		</div>
+	</section>
+
+
+	<section class="slide">
+		<h2>HTML este o aplicație XML</h2>
+		<div class="to1bottom">
+			<textarea id="htmlAsXml">
+			<?xml version="1.0" encoding="UTF-8"?>
+			<!DOCTYPE html>
+			<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+			  			  			 	  				  			  <head>
+			  			  			 	  				  			  			  			  			 	  				  			  <meta charset="utf-8" />
+			  			  			 	  				  			  			  			  			 	  				  			  <meta name="generator" content="...testReturnHelloWorldHtml"/>
+			  			  			 	  				  			  			  			  			 	  				  			  <title>teste XHTML</title>
+			  			  			 	  				  			  </head>
+			  			  			 	  				  			  <body>
+			  			  			 	  				  			  			  			  			 	  				  			  <h1><strong>Hello World!!!</strong></h1>
+			  			  			 	  				  			  </body>
+			</html>
+		</textarea>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2>Documentul XML. Structura</h2>
+		<img src="../../PWg/4/img/ex_structure.png" alt="XML example. Stucture." width="750" class="to1right" />
+		<span class="copyright bottom">
+			<a href="http://www.slideshare.net/nri94/4d-summit-europe-2014-confrence-dac-consulting-xml-demystified" target="_blank">XML Demystified</a>, <a target="_blank" href="http://www.slideshare.net/nri94?utm_campaign=profiletracking&utm_medium=sssite&utm_source=ssslideview">Nathalie
+				Richomme</a>, 4D Summit Europe 2014
+			<!--- Conférence d'A&amp;C-->
+		</span>
+	</section>
+
+	<section class="slide">
+		<h2>Prologul XML</h2>
+		<ul class="to3right">
+			<li class="strong">Prologul este opțional</li>
+			<li>Declarația XML este opțională:
+				<ul>
+					<li>trebuie să apară în partea de sus;</li>
+					<li>folosit pentru a specifica versiunea (de obicei "1.0");</li>
+					<li>pentru a specifica codificarea caracterelor (setarea implicită "UTF-8");</li>
+					<li>folosit pentru a indica dacă e Standalone (implicit "Nu");</li>
+				</ul>
+			</li>
+			<li>DTD (Document Type Definition) este opțională.</li>
+		</ul>
+	</section>
+
+	<section class="slide">
+		<h2>Elementele XML</h2>
+		<ul class="small to4bottom to1right">
+			<li class="to3top">este permis <strong>un singur element rădăcină</strong>;</li>
+			<li class="to2top"><strong>Etichetă/Tag de start</strong>: permite specificarea <strong>atributelor</strong>;</li>
+			<li class="to1top"><strong>Etichetă/Tag de sfârșit</strong>: trebuie să se potrivească cu
+				<strong>numele</strong>,
+				(<span class="small dimText">case</span>)-ul și
+				<strong>nivelul de încadrare</strong> (<span class="small dimText">nesting level</span>) al etichetei de început;
+			</li>
+			<li> <strong>numele</strong> trebuie să înceapă cu o literă sau cu caracterul de subliniere (<span class="dimText">underline</span>) și trebuie să conțină numai litere, numere, cratime, puncte și caracterul de subliniere (<span class="dimText">underline</span>).</li>
+		</ul>
+		<span class="copyright bottom">
+			Building Dynamic Websites, <a href="http://cdn.cs75.net/2012/summer/lectures/3/lecture3.pdf" target="_blank">Lecture 3: XML</a>, <a href="http://www.cs.harvard.edu/malan/" target="_blank">David J. Malan</a>, Harvard, 2012
+		</span>
+	</section>
+
+	<section class="slide">
+		<h2>Elemente XML</h2>
+		<img src="../../PWg/4/img/xml_elements.png" alt="XML elements" width="700" class="to2right" />
+		<span class="copyright bottom">
+			<a href="http://www.slideshare.net/nri94/4d-summit-europe-2014-confrence-dac-consulting-xml-demystified" target="_blank">XML Demystified</a>, <a target="_blank" href="http://www.slideshare.net/nri94?utm_campaign=profiletracking&utm_medium=sssite&utm_source=ssslideview">Nathalie
+				Richomme</a>, 4D Summit Europe 2014
+			<!--- Conférence d'A&amp;C-->
+		</span>
+	</section>
+
+	<section class="slide">
+		<h2>Elemente goale XML</h2>
+		<div class="to1bottom to2right">
+			<textarea id="leereElemente">
+				<element></element>
+
+				<element/>
+
+				<element lang="de" id="1" msg="Hallo Welt!!!"/>
+			</textarea>
+		</div>
+		<span class="copyright bottom">
+			<a href="http://www.slideshare.net/nri94/4d-summit-europe-2014-confrence-dac-consulting-xml-demystified" target="_blank">XML Demystified</a>, <a target="_blank" href="http://www.slideshare.net/nri94?utm_campaign=profiletracking&utm_medium=sssite&utm_source=ssslideview">Nathalie
+				Richomme</a>, 4D Summit Europe 2014
+			<!--- Conférence d'A&amp;C-->
+		</span>
+	</section>
+
+	<section class="slide">
+		<h2>Elemente XML. Atribute</h2>
+		<ul class="to4right to1bottom">
+			<li value="numele">
+				<ul class="small to1bottom">
+					<li>trebuie să înceapă cu o literă sau caracterul de subliniere (<span class="dimText">underline</span>) și poate să conțină doar litere, cifre, cratime, puncte și caracterul de subliniere (<span class="dimText">underline</span>);</li>
+				</ul>
+			<li value="valoarea" class="to2bottom">
+				<ul class="small to1bottom">
+					<li>poate fi de mai multe tipuri, dar este aproape întotdeauna un șir de caractere;</li>
+					<li>trebuie inclusă între ghilimele:
+						<div class="to2right">
+							<textarea id="zitierteAttribute">title="Lecture 2" ... sau ... match='item="bâtă de baseball"'</textarea>
+						</div>
+					</li>
+					<li>nu poate conține <code>&lt;</code> sau <code>&amp;</code>.</li>
+				</ul>
+			</li>
+		</ul>
+		<span class="copyright bottom">
+			Building Dynamic Websites, <a href="http://cdn.cs75.net/2012/summer/lectures/3/lecture3.pdf" target="_blank">Lecture 3: XML</a>, <a href="http://www.cs.harvard.edu/malan/" target="_blank">David J. Malan</a>, Harvard, 2012
+		</span>
+	</section>
+
+	<section class="slide">
+		<h2>Ierarhie</h2>
+		<table class="to2bottom">
+			<tr>
+				<th></th>
+				<td class="centerText strong">Element</td>
+				<td class="centerText strong">Atribut</td>
+			</tr>
+			<tr>
+				<td>Unic (<span class="small dimText">Unique</span>)</td>
+				<td class="centerText">nu</td>
+				<td class="centerText">da</td>
+			</tr>
+			<tr>
+				<td>Ordonat (<span class="small dimText">Ordered</span>)</td>
+				<td class="centerText">da</td>
+				<td class="centerText">nu</td>
+			</tr>
+			<tr>
+				<td>Poate avea copii</td>
+				<td class="centerText">da</td>
+				<td class="centerText">nu</td>
+			</tr>
+			<tr>
+				<td>Poate avea atribute</td>
+				<td class="centerText">da</td>
+				<td class="centerText">nu</td>
+			</tr>
+		</table>
+		<span class="copyright bottom"><a href="http://www.slideshare.net/nri94/4d-summit-europe-2014-confrence-dac-consulting-xml-demystified" target="_blank">XML Demystified</a>, <a target="_blank" href="http://www.slideshare.net/nri94?utm_campaign=profiletracking&utm_medium=sssite&utm_source=ssslideview">Nathalie
+				Richomme</a>, 4D Summit Europe 2014
+			<!--- Conférence d'A&amp;C--> </span>
+	</section>
+
+	<section class="slide">
+		<h2>Elemente XML. Modele de conținut</h2>
+		<ul class="to4bottom to4right">
+			<li class="to3top">Unul sau mai multe elemente</li>
+			<li class="to2top"><span class="dimText">Parsed Character Data</span> (<span class="small">de asemenea cunoscut ca și <span class="dimText">PCDATA</span>, sau <span class="dimText">Text</span></span>)</li>
+			<li class="to1top">Conținut mixt
+				<div class="to5right">
+					<div class="to1top to4right">
+						<textarea id="GemischterInhalt"><name> Jim <initial>J</initial> Bob </name></textarea>
+					</div>
+				</div>
+			</li>
+			<li>Niciun conținut</li>
+		</ul>
+		<span class="copyright bottom">Building Dynamic Websites, <a href="http://cdn.cs75.net/2012/summer/lectures/3/lecture3.pdf" target="_blank">Lecture 3: XML</a>, <a href="http://www.cs.harvard.edu/malan/" target="_blank">David J. Malan</a>, Harvard,
+			2012</span>
+	</section>
+
+	<section class="slide">
+		<h2>PCDATA</h2>
+		<ul class="to5bottom to5right">
+			<li class="to3top">Text reprezentând <strong>conținut</strong> al unui element;</li>
+			<li class="to1top">poate referi <strong>entități</strong>;</li>
+			<li class="to1bottom">nu poate conține <code>&lt;</code> sau <code>&amp;</code>.</li>
+		</ul>
+		<span class="copyright bottom">Building Dynamic Websites, <a href="http://cdn.cs75.net/2012/summer/lectures/3/lecture3.pdf" target="_blank">Lecture 3: XML</a>, <a href="http://www.cs.harvard.edu/malan/" target="_blank">David J. Malan</a>, Harvard,
+			2012</span>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">Entități</h2>
+		<ul class="small">
+			<li class="to2top">5 predefinite: <span class="to1right"><code class="small">&amp;amp;</code> &amp;<span class="to2right"><code class="small">&amp;lt;</code> &lt; <span class="to2right"><code class="small">&amp;gt;</code> &gt; <span class="to2right"><code
+									class="small">&amp;apos;</code> &apos; <span class="to2right"><code class="small">&amp;quot;</code> &quot;</span></span></span></span></span></li>
+			<li class="to1top"><strong>Entitățile</strong> se pot referi la un singur caracter prin numărul Unicode:
+				<div class="rightText"><code class="small">&amp;#nnn;</code> -zecimal sau <code class="small">&amp;#xhhh;</code> - hexazecimal</div>
+			</li>
+			<li>
+				<span class="tofront"><strong>Entitățile definite de utilizator:</strong><span class="to4right"> trebuie declarate:</span></span>
+				<div class="to5right">
+					<div class="to5right">
+						<div class="to2top to4right">
+							<textarea id="benutzerEntit">&amp;nume;					  			  			  			  			  			  			  			  			  			  			  			  			  			  			  			  			  			  			  			  <!ENTITY nume "valoare"></textarea>
+						</div>
+					</div>
+				</div>
+				<div class="to5right">
+					<textarea id="entityEx">
+					<?xml version="1.0" encoding="UTF-8"?>
+					<!DOCTYPE demo [
+			  			  			 	  				  			  <!ENTITY writer "Mikey Mouse">
+			  			  			 	  				  			  <!ENTITY property "Disney">
+					]>
+					<customEntitiesDemo>
+			  			  			 	  				  			  <author>&amp;writer; - &amp;property;</author>
+					</customEntitiesDemo>
+				</textarea>
+				</div>
+			</li>
+		</ul>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">CDATA</h2>
+		<div class="to2top">
+			<textarea id="cdataEx"><![CDATA[ <br> <b>Detalii -</b> {0} ]]></textarea>
+		</div>
+		<ul class="small to3bottom to5right">
+			<li class="to3top">este analizat de parser-ul XML într-un "singur bloc";</li>
+			<li class="to2top">Datele din interior nu sunt verificate pentru subelemente, entități etc.;</li>
+			<li class="to1top">permite inserarea unor marcaje/taguri sau caractere într-o formă incorectă, <br> care ar cauza o problemă la parsare;
+			</li>
+			<li>Exemplu:
+				<ul>
+					<li>Introducerea de etichete HTML într-un document XML.</li>
+				</ul>
+			</li>
+		</ul>
+		<span class="copyright bottom">Building Dynamic Websites, <a href="http://cdn.cs75.net/2012/summer/lectures/3/lecture3.pdf" target="_blank">Lecture 3: XML</a>, <a href="http://www.cs.harvard.edu/malan/" target="_blank">David J. Malan</a>, Harvard,
+			2012</span>
+	</section>
+
+	<section class="slide">
+		<h2>Comentarii</h2>
+		<ul class="small to5bottom to4right">
+			<li class="to3top">se poate include orice text din interiorul unui comentariu pentru a facilita <br>cititorilor umani înțelegerea documentului;</li>
+			<li class="to2top">în general, nu sunt disponibile pentru aplicațiile care citesc documentul;</li>
+			<li class="to1top">începe întotdeauna cu <code>&lt;!--</code> și se termină cu <code>--&gt;</code>;</li>
+			<li>Nu pot conține <code>--</code>. </li>
+		</ul>
+		<span class="copyright bottom">Building Dynamic Websites, <a href="http://cdn.cs75.net/2012/summer/lectures/3/lecture3.pdf" target="_blank">Lecture 3: XML</a>, <a href="http://www.cs.harvard.edu/malan/" target="_blank">David J. Malan</a>, Harvard,
+			2012</span>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">"Bine format" și validare</h2>
+		<ul class="small">
+			<li class="to2top"><strong>"Bine format"</strong>: sintaxa xml este ok; ESTE OBLIGATORIU;</li>
+			<li class="to1top"><strong>"Valid"</strong>: care corespunde specificărilor dintr-un document DTD sau <span class="dimText">XML-Schema</span>;</li>
+			<li>DTD sau Schema descriu structura unui document XML;
+				<ul class="small">
+					<li>un <strong>DTD</strong>  poate fi apoi specificat în documentul XML: <code>&lt;?xml?&gt;</code>
+						sau poate fi specificat într-un fișier separat și referit în fișierul XML prin:
+						<div class="to5right"><textarea id="dtdRefer"><!DOCTYPE collection SYSTEM "collection.dtd"></textarea></div>
+					</li>
+					<li class="to1bottom">un <strong>XML-Schema</strong> este o alternativă la un DTD și poate fi menționată în fișierul XML folosind atributele etichetei rădăcină:
+						<div class="to5right">
+							<textarea id="xmlSchemaRefer"><collection xmlns="http://www.cs.ubbcluj.ro"
+			  			  			 	  				  			  			  			  			 	  				  			  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			  			  			 	  				  			  			  			  			 	  				  			  xsi:schemaLocation="http://www.cs.ubbcluj.ro collection.xsd"></textarea>
+						</div>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</section>
+
+	<section class="slide">
+		<h2>DTD versus Schema</h2>
+		<table class="small">
+			<tr>
+				<td></td>
+				<th>DTD</th>
+				<th>Schema</th>
+			</tr>
+			<tr>
+				<th>Extensie</th>
+				<td>.dtd</td>
+				<td>.xsd</td>
+			</tr>
+			<tr>
+				<th>Sintaxă</th>
+				<td>specifică</td>
+				<td>xml</td>
+			</tr>
+			<tr>
+				<th>Încorporat (<span class="dimText">Embedded</span>)</th>
+				<td>posibil</td>
+				<td>nu</td>
+			</tr>
+			<tr>
+				<th>Flexibilitate</th>
+				<td>bună</td>
+				<td>cea mai bună</td>
+			</tr>
+			<tr>
+				<th>Verificarea tipului de date</th>
+				<td>restricționat (<span class="small dimText">limited</span>)</td>
+				<td>puternic</td>
+			</tr>
+			<tr>
+				<th>Entități definite de utilizatori</th>
+				<td>da</td>
+				<td>nu</td>
+			</tr>
+			<tr>
+				<th>Parte din specificațiile XML</th>
+				<td>da</td>
+				<td>nu</td>
+			</tr>
+		</table>
+		<span class="copyright bottom"><a href="http://www.slideshare.net/nri94/4d-summit-europe-2014-confrence-dac-consulting-xml-demystified" target="_blank">XML Demystified</a>, <a target="_blank" href="http://www.slideshare.net/nri94?utm_campaign=profiletracking&utm_medium=sssite&utm_source=ssslideview">Nathalie
+				Richomme</a>, 4D Summit Europe 2014
+			<!--- Conférence d'A&amp;C--> </span>
+	</section>
+
+	<section class="slide">
+		<h2>Exemplu DTD</h2>
+		<div class="to5right">
+			<textarea id="dtdExample">
+			<?xml version="1.0" encoding="UTF-8"?>
+			<!DOCTYPE children [
+			<!ELEMENT children (child)+>
+			<!ATTLIST children>
+			<!ELEMENT child EMPTY>
+			<!ATTLIST child dob CDATA #REQUIRED>
+			<!ATTLIST child name CDATA #REQUIRED>
+			]>
+			<children>
+			  			  			 	  				  			  <child name="Laura" dob="1973-10-21"/>
+			  			  			 	  				  			  <child name="Camelia" dob="1974-10-17"/>
+			</children>
+		</textarea>
+		</div>
+		<span class="copyright bottom"><a href="http://www.slideshare.net/nri94/4d-summit-europe-2014-confrence-dac-consulting-xml-demystified" target="_blank">XML Demystified</a>, <a target="_blank" href="http://www.slideshare.net/nri94?utm_campaign=profiletracking&utm_medium=sssite&utm_source=ssslideview">Nathalie
+				Richomme</a>, 4D Summit Europe 2014
+			<!--- Conférence d'A&amp;C--> </span>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">Exemplu extern DTD</h2>
+		<div class="columns two">
+			<span>fișierul XML</span>
+			<textarea id="dtdExternEx">
+			<?xml version="1.0" encoding="UTF-8"?>
+			<!DOCTYPE children SYSTEM "testValidation.dtd">
+			<children>
+			  			  			 	  				  			  <child name="Laura" dob="1973-10-21"/>
+			  			  			 	  				  			  <child name="Camelia" dob="1974-10-17"/>
+			</children>
+		</textarea>
+		</div>
+		<div class="columns two to3bottom">
+			<span>testValidation.dtd</span>
+			<textarea id="testValidation">
+			<!ELEMENT children (child)+>
+			<!ATTLIST children>
+			<!ELEMENT child EMPTY>
+			<!ATTLIST child
+			  			  			 	  				  			  			  			  			 	  				  			  dob CDATA #REQUIRED
+			  			  			 	  				  			  			  			  			 	  				  			  name CDATA #REQUIRED>
+		</textarea>
+		</div>
+		<span class="copyright bottom"><a href="http://www.slideshare.net/nri94/4d-summit-europe-2014-confrence-dac-consulting-xml-demystified" target="_blank">XML Demystified</a>, <a target="_blank" href="http://www.slideshare.net/nri94?utm_campaign=profiletracking&utm_medium=sssite&utm_source=ssslideview">Nathalie
+				Richomme</a>, 4D Summit Europe 2014
+			<!--- Conférence d'A&amp;C--> </span>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">Exemplu Schema</h2>
+		<div class="columns two to3top small">
+			<span class="small">fișierul XML</span>
+			<textarea id="schemaExternEx">
+			<?xml version="1.0" encoding="UTF-8"?>
+			<children xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			  			  			 	  				  			  														xsi:noNamespaceSchemaLocation="testValid.xsd">
+			  			  			 	  				  			  														<child name="Laura" dob="1973-10-21"/>
+			  			  			 	  				  			  														<child name="Camelia" dob="1974-10-17"/>
+			</children>
+		</textarea>
+		</div>
+		<div class="columns two small to2top to2left">
+			<span class="small to2right">testValid.xsd</span>
+			<textarea id="testValidation2">
+			<?xml version="1.0" encoding="UTF-8"?>
+			<xs:schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" elementFormDefault="qualified">
+									<xs:element name="children">
+																		<xs:complexType>
+			  			  			 	  				  			  			<xs:sequence>
+			  			  			 	  				  			  												<xs:element maxOccurs="unbounded" ref="child"/>
+			  			  			 	  				  			  			</xs:sequence>
+																		</xs:complexType>
+									</xs:element>
+									<xs:element name="child">
+																		<xs:complexType>
+			  			  			 	  				  			  			<xs:attribute name="dob" use="required" type="xs:date"/>
+			  			  			 	  				  			  			<xs:attribute name="name" use="required" type="xs:string"/>
+																		</xs:complexType>
+									</xs:element>
+			</xs:schema>
+		</textarea>
+		</div>
+		<span class="copyright right"><a href="http://www.slideshare.net/nri94/4d-summit-europe-2014-confrence-dac-consulting-xml-demystified" target="_blank">XML Demystified</a>, <a target="_blank" href="http://www.slideshare.net/nri94?utm_campaign=profiletracking&utm_medium=sssite&utm_source=ssslideview">Nathalie
+				Richomme</a>, 4D Summit Europe 2014
+			<!--- Conférence d'A&amp;C--> </span>
+		<footer class="notes">
+			<ul>
+				<li>XML Schema Definition (XSD) is the successor of DTDs</li>
+				<li>like a DTD, an XSD defines:
+					<ul>
+						<li>the elements which appear in the XML doc and their attributes</li>
+						<li>the order/hierarchical structure of these elements</li>
+						<li>the number of child elements of a specific type</li>
+						<li>whether the element is empty or it has content</li>
+						<li>default and fixed values for elements and attributes</li>
+					</ul>
+				</li>
+				<li>additional to DTDs, XSDs:
+					<ul>
+						<li>support basic data types (e.g. numerical, date, string etc.)</li>
+						<li>support namespaces (for solving collisions)</li>
+						<li>use XML syntax</li>
+					</ul>
+				</li>
+			</ul>
+		</footer>
+	</section>
+
+	<section class="slide">
+		<h2>Nomenclatoare XML (<span class="dimText">Namespaces</span>)</h2>
+		<ul class="to5bottom to3right">
+			<li class="to2top">la integrarea a două aplicații xml diferite, pot apărea conflicte de etichete;</li>
+			<li><strong>Nomenclatoarele XML</strong> încearcă să rezolve conflictele de nume.</li>
+		</ul>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">Exemplu de utilizare Namespace</h2>
+		<div class="columns two to1left">
+			<div class="small">
+				<span class="to1top">Namespace Standard (<span class="small dimText">default</span>)</span>
+				<textarea id="namespaceIkea">
+			<?xml version="1.0" encoding="UTF-8"?>
+			<root xmlns="http://www.ikea.com/furniture">
+			  			  			 	  				  			  <table>
+			  			  			 	  				  			  			  			  			 	  				  			  <name>Coffee table</name>
+			  			  			 	  				  			  			  			  			 	  				  			  <width>80</width>
+			  			  			 	  				  			  			  			  			 	  				  			  <length>120</length>
+			  			  			 	  				  			  </table>
+			</root>
+		</textarea>
+			</div>
+			<div class="small to3left">
+				<span class="to1top">Namespace definit de utilizator (<span class="small dimText">custom</span>)</span>
+				<textarea id="namespaceComb">
+			<?xml version="1.0" encoding="UTF-8"?>
+			<root>
+			  			  			 	  				  			  <h:table  xmlns:h="http://www.w3.org/TR/html4/">
+			  			  			 	  				  			  			  			  			 	  				  			  <h:tr>
+			  			  			 	  				  			  			  			  			 	  				  			  			  			  			 	  				  			  <h:td>Apples</h:td>
+			  			  			 	  				  			  			  			  			 	  				  			  			  			  			 	  				  			  <h:td>Oranges</h:td>
+			  			  			 	  				  			  			  			  			 	  				  			  </h:tr>
+			  			  			 	  				  			  </h:table>
+			  			  			 	  				  			  <i:table  xmlns:i="http://www.ikea.com/furniture">
+			  			  			 	  				  			  			  			  			 	  				  			  <i:name>Coffee table</i:name>
+			  			  			 	  				  			  			  			  			 	  				  			  <i:width>80</i:width>
+			  			  			 	  				  			  			  			  			 	  				  			  <i:length>120</i:length>
+			  			  			 	  				  			  </i:table>
+			</root>
+		</textarea>
+			</div>
+		</div>
+		<span class="copyright bottom"><a href="http://www.slideshare.net/nri94/4d-summit-europe-2014-confrence-dac-consulting-xml-demystified" target="_blank">XML Demystified</a>, <a target="_blank" href="http://www.slideshare.net/nri94?utm_campaign=profiletracking&utm_medium=sssite&utm_source=ssslideview">Nathalie Richomme</a>, 4D Summit Europe 2014 <!--- Conférence d'A&amp;C--> </span>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">Namespace XML (Cont.)</h2>
+		<ul class="small to2bottom">
+			<li class="to4top small"> <strong>Spațiul de nume pentru un prefix</strong>
+				trebuie să fie definit utilizând atributul <code>xmlns</code>;</li>
+			<li class="to2top small">Atributul <strong>xmlns</strong> poate fi plasat în orice etichetă
+				(<span class="small">și va fi valabil pentru acea etichetă și toți copiii acesteia</span>) sau în eticheta rădăcină astfel:
+				<div class="to5right to1top"><div class="to5right"><div class="to1right">
+					<textarea id="xmlnsExample">
+						<document xmlns:st="http://www.cs.ubbcluj.ro/studies"
+			  			  			 	  				  			  																			xmlns:co="http://www.cs.ubbcluj.ro/courses">
+					</textarea>
+				</div></div></div>
+			</li>
+			<li class="small to1top">fiecare <strong>URI din spațiul de nume</strong> trebuie să fie unic și nu trebuie să indice o pagină care conține informații despre spațiul de nume;</li>
+			<li class="small to1bottom">spațiul de nume implicit pentru document este introdus de atributul <code>xmlns</code>:
+				<div class="to5right"><div class="to5right"><div class="to1right">
+					<textarea id="xmlnsExample2"><document xmlns="http://www.cs.ubbcluj.ro/studies"></textarea>
+				</div></div></div>
+			</li>
+		</ul>
+	</section>
+
+	<section class="slide">
+		<h2>Vizualizarea XML</h2>
+		<ul class="small">
+			<li>dacă un document XML <strong>are erori</strong> (<span class="dimText">adică nu este bine format</span>), acesta <strong>nu va fi afișat în browser</strong>, spre deosebire de HTML, care va fi afișat dacă are erori (<span class="dimText">standardul XML W3C specifică faptul că un parser XML ar trebui să se oprească la găsirea unei erori</span>);
+			</li>
+			<li class="to1bottom"><strong>în mod implicit</strong> un browsers afișează <strong>stuctura arborescentă</strong> a unui fișier XML, deoarece XML nu conține informații de afișare/formatare ;</li>
+			<li class="to2bottom">un XML poate fi afișat diferit (formatat) cu <strong>XSLT și/sau CSS</strong>.</li>
+		</ul>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">DOM <br>
+			<span class="small">(Document Object Model)</span></h2>
+		<div class="columns two">
+			<div class="to2left">
+			<!-- smaller, simpler document -->
+			<textarea id="domExample">
+				<!-- document mic, simplu -->
+
+				<students>
+			  			  			 	  				  			  <student id="1">
+			  			  			 	  				  			  			  			  			 	  				  			  <name>Jim Bob</name>
+			  			  			 	  				  			  			  			  			 	  				  			  <status>graduate</status>
+			  			  			 	  				  			  </student>
+				</students>
+			</textarea>
+			</div>
+			<div class="to1top to4left">
+				<img src="../../PWg/4/img/DOM.png" alt="DOM" class="to5top to5left"/>
+			</div>
+		</div>
+		<span class="copyright bottom">Building Dynamic Websites, <a href="http://cdn.cs75.net/2012/summer/lectures/3/lecture3.pdf" target="_blank">Lecture 3: XML</a>, <a href="http://www.cs.harvard.edu/malan/" target="_blank">David J. Malan</a>, Harvard, 2012</span>
+		<footer class="notes">
+			DOM (Document Object Model) is the W3C standard parser for xml and html. DOM parser loads the XML "in memory".
+		</footer>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">XPATH</h2>
+		<img src="../../PWg/4/img/xpath.png" alt="" width="550" class="to3top to5right"/>
+		<ul class="small to2top to3right">
+			<li class="to1top">permite <strong>selectarea nodurilor</strong> unui document xml cu expresii;</li>
+			<li><strong>Selecție indexată</strong>:
+				<div class="to5right to1top"><div class="to5right">
+					<textarea id="xpath1">/students/student[2]</textarea>
+				</div></div>
+			</li>
+			<li>Mehr <strong>Selecții mai puternice</strong> (funcții, operatori booleani etc.):
+				<div class="to5right"><div class="to5right">
+					<textarea id="xpath2">/students/student[@id="5"]</textarea>
+				</div></div>
+			</li>
+		</ul>
+		<span class="copyright bottom">Building Dynamic Websites, <a href="http://cdn.cs75.net/2012/summer/lectures/3/lecture3.pdf" target="_blank">Lecture 3: XML</a>, <a href="http://www.cs.harvard.edu/malan/" target="_blank">David J. Malan</a>, Harvard, 2012</span>
+	</section>
+
+	<section class="slide">
+		<h2>XSLT <br><span class="small"><span class="small">(e<strong>X</strong>tensible <strong>S</strong>tylesheet <strong>L</strong>anguage <strong>T</strong>ransformations)</span></span></h2>
+		<ul class="small to1bottom to4right">
+			<li>scopul său este de <strong>a procesa</strong>  un document XML și de  <br>
+				<span class="to3right"><span class="to5right"><strong>a genera o ieșire</strong> (XML, HTML, Text etc.)</span></span></li>
+			<li>se bazează pe <strong>XPATH</strong></li>
+			<li class="to4bottom">un fișier XML poate fi conectat la un XSLT specificând:
+				<div class="to5right">
+					<textarea id="xslt0"><?xml-stylesheet type="text/xsl" href="book.xsl"?></textarea>
+				</div>
+			</li>
+		</ul>
+	</section>
+
+	<section class="slide">
+		<h2 class="copyright top">Exemplu XSLT</h2>
+		<textarea id="xslt1">
+			<?xml version="1.0"?>
+			<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+			<xsl:template match="/">
+			<html>
+			  			  			 	  				  			  <body>
+			  			  			 	  				  			  			  			  			 	  				  			  <h2>A Book Collection</h2>
+			  			  			 	  				  			  			  			  			 	  				  			  <table border="1">
+			  			  			 	  				  			  			  			  			 	  				  			  			  			  			 	  				  			  <xsl:for-each select="collection/book">
+			  			  			 	  				  			  			  			  			 	  				  			  			  			  			 	  				  			  <tr>
+			  			  			 	  				  			  			  			  			 	  				  			  			  			  			 	  				  			  			  			  			 	  				  			  <td><xsl:value-of select="title"/></td>
+			  			  			 	  				  			  			  			  			 	  				  			  			  			  			 	  				  			  			  			  			 	  				  			  <td><xsl:value-of select="author"/></td>
+			  			  			 	  				  			  			  			  			 	  				  			  			  			  			 	  				  			  </tr>
+			  			  			 	  				  			  			  			  			 	  				  			  			  			  			 	  				  			  </xsl:for-each>
+			  			  			 	  				  			  			  			  			 	  				  			  </table>
+			  			  			 	  				  			  </body>
+			</html>
+			</xsl:template>
+			</xsl:stylesheet>
+		</textarea>
+	</section>
+
+	<section class="slide">
+		<h2>XSLT <span class="small strong to1right">&lt;xsl:template&gt;</span></h2>
+		<ul class="small to1bottom to2right">
+			<li value="Sintaxă">
+				<div class="to1bottom to2right">
+					<textarea id="xsltTemplate"><xsl:template match="XPath expression">…</xsl:template></textarea>
+				</div>
+			</li>
+			<li value="Semnificație" class="to2bottom">
+				<div class="to1bottom to2right">
+				construiește un șablon (<span class="small dimText">template</span>) și asociază acest șablon cu un element XML;
+				</div>
+			</li>
+		</ul>
+		<div class="to3bottom to5right">
+			<p class="small em to4bottom to5left">- atributul <strong>match</strong> asociază șablonul cu un element XML specific:</p>
+			<div class="to3bottom to5left">
+				<textarea id="xsltTemplateMatch"><xsl:template match="/"></textarea>
+			</div>
+			<div class="to3right small">
+			<span class="small em to2bottom to5right"> se potrivește cu elementul rădăcină al documentului XML.</span>
+			</div>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2>XSLT <span class="small strong to1right">&lt;xsl:value-of&gt;</span></h2>
+		<ul class="small to1bottom to2right">
+			<li value="Sintaxă">
+				<div class="to1bottom to2right">
+					<textarea id="xsltValueOf"><xsl:value-of select="XPath expression"/></textarea>
+				</div>
+			</li>
+			<li value="Semnificație" class="to2bottom">
+				<div class="to1bottom to2right">
+					extrage valoarea (<span class="small">conținutul</span>) nodului selectat (<span class="small">specificat de atributul <strong>select</strong></span>).
+				</div>
+			</li>
+		</ul>
+		<div class="to2bottom">
+			<p class="small em to4bottom">Exemplu:</p>
+			<div class="to1bottom to5right">
+				<textarea id="xsltValueOfEx"><xsl:value-of select="collection/book/title"></textarea>
+			</div>
+			<div class="small to5right">
+			<span class="small em to2bottom to1right">- selectează valoarea elementului curent "title", care este un copil al elementului "book".</span>
+			</div>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2>XSLT <span class="small strong to1right">&lt;xsl:for-each&gt;</span></h2>
+		<ul class="small to1bottom to2right">
+			<li value="Sintaxă">
+				<div class="to1bottom to2right">
+					<textarea id="xsltForEach"><xsl:for-each select="XPath expression">…</xsl:for-each></textarea>
+				</div>
+			</li>
+			<li value="Semnificație" class="to2bottom">
+				<div class="to1bottom to2right">
+					selectează fiecare nod copil XML al nodului specificat de atributul <strong>select</strong>.
+				</div>
+			</li>
+		</ul>
+		<div class="to2bottom">
+			<p class="small em to4bottom">Exemplu:</p>
+			<div class="to1bottom to5right">
+				<textarea id="xsltForEachEx"><xsl:for-each select="collection/book[title='Operating Systems']"></textarea>
+			</div>
+			<div class="small to5right">
+			<span class="small em to2bottom to1right">filtrează selecția cu o valoare pentru conținutul unui nod <span class="dimText">book</span>.</span>
+			</div>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2>XSLT <span class="small strong to1right">&lt;xsl:sort&gt;</span></h2>
+		<ul class="small to1bottom to2right">
+			<li value="Sintaxă">
+				<div class="to1bottom to2right">
+					<textarea id="xsltSort"><xsl:sort select="XPath expression"/></textarea>
+				</div>
+			</li>
+			<li value="Semnificație" class="to2bottom">
+				<div class="to1bottom to2right">
+				sortează ieșirea din interiorul unui element <code class="small">&lt;xsl:for-each&gt;</code> pe valoarea specificată de atributul <span class="strong">select</span>.
+				</div>
+			</li>
+		</ul>
+		<div class="to2bottom">
+			<p class="small em to4bottom">Exemplu:</p>
+			<div class="to1bottom to5right">
+				<textarea id="xsltSortEx"><xsl:sort select="title"></textarea>
+			</div>
+			<!-- <div class="small to5right">
+			<span class="small em to2bottom to1right"></span>
+			</div> -->
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2>XSLT <span class="small strong to1right">&lt;xsl:if&gt;</span></h2>
+		<ul class="small to1bottom to2right">
+			<li value="Sintaxă">
+				<div class="to1bottom to2right">
+					<textarea id="xsltIf">
+						<xsl:if test="expression">
+			  			  			 	  				   … rezultat în cazul în care expresia este adevărată …
+						</xsl:if>
+					</textarea>
+				</div>
+			</li>
+			<li value="Semnificație" class="to2bottom">
+				<div class="to1bottom to2right">
+				adaugă un test condițional în fluxul de procesare; <strong>Expresia</strong> poate conține operatori: <br> <code>=</code> (egal), <code>!=</code> (diferit), <code>&amp;lt;</code> (mai mic ca), <code>&amp;gt;</code> (mai mare ca).
+				</div>
+			</li>
+		</ul>
+		<div class="to2bottom">
+			<p class="small em to4bottom">Exemplu:</p>
+			<div class="to1bottom to5right">
+				<textarea id="xsltIfEx"><xsl:if test="title=‘Operating Systems’">...</xsl:if></textarea>
+			</div>
+			<!-- <div class="small to5right">
+			<span class="small em to2bottom to1right"></span>
+			</div> -->
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">XSLT <span class="small strong to1right">&lt;xsl:choose&gt;</span></h2>
+		<ul class="small to2top to2right">
+			<li value="Sintaxă">
+				<div class="to1bottom to2right">
+					<textarea id="xsltChoose">
+						<xsl:choose>
+			  			  			 	  				  			  <xsl:when test="expression">
+			  			  			 	  				  			  			  			  			 	  				  			  … rezultat în cazul în care expresia este adevărată …
+			  			  			 	  				  			  </xsl:when>
+			  			  			 	  				  			  <xsl:otherwise>
+			  			  			 	  				  			  			  			  			 	  				  			  … alt rezultat …
+			  			  			 	  				  			  </xsl:otherwise>
+						</xsl:choose>
+					</textarea>
+				</div>
+			</li>
+			<li value="Semnificație" class="to2bottom">
+				<div class="to1bottom to2right">
+				este folosit pentru mai multe teste condiționale.
+				</div>
+			</li>
+		</ul>
+		<!-- <div class="to2bottom">
+			<p class="small em to4bottom">Beispiel:</p>
+			<div class="to1bottom to5right">
+				<textarea id="xsltChooseEx"></textarea>
+			</div>
+			<div class="small to5right">
+			<span class="small em to2bottom to1right"></span>
+			</div>
+		</div> -->
+	</section>
+
+	<section class="slide">
+		<h2>XSLT. <span class="small to1right"><span class="strong small">Template-uri de valoare</span><span class="small"> (<span class="small"><span class="small dimText">Attribute Value Templates</span></span>)</span></span></h2>
+		 <!-- is an XPath expression that is evaluated, and the result of that evaluation replaces the attribute value template. -->
+		 <p class="small em to2bottom">- este o expresie XPath care este evaluată și rezultatul acestei evaluări înlocuiește șablonul de valoare a atributului.</p>
+			<!-- For example, we could create an HTML <table> element like this: -->
+		 <p class="small to5bottom">De exemplu, am putea crea un element HTML &lt;table&gt; după cum urmează:</p>
+		 <div class="to4bottom to5right">
+			 <textarea id="attrwertvorlag"><table border="{@size}"/></textarea>
+		 </div>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">Formatarea XML cu CSS</h2>
+		<ul class="small to5right">
+			<li class="small to2top">Fișierele CSS sunt specificate într-un fișier XML cu:
+				<textarea id="xmlCssTag"><?xml-stylesheet type="text/css" href="book.css"?></textarea>
+			</li>
+			<li class="small to2bottom">fișierul book.css:
+				<div class="to5right to2top"><div class="to5right">
+				<textarea id="CssForXml">
+					book {
+			  			  			 	  				  			  display: block;
+			  			  			 	  				  			  border-bottom: 1px solid gray;
+			  			  			 	  				  			  width: 80%;
+			  			  			 	  				  			  margin-left: auto;
+			  			  			 	  				  			  margin-right: auto;
+					}
+					author {
+			  			  			 	  				  			  display: inline-block;
+			  			  			 	  				  			  width: 15%;
+			  			  			 	  				  			  border-left: 1px solid gray;
+			  			  			 	  				  			  padding-left: 5px;
+					}
+				</textarea>
+				</div></div>
+			</li>
+		</ul>
+	</section>
+
+	<section class="slide">
+		<h2>Alternative XML</h2>
+		<ul class="to2bottom to5right">
+			<li class="to5right">fișiere text</li>
+			<li class="to5right">csv (<span class="dimText">comma separated values</span>)</li>
+			<li class="to5right">fișiere binare</li>
+			<li class="to5right">fișiere cu formate specifice (<span class="dimText">proprietary file formats</span>)</li>
+			<li class="to5right">MySQL, SQLite</li>
+			<li class="to5right">JSON</li>
+		</ul>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">Avantaje XML</h2>
+		<ul class="small to2top to5right">
+			<li class="to5right">Meta limbaj de markup (<span class="small dimText">meta markup language</span>)</li>
+			<li class="to5right">structura flexibilă a datelor</li>
+			<li class="to5right">bazat pe text</li>
+			<li class="to5right">auto-documentate</li>
+			<li class="to5right">ușor de citit</li>
+			<li class="to5right">strict</li>
+			<li class="to5right">verificarea validității (<span class="small dimText">validity checking</span>)</li>
+			<li class="to5right">suport pentru mai multe codificări</li>
+			<li class="to5right">comentarii</li>
+			<li class="to5right">bogat set de instrumente</li>
+		</ul>
+		<span class="copyright bottom"><a href="http://www.slideshare.net/nri94/4d-summit-europe-2014-confrence-dac-consulting-xml-demystified" target="_blank">XML Demystified</a>, <a target="_blank" href="http://www.slideshare.net/nri94?utm_campaign=profiletracking&utm_medium=sssite&utm_source=ssslideview">Nathalie Richomme</a>, 4D Summit Europe 2014 <!--- Conférence d'A&amp;C--> </span>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">JSON versus XML</h2>
+		<div class="columns two to2left to1top">
+			<span class="to2right">JSON:</span>
+			<span class="to1left">XML:</span>
+		</div>
+		<div class="columns two small to3top">
+		<div class="to4right">
+			<textarea id="JSONexample">
+				{
+														"child": [
+			  			  			 	  				  			  				{
+			  			  			 	  				  			  																		"name": "Laura",
+			  			  			 	  				  			  																		"dob": "1973-10-21"
+			  			  			 	  				  			  				},
+			  			  			 	  				  			  				{
+			  			  			 	  				  			  																		"name": "Camelia",
+			  			  			 	  				  			  																		"dob": "1974-10-17"
+			  			  			 	  				  			  				}
+														]
+				}
+			</textarea>
+		</div>
+		<div>
+			<textarea id="XMLexample">
+				<children>
+														<child name="Laura" dob="1973-10-21"/>
+														<child name="Camelia" dob="1974-10-17"/>
+				</children>
+			</textarea>
+		</div>
+		</div>
+		<div class="small to2top">
+		<div class="small">JSON compact:
+			<div class="small to5right"><code class="small">{"child":[{"name":"Laura","dob":"1973-10-21"},{"name":"Camelia","dob":"1974-10-17"}]}</code>
+		</div></div>
+		<div class="small">XML compact:
+			<div class="small to5right"><code class="small">&lt;children>&lt;child name="Laura" dob="1973-10-21"/&gt;&lt;child name="Camelia" dob="1974-10-17"/&gt;&lt;/children&gt;</code>
+		</div></div>
+		</div>
+		<span class="copyright right"><a href="http://www.slideshare.net/nri94/4d-summit-europe-2014-confrence-dac-consulting-xml-demystified" target="_blank">XML Demystified</a>, <a target="_blank" href="http://www.slideshare.net/nri94?utm_campaign=profiletracking&utm_medium=sssite&utm_source=ssslideview">Nathalie Richomme</a>, 4D Summit Europe 2014 <!--- Conférence d'A&amp;C--> </span>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">JSON versus XML</h2>
+		<table class="to1top">
+			<tr>
+				<td></td><th>XML</th><th>JSON</th>
+			</tr>
+			<tr>
+				<th>Abordare (<span class="small dimText">Approach</span>)</th>
+				<td>Arbore</td><td>Listă</td>
+			</tr>
+			<tr>
+				<th>Arrays</th>
+				<td>nu</td><td>da</td>
+			</tr>
+			<tr>
+				<th>Encoding</th>
+				<td>multe</td><td>utf-8</td>
+			</tr>
+			<tr>
+				<th>Comentarii</th>
+				<td>da</td><td>nu</td>
+			</tr>
+			<tr>
+				<th>Mod mixt</th>
+				<td>da</td><td>nu</td>
+			</tr>
+			<tr>
+				<th>Namespace</th>
+				<td>da</td><td>nu</td>
+			</tr>
+			<tr>
+				<th>Conformitate</th>
+				<td>dtd, schema</td><td>nu</td>
+			</tr>
+		</table>
+		<span class="copyright bottom"><a href="http://www.slideshare.net/nri94/4d-summit-europe-2014-confrence-dac-consulting-xml-demystified" target="_blank">XML Demystified</a>, <a target="_blank" href="http://www.slideshare.net/nri94?utm_campaign=profiletracking&utm_medium=sssite&utm_source=ssslideview">Nathalie Richomme</a>, 4D Summit Europe 2014 <!--- Conférence d'A&amp;C--> </span>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">JSON versus XML (Cont.)</h2>
+		<table class="to1top">
+			<tr>
+				<td></td><th>XML</th><th>JSON</th>
+			</tr>
+			<tr>
+				<th>Acces direct</th>
+				<td>da (xpath)</td>
+				<td>nu</td>
+			</tr>
+			<tr>
+				<th>Transformare</th>
+				<td>da (xslt)</td>
+				<td>nu</td>
+			</tr>
+			<tr>
+				<th>Debugger prietenos</th>
+				<td>nu</td>
+				<td>da</td>
+			</tr>
+			<tr>
+				<th>Tip nativ</th>
+				<td>nu</td>
+				<td>da</td>
+			</tr>
+			<tr>
+				<th>Pierdere de memorie</th>
+				<td>posibil</td>
+				<td>nu</td>
+			</tr>
+			<tr>
+				<th>Documente mari</th>
+				<td>da (sax)</td>
+				<td>nu</td>
+			</tr>
+		</table>
+		<span class="copyright bottom"><a href="http://www.slideshare.net/nri94/4d-summit-europe-2014-confrence-dac-consulting-xml-demystified" target="_blank">XML Demystified</a>, <a target="_blank" href="http://www.slideshare.net/nri94?utm_campaign=profiletracking&utm_medium=sssite&utm_source=ssslideview">Nathalie Richomme</a>, 4D Summit Europe 2014 <!--- Conférence d'A&amp;C--> </span>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top"><span class="small">Face JSON XML învechit (<span class="small dimText">obsolete</span>)?</span> <br>
+		De ce XML este încă relevant?</h2>
+		<ul class="small to1top to2right">
+			<li>XML este un standard industrial</li>
+			<li>XML are un set bogat de instrumente</li>
+			<li>Funcțiile JSON sunt un subset de caracteristici XML</li>
+			<li>JSON este relevant într-un subset "mic" al "pieței" XML (web2.0, servicii web).</li>
+			<li>Câștigul de performanță trebuie măsurat, nu ghicit</li>
+			<li>API-urile pentru servicii web pot oferi atât XML, cât și JSON</li>
+			<li>Alegerea este bună</li>
+		</ul>
+		<span class="copyright bottom"><a href="http://www.slideshare.net/nri94/4d-summit-europe-2014-confrence-dac-consulting-xml-demystified" target="_blank">XML Demystified</a>, <a target="_blank" href="http://www.slideshare.net/nri94?utm_campaign=profiletracking&utm_medium=sssite&utm_source=ssslideview">Nathalie Richomme</a>, 4D Summit Europe 2014 <!--- Conférence d'A&amp;C--> </span>
+	</section>
+
+	<section class="slide">
+		<h2>Unde se găsește XML?</h2>
+		<div class="to5right">
+		<ul class="to5bottom to5right">
+			<li class="to3top">HTML (XHTML)</li>
+			<li class="to2top">RSS (<span class="small dimText">Really Simple Syndication</span>)</li>
+			<li class="to1top">SVG (<span class="small dimText">Scalable Vector Graphics</span>)</li>
+			<li>MathML</li>
+		</ul>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">Exemplu RSS</h2>
+		<div class="to5right"><div class="to5right">
+		<div class="to5top to3right">
+		<textarea id="RSSexample">
+			<?xml version="1.0" encoding="UTF-8"?>
+			<rss version="2.0">
+														<channel>
+			  			  			 	  				  			  				<title></title>
+			  			  			 	  				  			  				<description></description>
+			  			  			 	  				  			  				<link></link>
+			  			  			 	  				  			  				<item>
+			  			  			 	  				  			  																		<guid></guid>
+			  			  			 	  				  			  																		<title></title>
+			  			  			 	  				  			  																		<link></link>
+			  			  			 	  				  			  																		<description></description>
+			  			  			 	  				  			  																		<category></category>
+			  			  			 	  				  			  																		<pubDate></pubDate>
+			  			  			 	  				  			  				</item>
+			  			  			 	  				  			  					[...]
+														</channel>
+			</rss>
+		</textarea>
+		</div></div></div>
+	</section>
+
+	<section class="slide">
+		<h2 class="to1top">SVG (Scalable Vector Graphics)</h2>
+		<div class="to1top to5right">
+		<ul class="small to1top to1right">
+			<li>format de imagine vectorială</li>
+			<li>bazat pe XML</li>
+			<li>de dimensiune redusă &amp; se scalează ușor</li>
+			<li>suportate în majoritatea browserelor moderne</li>
+		</ul>
+		<textarea id="SVGexample">
+			<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+			<svg xmlns="http://www.w3.org/2000/svg"
+															width="500"
+															height="500"
+															viewBox="0 0 30 30">
+															<circle cx="15" cy="15" r="15" fill="#00247d" />
+															<circle cx="15" cy="15" r="10" fill="#fff" />
+															<circle cx="15" cy="15" r="5" fill="#ce1126" />
+			</svg>
+		</textarea>
+		</div>
+		<span class="copyright bottom"><a href="http://www.slideshare.net/nri94/4d-summit-europe-2014-confrence-dac-consulting-xml-demystified" target="_blank">XML Demystified</a>, <a target="_blank" href="http://www.slideshare.net/nri94?utm_campaign=profiletracking&utm_medium=sssite&utm_source=ssslideview">Nathalie Richomme</a>, 4D Summit Europe 2014 <!--- Conférence d'A&amp;C--> </span>
+	</section>
+
+	<section class="slide">
+		<h2 class="copyright top">SVG (Scalable Vector Graphics)</h2>
+		<div class="to1top to5right">
+		<svg xmlns="http://www.w3.org/2000/svg"
+														width="500"
+														height="500"
+														viewBox="0 0 30 30">
+														<circle cx="15" cy="15" r="15" fill="#00247d" />
+														<circle cx="15" cy="15" r="10" fill="#fff" />
+														<circle cx="15" cy="15" r="5" fill="#ce1126" />
+		</svg>
+		</div>
+	</section>
+
+	<section class="slide">
+		<h2 class="shout">Sfârșit</h2>
+	</section>
+
+	<div class="progress"></div>
+
+	<footer class="badge">
+		<a href="http://www.cs.ubbcluj.ro/~sanda/html/feedback/">
+			<svg width="200" height="100" viewBox="100 50 200 100" aria-hidden="true">
+				<path id="path0" d="M192.857 19.359 C 129.640 25.381,95.764 95.850,130.742 148.571 C 166.258 202.102,247.229 196.406,275.020 138.422 C 302.762 80.540,256.367 13.309,192.857 19.359 M243.212 50.267 C 248.480 52.892,253.304 59.531,253.323 64.182 C 253.340 68.326,252.460 69.619,243.488 78.642 L 235.115 87.062 236.604 90.637 C 241.855 103.251,241.486 117.302,235.587 129.401 L 234.121 132.407 237.217 144.061 C 238.920 150.470,240.181 155.714,240.019 155.714 C 239.857 155.714,234.625 154.344,228.392 152.670 L 217.059 149.625 213.172 151.446 C 185.904 164.219,153.666 147.848,147.512 118.102 C 139.960 81.597,177.084 51.348,211.734 65.773 L 215.319 67.266 223.736 58.896 C 234.308 48.383,237.020 47.181,243.212 50.267 M211.578 71.071 C 209.738 72.970,208.101 74.952,207.941 75.476 C 206.651 79.701,201.429 99.459,201.429 100.117 C 201.429 101.347,202.027 101.244,214.526 97.848 C 228.731 93.988,227.772 94.401,231.660 90.483 L 234.915 87.203 233.291 84.510 C 229.796 78.714,224.661 73.497,218.589 69.572 C 214.838 67.148,215.521 67.002,211.578 71.071 M220.589 81.780 C 230.210 91.385,230.178 91.881,219.740 94.778 L 213.095 96.622 209.427 92.954 L 205.759 89.286 207.603 82.641 C 210.496 72.216,210.978 72.184,220.589 81.780 M165.119 104.800 C 162.809 106.146,162.273 109.708,164.060 111.833 C 167.120 115.469,172.381 113.399,172.381 108.558 C 172.381 105.408,167.983 103.132,165.119 104.800 M191.096 104.856 C 189.665 105.547,188.407 108.326,188.803 109.921 C 189.562 112.978,192.905 114.548,195.642 113.132 C 201.214 110.251,196.751 102.124,191.096 104.856 M216.227 105.519 C 214.995 106.556,214.762 107.088,214.762 108.873 C 214.762 113.567,220.260 115.479,223.042 111.753 C 226.383 107.279,220.514 101.911,216.227 105.519 ">
+				</path>
+			</svg>
+			Lăsați <br>un feedback
+		</a>
+	</footer>
+	<script src="../../../../includes/js/shower.min.js"></script>
+	<script src="../../../../includes/codemirror/lib/codemirror.js"></script>
+	<script src="../../../../includes/codemirror/addon/edit/matchbrackets.js"></script>
+	<script src="../../../../includes/codemirror/addon/selection/selection-pointer.js"></script>
+	<script src="../../../../includes/codemirror/mode/xml/xml.js"></script>
+	<script src="../../../../includes/codemirror/mode/javascript/javascript.js"></script>
+	<script src="../../../../includes/codemirror/mode/css/css.js"></script>
+	<script src="../../../../includes/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+	<script src="../../../../includes/codemirror/mode/dtd/dtd.js"></script>
+	<script src="../../script.js"></script>
+	<script src="../script.js"></script>
+	<script>
+	set('xmlEx', 'xml', 580, 428, 17, 7);
+	set('xmlExtEx', 'xml', 520, 410, 17, 7);
+	set('fullEx', 'xml', 800, 410, 17, 7);
+	set('htmlAsXml', 'xml', 800, 310, 17, 7);
+	set('leereElemente', 'xml', 750, 260, 24, 30);
+	set('zitierteAttribute', 'javascript', 580, 32, 15, 17);
+	set('GemischterInhalt', 'xml', 400, 32, 15, 17);
+	set('benutzerEntit', 'dtd', 500, 32, 16, 26);
+	set('entityEx', 'dtd', 410, 180, 15, 7);
+	set('cdataEx', mixedMode, 560, 32, 16, 26);
+	set('dtdRefer', 'dtd', 560, 32, 16, 26);
+	set('xmlSchemaRefer', 'xml', 680, 60, 15, 6);
+	set('dtdExample', 'dtd', 500, 330, 17, 10);
+	set('dtdExternEx', 'xml', 500, 130, 15, 7);
+	set('testValidation', 'dtd', 500, 130, 15, 7);
+	set('schemaExternEx', 'xml', 700, 110, 12, 7);
+	set('testValidation2', 'xml', 700, 300, 12, 7);
+	set('namespaceIkea', 'xml', 380, 175, 14, 7);
+	set('namespaceComb', 'xml', 475, 300, 14, 7);
+	set('xmlnsExample', mixedMode, 560, 56, 16, 14);
+	set('xmlnsExample2', mixedMode, 560, 30, 16, 14);
+	set('domExample', mixedMode, 420, 240, 17, 14);
+	set('xpath1', 'dtd', 210, 30, 17, 17);
+	set('xpath2', 'dtd', 310, 30, 17, 17);
+	set('xslt0', 'xml', 520, 30, 17, 17);
+	set('xslt1', 'xml', 850, 460, 17, 7);
+	set('xsltTemplate', 'xml', 600, 30, 17, 17);
+	set('xsltTemplateMatch', 'xml', 260, 30, 17, 17);
+	set('xsltValueOf', 'xml', 600, 30, 17, 17);
+	set('xsltValueOfEx', 'xml', 520, 30, 17, 17);
+	set('xsltForEach', 'xml', 600, 30, 17, 17);
+	set('xsltForEachEx', 'xml', 700, 30, 17, 17);
+	set('xsltSort', 'xml', 600, 30, 17, 17);
+	set('xsltSortEx', 'xml', 520, 30, 17, 17);
+	set('xsltIf', 'xml', 600, 100, 17, 17);
+	set('xsltIfEx', 'xml', 600, 30, 17, 17);
+	set('xsltChoose', 'xml', 700, 270, 17, 17);
+	set('attrwertvorlag', 'xml', 520, 30, 17, 17);
+	set('xmlCssTag', mixedMode, 560, 30, 17, 17);
+	set('CssForXml', 'css', 320, 270, 14, 5);
+	set('JSONexample', 'javascript', 280, 250, 14, 5);
+	set('XMLexample', 'xml', 380, 250, 14, 15);
+	set('RSSexample', 'xml', 380, 490, 14, 15);
+	set('SVGexample', 'xml', 480, 200, 14, 8);	</script>
+</body>
+
+</html>
