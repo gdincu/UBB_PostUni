@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>demo JavaScript</title>
+    <style media="screen">
+      .first{
+        background-color: red;
+        padding: 100px;
+      }
+      .second{
+        margin: 20px;
+        padding: 10px;
+        border: 1px solid gray;
+        color: red;
+      }
+      .inner{
+        color: white;
+        background: black;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Exercitiu 4 din model examen</h1>
+    <form class="" method="post" action="javascript:0;">
+      <input type="text" name="" value="" id="nume" onkeypress="scrieSalut(this)">
+    </form>
+    <br><br>
+    <div class="" id="salut"></div>
+
+
+
+    <script type="text/javascript">
+
+    var imagini=["http://emea.nttdata.com/fileadmin/templates/nttdata/assets/img/common/header_logo_01.png?t=1527057136", "https://www.google.ro/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png", "https://www.cs.ubbcluj.ro/~sanda/teaching/PULSE/images/PULSE.gif"];
+    var myList = document.createElement("ul");
+    myList.setAttribute("onClick", "schimaImg()");
+    document.getElementsByTagName('body')[0].appendChild(myList);
+    // for(var i=0; i< imagini.length;i++){
+    //   console.log("i="+i+" "+imagini[i]);
+    //   var myListItem = document.createElement("li");
+    //   var myImage = document.createElement("img");
+    //   myImage.setAttribute("src",imagini[i]);
+    //   myListItem.appendChild(myImage);
+    //   myList.appendChild(myListItem);
+    // }
+      var i=0;
+      var myListItem = document.createElement("li");
+      var myImage = document.createElement("img");
+      myImage.setAttribute("src",imagini[i]);
+      myListItem.appendChild(myImage);
+      myList.appendChild(myListItem);
+      function schimaImg(){
+          i++;
+          if(i==imagini.length) {alert("Suntem la ultima imagine!!!");}
+          else {myImage.src=imagini[i];}
+      }
+
+      function creareDiv(numeClasa){
+          var myDiv = document.createElement("div");
+          myDiv.setAttribute("class", numeClasa);
+          return myDiv;
+      }
+      document.write('<div>asta e divul cu clasa first</div>');
+      var div1=creareDiv('first');
+      div1.innerHTML="Acesta e primul div!!!";
+      document.getElementsByTagName('body')[0].appendChild(div1);
+
+      var div2=creareDiv('second');
+      div2.innerHTML="Acesta e al doilea div!!!";
+      document.getElementsByTagName('body')[0].appendChild(div2);
+
+      var div3=creareDiv('inner');
+      div3.innerHTML="Acesta e al treilea div!!!";
+      div1.appendChild(div3);
+
+      function mutaDiv(){
+        div2.appendChild(div3);
+      }
+
+      var myBut = document.createElement("button");
+      myBut.innerHTML="Click Me";
+      myBut.setAttribute("onClick", "mutaDiv()");
+      document.getElementsByTagName('body')[0].appendChild(myBut);
+
+      function scrieSalut (elem){
+        var nume=elem.value;
+        // console.log();
+        document.getElementById("salut").innerHTML="Salut "+nume+"!";
+
+
+      }
+
+    </script>
+
+  </body>
+</html>

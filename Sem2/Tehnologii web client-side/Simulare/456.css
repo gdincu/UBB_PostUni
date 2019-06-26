@@ -1,0 +1,7 @@
+.first,.second {
+	border: 1px solid black;
+}
+
+.inner {
+	border: 2px dashed red;
+}

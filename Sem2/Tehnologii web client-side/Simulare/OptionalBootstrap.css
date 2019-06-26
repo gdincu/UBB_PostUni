@@ -1,0 +1,36 @@
+body {
+	padding: 15px;
+}
+
+.container-fluid {
+	height: 80vh;
+}
+
+.left {
+	background-color: green;
+	min-height: 95vh;
+}
+
+.topRight {
+	background-color: orange;
+	min-height: 20vh;
+	width: 	62.3vw;
+
+}
+
+.right {
+	margin-top: 5px;
+}
+
+.leftRight {
+	background-color: blue;
+	height: 74vh;	
+	width: 	31vw;
+	margin-right: 5px;
+}
+
+.rightRight {
+	background-color: grey;
+	height: 74vh;	
+	width: 	31vw;
+}

@@ -1,0 +1,170 @@
+@media screen and (min-width: 769px) { 
+
+/*Sectiunile sa fie afisate in paralel pe 3 coloane*/
+.row{
+	display:flex;
+}
+
+.col {
+	width: 30%;
+}
+
+/*Sectiunile sa aiba bordura*/
+.ex1,.ex2,.ex3 {
+	border: 1px solid black;
+}
+
+/*Intre sectiuni sa existe un spatiu de 15px*/
+.col {
+margin-right: 15px;
+}
+
+/*Titlurile sa foloseasca font-uri diferite*/
+ .ex1Titlu {
+ 	font-family: Arial;
+ }
+
+ .ex2Titlu {
+ 	font-family: TimesNewRoman;
+ }
+
+ .ex3Titlu {
+ 	font-family: Calibri;
+ }
+
+/*Fiecare sectiune sa aiba un gradient ca si culoare de fundal*/
+.ex1 {
+background-image: linear-gradient(red, yellow);
+}
+
+.ex2 {
+background-image: linear-gradient(to left, black , yellow);	
+}
+
+.ex3 {
+background-image: linear-gradient(to bottom right, green, white);
+}
+
+/*Sectiunea din mijloc sa aiba umbra*/
+.ex2 {
+box-shadow: 10px 5px 5px red;
+}
+
+/*Link-urile sa nu fie subliniate*/
+a {
+text-decoration: none;
+}
+
+/*Sa existe spatiu de 20px intre bordura fiecarei sectiuni si descrierea din sectiune*/
+.ex1,.ex2,.ex3 {
+	padding: 20px;
+}
+} 
+
+@media screen and (max-width: 768px) { 
+
+/*Sectiunile sa fie afisate in paralel pe 2 coloane*/
+.ex1,.ex2,.ex3 {
+float: left;
+width: 40%;
+}
+
+/*Sectiunile sa aiba bordura*/
+.ex1,.ex2,.ex3 {
+	border: 1px solid black;
+}
+
+/*Intre sectiuni sa existe un spatiu de 15px*/
+.col {
+margin-right: 15px;
+margin-bottom: 15px;
+}
+
+/*Titlurile sa foloseasca font-uri diferite*/
+ .ex1Titlu {
+ 	font-family: Arial;
+ }
+
+ .ex2Titlu {
+ 	font-family: TimesNewRoman;
+ }
+
+ .ex3Titlu {
+ 	font-family: Calibri;
+ }
+
+/*se adauga sectiunilor imagine de background care sa nu se repete, sa fie fixa si pozitionata centrat*/
+.ex1,.ex2,.ex3 {
+background-image: url('http://martynkirby.com/wp-content/uploads/2013/02/Vintage-Seamless-Background-Vector-trans1.png');
+background-repeat: no-repeat;
+/*background-attachment: fixed;*/
+background-position: center; 
+}
+
+/*Sectiunea din mijloc sa aiba umbra*/
+.ex2 {
+box-shadow: 10px 5px 5px red;
+}
+
+/*Link-urile sa nu fie subliniate*/
+a {
+text-decoration: none;
+}
+
+/*se micsoreaza spatiul intre bordura sectiunii si descriere*/
+.ex1,.ex2,.ex3 {
+	padding: 1px;
+}
+}
+
+@media screen and (max-width: 500px) { 
+/*sectiunile se vor aseza pe o coloana*/
+.ex1,.ex2,.ex3 {
+width: 90%;
+}
+
+/*Sectiunile sa aiba bordura*/
+.ex1,.ex2,.ex3 {
+	border: 1px solid black;
+}
+
+/*se elimina spatiul dintre sectiuni*/
+.col {
+margin-right: 0;
+}
+
+/*Titlurile sa foloseasca font-uri diferite*/
+ .ex1Titlu {
+ 	font-family: Arial;
+ }
+
+ .ex2Titlu {
+ 	font-family: TimesNewRoman;
+ }
+
+ .ex3Titlu {
+ 	font-family: Calibri;
+ }
+
+/*se elimina imaginea de background*/
+.ex1,.ex2,.ex3 {
+background-image: none;
+}
+
+/*se elimina shadow*/
+.ex2 {
+box-shadow: none;
+}
+
+/*Link-urile sa nu fie subliniate*/
+a {
+text-decoration: none;
+}
+
+/*Se elimina spatiul dintre sectiuni*/
+.ex1,.ex2,.ex3 {
+	padding: 1px;
+	margin: 0;
+}
+
+}
