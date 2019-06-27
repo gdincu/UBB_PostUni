@@ -1,0 +1,67 @@
+.clsBtn {
+/*Box Model*/
+margin-top: 5px;
+padding: 5px;
+
+/*Font size*/
+font-size: 20px;
+
+/*Positioning*/
+position: fixed;
+}
+
+.button1 {
+/*Positioning*/
+top: 10%;
+left: 1%;
+/*Box Model*/
+border-radius: 60%;
+}
+
+.button2 {
+/*Positioning*/
+top: 20%;
+left: 1%;
+/*Box Model*/
+border-radius: 50%;
+}
+
+.button3 {
+/*Positioning*/
+top: 30%;
+left: 1%;
+/*Box Model*/
+border-radius: 40%;
+}
+
+.button4 {
+/*Positioning*/
+top: 40%;
+left: 1%;
+/*Box Model*/
+border-radius: 30%;
+}
+
+.button5 {
+/*Positioning*/
+top: 50%;
+left: 1%;
+/*Box Model*/
+border-radius: 20%;
+}
+
+.button6 {
+/*Positioning*/
+top: 60%;
+left: 1%;
+/*Box Model*/
+border-radius: 10%;
+}
+
+.button7 {
+/*Positioning*/
+top: 70%;
+left: 1%;
+/*Box Model*/
+border-radius: 5%;
+}

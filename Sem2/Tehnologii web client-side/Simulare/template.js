@@ -12,7 +12,7 @@ window.onload = function() {
 	//Creaza un style
 	document.getElementsByTagName('head')[0].appendChild(document.createElement('style'));
 	document.getElementsByTagName('style')[0].type = 'text/css';
-	var css = '.c1 { border: 1px solid black; height: 20vh; position: relative; } nav { position: sticky; top: 0; left: 2vw; margin: 0; background-image: linear-gradient(to left, black , yellow); font-weight: bold; font-size: 1em;} button { float: left; } .genereaza { float: right; } nav { height: 2vw; }';
+	var css = '.c1 { border: 1px solid black; height: 20vh; position: relative; } nav { position: sticky; top: 0; left: 2vw; margin: 0; background-image: linear-gradient(to left, black , yellow); font-weight: bold; font-size: 10px; height: 30px;} button { float: left; } .genereaza { float: right; }';
 	document.getElementsByTagName('style')[0].appendChild(document.createTextNode(css));
 	};
 

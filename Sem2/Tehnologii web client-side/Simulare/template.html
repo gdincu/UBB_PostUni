@@ -6,27 +6,43 @@
 
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-	
-	<!-- template.css -->
-	<!-- <link rel="stylesheet" type="text/css" href="template.css"> -->
 
-<!-- template.js -->
-	<script src="template.js"></script>
-	
+	<link rel="stylesheet" type="text/css" href="template.css">
+
+	<script src="template.js"></script>	
 </head>
 <body>
 
 <nav>
 <button class="genereaza" onclick="genereaza()">Generate divs</button>
 <input type="number" name="nrCelule" placeholder="Numar div-uri" class="genereaza">
-
 <button onclick="coloreaza1()">Color 1by1</button>
 <button onclick="coloreazaToate()">Color all</button>
 <button onclick="disco()">Disco</button>
-
-
-
 </nav>
+
+<script type="text/javascript">
+	function locate() {
+		navigator.geolocation.getCurrentPosition(success);
+
+function success(position) {
+    var latitude  = position.coords.latitude;
+    var longitude = position.coords.longitude;
+
+    let tempURL = 'https://www.google.com/maps/place/' + latitude + ',' + longitude;
+    window.open(tempURL, '_blank');
+    };
+
+	};
+</script>
+
+<button class="button button1 clsBtn" onclick="locate()">Location</button>
+<button class="button button2 clsBtn" onclick="locate()">Location</button>
+<button class="button button3 clsBtn" onclick="locate()">Location</button>
+<button class="button button4 clsBtn" onclick="locate()">Location</button>
+<button class="button button5 clsBtn" onclick="locate()">Location</button>
+<button class="button button6 clsBtn" onclick="locate()">Location</button>
+<button class="button button7 clsBtn" onclick="locate()">Location</button>
 
 </body>
 </html>
