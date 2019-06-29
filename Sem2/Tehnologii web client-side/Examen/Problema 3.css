@@ -1,0 +1,59 @@
+@media screen and (min-width: 768px) { 
+
+/*evenimentele se vor aseza pe doua coloane*/
+ul {
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+li {
+  width: 50%;
+  flex: 0 0 48%;
+  border: 1px solid black;
+}
+
+/*dintre elementele care descriu evenimentele, imaginea se va regasi in partea din stanga a containerului, ocupand 45% din container, iar restul informatiilor se vor regasi in partea dreapta a container-ului, aliniate la dreapta, ocupand restul de 55% din container*/
+img {
+	width: 45%;
+	float: left;
+}
+
+div {
+	width: 55%;
+	float: right;
+}
+
+/*la hover pe container-ul care contine evenimentul nu va mai aparea bordura*/
+li:hover {
+	border: none;
+}
+
+}
+
+@media screen and (min-width: 320px) { 
+
+/*evenimentele se vor aseza fiecare pe cate o linie*/
+li{
+	width: 100%;
+}
+
+/*imaginea corespunzatoare fiecarui eveniment va disparea, iar restul informatiilor vor ocupa 100% din container*/
+img {
+	display: none;
+}
+
+div {
+	width: 100%;
+}
+
+/*marginea dintre evenimente devine 0*/
+li {
+	margin: 0;
+}
+
+}

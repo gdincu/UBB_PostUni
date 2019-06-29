@@ -1,0 +1,48 @@
+/*fiecare element care descrie evenimentul (imagine, titlu, data, ora, locatie) ocupa 100% din container*/
+div {
+	min-width: 100%;
+}
+
+/*fiecare eveniment va ocupa maxim o patrime din pagina, toate cele 4 evenimente fiind asezate pe o linie*/
+ul {
+	display:flex;
+}
+
+li {
+	max-width: 24vw;
+}
+
+/*exista un spatiu intre evenimente de 10px*/
+li {
+	margin-right: 10px;
+}
+
+/*la hover pe imagine aceasta isi dubleaza dimensiunea cu o animatie care dureaza 3 secunde*/
+img {
+	transition: all 3s ease-in-out;
+}
+
+img:hover {
+	transform: scale(2);
+}
+
+/*containerul care contine toate detaliile despre un eveniment are background alb*/
+li {
+	background-color: white;
+}
+
+/*la hover pe unul dintre containerele care contin evenimente background-ul devine gri, si apare o bordura albastra de 5px in partea de jos a container-ului*/
+li:hover {
+	background-color: grey;
+	border-bottom: 5px solid blue;
+}
+
+
+
+
+
+
+
+
+
+
