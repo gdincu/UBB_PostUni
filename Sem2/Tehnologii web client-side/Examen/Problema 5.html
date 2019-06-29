@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Prob 5</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+	let tempValue;
+	let nrClick = 0;
+
+	function salveaza1() {
+	tempValue = document.getElementById('div1').innerHTML;
+	}
+
+	function salveaza2() {
+	tempValue = document.getElementById('div2').innerHTML;
+	}
+
+	function salveaza3() {
+				tempValue = document.getElementById('div3').innerHTML;
+	}
+
+	function salveaza4() {
+				tempValue = document.getElementById('div4').innerHTML;
+	}
+
+	function salveaza5() {
+				tempValue = document.getElementById('div5').innerHTML;
+	}
+
+	function NewDiv() {
+
+	if(document.getElementById('divTemp')) {
+		var element = document.getElementById('divTemp');
+		element.parentNode.removeChild(element);
+ 		divTemp = "";
+	} else {
+		var divTemp = document.createElement('div');
+		document.body.appendChild(divTemp);
+		divTemp.setAttribute('id','divTemp');
+		divTemp.innerHTML = tempValue;	
+	}
+		
+	}
+
+
+		
+	
+</script>
+
+	<div onclick="salveaza1()" id="div1" value="Par1">Par1</div>
+	<div onclick="salveaza2()" id="div2" value="Par1">Par2</div>
+	<div onclick="salveaza3()" id="div3" value="Par1">Par3</div>
+	<div onclick="salveaza4()" id="div4" value="Par1">Par4</div>
+	<div onclick="salveaza5()" id="div5" value="Par1">Par5</div>
+
+	<button onclick="NewDiv()">New Div</button>
+
+</body>
+</html>

@@ -1,4 +1,3 @@
-@media screen and (min-width: 768px) { 
 
 /*evenimentele se vor aseza pe doua coloane*/
 ul {
@@ -33,9 +32,9 @@ li:hover {
 	border: none;
 }
 
-}
 
-@media screen and (min-width: 320px) { 
+
+@media screen and (max-width: 320px) { 
 
 /*evenimentele se vor aseza fiecare pe cate o linie*/
 li{

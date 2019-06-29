@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>OptionalJQuery</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+
+<script>
+	$(document).ready(function() {
+
+$('img').css({"width":"100px","height":"100px","position":"absolute"});
+
+    	$('img').animate({"left":"90%"}, 10000);
+
+    	$('img').click(function() {
+  $('img').stop(true,true);
+  $('img').css({"width":"100vw","height":"100vh"});
+});
+});
+
+	
+</script>
+
+<img src="http://inkscape.org.es/img-inkscape.org.es/theme/aprender-dibujo-vectorial.png" alt="ev1">
+
+</body>
+</html>
