@@ -55,7 +55,7 @@
   * :open_file_folder: [ Tehnologii și Framework-uri Enterprise ](https://github.com/gdincu/UBB_PostUni/tree/master/Sem3/Tehnologii%20%C8%99i%20Framework-uri%20Enterprise)
   * :open_file_folder: [ Verificare, Validare și Testare Automată ](https://github.com/gdincu/UBB_PostUni/tree/master/Sem3/Verificare%2C%20Validare%20%C8%99i%20Testare%20Automat%C4%83)
   
- * :open_file_folder: [ **Sem4** ](https://github.com/gdincu/UBB_PostUni/tree/master/Sem4)
+* :open_file_folder: [ **Sem4** ](https://github.com/gdincu/UBB_PostUni/tree/master/Sem4)
   * :open_file_folder: [ .NET ](https://github.com/gdincu/UBB_PostUni/tree/master/Sem4/.NET)
   * :open_file_folder: [ Software Engineering ](https://github.com/gdincu/UBB_PostUni/tree/master/Sem4/Software%20Engineering)
   * :open_file_folder: [ Proiect ](https://github.com/gdincu/UBB_PostUni/tree/master/Sem4/Proiect)
