@@ -49,8 +49,6 @@
      </li>
 </ul>
 
-<hr>
-
 * :open_file_folder: [ **Sem3** ](https://github.com/gdincu/UBB_PostUni/tree/master/Sem3)
   * :open_file_folder: [ Medii de programare ](https://github.com/gdincu/UBB_PostUni/tree/master/Sem3/Medii%20de%20programare)
   * :open_file_folder: [ Tehnologii web server-side ](https://github.com/gdincu/UBB_PostUni/tree/master/Sem3/Tehnologii%20web%20server-side)
