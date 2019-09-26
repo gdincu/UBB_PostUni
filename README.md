@@ -17,45 +17,11 @@
   * :open_file_folder: [ Metode avansate de gestiune a documentelor și a sistemelor de calcul ](https://github.com/gdincu/UBB_PostUni/tree/master/Sem1/Metode%20avansate%20de%20gestiune%20a%20documentelor%20%C8%99i%20a%20sistemelor%20de%20calcul)
   * :open_file_folder: [ Programare și structuri de date ](https://github.com/gdincu/UBB_PostUni/tree/master/Sem1/Programare%20%C8%99i%20structuri%20de%20date)
 
-[//]: # "---------------------------------------------------------------------------
-        Using HTML
-        ---------------------------------------------------------------------------
-        -
-        ----------------------------------------------------------------------------
-"
-<html>
-<ul>
-     <li>
-        :open_file_folder:
-        <a href="https://github.com/gdincu/UBB_PostUni/tree/master/Sem2"><b>Sem2</b></a>
-        <ul>
-                <li>
-                :open_file_folder:              
-                <a href="https://github.com/gdincu/UBB_PostUni/tree/master/Sem2/Administrarea%20si%20securitatea%20sistemelor%20de%20calcul"> 
-            Administrarea si securitatea sistemelor de calcul</a>                  
-                </li>
-                <li>
-                :open_file_folder:              
-                <a href="https://github.com/gdincu/UBB_PostUni/tree/master/Sem2/Baze%20de%20date">Baze de date</a>
-                </li>
-                <li>
-                :open_file_folder:
-                <a href="https://github.com/gdincu/UBB_PostUni/tree/master/Sem2/Programare%20orientat%C4%83%20obiect%20(Java)">Programare orientată obiect (Java)</a>              
-                </li>
-                <li>
-                :open_file_folder:
-                <a href="https://github.com/gdincu/UBB_PostUni/tree/master/Sem2/Tehnologii%20web%20client-side">Tehnologii web client-side</a>                
-                </li>
-        </ul>
-     </li>
-</ul>
-        </html>
-
-[//]: # "---------------------------------------------------------------------------
-        And back to Markdown: https://guides.github.com/features/mastering-markdown/#examples
-        https://help.github.com/en/articles/basic-writing-and-formatting-syntax
-         ---------------------------------------------------------------------------
-"
+* :open_file_folder: [ **Sem2** ](https://github.com/gdincu/UBB_PostUni/tree/master/Sem2)
+  * :open_file_folder: [ Administrarea si securitatea sistemelor de calcul ](https://github.com/gdincu/UBB_PostUni/tree/master/Sem2/Administrarea%20si%20securitatea%20sistemelor%20de%20calcul)
+  * :open_file_folder: [ Baze de date ](https://github.com/gdincu/UBB_PostUni/tree/master/Sem2/Baze%20de%20date)
+  * :open_file_folder: [ Programare orientată obiect (Java) ](https://github.com/gdincu/UBB_PostUni/tree/master/Sem2/Programare%20orientat%C4%83%20obiect%20(Java))
+  * :open_file_folder: [ Tehnologii web client-side ](https://github.com/gdincu/UBB_PostUni/tree/master/Sem2/Tehnologii%20web%20client-side)
 
 * :open_file_folder: [ **Sem3** ](https://github.com/gdincu/UBB_PostUni/tree/master/Sem3)
   * :open_file_folder: [ Medii de programare ](https://github.com/gdincu/UBB_PostUni/tree/master/Sem3/Medii%20de%20programare)
@@ -71,6 +37,7 @@
   * :open_file_folder: [ Lucrare de absolvire ](https://github.com/gdincu/UBB_PostUni/tree/master/Sem4/Lucrare%20de%20absolvire)
 
 <hr>
+
 <a href="http://www.cs.ubbcluj.ro/programul-postuniversitar-de-pregatire-si-formare-profesionala-in-informatica/">
 <img src="http://www.cs.ubbcluj.ro/wp-content/themes/CSUBB/images/logo.png" alt="logo"/>
 </a>
