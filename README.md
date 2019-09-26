@@ -22,7 +22,7 @@
         ---------------------------------------------------------------------------
         -
         ----------------------------------------------------------------------------
-"
+
 <ul>
      <li>
         :open_file_folder:
@@ -48,7 +48,7 @@
         </ul>
      </li>
 </ul>
-
+"
 [//]: # "---------------------------------------------------------------------------
         And back to Markdown: https://guides.github.com/features/mastering-markdown/#examples
         https://help.github.com/en/articles/basic-writing-and-formatting-syntax
