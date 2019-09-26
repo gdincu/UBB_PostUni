@@ -54,12 +54,12 @@
         https://help.github.com/en/articles/basic-writing-and-formatting-syntax
          ---------------------------------------------------------------------------
         "
-        
-* :open_file_folder: [ **Sem3** ](https://github.com/gdincu/UBB_PostUni/tree/master/Sem3)
+
+* :open_file_folder: [**Sem3**](https://github.com/gdincu/UBB_PostUni/tree/master/Sem3)
   * :open_file_folder: [Medii de programare](https://github.com/gdincu/UBB_PostUni/tree/master/Sem3/Medii%20de%20programare)
   * :open_file_folder: [Tehnologii web server-side](https://github.com/gdincu/UBB_PostUni/tree/master/Sem3/Tehnologii%20web%20server-side)
-  * :open_file_folder:[ Tehnologii și Framework-uri Enterprise ](https://github.com/gdincu/UBB_PostUni/tree/master/Sem3/Tehnologii%20%C8%99i%20Framework-uri%20Enterprise)
-  * :open_file_folder:[ Verificare, Validare și Testare Automată ](https://github.com/gdincu/UBB_PostUni/tree/master/Sem3/Verificare%2C%20Validare%20%C8%99i%20Testare%20Automat%C4%83)
+  * :open_file_folder: [Tehnologii și Framework-uri Enterprise](https://github.com/gdincu/UBB_PostUni/tree/master/Sem3/Tehnologii%20%C8%99i%20Framework-uri%20Enterprise)
+  * :open_file_folder: [Verificare, Validare și Testare Automată](https://github.com/gdincu/UBB_PostUni/tree/master/Sem3/Verificare%2C%20Validare%20%C8%99i%20Testare%20Automat%C4%83)
   
 * :open_file_folder: [ **Sem4** ](https://github.com/gdincu/UBB_PostUni/tree/master/Sem4)
   * :open_file_folder: [ .NET ](https://github.com/gdincu/UBB_PostUni/tree/master/Sem4/.NET)
