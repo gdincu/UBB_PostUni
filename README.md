@@ -50,9 +50,6 @@
 </ul>
 
 <hr>
-<a href="http://www.cs.ubbcluj.ro/programul-postuniversitar-de-pregatire-si-formare-profesionala-in-informatica/">
-<img src="http://www.cs.ubbcluj.ro/wp-content/themes/CSUBB/images/logo.png" alt="logo"/>
-</a>
 
 * :open_file_folder: [ **Sem3** ](https://github.com/gdincu/UBB_PostUni/tree/master/Sem3)
   * :open_file_folder: [ Medii de programare ](https://github.com/gdincu/UBB_PostUni/tree/master/Sem3/Medii%20de%20programare)
@@ -66,3 +63,8 @@
   * :open_file_folder: [ Proiect ](https://github.com/gdincu/UBB_PostUni/tree/master/Sem4/Proiect)
   * :open_file_folder: [ Practică ](https://github.com/gdincu/UBB_PostUni/tree/master/Sem4/Practic%C4%83)
   * :open_file_folder: [ Lucrare de absolvire ](https://github.com/gdincu/UBB_PostUni/tree/master/Sem4/Lucrare%20de%20absolvire)
+
+<hr>
+<a href="http://www.cs.ubbcluj.ro/programul-postuniversitar-de-pregatire-si-formare-profesionala-in-informatica/">
+<img src="http://www.cs.ubbcluj.ro/wp-content/themes/CSUBB/images/logo.png" alt="logo"/>
+</a>
