@@ -1,0 +1,2 @@
+randul 1: #!/bin/bash
+randul 2: mv target/surefire-reports/TEST-$TESTLINK_TESTCASE_JAVACLASSNAME.xml target/surefire-reports/TEST-$TESTLINK_TESTCASE_JAVACLASSNAME.$TESTLINK_TESTCASE_ID.xml

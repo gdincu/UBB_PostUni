@@ -1,0 +1,2 @@
+Proiectul completat cu teste parametrizate cu date non-valide ?i neprecizate. Nu am inclus username-ul neprecizat deoarece acel test nu se comporta la fel cu celelalte cazuri ?i astfel nu poate fi analizat împreuna cu celelalte cazuri.
+Partea de login discutata fa?a în fa?a am completat-o cu verificarea delogarii.

@@ -1,0 +1,1 @@
+Demo: Testare automata - Wiktionary, fuctionalitatea Search; date de test preluate din fisier .csv
