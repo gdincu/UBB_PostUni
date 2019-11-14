@@ -1,0 +1,16 @@
+Salut,
+
+ 
+
+dupa cum am discutat la curs, pentru lab7 am dori sa folositi paginare in proiectele voastre si in lab7.zip gasiti un template in acest sens. In service si in PaginingRepository am lasat niste todo-uri; de asemena pachetul ro.ubb.catalog.repository.paging.impl este gol. 
+
+Dupa cum am discutat, nu dorim sa implementati paginarea la nivelul bazei de date pentru ca am vrea sa exersati partea de stream-uri. La nivel de service (v. metoda getNextStudents()) nu va fi incarcata niciodata toata lista de studenti (ci doar o singura pagina).
+
+
+Q1. Pentru lab 6 datele din cerintele de mai jos trebuie filtrate folosind streamuri sau sa aducem datele filtrate din db?
+
+filter entities based on various criteria
+
+reports: e.g. find the most rented movie
+
+A. Cu stream-uri.

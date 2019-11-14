@@ -1,0 +1,13 @@
+pentru lab3 am dori:
+
+- sa folositi interfata pentru repository din noul exemplu fara sa o schimbati; totusi, daca va incurca tare acel Optional puteti sa schimbati tipul returnat dar sa fie respectate specificatiile (comentariile); vom povesti noi oricum despre Optional in saptamanile urmatoare, dar ar fi excelent daca ati reusi macar cat de cat sa investigati chestiunea asta
+
+- sa aveti file-repository (fara serializare); ar fi excelent daca ati putea evita clasele din java.io si sa folositi, pe cat posibil, clase din java.nio
+
+- sa aveti implementate doua feature-uri din doua clase de domeniu (ex: add-student, print-all-students, add-discipline, print-all-disciplines); toate aceste feature-uri sa functioneze si in-memory si in-file
+
+- sa incercati sa folositi, unde e cazul, instructiunea try-with-resources in loc de clasicul try-catch
+
+- ar bine sa aveti validatori si exceptii custom
+
+- ar fi bine daca consola ar fi mai prietenoasa decat cea din exemplul meu.
