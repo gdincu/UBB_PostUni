@@ -1,0 +1,18 @@
+ECP - Equivalent Class Partitioning is a black box technique (code is not visible to tester) which can be applied to all levels of testing like unit, integration, system, etc. In this technique, you divide the set of test condition into a partition that can be considered the same.
+
+-> It divides the input data of software into different equivalence data classes.
+-> You can apply this technique, where there is a range in the input field.
+
+BVA - Boundary testing is the process of testing between extreme ends or boundaries between partitions of the input values.
+
+-> So these extreme ends like Start- End, Lower- Upper, Maximum-Minimum, Just Inside-Just Outside values are called boundary values and the testing is called "boundary testing".
+-> The basic idea in boundary value testing is to select input variable values at their:
+
+* Minimum
+* Just above the minimum
+* A nominal value
+* Just below the maximum
+* Maximum
+
+-> In Boundary Testing, Equivalence Class Partitioning plays a good role
+-> Boundary Testing comes after the Equivalence Class Partitioning.

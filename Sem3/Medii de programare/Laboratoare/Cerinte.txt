@@ -1,0 +1,31 @@
+- sa aveti cel putin doua feature-uri implementate din problema aleasa de voi (ex: add, printAll); doua feature-uri per echipa
+
+- sa folositi interfata repository din exemplul catalog_I1.zip (exact ca in exemplu, fara sa modificati nimic in interfata)
+
+- sa scrieti cateva comentarii in stilul in care am scris in interfata
+
+- sa generati documentatie in format html (asta se poate face usor din intellij)
+
+- eventual, cateva teste (vor fi oricum obligatorii cateva teste in laboratoarele urmatoare)
+
+- programul sa fie scris (pe cat posibil...) fara if, for, while 
+
+daca se foloseste totusi if/for etc atunci ar trebui justificat; de exemplu, in StudentRepositoyImpl, pe linia 34 am if pentru ca metoda e publica si trebuie sa ne asiguram ca paramatrii unei metode publice nu sunt null; deci am putea sigur scapa de if-ul ala daca l-am sterge :), dar atunci nu putem considera acel cod ca fiind unul bun/acceptabil; numai pentru a evita if-uri de genul celui mentionat anterior e voie sa schimbati interfata de repository - va las pe voi sa descoperiti/investigati cum s-ar putea
+codul din consola ma intereseaza intr-o masura mai mica; acolo am si eu un while(true) ceea ce acceptabil desi s-ar putea evita, si un switch care si el e acceptabil, dar s-ar putea evita
+- ar trebui sa putem vedea ca lucrati in echipa
+
+ 
+
+Cel mai important lucru pe saptamana viitoare este sa va familiarizati cu git-ul. Prioritar e git-ul si apoi implementarea cerintelor de mai sus!
+
+Va recomand sa folositi linia de comanda la inceput pentru comenzi de baza (numai ca sa intelegeti mai bine fluxul). Oricand doriti puteti alege orice client git; va recomand intellij idea (am pus link-uri la tutoriale video) pentru ca sunteti familiarizati cu Intellij idea; va mai recomand si GitKraken pentru ca e poate cel mai bun (eu asta folosesc pentru operatii mai 'riscante', in rest linia de comanda).
+
+ 
+
+Daca intampinati dificulati cu git-ul, nu va descurajati. E normal sa fie asa la inceput; important e sa experimentati cat mai mult si sa discutam problemele care apar.
+
+ 
+
+Daca aveti intrebari/nelamuriri etc va incurajez sa postati.
+
+ 

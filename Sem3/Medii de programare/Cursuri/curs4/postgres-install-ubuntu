@@ -1,0 +1,8 @@
+1. Install PostgreSQL
+$ sudo apt update
+$ sudo apt install postgresql postgresql-contrib
+
+2. Update password for postgres user
+$ sudo -u postgres psql
+postgres=# ALTER USER user_name WITH PASSWORD 'new_password';
+postgres=# \q

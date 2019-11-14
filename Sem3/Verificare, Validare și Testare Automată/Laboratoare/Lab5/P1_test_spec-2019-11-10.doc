@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN'>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>testspec Proiect1 - dici0137_BBT</title>
+<link type="text/css" rel="stylesheet" href="https://www.scs.ubbcluj.ro/testlink/gui/themes/default/css/tl_documents.css" />
+<style type="text/css" media="print">.notprintable { display:none;}</style>
+</head>
+<body>
+<div>
+<div style="float:right;">TestLink Community [configure $tlCfg-&gt;document_generator-&gt;company_name]</div>
+<div>&nbsp;</div><hr />
+<p style="text-align: center;"><img alt="TestLink logo" title="configure using $tlCfg->document_generator->company_logo" height="53" src="https://www.scs.ubbcluj.ro/testlink/gui/themes/default/images/tl-logo-transparent-25.png" /></div>
+<div class="doc_title"><p>Test Specification</p></div>
+<div class="doc_title" style="text-align:left;margin: auto;"><p>Test Project: Proiect1<br>Test Suite: Proiect1 - dici0137_BBT</p></div>
+<div class="summary"><p id="printedby">Printed by TestLink on 10/11/2019</p></div>
+<div class="pagefooter" id="copyright">2012 &copy; TestLink Community</div>
+<h1 class="general" style="page-break-before: always">Table Of Contents</h1><div class="toc"><b><p style="padding-left: 20px;"><a href="#toc_1">1. dici0137_BBT</a></p></b>
+<p style="padding-left: 45px;"><a href="#toc_tc38271">P1-46: modifyEmployeeFunction</a></p><p style="padding-left: 45px;"><a href="#toc_tc38274">P1-47: modifyEmployeeFunction1</a></p></div><h1 class="doclevel" >Scope</h1>
+<div class="txtlevel"><p>
+	Testing project fro group 1211.</p></div>
+ <br/><a name='toc_1'></a>
+<h1 class='doclevel'>1. Test Suite : dici0137_BBT</h1>
+<a name="toc_tc38271"></a><p>&nbsp;</p><div> <table class="tc" width="90%" ><tr><th colspan="3">Test Case P1-46: modifyEmployeeFunction</th></tr>
+<tr><td width="20%" valign="top"><span class="label">Author:</span></td><td colspan="2">dici0137@scs.ubbcluj.ro</td></tr>
+<tr><td width="20%" valign="top"><span class="label">Execution type:</span></td><td colspan="2">Automated</td></tr>
+<tr><td width="20%" valign="top"><span class="label">Estimated exec. duration (min):</span></td><td colspan="2"></td></tr>
+<tr><td width="20%" valign="top"><span class="label">Importance:</span></td><td colspan="2">Medium</td></tr>
+<tr><td colspan="3"></td></tr><tr><td > name of the test method:</td><td  colspan = "2" >AngajatiApp.repository.EmployeeMockTest#modifyEmployeeFunction</td></tr>
+<tr><td > name of the autotest class:</td><td  colspan = "2" >AngajatiApp.repository.EmployeeMockTest</td></tr>
+<tr><td width="20%" valign="top"><span class="label">Requirements</span><td colspan="2">dici0137_Req01:  modifyEmployeeFunction<br /></td></tr>
+<tr><td width="20%" valign="top"><span class="label">Keywords:</span><td colspan="2">&nbsp;None<br></td></tr>
+</table>
+</div>
+<a name="toc_tc38274"></a><p>&nbsp;</p><div> <table class="tc" width="90%" ><tr><th colspan="3">Test Case P1-47: modifyEmployeeFunction1</th></tr>
+<tr><td width="20%" valign="top"><span class="label">Author:</span></td><td colspan="2">dici0137@scs.ubbcluj.ro</td></tr>
+<tr><td width="20%" valign="top"><span class="label">Execution type:</span></td><td colspan="2">Automated</td></tr>
+<tr><td width="20%" valign="top"><span class="label">Estimated exec. duration (min):</span></td><td colspan="2"></td></tr>
+<tr><td width="20%" valign="top"><span class="label">Importance:</span></td><td colspan="2">Medium</td></tr>
+<tr><td colspan="3"></td></tr><tr><td > name of the test method:</td><td  colspan = "2" >AngajatiApp.repository.EmployeeMockTest#modifyEmployeeFunction1</td></tr>
+<tr><td > name of the autotest class:</td><td  colspan = "2" >AngajatiApp.repository.EmployeeMockTest</td></tr>
+<tr><td width="20%" valign="top"><span class="label">Requirements</span><td colspan="2">dici0137_Req01:  modifyEmployeeFunction<br /></td></tr>
+<tr><td width="20%" valign="top"><span class="label">Keywords:</span><td colspan="2">&nbsp;None<br></td></tr>
+</table>
+</div>
+
+</body>
+</html>
