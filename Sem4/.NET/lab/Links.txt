@@ -1,0 +1,13 @@
+Lab1 
+----
+https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-3.1&tabs=visual-studio
+
+Lab2
+----
+https://docs.microsoft.com/en-us/aspnet/web-api/overview/older-versions/build-restful-apis-with-aspnet-web-api
+
+https://docs.fluentvalidation.net/en/latest/aspnet.html
+
+Lab3
+----
+https://docs.microsoft.com/en-us/aspnet/core/tutorials/getting-started-with-swashbuckle?view=aspnetcore-3.1&tabs=visual-studio
